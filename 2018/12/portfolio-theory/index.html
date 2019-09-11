@@ -1,0 +1,125 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Notes on Portfolio Theory · Rongjia Liu</title><meta name="description" content="Notes on Portfolio Theory - Rongjia Liu"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/arctic.css"><link rel="search" type="application/opensearchdescription+xml" href="http://jackliu234.com/atom.xml" title="Rongjia Liu"><script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/tags/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/search/" target="_self" class="nav-list-link">SEARCH</a></li><!-- li.nav-list-item--><!--    a.nav-list-link(class="search" href=url_for("search") target="_self") <i class="fa fa-search" aria-hidden="true"></i>--></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Notes on Portfolio Theory</h1><div class="post-info">Dec 8, 2018</div><div class="post-content"><a id="more"></a>
+<h1 id="Portfolio-Diversification"><a href="#Portfolio-Diversification" class="headerlink" title="Portfolio Diversification"></a>Portfolio Diversification</h1><h2 id="Two-Asset-Portfolio"><a href="#Two-Asset-Portfolio" class="headerlink" title="Two-Asset Portfolio"></a>Two-Asset Portfolio</h2><p>Consider an investment portfolio <script type="math/tex">V</script> on two assets:</p>
+<script type="math/tex; mode=display">P = wB + (1-w)S</script><p>We can calculate the mean and variance of the return on the portfolio, based on the mean and variance of the return on each asset.</p>
+<script type="math/tex; mode=display">\begin{align}
+\mu_p &= w\mu_b + (1-w)\mu_s \\
+\sigma^2_p &= w^2\sigma^2_b + (1-w)^2\sigma^2_s + 2w(1-w)\rho\sigma_s\sigma_b
+\end{align}</script><p>We can see that if <script type="math/tex">\rho<1</script>, we have <code>diversification</code>, where <script type="math/tex">\mu_p</script> is linear in the portfolio allocation <script type="math/tex">w</script> while the standard deviation is <code>convex</code>.</p>
+<script type="math/tex; mode=display">\begin{align} \mu_p &= w\mu_b + (1-w)\mu_s \\
+\sigma_p &< w\sigma_b + (1-w)\sigma_s \end{align}</script><p>When <script type="math/tex">\rho=-1</script>, the portfolio variance can be as small as desired. If we set <script type="math/tex">w=\sigma_s/(\sigma_b+\sigma_s)</script> then <script type="math/tex">\sigma_p=0</script> and the portfolio becomes riskless.</p>
+<p>In this following chart we can see a two-asset portfolio return volatility plotted against different weights and correlation.</p>
+<p><img src="portfolio-theory-img1.png" alt="img1.png"></p>
+<p>We see that to as long as the correlation is not perfect between the two assets, there exist a weight that would minimize the portfolio variance (not taking portfolio return into consideration, yet)</p>
+<h2 id="Multi-Asset-Portfolio"><a href="#Multi-Asset-Portfolio" class="headerlink" title="Multi-Asset Portfolio"></a>Multi-Asset Portfolio</h2><p>Consider <script type="math/tex">n</script> assets with return volatility <script type="math/tex">\sigma_i</script> and covariance <script type="math/tex">\sigma_{i, j}</script>. Let <script type="math/tex">w^i</script> denote the allocation to asset <script type="math/tex">i</script>. Then the variance of portfolio return becomes:</p>
+<script type="math/tex; mode=display">\sigma^2_{p} = \sum_{j=1}^n\sum_{i=1}^nw^iw^j\sigma_{i, j} \\
+\text{or simply, } \boldsymbol{w'\Sigma w}</script><p>In the case of an equally-weighted portfolio with <script type="math/tex">w^i=1/n</script>.</p>
+<script type="math/tex; mode=display">\sigma^2_p = \dfrac{1}{n^2}\sum_{i=1}^n\sigma_i^2 + \dfrac{1}{n^2}\sum_{j \neq i}\sum_{i=1}^n\sigma_{i, j}</script><p>We define:</p>
+<script type="math/tex; mode=display">\textbf{avg_ret_vol} := \dfrac{1}{n}\sum_{i=1}^n\sigma_i^2 \\
+\textbf{avg_ret_cov} := \dfrac{1}{n^2-n}\sum_{j \neq i}\sum_{i=1}^n\sigma_{i, j}</script><p>Therefore,</p>
+<script type="math/tex; mode=display">\sigma^2_p = \dfrac{1}{n}\textbf{avg_ret_vol} + \dfrac{n-1}{n}\textbf{avg_ret_cov} \\
+\text{and that } \lim_{n\rightarrow \infty} \sigma^2_p = \textbf{avg_ret_cov}</script><p>We conclude that in a <code>equally weighted portfolio</code> (or a diversified portfolio where <script type="math/tex">\lim_{n\rightarrow\infty}w^i=0</script>) with a <code>large</code> number of assets,</p>
+<ul>
+<li>the individual asset return variances become unimportant to the portfolio return variance</li>
+<li>the portfolio variance instead now depends on the <code>average covariances</code> between the assets.</li>
+</ul>
+<p>Here, the average return covariance is the <code>systematic risk</code> that cannot be eliminated through diversification, whereas the average return volatility is the <code>idiosyncratic risk</code> that is diversifiable.</p>
+<p>Note that complete diversification (<script type="math/tex">\sigma^2_p=0</script>) is achieved when:</p>
+<ul>
+<li><script type="math/tex">\textbf{avg_ret_cov}=0</script> and <script type="math/tex">n\rightarrow 0</script> for a multi-asset portfolio</li>
+<li><script type="math/tex">\rho=-1</script> for a two-asset portfolio</li>
+</ul>
+<h1 id="Mean-Variance-Frontier"><a href="#Mean-Variance-Frontier" class="headerlink" title="Mean-Variance Frontier"></a>Mean-Variance Frontier</h1><p>In a mean-variance space, the set of all possible portfolio with <script type="math/tex">n</script> assets form a <code>convex set</code>. The bounday of this set is known as the <code>mean-variance frontier</code> and forms a parabola.</p>
+<p><img src="portfolio-theory-img2.png" alt="img2.png"></p>
+<p>The top half of the MV frontier is the set of <code>efficient MV portfolios</code> which maximize mean return given return variance.</p>
+<p>Let us define <script type="math/tex">\boldsymbol{r}</script> as the random variable vector of asset returns on <script type="math/tex">n</script> assets:</p>
+<script type="math/tex; mode=display">\begin{align} \boldsymbol{\mu} &= \mathbb{E}[\boldsymbol{r}] \\
+\boldsymbol{\Sigma} &= var[\boldsymbol{r}] =\mathbb{E}[(\boldsymbol{r}-\boldsymbol{\mu})(\boldsymbol{r}-\boldsymbol{\mu})']
+\end{align}</script><p>A particular portfolio is defined by the weights assigned to various assets, and we denote the weights vector <script type="math/tex">\boldsymbol{w}</script>. The portfolio return <script type="math/tex">r_p</script> is also a random variable, where:</p>
+<script type="math/tex; mode=display">\begin{align}
+r_p &= \boldsymbol{w'r} \\
+\mu_p &= \mathbb{E}[r_p] = \boldsymbol{w'\mu} \\
+\sigma^2_p &= var[r_p] = \boldsymbol{w'\Sigma w}
+\end{align}</script><p>Also,</p>
+<script type="math/tex; mode=display">cov(\boldsymbol{r}, r_p) = cov(\boldsymbol{r}, \boldsymbol{w'r})  = \boldsymbol{\Sigma w}</script><h2 id="The-GMV-and-Tangent-Portfolios"><a href="#The-GMV-and-Tangent-Portfolios" class="headerlink" title="The GMV and Tangent Portfolios"></a>The GMV and Tangent Portfolios</h2><p>The <code>Global Minimum Variance</code> (GMV) portfolio has the <code>lowest return variance</code> among all possible portfolios, characterized by the leftmost point on the MV frontier. It can be constructed with weight <script type="math/tex">\boldsymbol{w}_v</script> which minimizes the objective function <script type="math/tex">\boldsymbol{w'\Sigma w}</script> under the constraint of <script type="math/tex">\boldsymbol{w'1}=1</script>:</p>
+<script type="math/tex; mode=display">\boldsymbol{w}_v := \dfrac{1}{\boldsymbol{1'\Sigma^{-1}\mu}} \boldsymbol{\Sigma^{-1}1}</script><p>The <code>Tangent</code> portfolio is a portfolio <script type="math/tex">\boldsymbol{w}_t</script> with the <code>highest mean/variance ratio</code> among all possible portfolios, characterized by the point that is tangent to the MV frontier and going through the origin:</p>
+<script type="math/tex; mode=display">\boldsymbol{w}_t := \dfrac{1}{\boldsymbol{1'\Sigma^{-1}\mu}} \boldsymbol{\Sigma^{-1}\mu}</script><p><img src="portfolio-theory-img3.png" alt="img3.png"></p>
+<h2 id="The-MV-Portfolio"><a href="#The-MV-Portfolio" class="headerlink" title="The MV Portfolio"></a>The MV Portfolio</h2><p>It turns out that any portfolios on the efficient MV frontier can be constructed based off a linear combination of the GMV and tangent portfolios, which solves the following optimization:</p>
+<script type="math/tex; mode=display">\text{given }\mu_p \\
+\text{minimizes }\boldsymbol{w'\Sigma w} \\
+\text{s.t. } \boldsymbol{w'\mu}=\mu_p \\
+\text{and } \boldsymbol{w'1}=1</script><p>Thus a portfolio <script type="math/tex">\boldsymbol{w}^{\ast}</script> is a <code>MV portfolio</code> if and only if there exists <script type="math/tex">\delta</script> such that:</p>
+<script type="math/tex; mode=display">\boldsymbol{w}^{\ast} = \delta\boldsymbol{w}_t + (1-\delta)\boldsymbol{w}_v</script><p>Consider <code>MV investors</code> that only focus on the mean and variance of a portfolio, then such investors will only hold MV portfolios (which are linear combination of two funds only).</p>
+<h2 id="Excess-Return-with-Risk-Free-Asset"><a href="#Excess-Return-with-Risk-Free-Asset" class="headerlink" title="Excess Return with Risk-Free Asset"></a>Excess Return with Risk-Free Asset</h2><p>Consider the existence of a risk-free asset with return <script type="math/tex">r_f</script> that has zero variance and correlation with other assets. The <code>mean excess return</code> is defined as:</p>
+<script type="math/tex; mode=display">\tilde{\boldsymbol{\mu}} = \boldsymbol{\mu-1}r_f</script><p>And the mean excess return of a portfolio with weight <script type="math/tex">\boldsymbol{w}</script> is:</p>
+<script type="math/tex; mode=display">\tilde{\mu}_p = \boldsymbol{w'}\tilde{\boldsymbol{\mu}}</script><p>Since the risk-free asset has no variance, the return variance of the portfolio is still <script type="math/tex">\boldsymbol{w'\Sigma\ w}</script></p>
+<p>A <code>MV portfolio</code> with a risk-free asset is a vector <script type="math/tex">\boldsymbol{w}^{\ast}</script> which solves the following optimization:</p>
+<script type="math/tex; mode=display">\text{given }\tilde{\mu}_p \\
+\text{minimizes }\boldsymbol{w'\Sigma w} \\
+\text{s.t. } \boldsymbol{w'\tilde{\mu}}=\tilde{\mu}_p</script><p>Note that the constraint that weights sum up to <script type="math/tex">1</script> is now dropped, with the inclusion of the risk-free asset.</p>
+<p>Thus a portfolio <script type="math/tex">\boldsymbol{w}^{\ast}</script> with mean excess return <script type="math/tex">\tilde{\mu}_p</script> is a <code>MV portfolio</code> with a risk-free asset if:</p>
+<script type="math/tex; mode=display">\boldsymbol{w}^{\ast} = \tilde{\delta}\boldsymbol{w}_t</script><p>Where,</p>
+<script type="math/tex; mode=display">\boldsymbol{w}_t := (\dfrac{1}{\boldsymbol{1'\Sigma^{-1}\tilde{\mu}}}) \boldsymbol{\Sigma^{-1}\tilde{\mu}} \\
+\text{and } \tilde{\delta} = (\dfrac{\boldsymbol{1'\Sigma^{-1}\tilde{\mu}}}{\boldsymbol{\tilde{\mu}'\Sigma^{-1}\tilde{\mu}}})\tilde{\mu}_p</script><p>This result show that with a risk-free asset, any MV portfolio simply contains a position in the tangency portfolio <script type="math/tex">\boldsymbol{w}_t</script> and a position in the risk-less asset (a.k.a the <code>Two Fund Separation</code>).</p>
+<p>Interesting facts w.r.t. the tangency portfolio <script type="math/tex">\boldsymbol{w}_t</script>:</p>
+<ul>
+<li><script type="math/tex">\boldsymbol{w}_t</script> is the <code>unique</code> portfolio that is on both the risky and risk-less MV frontiers</li>
+<li><script type="math/tex">\boldsymbol{w}_t</script> is the point on the <code>risky MV frontier</code> at which the tangency line goes through point (0, risk-free rate).</li>
+</ul>
+<p><img src="portfolio-theory-img4.png" alt="img4.png"></p>
+<h2 id="Sharpe-Ratio"><a href="#Sharpe-Ratio" class="headerlink" title="Sharpe Ratio"></a>Sharpe Ratio</h2><p>We define the <code>Sharpe ratio</code> (SR) of a portfolio <script type="math/tex">\boldsymbol{w}</script> as:</p>
+<script type="math/tex; mode=display">\text{Sharpe Ratio}(\boldsymbol{w}) = \dfrac{\tilde{\mu_p}}{\sigma_p}</script><p>Therefore, the tangency portfolio <script type="math/tex">\boldsymbol{w}_t</script> is the portfolio on the risky MV frontier with the maximum Sharpe ratio.</p>
+<script type="math/tex; mode=display">\text{Sharpe Ratio}(\boldsymbol{w}^{\ast}) = \sqrt{\boldsymbol{\tilde{\mu}'\Sigma^{-1}\tilde{\mu}}}</script><p>On the risk-free efficient MV frontier (a.k.a the <code>Capital Market Line</code>) all portfolio has the same SR the tangency portfolio, since the frontier itself is a straight line.</p>
+<h2 id="Sortino-Ratio"><a href="#Sortino-Ratio" class="headerlink" title="Sortino Ratio"></a>Sortino Ratio</h2><p>The <code>Sortino ratio</code> improves upon the Sharpe ratio by penalizing the down-side volatility only.</p>
+<script type="math/tex; mode=display">\text{Sortino Ratio}(\boldsymbol{w}) = \dfrac{\tilde{\mu_p}}{\sigma_p^{down}}</script><h1 id="Linear-Factor-Model"><a href="#Linear-Factor-Model" class="headerlink" title="Linear Factor Model"></a>Linear Factor Model</h1><p>Based on the First Fundamental Theorem of Asset Pricing, given no arbitrage there exists a risk neutral probability measure <script type="math/tex">\mathbb{P}</script> and a change of measure <script type="math/tex">m</script> (R-N derivative) such that for any tradable asset <script type="math/tex">i</script>,</p>
+<script type="math/tex; mode=display">r_f = \mathbb{E}[r_i] = \text{E}[mr_i]</script><p><strong><em>proposition</em></strong> <script type="math/tex">m</script> is a linear function of <script type="math/tex">r_t</script>:</p>
+<script type="math/tex; mode=display">\begin{align}
+m &= a + br_t \\
+&= 1 - (r_t - \text{E}[r_t])\dfrac{\text{E}[r_t - r_f]}{var[r_t]}
+\end{align}</script><p>Such that all portfolio returns have a <code>factor-beta</code> representation w.r.t. the tangency portfolio,</p>
+<script type="math/tex; mode=display">\text{E}[\tilde{r}_i] = \beta_{p, t}\text{E}[\tilde{r}_t] \\
+\text{where }\beta_{i, t} := \dfrac{cov[\tilde{r}_i, \tilde{r}_t]}{var[\tilde{r}_t]}</script><p>By mathematical identity, this will hold in sample exactly.</p>
+<p><strong><em>proof</em></strong> Consider the tangency portfolio from the risk-free MV frontier:</p>
+<script type="math/tex; mode=display">\boldsymbol{w}_t = \boldsymbol{\Sigma^{-1}\tilde{\mu}}\dfrac{1}{\phi}</script><p>Therefore,</p>
+<script type="math/tex; mode=display">\tilde{\mu}_t = \boldsymbol{w}_t\boldsymbol{\tilde{\mu}} =  \boldsymbol{\tilde{\mu}'\Sigma^{-1}\tilde{\mu}}\dfrac{1}{\phi}</script><p>And since,</p>
+<script type="math/tex; mode=display">var[\tilde{r}_t] = \boldsymbol{w_t'\Sigma w_t}</script><p>We can show that,</p>
+<script type="math/tex; mode=display">\phi = \dfrac{\tilde{\mu}_t}{var[\tilde{r}_t]}</script><p>In addition, the covariance can be shown as,</p>
+<script type="math/tex; mode=display">\begin{align} cov[\tilde{r}_i, \tilde{r}_t] &= \boldsymbol{w_i'\Sigma w_t} = \mu_i\dfrac{1}{\phi}
+\end{align}</script><p>Thus,</p>
+<script type="math/tex; mode=display">\tilde{\mu}_i = cov[\tilde{r}_i, \tilde{r}_t]\phi = \beta_{i, t}\tilde{\mu}_t \;\;\text{q.e.d.}</script><h2 id="Genaralization"><a href="#Genaralization" class="headerlink" title="Genaralization"></a>Genaralization</h2><p>The factor-beta representation is not unique to the tengancy portfolio. In fact, it holds for any arbitraty <code>MV portfolio</code>, <script type="math/tex">\boldsymbol{w}^{\ast}</script></p>
+<script type="math/tex; mode=display">\text{E}[\tilde{r}_i] = \beta_{i, \ast}\text{E}[\tilde{r}^{\ast}]</script><p>We will focus on the tangancy portfolio, W.L.O.G.</p>
+<h2 id="Practical-Consideration"><a href="#Practical-Consideration" class="headerlink" title="Practical Consideration"></a>Practical Consideration</h2><p>The factor-beta representation seems to provde a way to estimate the mean return for any given portfolio. However, it difficult to calculate the tangency weight <script type="math/tex">\boldsymbol{w}_t</script> in practice, due to either circularity (direct estimation) or imprecision (inverting <script type="math/tex">\boldsymbol{\Sigma})</script></p>
+<p>The <code>Linear Factor Model</code> makes an assumption regarding the identify of the tangency portfolio, which avoids the issues stated above.</p>
+<p>The LFM assumed tangency portfolio is only used for <code>the pricing of expected returns</code>. However, additional assumptions can be made regarding investor’s MV preference, such that the assumed tangency portfolio will also be used in actual <code>asset allocation</code>.</p>
+<h2 id="CAPM"><a href="#CAPM" class="headerlink" title="CAPM"></a>CAPM</h2><p>The most famous LFM is the <code>Capital Asset Pricing Model</code>, which assumes a value-weighted market portfolio of all available assets as the tangency portfolio.</p>
+<script type="math/tex; mode=display">\text{E}[\tilde{r}_i] = \beta_{i, M}\text{E}[\tilde{r}_M] \\
+\text{where }\beta_{i, M} := \dfrac{cov[\tilde{r}_i, \tilde{r}_M]}{var[\tilde{r}_M]}</script><p>The CAPM is a relative pricing formula, which states that the expected return of any asset can be expressed as the sum of the risk-free rate and a portion of the <code>market risk premium</code>. In other words, it says that the <code>expected excess return/risk premium</code> of an asset is proportional to the market risk premium. The <script type="math/tex">\beta</script> factor is estimated based on regression. CAPM also assets that market beta is the <code>only</code> risk associated with higher average returns, and that volatility, skewness, and other covariances do not matter in determining risk premium.</p>
+<p>We can also re-write the formula as follow:</p>
+<script type="math/tex; mode=display">\dfrac{\text{E}[\tilde{r}_i]}{\sigma_i} = \rho_{i, M}\dfrac{\text{E}[\tilde{r}_M]}{\sigma_M} \\
+SR_i = \rho_{i, M}SR_M</script><p>This shows that the Sharpe ratio earned on an asset depends only on the correlation between asset return and market returns.</p>
+<p>There are two ways to derive CAPM:</p>
+<ol>
+<li>If we assume that <code>returns</code> are jointly normal, then the mean and variance are the sufficient statistics for the return distribution, and thus every investor holds a portfolio on the risk-less MV frontier, which is a combination of the tangency portfolio and the risk-free asset. Therefore aggregating across all investors, the market portfolio of all investments is the tangency portfolio.</li>
+<li>If we do not assume jointly normal returns, but instead that investors only care about mean and variance of returns. In this case all investor will also choose MV portfolios, and therefore CAPM holds.</li>
+</ol>
+<h2 id="Treynor’s-Ratio"><a href="#Treynor’s-Ratio" class="headerlink" title="Treynor’s Ratio"></a>Treynor’s Ratio</h2><script type="math/tex; mode=display">\text{Treynor Ratio}_i = \dfrac{\text{E}[\tilde{r}_i]}{\beta_{i, M}}</script><h2 id="Fama-French-Model"><a href="#Fama-French-Model" class="headerlink" title="Fama-French Model"></a>Fama-French Model</h2><p>The <code>Fama-French 3-factor model</code> is a well-known multi-factor models:</p>
+<script type="math/tex; mode=display">\text{E}[\tilde{r}_i] = \beta_{i, M}\text{E}[\tilde{r}_M] + \beta_{i, s}\text{E}[\tilde{r}_s] + \beta_{i, v}\text{E}[\tilde{r}_v]</script><p>Where <script type="math/tex">\tilde{r}_M</script> is the excess market return as in CAPM, <script type="math/tex">\tilde{r}_s</script> is a portfolio that goes <code>long small stocks</code> and shorts large stocks, and <script type="math/tex">\tilde{r}_v</script> is a portfolio that goes <code>long value</code> stocks (low market price per fundamental) and shorts growth stocks.</p>
+<p>The FF model states that <code>beta</code> to value and small stocks earn premium, <code>NOT</code> <code>being</code> a value or small stock. In other words, the premium is earned on how a stock acts, not how it is classified.</p>
+<p>Continue on L3</p>
+<p><br><br><br></p>
+<p>Reference:</p>
+<ul>
+<li>FINM 36700 Lecture Notes, Mark Hendricks, the University of Chicago</li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/01/guide-to-create-a-blog-with-hexo/" class="prev">PREV</a></div><div id="container"></div><!-- link(rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css")--><link rel="stylesheet" href="/css/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+    clientID: '4ec287ddd4ac34ff5087',
+    clientSecret: 'ae45426765f12ac3e2f903662b8938dc4881f703',
+    repo: 'jackliu234.github.io',
+    owner: 'jackliu234',
+    admin: ['jackliu234'],
+    perPage: 100,
+    id: 'Sat Dec 08 2018 00:00:00 GMT+0100 GMT'.split('GMT')[0].replace(/\s/g, '-'),
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+})
+
+gitalk.render('container')</script><!-- block copyright--></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-133275176-1",'auto');ga('send','pageview');</script><link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" media="screen" type="text/css"><script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script><script>$(function(){$('.datatable').dataTable( {"order": [[ 0, "desc" ]],"iDisplayLength": -1,"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]} );});</script></body></html>

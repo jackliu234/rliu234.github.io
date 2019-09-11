@@ -1,0 +1,76 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>No-Limit Hold'em: Starting Hand Analysis (1) · Rongjia Liu</title><meta name="description" content="No-Limit Hold'em: Starting Hand Analysis (1) - Rongjia Liu"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/arctic.css"><link rel="search" type="application/opensearchdescription+xml" href="http://jackliu234.com/atom.xml" title="Rongjia Liu"><script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/tags/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/search/" target="_self" class="nav-list-link">SEARCH</a></li><!-- li.nav-list-item--><!--    a.nav-list-link(class="search" href=url_for("search") target="_self") <i class="fa fa-search" aria-hidden="true"></i>--></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">No-Limit Hold'em: Starting Hand Analysis (1)</h1><div class="post-info">Feb 17, 2019</div><div class="post-content"><p>In this post I look at the starting hand of T&spades;9&spades;, analyzing typical post flop strategies with references from a few poker literatures.</p>
+<a id="more"></a>
+<h1 id="Pre-Flop"><a href="#Pre-Flop" class="headerlink" title="Pre-Flop"></a>Pre-Flop</h1><p>Here are the pre-flop equity of T&spades;9&spades; against some of the common open-raise hand types, calculated by Equilab and rounded to the nearest 5%:</p>
+<ul>
+<li>Random: 54%</li>
+<li>PokerStrategy Standard Open-Raise: UTG  MP  CO  BU: 33%  39%  42%  45%</li>
+<li>Connectors  One/Two Gappers: 57%</li>
+<li>Random Pairs: 39% (TT+: 20%)</li>
+</ul>
+<p>Note that facing pre-flop open-raise from most positions, T&spades;9&spades; has fairly decent equities in the pot to call. It is not ideal to 3-bet with T&spades;9&spades; as it is much more playable after the flop and will almost certainly folds to any 4-bets. Also, when facing 3-bets, the equity drops below 30% and we should fold most of the time.</p>
+<h1 id="Post-Flop-In-Position"><a href="#Post-Flop-In-Position" class="headerlink" title="Post-Flop In-Position"></a>Post-Flop In-Position</h1><p>Most of the game setting analyzed below is no-limit hold’em, 6 max table and 50 BB+. We hold a starting hand of T&spades;9&spades;.</p>
+<h3 id="Facing-Donk-Bet"><a href="#Facing-Donk-Bet" class="headerlink" title="Facing Donk Bet"></a>Facing Donk Bet</h3><p>Suppose that we open under the gun and SB calls. The flop is rainbow K&clubs;7&spades;<span style="color:red">6&diamondsuit;</span>. The SB donk bet (betting out-of-position after the flop against pre-flop aggressor) half pots.</p>
+<ul>
+<li>If we have seen the SB slow-play strong hands and lead with mid-pair before. At this point we should raise, as the SB’s range is fairly wide. If SB calls, we should not raise on the turn unless we hit our outs.</li>
+<li>If the SB is a TAG player, he is usually protecting his weak hands such as mid-low pairs.</li>
+<li>TAG will mostly check-call and rarely donk bet with strong hands on the flop, as it looks too suspicious for the other player to commit.</li>
+</ul>
+<h3 id="Floating"><a href="#Floating" class="headerlink" title="Floating"></a>Floating</h3><p>Suppose TAG opens UTG and we called in position. The flop is A&spades;<span style="color:red">8&hearts;3&hearts;</span>. UTG c-bets full pot and we float call. We now a have back-door straight and flush draw and the flop has two <span style="color:red">&hearts;</span>. We must correctly fire multiple streets if we decided to float.</p>
+<p>Turn &amp; River:</p>
+<ul>
+<li>If the turn is J/7 we can check-call with 8 more outs</li>
+<li>If the turn is T/9 we can check-call if UTG often raise with wider ranges.</li>
+<li>If the turn is a heart and and UTG checks, we should bet here and will likely win the pot. If UTG check-calls, we can consider betting again at non-<span style="color:red">&hearts;</span> river as most Ax/set/single clubs would fold at the river.</li>
+</ul>
+<p>Now suppose that with the same pre-flop situation as above, the flop is K&spades;<span style="color:red">5&hearts;3&diamondsuit;</span>. UTG c-bets full pot and we float call. The turn is 8&clubs;, UTG bets full pots again.</p>
+<p>At this point we should fold. At the turn we have lost most of our outs (Q/J/T/9 of Spades). The flop and turn are too dry for us to have fold equities when bluffing.</p>
+<h3 id="Bluff-Raise-In-Multi-Way-Pot"><a href="#Bluff-Raise-In-Multi-Way-Pot" class="headerlink" title="Bluff Raise In Multi-Way Pot"></a>Bluff Raise In Multi-Way Pot</h3><p>Suppose MP raised, CO called and we called from the BTN. The flop is <span style="color:red">&diamondsuit;J</span>&spades;8<span style="color:red">&hearts;6</span>. MP c-bets, CO calls.</p>
+<p>At this point we should raise with back-door flush/straight draws, and often force MP/CO to folds Js.</p>
+<ul>
+<li>If only MP calls, we should bet only if we pick up flush/striaght draws at the turn.</li>
+<li>If only CO calls, we should almost never bet unless we hit flush/straight at the river.</li>
+</ul>
+<p>Our perception that CO’s call range is slightly stronger than MP, because he had called twice (from MP and from us).</p>
+<ul>
+<li>On a wet board such as flush draws, however, we should not bluff raise it will induce MP/CO to all-in our bluff raise with a wider range.</li>
+<li>It is not ideal to check-all-in at this point, if CO had 3-bet pre-flop and MP had called his 3-bet. Although we are signaling a strong range of sets/two pairs, our opponent will have a very hard time folding over-pairs. because <code>people are more than willing to pay for their mistakes with overpairs rather than folding it</code>.</li>
+</ul>
+<h3 id="Raising-The-Turn"><a href="#Raising-The-Turn" class="headerlink" title="Raising The Turn"></a>Raising The Turn</h3><p>Suppose that UTG opens with 3BB and we called from late positions. The flop is rainbow <span style="color:red">K&diamondsuit;9&hearts;</span>4&clubs;. UTG bets full pot and we call. The turn is 3&clubs;, UTG checks.</p>
+<p>At this point we should raise, because the UTG’s range has weaken at the turn. A stronger hands with sets or two pairs would have raise at the turn to extract values off any single pairs that I have.</p>
+<h3 id="Semi-Bluffing-The-Turn"><a href="#Semi-Bluffing-The-Turn" class="headerlink" title="Semi-Bluffing The Turn"></a>Semi-Bluffing The Turn</h3><p>Suppose we open raise 3BB on the BTN, a TAG player on BB 3-bets 10BB and we call. The flop is a rainbow &clubs;K<span style="color:red">&hearts;8&diamondsuit;7</span>, and TAG bets pot-size 20BB and we called. The turn is a &spades;Q, and TAG bets 2/3 pot 40BB. Now the pot is 100BB.</p>
+<p>At this point, although we only have 8 outs (J/6) most of the time, we should all-in due to fold equity, give that the TAG has been firing on the first two streets quite frequently.</p>
+<p>Let us calculate the lowest fold rate <script type="math/tex">x</script> from our opponent for this play to be 0-EV. Suppose our opponent holds top set QQ, where our current equity 16%, and both of us have <script type="math/tex">Y</script>BB at inception.</p>
+<script type="math/tex; mode=display">0 = 100 \times x + (16\% \times (30 + Y) + 84\% \times (30 - Y)) \times (1-x)</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">breakeven_ev_solve</span><span class="params">(stack, A, B, outs)</span>:</span></span><br><span class="line">    fold_ev = A + B</span><br><span class="line">    non_fold_ev = (outs * <span class="number">0.02</span> * (A + stack) + (<span class="number">1</span> - outs * <span class="number">0.02</span>) * (A - stack))</span><br><span class="line">    <span class="keyword">return</span> round(non_fold_ev / (non_fold_ev - fold_ev), <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x = []</span><br><span class="line">y = []</span><br><span class="line">outs = <span class="number">8</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>, <span class="number">210</span>, <span class="number">20</span>):</span><br><span class="line">    x.append(i)</span><br><span class="line">    y.append(breakeven_ev_solve(i, <span class="number">30</span>, <span class="number">70</span>, outs))</span><br><span class="line"></span><br><span class="line">plt.plot(x, y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>Here are conservative estimates of the minimum break-even fold rates required for this all-in to be a positive EV play. Note that from 100 to 200BB, the rate grows almost linearly from 30% to 50%.<br><img src="06-Picture2.png" alt="Picture2.png"></p>
+<p>Now suppose both of us start with 150BB and we estimated the calling and folding range of our opponents be:</p>
+<ul>
+<li>Calling: AA, KK, QQ, 88, 77, AK, KQ, 87 = 6 + 3 x 4 + 12 + 9 x 2 = 48</li>
+<li>Folding: AQ, KJ, T9, 65 = 12 x 2 + 9 + 16 = 49</li>
+</ul>
+<p>Therefore our opponent’s fold rate would be 49/(48 + 49) = 50% which means the all-in play has positive EV with starting stack less than 200BB.</p>
+<h1 id="Post-Flop-Out-Of-Position"><a href="#Post-Flop-Out-Of-Position" class="headerlink" title="Post-Flop Out-Of-Position"></a>Post-Flop Out-Of-Position</h1><h3 id="Back-Door-Flush-Draw"><a href="#Back-Door-Flush-Draw" class="headerlink" title="Back-Door Flush Draw"></a>Back-Door Flush Draw</h3><p>Suppose TAG opens at BTN and we called on BB. The flop is &spades;8&spades;7<span style="color:red">&hearts;3</span>. We check and TAG c-bets full pot.</p>
+<p>At this point we should check-raise 100% of the times with our high-card and straight/flush draws. However, if the flop is &spades;K&spades;8<span style="color:red">&hearts;3</span>, we should check-call more often as our fold equity drops with the presence of a King.</p>
+<h3 id="Check-Raising-The-Turn"><a href="#Check-Raising-The-Turn" class="headerlink" title="Check-Raising The Turn"></a>Check-Raising The Turn</h3><p>Suppose open and hit a straight at the flop <span style="color:red">&hearts;8</span>&clubs;7<span style="color:red">&diamondsuit;6</span>. We c-bet on the flop and the turn is a &spades;Q.</p>
+<p>At this point we should check-raise instead of raise. Because our opponent is unlikely to float at this flop, he would bet the turn himself if he can call a bet.</p>
+<p>If checks back at the turn with single pairs, we should always bet the river. Note although this looks awfully like a value bet (check turn bet river), our opponent are very likely to call given he called the flop check-raise.</p>
+<h3 id="Check-Raising-The-River"><a href="#Check-Raising-The-River" class="headerlink" title="Check-Raising The River"></a>Check-Raising The River</h3><p>Suppose we check-call a pot-size bet on the flop <span style="color:red">&hearts;Q</span>&clubs;9&clubs;3. The turn is <span style="color:red">&hearts;T</span> and both of we check. The river is a &spades;K.</p>
+<p>At this point we should check-raise. Becuase our flop check-call &amp; turn check range includes mid-pairs and missed flush/straigh draws, which both induce bluff from our opponents, as well as increase our earnings from our opponent’s K/J pairs.</p>
+<p><br><br><br></p>
+<p>Reference:</p>
+<ul>
+<li>The Poker Blueprint: Advanced Strategies for Crushing Micro and Small Stakes NL, Davis &amp; Nguyen</li>
+<li>Easy Game: Making Sense of No Limit Hold’em, Seidman, Colletta &amp; Cesaro</li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/03/generate-color-image/" class="prev">PREV</a><a href="/2019/02/the-st-petersburg-paradox/" class="next">NEXT</a></div><div id="container"></div><!-- link(rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css")--><link rel="stylesheet" href="/css/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+    clientID: '4ec287ddd4ac34ff5087',
+    clientSecret: 'ae45426765f12ac3e2f903662b8938dc4881f703',
+    repo: 'jackliu234.github.io',
+    owner: 'jackliu234',
+    admin: ['jackliu234'],
+    perPage: 100,
+    id: 'Sun Feb 17 2019 00:00:00 GMT+0100 GMT'.split('GMT')[0].replace(/\s/g, '-'),
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+})
+
+gitalk.render('container')</script><!-- block copyright--></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-133275176-1",'auto');ga('send','pageview');</script><link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" media="screen" type="text/css"><script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script><script>$(function(){$('.datatable').dataTable( {"order": [[ 0, "desc" ]],"iDisplayLength": -1,"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]} );});</script></body></html>

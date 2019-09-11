@@ -1,0 +1,127 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Rongjia Liu</title><meta name="description" content="A Blog Powered By Hexo"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/arctic.css"><link rel="search" type="application/opensearchdescription+xml" href="http://jackliu234.com/atom.xml" title="Rongjia Liu"><script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/tags/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/search/" target="_self" class="nav-list-link">SEARCH</a></li><!-- li.nav-list-item--><!--    a.nav-list-link(class="search" href=url_for("search") target="_self") <i class="fa fa-search" aria-hidden="true"></i>--></ul></header><main class="container"><ul class="home post-list"><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/08/gradient-descent/" class="post-title-link">Understanding Gradient Descent in Neural Network</a></h2><div class="post-info">Aug 16, 2019</div><div class="post-content"><p><code>Gradient Descent</code> is an optimization method used in neural network, where the weight parameters <script type="math/tex">\boldsymbol{w}</script> are updated recursively by subtracting a small percentage <script type="math/tex">\alpha</script> of the gradient of the loss function <script type="math/tex">\nabla \mathcal{L}</script>, in order to minimize the loss function.</p>
+<script type="math/tex; mode=display">\boldsymbol{w}_i = \boldsymbol{w}_{i-1} - \alpha\nabla \mathcal{L}(\boldsymbol{w}_{i-1})</script></div><!-- a.read-more(href= url_for(item.path))!= __('more')--></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/07/algo-2/" class="post-title-link">Bitcoin Analysis (2): Momentum Strategies</a></h2><div class="post-info">Jul 21, 2019</div><div class="post-content"><p>In this research I studied on the performance of simple and exponential moving average crossover strategies, with window sizes chosen by optimizing in-sample PNL, sharpe ratio and 30-day maximum drawdown. The calibrated strategy performs well, earning 500% cumulative return compared to baseline and a sharpe ratio of 1.30. The the 30-day maximum drawdown is similar to the baseline.</p>
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Strategy</th>
+      <th>P&amp;L</th>
+      <th>Sharpe Ratio</th>
+      <th>Maximum Drawdown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Baseline</td>
+      <td>0.28</td>
+      <td>-1.48</td>
+      <td>0.35</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MA</td>
+      <td>1.54</td>
+      <td>1.30</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>EWMA</td>
+      <td>1.45</td>
+      <td>1.10</td>
+      <td>0.38</td>
+    </tr>
+  </tbody>
+</table></div><!-- a.read-more(href= url_for(item.path))!= __('more')--></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/07/algo-1/" class="post-title-link">Bitcoin Analysis (1): A Classification Approach</a></h2><div class="post-info">Jul 20, 2019</div><div class="post-content"><p>In this research I looked at intraday Bitcoin trading based on price and volume information using classification models.</p>
+<table>
+  <thead>
+    <tr style="text-align: center;">
+      <th></th>
+      <th>Strategy</th>
+      <th>Precision</th>
+      <th>P&amp;L</th>
+      <th>Sharpe Ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>MLP Classifier</td>
+      <td>0.55</td>
+      <td>2.06</td>
+      <td>1.79</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>KNN</td>
+      <td>0.50</td>
+      <td>1.95</td>
+      <td>1.85</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Baseline</td>
+      <td>0.00</td>
+      <td>1.69</td>
+      <td>1.14</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Decision Tree</td>
+      <td>0.49</td>
+      <td>1.61</td>
+      <td>1.84</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Random Forest</td>
+      <td>0.53</td>
+      <td>1.55</td>
+      <td>1.16</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>XGBoost</td>
+      <td>0.52</td>
+      <td>1.33</td>
+      <td>0.86</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>SVC</td>
+      <td>0.47</td>
+      <td>1.31</td>
+      <td>0.73</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Logistic Regression</td>
+      <td>0.47</td>
+      <td>1.14</td>
+      <td>0.47</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Gradient Boost</td>
+      <td>0.48</td>
+      <td>1.06</td>
+      <td>0.33</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>AdaBoost</td>
+      <td>0.50</td>
+      <td>0.86</td>
+      <td>-0.09</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Linear Discriminant Analysis</td>
+      <td>0.47</td>
+      <td>0.85</td>
+      <td>-0.17</td>
+    </tr>
+  </tbody>
+</table></div><!-- a.read-more(href= url_for(item.path))!= __('more')--></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/07/variance-swap/" class="post-title-link">Pricing A Variance Swap</a></h2><div class="post-info">Jul 12, 2019</div><div class="post-content"><p>In this article I examine the risk-neutral pricing of a variance swap, which can be constructed with this elegant formula:</p>
+<script type="math/tex; mode=display">\sigma^2_{strike} = \dfrac{2e^{rT}}{T}\Bigg[\int_0^{S_0e^{rT}} \dfrac{1}{K^2} P(K) dK + \int^{\infty}_{S_0e^{rT}} \dfrac{1}{K^2}C(K)dK\Bigg]</script></div><!-- a.read-more(href= url_for(item.path))!= __('more')--></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/06/financial-exchange/" class="post-title-link">Simluating A Financial Exchange with Socket Server</a></h2><div class="post-info">Jun 24, 2019</div><div class="post-content"><p>On my 20-hour flight back to China, I created a simple financial exchange in python which multiple traders can connect to and place limit order on. This exchange will carry a basic order book, in order to process new orders and keep track of existing orders. The codes are uploaded to this <a href="https://github.com/jackliu234/financial-exchange" target="_blank" rel="noopener">repo</a>.</p></div><!-- a.read-more(href= url_for(item.path))!= __('more')--></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/06/spx-vol-term-struct/" class="post-title-link">Uncovering the Term Structure of Volatility Skew</a></h2><div class="post-info">Jun 13, 2019</div><div class="post-content"><p>In this research, we aim to extract a term structure from the implied volatility skewness under the Black-Scholes framework and S&amp;P 500 adjusted close prices. With the daily close prices over the period of 1970-2018, we calibrate a local volatility function by fitting <code>the BS-implied density based on the Dupire formula</code> (which is the aggregation of a bunch of log-normal densities at each strike, since volatility is not constant and depended on strike) to <code>the observed S&amp;P 500 log return distribution.</code></p></div><!-- a.read-more(href= url_for(item.path))!= __('more')--></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/05/apollo-add-tags/" class="post-title-link">Creating a Tags Page for Apollo</a></h2><div class="post-info">May 2, 2019</div><div class="post-content"><p>Recently I updated my hexo theme, and as much as I love some of the perks in NexT (e.g. index side bar), I eventually decided to publish with a more simplistic design. I spent quite some time these two days to iron out the kinks during the transition to a cleaner, Apollo-based theme. I have uploaded my fully customized theme, named <code>arctic</code>, on <a href="https://github.com/jackliu234/hexo-theme-apollo" target="_blank" rel="noopener">github</a>. In this post I will discuss a solution for creating a customized tags page.</p></div><!-- a.read-more(href= url_for(item.path))!= __('more')--></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/01/guide-to-create-a-blog-with-hexo/" class="post-title-link">Guide to Create A Blog With Hexo</a></h2><div class="post-info">Jan 19, 2019</div><div class="post-content"><p><a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> is a powerful tool to set up your own web space with flexibility and control.</p></div><!-- a.read-more(href= url_for(item.path))!= __('more')--></article></li></ul></main><footer><div class="paginator"></div><!-- block copyright--></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-133275176-1",'auto');ga('send','pageview');</script><link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" media="screen" type="text/css"><script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script><script>$(function(){$('.datatable').dataTable( {"order": [[ 0, "desc" ]],"iDisplayLength": -1,"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]} );});</script></body></html>
