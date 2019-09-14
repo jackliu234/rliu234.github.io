@@ -329,21 +329,23 @@ header .nav-list-item a {
 }
 
 .archive .post-item {
-    padding: 2px 0 0 50px // adjust post indent
+    padding: 0px 0 0 50px // adjust post indent
 }
 
-.archive .post-time, .archive .post-title-link {
+.archive .post-time, .post-title-link {
     font-size: 18px
 }
 
 .archive .post-title-link {
+
     display: block;
-    margin-left: 150px;
+    margin-left: 170px;
     color: #6190e8;
     word-break: break-all
 }
 
 .archive .post-title-link:hover {
+    /* border-bottom: solid; */
     border-bottom: 0;
     color: #6190e8
 }
