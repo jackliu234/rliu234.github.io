@@ -190,7 +190,16 @@ html, body {
 body {
     margin: 0;
     color: #000000;
-    font-size: 18px;
+    font-size: 17px;
+    line-height: 1.4;
+    background-color: #fff;
+    font-family: 'Garamond';
+}
+
+body:lang(en-ZH) {
+    margin: 0;
+    color: #000000;
+    font-size: 27px;
     line-height: 1.4;
     background-color: #fff;
     font-family: 'Garamond';
@@ -333,7 +342,7 @@ header .nav-list-item a {
 }
 
 .archive .post-time, .post-title-link {
-    font-size: 18px
+    font-size: 17px
 }
 
 .archive .post-title-link {
@@ -363,7 +372,7 @@ header .nav-list-item a {
 .post-block .post-title {
     margin: 1em 0em 1em;
     color: #000000;
-    font-size: 35px;
+    font-size: 32px;
 }
 
 .post-block .post-info {
@@ -393,12 +402,12 @@ header .nav-list-item a {
     /* this is the setting for the # sign */
     content: "# ";
     color: #6190e8;
-    font-size: 26px;
+    font-size: 24px;
 }
 
 .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
     /* this is the size of the sub-titile */
-    font-size: 22px
+    font-size: 24px
 }
 
 .post-content a {
@@ -473,7 +482,7 @@ code {
 }
 
 pre {
-    font-size: 13px;
+    font-size: 12px;
     background-color: #F5F5F5;
     font-family: 'monaco', monospace;
     text-align: left;
