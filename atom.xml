@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2019-09-23T14:30:47.832Z</updated>
+  <updated>2019-09-24T03:48:22.804Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>A-Mazing</title>
     <link href="http://jackliu234.com/2019/09/amazing/"/>
     <id>http://jackliu234.com/2019/09/amazing/</id>
-    <published>2019-09-23T04:00:00.000Z</published>
-    <updated>2019-09-23T14:30:47.832Z</updated>
+    <published>2019-09-23T05:00:00.000Z</published>
+    <updated>2019-09-24T03:48:22.804Z</updated>
     
     <summary type="html">
     
@@ -29,8 +29,7 @@
       
         
         
-          &lt;p&gt;Use the arrow keys to move through the maze; you can also refresh the page to see a different maze. &lt;/p&gt;
-&lt;p&gt;&lt;canvas id=&quot;mycanvas&quot;
+          &lt;p&gt;Use the arrow keys to move through the maze. Can’t find your way out? you can always refresh the page to play with a different maze
         
       
     
@@ -46,7 +45,7 @@
     <title>随笔</title>
     <link href="http://jackliu234.com/2019/09/europe/"/>
     <id>http://jackliu234.com/2019/09/europe/</id>
-    <published>2019-09-21T04:00:00.000Z</published>
+    <published>2019-09-21T05:00:00.000Z</published>
     <updated>2019-09-23T10:27:31.827Z</updated>
     
     <summary type="html">
@@ -71,7 +70,7 @@
     <title>Writing CLI with Node</title>
     <link href="http://jackliu234.com/2019/09/generator/"/>
     <id>http://jackliu234.com/2019/09/generator/</id>
-    <published>2019-09-15T04:00:00.000Z</published>
+    <published>2019-09-15T05:00:00.000Z</published>
     <updated>2019-09-17T16:40:18.378Z</updated>
     
     <summary type="html">
@@ -96,7 +95,7 @@
     <title>Yosemite</title>
     <link href="http://jackliu234.com/2019/09/yosemite/"/>
     <id>http://jackliu234.com/2019/09/yosemite/</id>
-    <published>2019-09-14T04:00:00.000Z</published>
+    <published>2019-09-14T05:00:00.000Z</published>
     <updated>2019-09-14T13:52:06.326Z</updated>
     
     <summary type="html">
@@ -115,7 +114,7 @@
     <title>Understanding Gradient Descent in Neural Network</title>
     <link href="http://jackliu234.com/2019/08/gradient-descent/"/>
     <id>http://jackliu234.com/2019/08/gradient-descent/</id>
-    <published>2019-08-16T04:00:00.000Z</published>
+    <published>2019-08-16T05:00:00.000Z</published>
     <updated>2019-09-04T19:10:04.641Z</updated>
     
     <summary type="html">
@@ -135,7 +134,7 @@
     <title>Notes on Word2Vec, Stanford Open Course</title>
     <link href="http://jackliu234.com/2019/07/w2v/"/>
     <id>http://jackliu234.com/2019/07/w2v/</id>
-    <published>2019-07-29T04:00:00.000Z</published>
+    <published>2019-07-29T05:00:00.000Z</published>
     <updated>2019-08-23T13:02:52.432Z</updated>
     
     <summary type="html">
@@ -161,7 +160,7 @@
     <title>Notes on High Frequency Data Model</title>
     <link href="http://jackliu234.com/2019/07/high-freq-data-model/"/>
     <id>http://jackliu234.com/2019/07/high-freq-data-model/</id>
-    <published>2019-07-26T04:00:00.000Z</published>
+    <published>2019-07-26T05:00:00.000Z</published>
     <updated>2019-09-04T19:20:13.824Z</updated>
     
     <summary type="html">
@@ -187,7 +186,7 @@
     <title>My LeetCode Solutions</title>
     <link href="http://jackliu234.com/2019/07/leetcode/"/>
     <id>http://jackliu234.com/2019/07/leetcode/</id>
-    <published>2019-07-24T04:00:00.000Z</published>
+    <published>2019-07-24T05:00:00.000Z</published>
     <updated>2019-08-23T13:04:05.927Z</updated>
     
     <summary type="html">
@@ -213,7 +212,7 @@
     <title>Bitcoin Analysis (2): Momentum Strategies</title>
     <link href="http://jackliu234.com/2019/07/algo-2/"/>
     <id>http://jackliu234.com/2019/07/algo-2/</id>
-    <published>2019-07-21T04:00:00.000Z</published>
+    <published>2019-07-21T05:00:00.000Z</published>
     <updated>2019-09-04T19:05:52.769Z</updated>
     
     <summary type="html">
@@ -266,7 +265,7 @@
     <title>Bitcoin Analysis (1): A Classification Approach</title>
     <link href="http://jackliu234.com/2019/07/algo-1/"/>
     <id>http://jackliu234.com/2019/07/algo-1/</id>
-    <published>2019-07-20T04:00:00.000Z</published>
+    <published>2019-07-20T05:00:00.000Z</published>
     <updated>2019-09-04T19:03:33.303Z</updated>
     
     <summary type="html">
@@ -375,7 +374,7 @@
     <title>Pricing A Variance Swap</title>
     <link href="http://jackliu234.com/2019/07/variance-swap/"/>
     <id>http://jackliu234.com/2019/07/variance-swap/</id>
-    <published>2019-07-12T04:00:00.000Z</published>
+    <published>2019-07-12T05:00:00.000Z</published>
     <updated>2019-09-04T13:45:46.666Z</updated>
     
     <summary type="html">
@@ -395,7 +394,7 @@
     <title>Star Gazing in Fiji</title>
     <link href="http://jackliu234.com/2019/07/fiji/"/>
     <id>http://jackliu234.com/2019/07/fiji/</id>
-    <published>2019-07-08T04:00:00.000Z</published>
+    <published>2019-07-08T05:00:00.000Z</published>
     <updated>2019-08-23T02:21:15.792Z</updated>
     
     <summary type="html">
@@ -421,7 +420,7 @@
     <title>Simluating A Financial Exchange with Socket Server</title>
     <link href="http://jackliu234.com/2019/06/financial-exchange/"/>
     <id>http://jackliu234.com/2019/06/financial-exchange/</id>
-    <published>2019-06-24T04:00:00.000Z</published>
+    <published>2019-06-24T05:00:00.000Z</published>
     <updated>2019-09-04T19:10:22.481Z</updated>
     
     <summary type="html">
@@ -440,7 +439,7 @@
     <title>Uncovering the Term Structure of Volatility Skew</title>
     <link href="http://jackliu234.com/2019/06/spx-vol-term-struct/"/>
     <id>http://jackliu234.com/2019/06/spx-vol-term-struct/</id>
-    <published>2019-06-13T04:00:00.000Z</published>
+    <published>2019-06-13T05:00:00.000Z</published>
     <updated>2019-09-04T19:14:12.568Z</updated>
     
     <summary type="html">
@@ -459,7 +458,7 @@
     <title>Creating a Tags Page for Apollo</title>
     <link href="http://jackliu234.com/2019/05/apollo-add-tags/"/>
     <id>http://jackliu234.com/2019/05/apollo-add-tags/</id>
-    <published>2019-05-02T04:00:00.000Z</published>
+    <published>2019-05-02T05:00:00.000Z</published>
     <updated>2019-09-14T13:55:34.684Z</updated>
     
     <summary type="html">
@@ -478,7 +477,7 @@
     <title>PCA: A Deeper Dive</title>
     <link href="http://jackliu234.com/2019/04/pca-deep-dive/"/>
     <id>http://jackliu234.com/2019/04/pca-deep-dive/</id>
-    <published>2019-04-27T04:00:00.000Z</published>
+    <published>2019-04-27T05:00:00.000Z</published>
     <updated>2019-09-04T13:18:06.526Z</updated>
     
     <summary type="html">
@@ -504,7 +503,7 @@
     <title>Notes on ISLR</title>
     <link href="http://jackliu234.com/2019/04/islr/"/>
     <id>http://jackliu234.com/2019/04/islr/</id>
-    <published>2019-04-13T04:00:00.000Z</published>
+    <published>2019-04-13T05:00:00.000Z</published>
     <updated>2019-09-11T09:31:25.834Z</updated>
     
     <summary type="html">
@@ -523,7 +522,7 @@
     <title>Notes on C++</title>
     <link href="http://jackliu234.com/2019/04/cpp/"/>
     <id>http://jackliu234.com/2019/04/cpp/</id>
-    <published>2019-04-06T04:00:00.000Z</published>
+    <published>2019-04-06T05:00:00.000Z</published>
     <updated>2019-08-23T02:14:24.803Z</updated>
     
     <summary type="html">
@@ -548,7 +547,7 @@
     <title>Notes on Algorithm, MIT Open Course</title>
     <link href="http://jackliu234.com/2019/04/intro-to-algorithm/"/>
     <id>http://jackliu234.com/2019/04/intro-to-algorithm/</id>
-    <published>2019-04-03T04:00:00.000Z</published>
+    <published>2019-04-03T05:00:00.000Z</published>
     <updated>2019-08-23T13:02:26.185Z</updated>
     
     <summary type="html">
@@ -574,7 +573,7 @@
     <title>Peru &amp; Bolivia</title>
     <link href="http://jackliu234.com/2019/04/peru-bolivia/"/>
     <id>http://jackliu234.com/2019/04/peru-bolivia/</id>
-    <published>2019-04-01T04:00:00.000Z</published>
+    <published>2019-04-01T05:00:00.000Z</published>
     <updated>2019-09-13T23:03:18.563Z</updated>
     
     <summary type="html">
