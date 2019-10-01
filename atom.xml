@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2019-09-24T22:26:32.275Z</updated>
+  <updated>2019-10-01T08:28:39.376Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Blockchain DIY with Python</title>
+    <link href="http://jackliu234.com/2019/09/blockchain/"/>
+    <id>http://jackliu234.com/2019/09/blockchain/</id>
+    <published>2019-09-30T05:00:00.000Z</published>
+    <updated>2019-10-01T08:28:39.376Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Part-I-Class&quot;&gt;&lt;a href=&quot;#Part-I-Class&quot; class=&quot;headerlink&quot; title=&quot;Part I: Class&quot;&gt;&lt;/a&gt;Part I: Class&lt;/h1&gt;&lt;p&gt;A &lt;code&gt;Blockchain&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+    
+  </entry>
   
   <entry>
     <title>A-Mazing</title>
@@ -566,32 +591,6 @@
     
     
       <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Peru &amp; Bolivia</title>
-    <link href="http://jackliu234.com/2019/04/peru-bolivia/"/>
-    <id>http://jackliu234.com/2019/04/peru-bolivia/</id>
-    <published>2019-04-01T05:00:00.000Z</published>
-    <updated>2019-09-13T23:03:18.563Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;Pictures I took in Peru recently with my dated (but still awesome) Nikon D5100.&lt;br&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Travel" scheme="http://jackliu234.com/tags/Travel/"/>
     
   </entry>
   
