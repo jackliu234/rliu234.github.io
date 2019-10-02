@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2019-10-02T16:21:18.062Z</updated>
+  <updated>2019-10-02T19:20:40.364Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Literature Review: Redington Immunization</title>
+    <link href="http://jackliu234.com/2019/10/redington/"/>
+    <id>http://jackliu234.com/2019/10/redington/</id>
+    <published>2019-10-02T05:00:00.000Z</published>
+    <updated>2019-10-02T19:20:40.364Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Blockchain DIY with Python</title>
+    <link href="http://jackliu234.com/2019/09/blockchain/"/>
+    <id>http://jackliu234.com/2019/09/blockchain/</id>
+    <published>2019-09-30T05:00:00.000Z</published>
+    <updated>2019-10-02T19:19:28.464Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Part-I-Class&quot;&gt;&lt;a href=&quot;#Part-I-Class&quot; class=&quot;headerlink&quot; title=&quot;Part I: Class&quot;&gt;&lt;/a&gt;Part I: Class&lt;/h1&gt;&lt;p&gt;A &lt;code&gt;Blockchain&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+    
+  </entry>
   
   <entry>
     <title>A-Mazing</title>
@@ -100,8 +142,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;code&gt;Gradient Descent&lt;/code&gt; is an optimization method used in neural network, where the weight parameters $\boldsymbol{w}$ are updated recursively by subtracting a small percentage $\alpha$ of the gradient of the loss function $\nabla \mathcal{L}$, in order to minimize the loss function.&lt;/p&gt;
-&lt;p&gt;$$ \boldsymbol{w}&lt;em&gt;i = \boldsymbol{w}&lt;/em&gt;{i-1} - \alpha\nabla \mathcal{L}(\boldsymbol{w}_{i-1}) $$&lt;/p&gt;
+      &lt;p&gt;&lt;code&gt;Gradient Descent&lt;/code&gt; is an optimization method used in neural network, where the weight parameters &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{w}&lt;/script&gt; are updated recursively by subtracting a small percentage &lt;script type=&quot;math/tex&quot;&gt;\alpha&lt;/script&gt; of the gradient of the loss function &lt;script type=&quot;math/tex&quot;&gt;\nabla \mathcal{L}&lt;/script&gt;, in order to minimize the loss function.&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boldsymbol{w}_i = \boldsymbol{w}_{i-1} - \alpha\nabla \mathcal{L}(\boldsymbol{w}_{i-1})&lt;/script&gt;
     
     </summary>
     
@@ -125,8 +167,7 @@
         
         
           &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-&lt;p&gt;The &lt;code&gt;Word2Vec&lt;/code&gt; is an iteration based &lt;code&gt;Natural Language Proceessing&lt;/code&gt; (NLP) framework for
+&lt;p&gt;The &lt;code&gt;Word2Vec&lt;/code&gt; is an iteration based &lt;code&gt;Natural Language Proceessing&lt;/code&gt; (NLP) framework for learning
         
       
     
@@ -152,7 +193,6 @@
         
         
           &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
 &lt;h1 id=&quot;Hypothesis-Test-and-Confidence-Interval&quot;&gt;&lt;a href=&quot;#Hypothesis-Test-and-Confidence-Interval&quot; class=&quot;headerlink&quot;
         
       
@@ -179,7 +219,6 @@
         
         
           &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
 &lt;h1 id=&quot;Navigation&quot;&gt;&lt;a href=&quot;#Navigation&quot; class=&quot;headerlink&quot; title=&quot;Navigation&quot;&gt;&lt;/a&gt;&lt;span
         
       
@@ -363,8 +402,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;In this article I examine the risk-neutral pricing of a variance swap, which can be constructed with this elegant formula:
-$$\sigma^2_{strike} = \dfrac{2e^{rT}}{T}\Bigg[\int_0^{S_0e^{rT}} \dfrac{1}{K^2} P(K) dK + \int^{\infty}_{S_0e^{rT}} \dfrac{1}{K^2}C(K)dK\Bigg]$$&lt;/p&gt;
+      &lt;p&gt;In this article I examine the risk-neutral pricing of a variance swap, which can be constructed with this elegant formula:&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sigma^2_{strike} = \dfrac{2e^{rT}}{T}\Bigg[\int_0^{S_0e^{rT}} \dfrac{1}{K^2} P(K) dK + \int^{\infty}_{S_0e^{rT}} \dfrac{1}{K^2}C(K)dK\Bigg]&lt;/script&gt;
     
     </summary>
     
@@ -388,8 +427,6 @@ $$\sigma^2_{strike} = \dfrac{2e^{rT}}{T}\Bigg[\int_0^{S_0e^{rT}} \dfrac{1}{K^2} 
         
         
           &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-
 &lt;p&gt;A sublime view of the galaxy from the Barefoot Kuata Island. Shot with the &lt;a
         
       
@@ -473,8 +510,6 @@ $$\sigma^2_{strike} = \dfrac{2e^{rT}}{T}\Bigg[\int_0^{S_0e^{rT}} \dfrac{1}{K^2} 
         
         
           &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-
 &lt;p&gt;PCA finds low dimensional representation of a dataset that contains as much as possible of the variation. As each of
         
       
@@ -551,8 +586,7 @@ $$\sigma^2_{strike} = \dfrac{2e^{rT}}{T}\Bigg[\int_0^{S_0e^{rT}} \dfrac{1}{K^2} 
         
         
           &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-&lt;h1 id=&quot;Notation&quot;&gt;&lt;a href=&quot;#Notation&quot; class=&quot;headerlink&quot; title=&quot;Notation&quot;&gt;&lt;/a&gt;Notation&lt;/h1&gt;&lt;p&gt;Define $T(n)$ as the
+&lt;h1 id=&quot;Notation&quot;&gt;&lt;a href=&quot;#Notation&quot; class=&quot;headerlink&quot; title=&quot;Notation&quot;&gt;&lt;/a&gt;Notation&lt;/h1&gt;&lt;p&gt;Define &lt;script
         
       
     
@@ -561,54 +595,6 @@ $$\sigma^2_{strike} = \dfrac{2e^{rT}}{T}\Bigg[\int_0^{S_0e^{rT}} \dfrac{1}{K^2} 
     
     
       <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Peru &amp; Bolivia</title>
-    <link href="http://jackliu234.com/2019/04/peru-bolivia/"/>
-    <id>http://jackliu234.com/2019/04/peru-bolivia/</id>
-    <published>2019-04-01T05:00:00.000Z</published>
-    <updated>2019-09-13T23:03:18.563Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-
-&lt;p&gt;Pictures I took in Peru recently with my dated (but still awesome) Nikon D5100.
-&lt;img
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Travel" scheme="http://jackliu234.com/tags/Travel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>No-Limit Hold&#39;em: Starting Hand Analysis (1)</title>
-    <link href="http://jackliu234.com/2019/02/texas-holdem-strategies-t9/"/>
-    <id>http://jackliu234.com/2019/02/texas-holdem-strategies-t9/</id>
-    <published>2019-02-17T06:00:00.000Z</published>
-    <updated>2019-09-04T19:07:00.575Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;In this post I look at the starting hand of T&amp;spades;9&amp;spades;, analyzing typical post flop strategies with references from a few poker literatures.&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
     
   </entry>
   

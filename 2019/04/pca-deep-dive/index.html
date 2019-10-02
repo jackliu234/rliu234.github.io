@@ -1,172 +1,154 @@
 <!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>PCA: A Deeper Dive · Rongjia Liu</title><meta name="description" content="PCA: A Deeper Dive - Rongjia Liu"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/arctic.css"><link rel="search" type="application/opensearchdescription+xml" href="http://jackliu234.com/atom.xml" title="Rongjia Liu"><script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/archive/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/search/" target="_self" class="nav-list-link">SEARCH</a></li><!-- li.nav-list-item--><!--    a.nav-list-link(class="search" href=url_for("search") target="_self") <i class="fa fa-search" aria-hidden="true"></i>--></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">PCA: A Deeper Dive</h1><div class="post-info">Apr 27, 2019</div><div class="post-content"><a id="more"></a>
-
-
-<p>PCA finds low dimensional representation of a dataset that contains as much as possible of the variation. As each of the $n$ observations lives on a $p$-dimensional space, and not all dimensions are equally interesting.</p>
-<h1 id="Linear-Algebra-Review"><a href="#Linear-Algebra-Review" class="headerlink" title="Linear Algebra Review"></a>Linear Algebra Review</h1><p>Let $A$ be a $n\times n$ matrix. With $n=2, \ 3$, the <code>determinant</code> of $A$ can be calculated as follow.
-$$ det(\begin{bmatrix}
-    a &amp; b \
-    c &amp; d \
-\end{bmatrix} ) = ad - bc $$</p>
-<p>$$\begin{align} det ( \begin{bmatrix}
-    a &amp; b &amp; c \
-    d &amp; e &amp; f \
-    g &amp; h &amp; i \
-\end{bmatrix} ) &amp;= aei + bfg + cdh - cdg - bdi - afh \
-&amp;= a \times det(
+<p>PCA finds low dimensional representation of a dataset that contains as much as possible of the variation. As each of the <script type="math/tex">n</script> observations lives on a <script type="math/tex">p</script>-dimensional space, and not all dimensions are equally interesting.</p>
+<h1 id="Linear-Algebra-Review"><a href="#Linear-Algebra-Review" class="headerlink" title="Linear Algebra Review"></a>Linear Algebra Review</h1><p>Let <script type="math/tex">A</script> be a <script type="math/tex">n\times n</script> matrix. With <script type="math/tex">n=2, \ 3</script>, the <code>determinant</code> of <script type="math/tex">A</script> can be calculated as follow.</p>
+<script type="math/tex; mode=display">det(\begin{bmatrix}
+    a & b \\
+    c & d \\
+\end{bmatrix} ) = ad - bc</script><script type="math/tex; mode=display">\begin{align} det ( \begin{bmatrix}
+    a & b & c \\
+    d & e & f \\
+    g & h & i \\
+\end{bmatrix} ) &= aei + bfg + cdh - cdg - bdi - afh \\
+&= a \times det(
     \begin{bmatrix}
-        e &amp; f \
-        h &amp; i \
+        e & f \\
+        h & i \\
     \end{bmatrix}
     ) + b \times det(
         \begin{bmatrix}
-            d &amp; f \
-            g &amp; i \
+            d & f \\
+            g & i \\
         \end{bmatrix}
         ) + c \times det(
             \begin{bmatrix}
-                d &amp; e \
-                g &amp; h \
+                d & e \\
+                g & h \\
             \end{bmatrix}
-            ) \end{align}$$</p>
-<p>Properties of determinant:
-$$\begin{align} det(A^T) &amp;= det(A) \
-det(A^{-1}) &amp;= det(A)^{-1} \
-det(AB) &amp;= det(A)det(B) \end{align}$$</p>
-<p>A real number $\lambda$ is an <code>eigenvalue</code> of $A$ if there exists a non-zero vector $x$ (<code>eigenvector</code>) in $\mathbb{R}^n$ such that:</p>
-<p>$$Ax = \lambda x$$</p>
-<p>The determinant of matrix $A - \lambda I$ is called the <code>characteristic polynomial</code> of $A$. The equation $det(A - \lambda I)$ is called the <code>characteristic equation</code> of $A$, where the eigenvalues $\lambda$ are the real roots of the equation. It can be shown that:</p>
-<p>$$ \prod_{i=1}^n \lambda_i = det(A) \
-\sum_{i=1}^n \lambda_i = \sum_{i=1}^n a_{i, \ i} = trace(A) $$</p>
-<p>Matrix $A$ is <code>invertible</code> if there exists a $n\times n$ matrix $B$ such that $AB = BA = I$. A square matrix is invertible if and only if its determinant is non-zero. A non-square matrix do not have an inverse.</p>
-<p>Matrix $A$ is called <code>diagonalizable</code> if and only if it has linearly independent eigenvectors. Let $\textbf{U}$ denote the eigen vectors of A and $\textbf{D}$ denote the diagonal $\lambda$ vector. Then:</p>
-<p>$$A = \textbf{UDU}^{-1} \rightarrow A^x = \textbf{UD}^x\textbf{U}^{-1} $$</p>
-<p>If matrix $A$ is <code>symmetric</code>, then:</p>
+            ) \end{align}</script><p>Properties of determinant:</p>
+<script type="math/tex; mode=display">\begin{align} det(A^T) &= det(A) \\
+det(A^{-1}) &= det(A)^{-1} \\
+det(AB) &= det(A)det(B) \end{align}</script><p>A real number <script type="math/tex">\lambda</script> is an <code>eigenvalue</code> of <script type="math/tex">A</script> if there exists a non-zero vector <script type="math/tex">x</script> (<code>eigenvector</code>) in <script type="math/tex">\mathbb{R}^n</script> such that:</p>
+<script type="math/tex; mode=display">Ax = \lambda x</script><p>The determinant of matrix <script type="math/tex">A - \lambda I</script> is called the <code>characteristic polynomial</code> of <script type="math/tex">A</script>. The equation <script type="math/tex">det(A - \lambda I)</script> is called the <code>characteristic equation</code> of <script type="math/tex">A</script>, where the eigenvalues <script type="math/tex">\lambda</script> are the real roots of the equation. It can be shown that:</p>
+<script type="math/tex; mode=display">\prod_{i=1}^n \lambda_i = det(A) \\
+\sum_{i=1}^n \lambda_i = \sum_{i=1}^n a_{i, \ i} = trace(A)</script><p>Matrix <script type="math/tex">A</script> is <code>invertible</code> if there exists a <script type="math/tex">n\times n</script> matrix <script type="math/tex">B</script> such that <script type="math/tex">AB = BA = I</script>. A square matrix is invertible if and only if its determinant is non-zero. A non-square matrix do not have an inverse.</p>
+<p>Matrix <script type="math/tex">A</script> is called <code>diagonalizable</code> if and only if it has linearly independent eigenvectors. Let <script type="math/tex">\textbf{U}</script> denote the eigen vectors of A and <script type="math/tex">\textbf{D}</script> denote the diagonal <script type="math/tex">\lambda</script> vector. Then:</p>
+<script type="math/tex; mode=display">A = \textbf{UDU}^{-1} \rightarrow A^x = \textbf{UD}^x\textbf{U}^{-1}</script><p>If matrix <script type="math/tex">A</script> is <code>symmetric</code>, then:</p>
 <ul>
-<li>all eigenvalues of $A$ are real numbers</li>
-<li>all eigenvectors of $A$ from distinct eigenvalues are orthogonal</li>
+<li>all eigenvalues of <script type="math/tex">A</script> are real numbers</li>
+<li>all eigenvectors of <script type="math/tex">A</script> from distinct eigenvalues are orthogonal</li>
 </ul>
-<p>Matrix $A$ is <code>positive semi-definite</code> if and only if any of the following:</p>
+<p>Matrix <script type="math/tex">A</script> is <code>positive semi-definite</code> if and only if any of the following:</p>
 <ul>
-<li>for any $n\times 1$ matrix $x$, $x^TAx \geq 0$</li>
-<li>all eigenvalues of $A$ are non-negative</li>
-<li>all the upper left submatrices $A_K$ have non-negative determinants.</li>
+<li>for any <script type="math/tex">n\times 1</script> matrix <script type="math/tex">x</script>, <script type="math/tex">x^TAx \geq 0</script></li>
+<li>all eigenvalues of <script type="math/tex">A</script> are non-negative</li>
+<li>all the upper left submatrices <script type="math/tex">A_K</script> have non-negative determinants.</li>
 </ul>
-<p>Matrix $A$ is <code>positive definite</code> if and only if any of the following:</p>
+<p>Matrix <script type="math/tex">A</script> is <code>positive definite</code> if and only if any of the following:</p>
 <ul>
-<li>for any $n\times 1$ matrix $x$, $x^TAx &gt; 0$</li>
-<li>all eigenvalues of $A$ are positive</li>
-<li>all the upper left submatrices $A_K$ have positive determinants.</li>
+<li>for any <script type="math/tex">n\times 1</script> matrix <script type="math/tex">x</script>, <script type="math/tex">x^TAx > 0</script></li>
+<li>all eigenvalues of <script type="math/tex">A</script> are positive</li>
+<li>all the upper left submatrices <script type="math/tex">A_K</script> have positive determinants.</li>
 </ul>
 <p>All <code>covariance</code>, <code>correlation</code> matrices must be <code>symmetric</code> and <code>positive semi-definite</code>. If there is no perfect linear dependence between random variables, then it must be <code>positive definite</code>.</p>
-<p>Let $A$ be an invertible matrix, the <code>LU decomposition</code> breaks down $A$ as the product of a lower triangle matrix $L$ and upper triangle matrix $U$. Some applications are:</p>
+<p>Let <script type="math/tex">A</script> be an invertible matrix, the <code>LU decomposition</code> breaks down <script type="math/tex">A</script> as the product of a lower triangle matrix <script type="math/tex">L</script> and upper triangle matrix <script type="math/tex">U</script>. Some applications are:</p>
 <ul>
-<li>solve $Ax=b$: $LUx=b \rightarrow Ly=b \text{ ; } Ux=y$</li>
-<li>solve $det(A)$: $det(A) = det(L)\ det(U)=\prod L_{i, \ i}\prod U_{j, \ j}$</li>
+<li>solve <script type="math/tex">Ax=b</script>: <script type="math/tex">LUx=b \rightarrow Ly=b \text{ ; } Ux=y</script></li>
+<li>solve <script type="math/tex">det(A)</script>: <script type="math/tex">det(A) = det(L)\ det(U)=\prod L_{i, \ i}\prod U_{j, \ j}</script></li>
 </ul>
-<p>Let $A$ be a symmetric positive definite matrix, the <code>Cholesky decomponsition</code> expand on the <code>LU decomposition</code> and breaks down $A=U^TU$, where $U$ is a <code>unique</code> upper triangular matrix with positive diagonal entries. Cholesky decomposition can be used to generate correltaed random variables in Monte Carlo simulation</p>
-<h1 id="Matrix-Interpretation"><a href="#Matrix-Interpretation" class="headerlink" title="Matrix Interpretation"></a>Matrix Interpretation</h1><p>Consider a $n\times p$ matrix:</p>
-<p>$$\begin{bmatrix}
-    x_{11}       &amp; x_{12} &amp; x_{13} &amp; \dots &amp; x_{1p} \
-    x_{21}       &amp; x_{22} &amp; x_{23} &amp; \dots &amp; x_{2p} \
-    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \
-    x_{n1}       &amp; x_{n2} &amp; x_{n3} &amp; \dots &amp; x_{np}
-\end{bmatrix}$$</p>
-<p>To find the first principal component $F^1$, we define it as the normalized linear combination of $X$ that has the largest variance, where its <code>loading</code> $\phi^1_j$ are normalized: $\sum^p_{j=1} (\phi^1_j)^2 = 1$</p>
-<p>$$ F^1 = \phi^1_1X_1 + \phi^1_2X_2 + \dots + \phi^1_pX_p $$</p>
-<p>Or equivalently, for each <code>score</code>: $F^1_i = \sum_{j=1}^{p} \phi^1_jx_{ij}$</p>
-<p>In matrix form:
-$$\begin{bmatrix}
-    x_{11}       &amp; x_{12} &amp; x_{13} &amp; \dots &amp; x_{1p} \
-    x_{21}       &amp; x_{22} &amp; x_{23} &amp; \dots &amp; x_{2p} \
-    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \
-    x_{n1}       &amp; x_{n2} &amp; x_{n3} &amp; \dots &amp; x_{np}
+<p>Let <script type="math/tex">A</script> be a symmetric positive definite matrix, the <code>Cholesky decomponsition</code> expand on the <code>LU decomposition</code> and breaks down <script type="math/tex">A=U^TU</script>, where <script type="math/tex">U</script> is a <code>unique</code> upper triangular matrix with positive diagonal entries. Cholesky decomposition can be used to generate correltaed random variables in Monte Carlo simulation</p>
+<h1 id="Matrix-Interpretation"><a href="#Matrix-Interpretation" class="headerlink" title="Matrix Interpretation"></a>Matrix Interpretation</h1><p>Consider a <script type="math/tex">n\times p</script> matrix:</p>
+<script type="math/tex; mode=display">\begin{bmatrix}
+    x_{11}       & x_{12} & x_{13} & \dots & x_{1p} \\
+    x_{21}       & x_{22} & x_{23} & \dots & x_{2p} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    x_{n1}       & x_{n2} & x_{n3} & \dots & x_{np}
+\end{bmatrix}</script><p>To find the first principal component <script type="math/tex">F^1</script>, we define it as the normalized linear combination of <script type="math/tex">X</script> that has the largest variance, where its <code>loading</code> <script type="math/tex">\phi^1_j</script> are normalized: <script type="math/tex">\sum^p_{j=1} (\phi^1_j)^2 = 1</script></p>
+<script type="math/tex; mode=display">F^1 = \phi^1_1X_1 + \phi^1_2X_2 + \dots + \phi^1_pX_p</script><p>Or equivalently, for each <code>score</code>: <script type="math/tex">F^1_i = \sum_{j=1}^{p} \phi^1_jx_{ij}</script></p>
+<p>In matrix form:</p>
+<script type="math/tex; mode=display">\begin{bmatrix}
+    x_{11}       & x_{12} & x_{13} & \dots & x_{1p} \\
+    x_{21}       & x_{22} & x_{23} & \dots & x_{2p} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    x_{n1}       & x_{n2} & x_{n3} & \dots & x_{np}
 \end{bmatrix}\times
 \begin{bmatrix}
-    \phi^1_1 \
-    \phi^1_2 \
-    \vdots \
-    \phi^1_p \
+    \phi^1_1 \\
+    \phi^1_2 \\
+    \vdots \\
+    \phi^1_p \\
 \end{bmatrix}=
 \begin{bmatrix}
-    f^1_1 \
-    f^1_2 \
-    \vdots \
-    f^1_n \
-\end{bmatrix}$$</p>
-<p>Finally, the first principal component loading vector $\phi^1$ solves the optimization problem that maximize the sample variance of the scores $f^1$. An objective function can be formulated as follow and solved via an <code>eigen decomposition</code>:</p>
-<p>$$ \text{maximize }{\ \dfrac{1}{n}\sum_{i=1}^n(f^1_i)^2\ } \text{ subject to } \sum^p_{j=1} (\phi^1_j)^2 = 1$$</p>
-<p>To find the second principal component loading $\phi^2$, use the same objective function with $\phi^2$ replacement and include an additional constraint that $\phi^2$ is orthogonal to $\phi^1$.</p>
-<h1 id="Geometric-Interpretation"><a href="#Geometric-Interpretation" class="headerlink" title="Geometric Interpretation"></a>Geometric Interpretation</h1><p>The $p\times k$ <code>loading</code> matrix $L = [\phi^1 \dots \phi^k]$ defines a linear transformation that projects the data from the feature space $\mathbb{R}^p$ into a subspace $\mathbb{R}^k$, in which the data has the most variance. The result of the projection is the <code>factor</code> matrix $F = [F^1 \dots F^k]$, also known as the <code>principal components</code>.</p>
-<p>$$
+    f^1_1 \\
+    f^1_2 \\
+    \vdots \\
+    f^1_n \\
+\end{bmatrix}</script><p>Finally, the first principal component loading vector <script type="math/tex">\phi^1</script> solves the optimization problem that maximize the sample variance of the scores <script type="math/tex">f^1</script>. An objective function can be formulated as follow and solved via an <code>eigen decomposition</code>:</p>
+<script type="math/tex; mode=display">\text{maximize }\{\ \dfrac{1}{n}\sum_{i=1}^n(f^1_i)^2\ \} \text{ subject to } \sum^p_{j=1} (\phi^1_j)^2 = 1</script><p>To find the second principal component loading <script type="math/tex">\phi^2</script>, use the same objective function with <script type="math/tex">\phi^2</script> replacement and include an additional constraint that <script type="math/tex">\phi^2</script> is orthogonal to <script type="math/tex">\phi^1</script>.</p>
+<h1 id="Geometric-Interpretation"><a href="#Geometric-Interpretation" class="headerlink" title="Geometric Interpretation"></a>Geometric Interpretation</h1><p>The <script type="math/tex">p\times k</script> <code>loading</code> matrix <script type="math/tex">L = [\phi^1 \dots \phi^k]</script> defines a linear transformation that projects the data from the feature space <script type="math/tex">\mathbb{R}^p</script> into a subspace <script type="math/tex">\mathbb{R}^k</script>, in which the data has the most variance. The result of the projection is the <code>factor</code> matrix <script type="math/tex">F = [F^1 \dots F^k]</script>, also known as the <code>principal components</code>.</p>
+<script type="math/tex; mode=display">
 \underbrace{
     \begin{bmatrix}
-        x_{11}       &amp; x_{12} &amp; x_{13} &amp; \dots &amp; x_{1p} \
-        x_{21}       &amp; x_{22} &amp; x_{23} &amp; \dots &amp; x_{2p} \
-        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \
-        x_{n1}       &amp; x_{n2} &amp; x_{n3} &amp; \dots &amp; x_{np}
+        x_{11}       & x_{12} & x_{13} & \dots & x_{1p} \\
+        x_{21}       & x_{22} & x_{23} & \dots & x_{2p} \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        x_{n1}       & x_{n2} & x_{n3} & \dots & x_{np}
     \end{bmatrix}
-}<em>{data} \times
+}_{data} \times
 \underbrace{
     \begin{bmatrix}
-        \phi^1_1 &amp; \dots &amp; \phi^k_1\
-        \phi^1_2 &amp; \dots &amp; \phi^k_2\
-        \vdots &amp; \ddots &amp; \vdots \
-        \phi^1_p &amp; \dots &amp; \phi^k_p\
+        \phi^1_1 & \dots & \phi^k_1\\
+        \phi^1_2 & \dots & \phi^k_2\\
+        \vdots & \ddots & \vdots \\
+        \phi^1_p & \dots & \phi^k_p\\
     \end{bmatrix}
-}</em>{loadings}=
+}_{loadings}=
 \underbrace{
     \begin{bmatrix}
-        f^1_1 &amp; \dots &amp; f^k_1 \
-        f^1_2 &amp; \dots &amp; f^k_2 \
-        \vdots &amp; \ddots &amp; \vdots \
-        f^1_n &amp; \dots &amp; f^k_n \
+        f^1_1 & \dots & f^k_1 \\
+        f^1_2 & \dots & f^k_2 \\
+        \vdots & \ddots & \vdots \\
+        f^1_n & \dots & f^k_n \\
     \end{bmatrix}
-}_{\text{principal components} \
-\text{or, factor scores}}$$</p>
-<p>In other words, the principal components vectors $F^1 … F^k$ forms a low-dimensional linear subspace that are the closest (shortest average squared Euclidean distance) to the observations.</p>
-<h1 id="Eigen-Decomposition"><a href="#Eigen-Decomposition" class="headerlink" title="Eigen Decomposition"></a>Eigen Decomposition</h1><p>Given $n\times p$ data matrix $X$, the objective of <code>PCA</code> is to find a lower dimension representation factor matrix $F$, from which a $n\times p$ matrix $\tilde{X}$ can be constructed where distance between the covariance matrices $cov(X)$ and $cov(\tilde{X})$ are minimized.</p>
-<p>The covariance matrix of $X$ is a $p\times p$ symmetric positive semi-definite matrix, therefore we have the following decomposition where $\textbf{u}$’s’ are $p\times 1$ eigenvectors of $cov(X)$ and $\lambda$’s are the eigenvalues. Note that $\textbf{u}$ can be a zero vector if the columns of $cov(X)$ are linearly dependent.</p>
-<p>$$\begin{align}
-cov(X) &amp;= \dfrac{1}{n-1}X^TX \
-&amp;=\dfrac{1}{n-1}
+}_{\text{principal components} \\
+\text{or, factor scores}}</script><p>In other words, the principal components vectors <script type="math/tex">F^1 ... F^k</script> forms a low-dimensional linear subspace that are the closest (shortest average squared Euclidean distance) to the observations.</p>
+<h1 id="Eigen-Decomposition"><a href="#Eigen-Decomposition" class="headerlink" title="Eigen Decomposition"></a>Eigen Decomposition</h1><p>Given <script type="math/tex">n\times p</script> data matrix <script type="math/tex">X</script>, the objective of <code>PCA</code> is to find a lower dimension representation factor matrix <script type="math/tex">F</script>, from which a <script type="math/tex">n\times p</script> matrix <script type="math/tex">\tilde{X}</script> can be constructed where distance between the covariance matrices <script type="math/tex">cov(X)</script> and <script type="math/tex">cov(\tilde{X})</script> are minimized.</p>
+<p>The covariance matrix of <script type="math/tex">X</script> is a <script type="math/tex">p\times p</script> symmetric positive semi-definite matrix, therefore we have the following decomposition where <script type="math/tex">\textbf{u}</script>‘s’ are <script type="math/tex">p\times 1</script> eigenvectors of <script type="math/tex">cov(X)</script> and <script type="math/tex">\lambda</script>‘s are the eigenvalues. Note that <script type="math/tex">\textbf{u}</script> can be a zero vector if the columns of <script type="math/tex">cov(X)</script> are linearly dependent.</p>
+<script type="math/tex; mode=display">\begin{align}
+cov(X) &= \dfrac{1}{n-1}X^TX \\
+&=\dfrac{1}{n-1}
 \begin{bmatrix}
-    \textbf{u}<em>1 &amp; \dots &amp; \textbf{u}_p
+    \textbf{u}_1 & \dots & \textbf{u}_p
 \end{bmatrix}
 \begin{bmatrix}
-    \lambda_1 &amp; \dots &amp; 0 \
-    \vdots &amp; \ddots &amp; \vdots \
-    0 &amp; \dots &amp; \lambda_p
+    \lambda_1 & \dots & 0 \\
+    \vdots & \ddots & \vdots \\
+    0 & \dots & \lambda_p
 \end{bmatrix}
 \begin{bmatrix}
-    \textbf{u}_1 &amp; \dots &amp; \textbf{u}_p
-\end{bmatrix}^T \
-&amp;= \dfrac{1}{n-1}\sum</em>{i=1}^p \lambda_i\textbf{u}_i\textbf{u}_i^T \end{align}$$</p>
-<p>If we ignore the constant $1/(n-1)$, and define the $p\times p$ <code>loading</code> matrix $L_0=[\textbf{u}_1, \dots, \textbf{u}_p]$ and $n\times p$ <code>factor</code> matrix $F_0$ where $F_0^TF_0=\Lambda$. Then:</p>
-<p>$$X = F_0L_0^T$$</p>
-<p>Now comes the <code>PCA</code> idea: Let’s rank the $\lambda_i$’s in descending order, pick $k &lt; p$ such that:</p>
-<p>$$ \dfrac{1}{n-1}\sum_{i=1}^{k} \lambda_i\textbf{u}<em>i\textbf{u}_i^T \approx \dfrac{1}{n-1}\sum</em>{i=1}^p \lambda_i\textbf{u}<em>i\textbf{u}_i^T = cov(X) \
-\text{and we denote it } cov(\tilde{X}) \text{, i.e. } cov(\tilde{X}) = \dfrac{1}{n-1}\sum</em>{i=1}^{k} \lambda_i\textbf{u}_i\textbf{u}_i^T$$</p>
-<p>Now we observe that the matrix $cov(\tilde{X})$ is also a $p\times p$ positive semi-definite matrix. Following similar decomposition, we obtain a $p\times k$ matrix $L$ and $n\times k$ matrix $F$, where:</p>
-<p>$$ \tilde{X} = FL^T $$</p>
-<p>Here we have it, a dimension-reduced $n\times k$ factor matrix $F$, where its projection back to $n\times p$ space, $\tilde{X}$, has similar covariance as the original $n\times p$ dataset $X$.</p>
+    \textbf{u}_1 & \dots & \textbf{u}_p
+\end{bmatrix}^T \\
+&= \dfrac{1}{n-1}\sum_{i=1}^p \lambda_i\textbf{u}_i\textbf{u}_i^T \end{align}</script><p>If we ignore the constant <script type="math/tex">1/(n-1)</script>, and define the <script type="math/tex">p\times p</script> <code>loading</code> matrix <script type="math/tex">L_0=[\textbf{u}_1, \dots, \textbf{u}_p]</script> and <script type="math/tex">n\times p</script> <code>factor</code> matrix <script type="math/tex">F_0</script> where <script type="math/tex">F_0^TF_0=\Lambda</script>. Then:</p>
+<script type="math/tex; mode=display">X = F_0L_0^T</script><p>Now comes the <code>PCA</code> idea: Let’s rank the <script type="math/tex">\lambda_i</script>‘s in descending order, pick <script type="math/tex">k < p</script> such that:</p>
+<script type="math/tex; mode=display">\dfrac{1}{n-1}\sum_{i=1}^{k} \lambda_i\textbf{u}_i\textbf{u}_i^T \approx \dfrac{1}{n-1}\sum_{i=1}^p \lambda_i\textbf{u}_i\textbf{u}_i^T = cov(X) \\
+\text{and we denote it } cov(\tilde{X}) \text{, i.e. } cov(\tilde{X}) = \dfrac{1}{n-1}\sum_{i=1}^{k} \lambda_i\textbf{u}_i\textbf{u}_i^T</script><p>Now we observe that the matrix <script type="math/tex">cov(\tilde{X})</script> is also a <script type="math/tex">p\times p</script> positive semi-definite matrix. Following similar decomposition, we obtain a <script type="math/tex">p\times k</script> matrix <script type="math/tex">L</script> and <script type="math/tex">n\times k</script> matrix <script type="math/tex">F</script>, where:</p>
+<script type="math/tex; mode=display">\tilde{X} = FL^T</script><p>Here we have it, a dimension-reduced <script type="math/tex">n\times k</script> factor matrix <script type="math/tex">F</script>, where its projection back to <script type="math/tex">n\times p</script> space, <script type="math/tex">\tilde{X}</script>, has similar covariance as the original <script type="math/tex">n\times p</script> dataset <script type="math/tex">X</script>.</p>
 <h1 id="Practical-Considerations"><a href="#Practical-Considerations" class="headerlink" title="Practical Considerations"></a>Practical Considerations</h1><p>PCA excels at identifying <code>latent</code> variables from the <code>measurable</code> variables. PCA can only be applied to <code>numeric</code> data, while categorical variables need to be binarized beforehand.</p>
 <ul>
 <li><p><code>Centering</code>: yes.</p>
 </li>
 <li><p><code>Scaling</code>:</p>
 <ul>
-<li>if the range and scale of the variables are different, <code>correlation matrix</code> is typically used to perform PCA, i.e. each variables are scaled to have standard deviation of $1$</li>
+<li>if the range and scale of the variables are different, <code>correlation matrix</code> is typically used to perform PCA, i.e. each variables are scaled to have standard deviation of <script type="math/tex">1</script></li>
 <li>otherwise if the variables are in the same units of measure, using the <code>covariance matrix</code> (not standardizing) the variables could reveal interesting properties of the data</li>
 </ul>
 </li>
-<li><p><code>Uniqueness</code>: each loading vector $\phi^1$ is unique up to a sign flip, as the it can take on opposite direction in the same subspace. Same applies to the score vector $Z^1$, as $var(Z^1) = var(-Z^1)$</p>
+<li><p><code>Uniqueness</code>: each loading vector <script type="math/tex">\phi^1</script> is unique up to a sign flip, as the it can take on opposite direction in the same subspace. Same applies to the score vector <script type="math/tex">Z^1</script>, as <script type="math/tex">var(Z^1) = var(-Z^1)</script></p>
 </li>
-<li><p><code>Propotional of Variance Explained</code>: we can compute the total variance in a data set in the first formula below. The variance explained by the $m$-th principal component is: $\dfrac{1}{n} \sum_{i=1}^n (z^m_i)^2$. Therefore, the second formula can be computed for the $PVE$:</p>
+<li><p><code>Propotional of Variance Explained</code>: we can compute the total variance in a data set in the first formula below. The variance explained by the <script type="math/tex">m</script>-th principal component is: <script type="math/tex">\dfrac{1}{n} \sum_{i=1}^n (z^m_i)^2</script>. Therefore, the second formula can be computed for the <script type="math/tex">PVE</script>:</p>
 </li>
 </ul>
-<p>$$ \sum_{j=1}^p Var(X_j) = \sum_{j=1}^p [ \dfrac{1}{n} \sum_{i=1}^n x^2_{ij} ] \
-PVE^m = \dfrac{\sum_{i=1}^n (z^m_i)^2}{\sum_{j=1}^p\sum_{i=1}^n x^2_{ij}} $$</p>
-<p><br><br><br></p>
+<script type="math/tex; mode=display">\sum_{j=1}^p Var(X_j) = \sum_{j=1}^p [ \dfrac{1}{n} \sum_{i=1}^n x^2_{ij} ] \\
+PVE^m = \dfrac{\sum_{i=1}^n (z^m_i)^2}{\sum_{j=1}^p\sum_{i=1}^n x^2_{ij}}</script><p><br><br><br></p>
 <p>Reference:</p>
 <ul>
 <li>An Introduction to Statistical Learning with Applications in R, James, Witten, Hastie and Tibshirani</li>

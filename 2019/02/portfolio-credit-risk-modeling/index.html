@@ -1,5 +1,4 @@
 <!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Notes on Credit Risk · Rongjia Liu</title><meta name="description" content="Notes on Credit Risk - Rongjia Liu"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/arctic.css"><link rel="search" type="application/opensearchdescription+xml" href="http://jackliu234.com/atom.xml" title="Rongjia Liu"><script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/archive/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/search/" target="_self" class="nav-list-link">SEARCH</a></li><!-- li.nav-list-item--><!--    a.nav-list-link(class="search" href=url_for("search") target="_self") <i class="fa fa-search" aria-hidden="true"></i>--></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Notes on Credit Risk</h1><div class="post-info">Feb 12, 2019</div><div class="post-content"><a id="more"></a>
-
 <h1 id="Standard-Simulation-Model-on-Credit-Portfolio"><a href="#Standard-Simulation-Model-on-Credit-Portfolio" class="headerlink" title="Standard Simulation Model on Credit Portfolio"></a>Standard Simulation Model on Credit Portfolio</h1><h2 id="Credit-Risk"><a href="#Credit-Risk" class="headerlink" title="Credit Risk"></a>Credit Risk</h2><p>Lenders, such as banks, are subject to many kinds of risks. among which credit risk is the most likely to cause bank failure.</p>
 <ul>
 <li>Credit risk</li>
@@ -7,14 +6,12 @@
 <li>Operation risk</li>
 <li>Reputation risk</li>
 </ul>
-<br>
-
+<p><br></p>
 <p>Each loan is part of a legal agreement that requires the borrower to pay interest and repay principle on schedule, while some borrowers are required to obey specified <code>covenants</code>, such as maintaining earning above a certain threshold.</p>
 <p>If the borrower fails to follow the agreement, the lender holds the borrower to be in default, which can be <code>money default</code> or <code>covenant default</code>. Purchaser of public bonds only experiences money default.</p>
 <p>At default, the loan agreement calls for fee to be paid by the borrower, gives the bank power to seize collateral (for <code>secured loans</code>), and has a <code>cross default</code> provision (where all loans are in default once one loan is in default).</p>
 <p>In the 20th century, most banks did not define default until they discovered a model that could help them manage credit risk.</p>
-<br>
-
+<p><br></p>
 <h2 id="Rating-Agencies"><a href="#Rating-Agencies" class="headerlink" title="Rating Agencies"></a>Rating Agencies</h2><p>There are 3 major <code>Nationally Recognized Statistical Rating Organizations</code> (NRSRO) to which firms pay to rate their bonds to increase liquidity.</p>
 <ul>
 <li>Standard &amp; Poor</li>
@@ -28,96 +25,56 @@
 <li>Selectively defaulted: SD</li>
 <li>Defaulted: D</li>
 </ul>
-<br>
-
+<p><br></p>
 <h2 id="D-and-PD"><a href="#D-and-PD" class="headerlink" title="D and PD"></a>D and PD</h2><p>Let <code>D</code> be the default indicator of a loan, taking only two values: 0 and 1. <code>PD</code> is the probability of default annually.</p>
-<p>$$PD = P[D = 1] = \mathbb{E}D$$</p>
-<p>By mathematical identity:</p>
+<script type="math/tex; mode=display">PD = P[D = 1] = \mathbb{E}D</script><p>By mathematical identity:</p>
 <ul>
 <li>Knowing PD, we can simulate D by a Bernoulli Distribution with parameter as PD.</li>
 <li>Given data on D, we can calculate the implied PD.</li>
 </ul>
 <p>In a portfolio of N firms, the portfolio default rate, DR, equals:</p>
-<p>$$DR = \dfrac{\sum{D}}{N}$$</p>
-<br>
-
+<script type="math/tex; mode=display">DR = \dfrac{\sum{D}}{N}</script><p><br></p>
 <h2 id="Exposure-Recovery-and-LGD"><a href="#Exposure-Recovery-and-LGD" class="headerlink" title="Exposure, Recovery and LGD"></a>Exposure, Recovery and LGD</h2><p><code>Exposure</code> is the amount that is owed to the borrowers. <code>Recovery</code> is measured in either of two ways:</p>
 <ul>
 <li>Market price of the loan at the time of default</li>
 <li>Discounted future cash flows back to the time of default</li>
 </ul>
-<br>
-
+<p><br></p>
 <p><code>LGD</code> (Loss Given Defaults) is a random variable with values usually between 0 and 1:</p>
-<p>$$LGD = 1 - \dfrac{Recovery}{Exposure}$$</p>
-<p>For a defaulted loan, there are two ways to measure recovery/LGD. For a current loan, there is a distribution for LGD. The expectation is written as:</p>
-<p>$$\mathbb{E}LGD$$</p>
-<p>US investment grade bond LGD is about 0.20%, while non-investment grade is about 3.60%. Bank loans are almost alwasy senior to bonds and have lower LGD.
-<br></p>
+<script type="math/tex; mode=display">LGD = 1 - \dfrac{Recovery}{Exposure}</script><p>For a defaulted loan, there are two ways to measure recovery/LGD. For a current loan, there is a distribution for LGD. The expectation is written as:</p>
+<script type="math/tex; mode=display">\mathbb{E}LGD</script><p>US investment grade bond LGD is about 0.20%, while non-investment grade is about 3.60%. Bank loans are almost alwasy senior to bonds and have lower LGD.<br><br></p>
 <h2 id="Loss-and-EL"><a href="#Loss-and-EL" class="headerlink" title="Loss and EL"></a>Loss and EL</h2><p><code>Loss</code> is measured as a fraction of exposure:</p>
-<p>$$Loss = D \times LGD$$</p>
-<p><code>EL</code> is the expected loss. Because D and LGD are indepndent, so:</p>
-<p>$$\mathbb{E}L = \mathbb{E}[D \times LGD] = PD \times \mathbb{E}LGD$$</p>
-<p>Lenders often need to estimate and include <code>EL</code> in the spread they charged.</p>
-<p>$$Spread = RiskFreeRate + \mathbb{E}L$$</p>
-<br>
-
+<script type="math/tex; mode=display">Loss = D \times LGD</script><p><code>EL</code> is the expected loss. Because D and LGD are indepndent, so:</p>
+<script type="math/tex; mode=display">\mathbb{E}L = \mathbb{E}[D \times LGD] = PD \times \mathbb{E}LGD</script><p>Lenders often need to estimate and include <code>EL</code> in the spread they charged.</p>
+<script type="math/tex; mode=display">Spread = RiskFreeRate + \mathbb{E}L</script><p><br></p>
 <h2 id="Change-Of-Variable"><a href="#Change-Of-Variable" class="headerlink" title="Change Of Variable"></a>Change Of Variable</h2><p>Note the LGD is often measured in fractions. To change the measure to dollar amount, we need to use the Chain Rule.</p>
 <p>Given the pdf of LGD:</p>
-<p>$$pdf_{LGD}[x]$$</p>
-<p>We define the function g such that:</p>
-<p>$$LGD^{dollar} = g(LGD) = LGD \times Exposure$$</p>
-<p>Hence the function g-inverse is:</p>
-<p>$$LGD = g^{-1}(LGD^{dollar}) = \dfrac{1}{Exposure} \times LGD^{dollar}$$</p>
-<p>The partial derivative can be expressed as:</p>
-<p>$$\dfrac{\partial g^{-1}(x)}{\partial x} = \dfrac{1}{Exposure} $$</p>
-<br>
-
+<script type="math/tex; mode=display">pdf_{LGD}[x]</script><p>We define the function g such that:</p>
+<script type="math/tex; mode=display">LGD^{dollar} = g(LGD) = LGD \times Exposure</script><p>Hence the function g-inverse is:</p>
+<script type="math/tex; mode=display">LGD = g^{-1}(LGD^{dollar}) = \dfrac{1}{Exposure} \times LGD^{dollar}</script><p>The partial derivative can be expressed as:</p>
+<script type="math/tex; mode=display">\dfrac{\partial g^{-1}(x)}{\partial x} = \dfrac{1}{Exposure}</script><p><br></p>
 <p>By definition:</p>
-<p>$$cdf_{LGD^{dollar}}[x] = P[LGD^{dollar} &lt; x] = P[LGD &lt; g^{-1}(x)] = cdf_{LGD}[g^{-1}(x)]$$</p>
-<p>Taking derivative on both sides and with chain rule:</p>
-<p>$$pdf_{LGD^{dollar}}[x] = pdf_{LGD}[g^{-1}(x)] \times |\dfrac{\partial g^{-1}(x)}{\partial x}|$$</p>
-<p>Finally:</p>
-<p>$$pdf_{LGD^{dollar}}[x] = pdf_{LGD}[\dfrac{x}{Exposure}] \times \dfrac{1}{Exposure} $$</p>
-<br>
-
+<script type="math/tex; mode=display">cdf_{LGD^{dollar}}[x] = P[LGD^{dollar} < x] = P[LGD < g^{-1}(x)] = cdf_{LGD}[g^{-1}(x)]</script><p>Taking derivative on both sides and with chain rule:</p>
+<script type="math/tex; mode=display">pdf_{LGD^{dollar}}[x] = pdf_{LGD}[g^{-1}(x)] \times |\dfrac{\partial g^{-1}(x)}{\partial x}|</script><p>Finally:</p>
+<script type="math/tex; mode=display">pdf_{LGD^{dollar}}[x] = pdf_{LGD}[\dfrac{x}{Exposure}] \times \dfrac{1}{Exposure}</script><p><br></p>
 <h2 id="Simulate-Portfolio-Loss-On-One-Single-Loan"><a href="#Simulate-Portfolio-Loss-On-One-Single-Loan" class="headerlink" title="Simulate Portfolio Loss On One Single Loan"></a>Simulate Portfolio Loss On One Single Loan</h2><p>We know that:</p>
-<p>$$Loss = D \times LGD$$</p>
-<p>To simulate loss, we first simulate D:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Draw x ~ Uniform[0, 1]</span><br><span class="line">    If x &lt; PD, then D = 1</span><br><span class="line">    Else D = 0</span><br></pre></td></tr></table></figure>
-
+<script type="math/tex; mode=display">Loss = D \times LGD</script><p>To simulate loss, we first simulate D:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Draw x ~ Uniform[0, 1]</span><br><span class="line">    If x &lt; PD, then D = 1</span><br><span class="line">    Else D = 0</span><br></pre></td></tr></table></figure></p>
 <p>Then simulate LGD based on the pdf of LGD. Multiple each D and LGD to get Loss. Repeat the process to produce a distribution of Loss.</p>
-<br>
-
+<p><br></p>
 <h2 id="Simulate-Portfolio-Loss-On-N-Independent-Loan"><a href="#Simulate-Portfolio-Loss-On-N-Independent-Loan" class="headerlink" title="Simulate Portfolio Loss On N Independent Loan"></a>Simulate Portfolio Loss On N Independent Loan</h2><p>Assume the default of each of the N loan is independent and have the same probability of default, PD:</p>
-<p>$$D_{i} \sim Bernoulli[PD]$$</p>
-<p>Then the total number of defaults follows binomial distribution:</p>
-<p>$$\sum D_{i} \sim Binomial(PD, N)$$</p>
-<p>$$var\sum D_{i} = N \times PD \times (1-PD)$$</p>
-<p>However, based on historically data, the variance is much higher than that of the binomial distribution. Hence default correltion needs to be introduced.</p>
-<br>
-
+<script type="math/tex; mode=display">D_{i} \sim Bernoulli[PD]</script><p>Then the total number of defaults follows binomial distribution:</p>
+<script type="math/tex; mode=display">\sum D_{i} \sim Binomial(PD, N)</script><script type="math/tex; mode=display">var\sum D_{i} = N \times PD \times (1-PD)</script><p>However, based on historically data, the variance is much higher than that of the binomial distribution. Hence default correltion needs to be introduced.</p>
+<p><br></p>
 <h2 id="Simulate-Portfolio-Loss-On-N-Correlated-Loan"><a href="#Simulate-Portfolio-Loss-On-N-Correlated-Loan" class="headerlink" title="Simulate Portfolio Loss On N Correlated Loan"></a>Simulate Portfolio Loss On N Correlated Loan</h2><p>Assume that there is a latent unobserved variable z<sub>i</sub> that is responsible for the default of firm i, i.e. firm i defaults if:</p>
-<p>$$z_{i} &lt; \Phi^{-1}(PD_{i})$$</p>
-<p>Assume any two firms i and j are jointly normal. Denote the correlation between z<sub>i</sub> and z<sub>j</sub>:</p>
-<p>$$ \rho_{i, j} $$</p>
-<p>Let r<sub>i, j</sub> be the correlation between asset return of firm i and j, we know that almost certainly:</p>
-<p>$$ \rho_{i, j} &lt; r_{i, j} $$</p>
-<p>Denote <code>PDJ</code> as the probability that both firm i and j default:</p>
-<p>$$ PDJ = P[D_{i} = 1, D_{j} = 1] = \int_{-\infty}^{\Phi^{-1}[PD_{i}]} \int_{-\infty}^{\Phi^{-1}[PD_{j}]} \phi_{2}(z_{i}, z_{j}, \rho_{i, j}) ,dx,dy $$</p>
-<p>To calculate PDJ with python:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> multivariate_normal</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PD1, PD2 = <span class="number">0.1</span>, <span class="number">0.2</span></span><br><span class="line">mean = [<span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">cov = [[<span class="number">1</span>, <span class="number">.5</span>], [<span class="number">.5</span>, <span class="number">1</span>]]</span><br><span class="line"></span><br><span class="line">result = multivariate_normal(mean, cov)</span><br><span class="line">PDJ = round(result.cdf(np.array([norm.ppf(PD1),</span><br><span class="line">                                 norm.ppf(PD2)])), <span class="number">4</span>)</span><br><span class="line">print(<span class="string">"Pr[D1=1, D2=1]:"</span>, PDJ)</span><br></pre></td></tr></table></figure>
-
-<p>Returns:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pr[D1=<span class="number">1</span>, D2=<span class="number">1</span>]: <span class="number">0.0515</span></span><br></pre></td></tr></table></figure>
-
+<script type="math/tex; mode=display">z_{i} < \Phi^{-1}(PD_{i})</script><p>Assume any two firms i and j are jointly normal. Denote the correlation between z<sub>i</sub> and z<sub>j</sub>:</p>
+<script type="math/tex; mode=display">\rho_{i, j}</script><p>Let r<sub>i, j</sub> be the correlation between asset return of firm i and j, we know that almost certainly:</p>
+<script type="math/tex; mode=display">\rho_{i, j} < r_{i, j}</script><p>Denote <code>PDJ</code> as the probability that both firm i and j default:</p>
+<script type="math/tex; mode=display">PDJ = P[D_{i} = 1, D_{j} = 1] = \int_{-\infty}^{\Phi^{-1}[PD_{i}]} \int_{-\infty}^{\Phi^{-1}[PD_{j}]} \phi_{2}(z_{i}, z_{j}, \rho_{i, j}) \,dx\,dy</script><p>To calculate PDJ with python:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> multivariate_normal</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PD1, PD2 = <span class="number">0.1</span>, <span class="number">0.2</span></span><br><span class="line">mean = [<span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">cov = [[<span class="number">1</span>, <span class="number">.5</span>], [<span class="number">.5</span>, <span class="number">1</span>]]</span><br><span class="line"></span><br><span class="line">result = multivariate_normal(mean, cov)</span><br><span class="line">PDJ = round(result.cdf(np.array([norm.ppf(PD1),</span><br><span class="line">                                 norm.ppf(PD2)])), <span class="number">4</span>)</span><br><span class="line">print(<span class="string">"Pr[D1=1, D2=1]:"</span>, PDJ)</span><br></pre></td></tr></table></figure></p>
+<p>Returns:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pr[D1=<span class="number">1</span>, D2=<span class="number">1</span>]: <span class="number">0.0515</span></span><br></pre></td></tr></table></figure></p>
 <p>Now that we have the D<sub>i</sub>, we can simulate portfolio loss rate, given the LGD distribution and exposures for each firm.</p>
-<p>$$ Portfolio Loss Rate = \dfrac{\sum D_{i} \times LGD_{i} \times Exposure_{i}}{\sum Exposure}$$</p>
-<p>Denote <code>Dcorr</code> to be the correlation between D<sub>i</sub> and D<sub>j</sub>:</p>
-<p>$$Dcorr[D_{i}, D_{j}] = \dfrac{cov[D_{i}, D_{j}]}{\sqrt{var[D_{i}]var[D_{j}]}}  \\
-= \dfrac{PDJ - PD_{i}PD_{j}}{\sqrt{PD_{i}(1-PD_{i})PD_{j} (1-PD_{j})}}$$</p>
-<br>
-
+<script type="math/tex; mode=display">Portfolio Loss Rate = \dfrac{\sum D_{i} \times LGD_{i} \times Exposure_{i}}{\sum Exposure}</script><p>Denote <code>Dcorr</code> to be the correlation between D<sub>i</sub> and D<sub>j</sub>:</p>
+<script type="math/tex; mode=display">Dcorr[D_{i}, D_{j}] = \dfrac{cov[D_{i}, D_{j}]}{\sqrt{var[D_{i}]var[D_{j}]}}  \\\\
+= \dfrac{PDJ - PD_{i}PD_{j}}{\sqrt{PD_{i}(1-PD_{i})PD_{j} (1-PD_{j})}}</script><p><br></p>
 <p>Note that holding PD<sub>i</sub>, PD<sub>j</sub> fixed:</p>
 <ul>
 <li>greater <code>Dcorr</code> =&gt; greater <code>PDJ</code></li>
@@ -126,67 +83,45 @@
 </ul>
 </li>
 </ul>
-<br>
-
+<p><br></p>
 <h2 id="Copula"><a href="#Copula" class="headerlink" title="Copula"></a>Copula</h2><p>When we model more than three firms, pair-wise correlation is not enough to determine the entire distribution of outcomes. For example, there are N PD’s and N(N-1)/2 pair-wise correlations while we want to calculate 2<sup>N</sup> outcomes. Hence we introduce the <code>Gauss copula</code> which helps describe the group-wise correlations.</p>
 <p>Consider a set of multivariate normals:</p>
-<p>$$ (Z_1, Z_2, …, Z_N) $$</p>
-<p>The quantiles of the set are uniformly distributed by definition:</p>
-<p>$$ (\Phi(Z_1), \Phi(Z_2), …, \Phi(Z_N)) \sim (U_1, U_2,, …, U_3)$$</p>
-<p>The <code>copula</code> of the set (Z<sub>1</sub>, Z<sub>2</sub>, …, Z<sub>N</sub>) is defined as the joint cumulative distribution function of (&#934;(Z<sub>1</sub>), &#934;(Z<sub>2</sub>), …, &#934;(Z<sub>N</sub>)):</p>
-<p>$$\mathbb{C}<em>{Z_i}(\vec{x}) = cdf</em>{\Phi(\vec{Z_i})}(\vec{x}) \\
-= P[\Phi(Z_1) \leq x_1, \Phi(Z_2) \leq x_2, …, \Phi(Z_N) \leq x_N] \\
-= P[Z_1 \leq \Phi^{-1}(x_1), Z_2 \leq \Phi^{-1}(x_2), …, Z_N \leq \Phi^{-1}(x_3)] \\
-=cdf_{\vec{Z_i}}(\Phi^{-1}(\vec{x}))$$</p>
-<p>The <code>Gauss copula</code> is as follow. Note that among all possible copula, the Central Limit Theorem defines and supports the Gauss copula:</p>
-<p>$$ \mathbb{C}^{Gauss}<em>{Z_i}(\vec{x}) = cdf^{Gauss}</em>{\vec{Z_i}}(\Phi^{-1}(\vec{x})) = \Phi(\Phi^{-1}(x_1), \Phi^{-1}(x_2), … , \Phi^{-1}(x_N))$$</p>
-<br>
-
+<script type="math/tex; mode=display">(Z_1, Z_2, ..., Z_N)</script><p>The quantiles of the set are uniformly distributed by definition:</p>
+<script type="math/tex; mode=display">(\Phi(Z_1), \Phi(Z_2), ..., \Phi(Z_N)) \sim (U_1, U_2,, ..., U_3)</script><p>The <code>copula</code> of the set (Z<sub>1</sub>, Z<sub>2</sub>, …, Z<sub>N</sub>) is defined as the joint cumulative distribution function of (&#934;(Z<sub>1</sub>), &#934;(Z<sub>2</sub>), …, &#934;(Z<sub>N</sub>)):</p>
+<script type="math/tex; mode=display">\mathbb{C}_{Z_i}(\vec{x}) = cdf_{\Phi(\vec{Z_i})}(\vec{x}) \\\\
+= P[\Phi(Z_1) \leq x_1, \Phi(Z_2) \leq x_2, ..., \Phi(Z_N) \leq x_N] \\\\
+= P[Z_1 \leq \Phi^{-1}(x_1), Z_2 \leq \Phi^{-1}(x_2), ..., Z_N \leq \Phi^{-1}(x_3)] \\\\
+=cdf_{\vec{Z_i}}(\Phi^{-1}(\vec{x}))</script><p>The <code>Gauss copula</code> is as follow. Note that among all possible copula, the Central Limit Theorem defines and supports the Gauss copula:</p>
+<script type="math/tex; mode=display">\mathbb{C}^{Gauss}_{Z_i}(\vec{x}) = cdf^{Gauss}_{\vec{Z_i}}(\Phi^{-1}(\vec{x})) = \Phi(\Phi^{-1}(x_1), \Phi^{-1}(x_2), ... , \Phi^{-1}(x_N))</script><p><br></p>
 <p>In fact, the copula does not contain any information on the marginal distribution. Here we set the marginal distribution F<sub>Z</sub> to follow standard normal only as an example, but it can be anything continuous such that:</p>
-<p>$$ F(Z_i) \sim U_i$$</p>
-<p>And so:</p>
-<p>$$\mathbb{C}<em>{Z_i}(\vec{x}) = cdf</em>{F(\vec{Z_i})}(\vec{x}) \\
-= P[F(Z_1) \leq x_1, F(Z_2) \leq x_2, …, F(Z_N) \leq x_N] \\
-= P[Z_1 \leq F^{-1}(x_1), Z_2 \leq F^{-1}(x_2), …, Z_N \leq F^{-1}(x_N)] \\
-=cdf_{\vec{Z_i}}(F^{-1}(\vec{x}))$$</p>
-<p><br><br></p>
+<script type="math/tex; mode=display">F(Z_i) \sim U_i</script><p>And so:</p>
+<script type="math/tex; mode=display">\mathbb{C}_{Z_i}(\vec{x}) = cdf_{F(\vec{Z_i})}(\vec{x}) \\\\
+= P[F(Z_1) \leq x_1, F(Z_2) \leq x_2, ..., F(Z_N) \leq x_N] \\\\
+= P[Z_1 \leq F^{-1}(x_1), Z_2 \leq F^{-1}(x_2), ..., Z_N \leq F^{-1}(x_N)] \\\\
+=cdf_{\vec{Z_i}}(F^{-1}(\vec{x}))</script><p><br><br></p>
 <p>In the context of default modeling, we assume that each company’s default follows Bernoulli and simulate with standard normal distribution:</p>
-<p>$$P[D_{i}=1] = P[Z_{i}&lt;\Phi^{-1}(PD_{i})] = PD_{i} \\  P[D_{i}=0] = P[Z_{i}\geq\Phi^{-1}(PD_{i})] = 1-PD_{i}$$</p>
-<p>The probability of all firms default at the same time is by definition:</p>
-<p>$$P[\vec{D}=1] = cdf_{\vec{Z_i}}(\Phi^{-1}(\vec{PD}))$$</p>
-<p>Note that given a pair-wise correlation matrix &Sigma;, this probability can take any values between 0 and the lowest single firm default probability.</p>
-<p>$$P[\vec{D}=1] \in [0, min(\vec{PD_{i}})]$$</p>
-<p>Now we assume all firms’z are connected by the <code>Gauss copula</code>, which suggests a single value for the probability of all defaulting.</p>
-<p>$$\mathbb{C}^{Gauss}<em>{Z_i}(\vec{PD}) = cdf^{Gauss}</em>{\vec{Z_i}}(\Phi^{-1}(\vec{PD})) = \int_V \phi_{N}[\vec{z_{i}}, \Sigma] ,d\vec{z_{i}} \\
-V = \cup_{i = 1}^{N} ,, (-\infty, \Phi^{-1}(PD_i)]$$</p>
-<br>
-
-<p>With python we can either numerically evaluate the integral or use simulation to calculate the probability that all firms default at the same time.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> multivariate_normal</span><br><span class="line"></span><br><span class="line">np.random.seed(<span class="number">9999</span>)</span><br><span class="line">PD = [<span class="number">.5</span>, <span class="number">.4</span>, <span class="number">.3</span>, <span class="number">.2</span>, <span class="number">.1</span>]</span><br><span class="line">mean = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">cov = [[<span class="number">1</span>, <span class="number">.05</span>, <span class="number">.1</span>, <span class="number">.15</span>, <span class="number">.2</span>],</span><br><span class="line">       [<span class="number">.05</span>, <span class="number">1</span>, <span class="number">.25</span>, <span class="number">.3</span>, <span class="number">.35</span>],</span><br><span class="line">       [<span class="number">.1</span>, <span class="number">.25</span>, <span class="number">1</span>, <span class="number">.4</span>, <span class="number">.45</span>],</span><br><span class="line">       [<span class="number">.15</span>, <span class="number">.3</span>, <span class="number">.4</span>, <span class="number">1</span>, <span class="number">.5</span>],</span><br><span class="line">       [<span class="number">.2</span>, <span class="number">.35</span>, <span class="number">.45</span>, <span class="number">.5</span>, <span class="number">1</span>]]</span><br><span class="line"></span><br><span class="line">result = multivariate_normal(mean, cov)</span><br><span class="line">PDA = round(result.cdf(np.array(norm.ppf(PD))), <span class="number">4</span>)</span><br><span class="line">print(<span class="string">'Probability Of All Default:'</span>, PDA)</span><br><span class="line"></span><br><span class="line">N = <span class="number">10000</span></span><br><span class="line">simulation = norm.cdf(np.random.multivariate_normal(mean, cov, N))</span><br><span class="line">D = np.array(np.sum((simulation &lt; PD), axis=<span class="number">1</span>).tolist())</span><br><span class="line"></span><br><span class="line">PDA_simulated = round(np.count_nonzero(D == <span class="number">5</span>)/N, <span class="number">4</span>)</span><br><span class="line">print(<span class="string">'Probability Of All Default (Simulated):'</span>, PDA_simulated)</span><br><span class="line"></span><br><span class="line">DR = round(sum(D)/(<span class="number">5</span> * N), <span class="number">4</span>)</span><br><span class="line">print(<span class="string">'Average DR:'</span>, DR)</span><br></pre></td></tr></table></figure>
-
-<p>Returns:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Probability Of All Default: <span class="number">0.017</span></span><br><span class="line">Probability Of All Default (Simulated): <span class="number">0.0168</span></span><br><span class="line">Average DR: <span class="number">0.3014</span></span><br></pre></td></tr></table></figure>
-
+<script type="math/tex; mode=display">P[D_{i}=1] = P[Z_{i}<\Phi^{-1}(PD_{i})] = PD_{i} \\\\  P[D_{i}=0] = P[Z_{i}\geq\Phi^{-1}(PD_{i})] = 1-PD_{i}</script><p>The probability of all firms default at the same time is by definition:</p>
+<script type="math/tex; mode=display">P[\vec{D}=1] = cdf_{\vec{Z_i}}(\Phi^{-1}(\vec{PD}))</script><p>Note that given a pair-wise correlation matrix &Sigma;, this probability can take any values between 0 and the lowest single firm default probability.</p>
+<script type="math/tex; mode=display">P[\vec{D}=1] \in [0, min(\vec{PD_{i}})]</script><p>Now we assume all firms’z are connected by the <code>Gauss copula</code>, which suggests a single value for the probability of all defaulting.</p>
+<script type="math/tex; mode=display">\mathbb{C}^{Gauss}_{Z_i}(\vec{PD}) = cdf^{Gauss}_{\vec{Z_i}}(\Phi^{-1}(\vec{PD})) = \int_V \phi_{N}[\vec{z_{i}}, \Sigma] \,d\vec{z_{i}} \\\\
+V = \cup_{i = 1}^{N} \,\, (-\infty, \Phi^{-1}(PD_i)]</script><p><br></p>
+<p>With python we can either numerically evaluate the integral or use simulation to calculate the probability that all firms default at the same time.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> multivariate_normal</span><br><span class="line"></span><br><span class="line">np.random.seed(<span class="number">9999</span>)</span><br><span class="line">PD = [<span class="number">.5</span>, <span class="number">.4</span>, <span class="number">.3</span>, <span class="number">.2</span>, <span class="number">.1</span>]</span><br><span class="line">mean = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">cov = [[<span class="number">1</span>, <span class="number">.05</span>, <span class="number">.1</span>, <span class="number">.15</span>, <span class="number">.2</span>],</span><br><span class="line">       [<span class="number">.05</span>, <span class="number">1</span>, <span class="number">.25</span>, <span class="number">.3</span>, <span class="number">.35</span>],</span><br><span class="line">       [<span class="number">.1</span>, <span class="number">.25</span>, <span class="number">1</span>, <span class="number">.4</span>, <span class="number">.45</span>],</span><br><span class="line">       [<span class="number">.15</span>, <span class="number">.3</span>, <span class="number">.4</span>, <span class="number">1</span>, <span class="number">.5</span>],</span><br><span class="line">       [<span class="number">.2</span>, <span class="number">.35</span>, <span class="number">.45</span>, <span class="number">.5</span>, <span class="number">1</span>]]</span><br><span class="line"></span><br><span class="line">result = multivariate_normal(mean, cov)</span><br><span class="line">PDA = round(result.cdf(np.array(norm.ppf(PD))), <span class="number">4</span>)</span><br><span class="line">print(<span class="string">'Probability Of All Default:'</span>, PDA)</span><br><span class="line"></span><br><span class="line">N = <span class="number">10000</span></span><br><span class="line">simulation = norm.cdf(np.random.multivariate_normal(mean, cov, N))</span><br><span class="line">D = np.array(np.sum((simulation &lt; PD), axis=<span class="number">1</span>).tolist())</span><br><span class="line"></span><br><span class="line">PDA_simulated = round(np.count_nonzero(D == <span class="number">5</span>)/N, <span class="number">4</span>)</span><br><span class="line">print(<span class="string">'Probability Of All Default (Simulated):'</span>, PDA_simulated)</span><br><span class="line"></span><br><span class="line">DR = round(sum(D)/(<span class="number">5</span> * N), <span class="number">4</span>)</span><br><span class="line">print(<span class="string">'Average DR:'</span>, DR)</span><br></pre></td></tr></table></figure></p>
+<p>Returns:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Probability Of All Default: <span class="number">0.017</span></span><br><span class="line">Probability Of All Default (Simulated): <span class="number">0.0168</span></span><br><span class="line">Average DR: <span class="number">0.3014</span></span><br></pre></td></tr></table></figure></p>
 <p>Note that the compared to the other copulas, the Gauss copula requires only a pair-wise correlation matrix and the PD to tell a lot of information. Most of the times the Gauss copula has not been shown invalid, while the calibration of the marginals and correlation matrix are often proved erroneous.</p>
-<br>
-
+<p><br></p>
 <h2 id="Simulate-Rating-Transitions"><a href="#Simulate-Rating-Transitions" class="headerlink" title="Simulate Rating Transitions"></a>Simulate Rating Transitions</h2><p>The default model only has two states, 0 and 1:</p>
-<p>$$P[0 \rightarrow 1] = PD \\
-P[0 \rightarrow 0] = 1-PD \\
-P[1 \rightarrow 1] = 1 \\
-P[1 \rightarrow 0] = 0$$</p>
-<p>To simulate rating transitions, we require two matrix:</p>
+<script type="math/tex; mode=display">P[0 \rightarrow 1] = PD \\\\
+P[0 \rightarrow 0] = 1-PD \\\\
+P[1 \rightarrow 1] = 1 \\\\
+P[1 \rightarrow 0] = 0</script><p>To simulate rating transitions, we require two matrix:</p>
 <ul>
-<li>Transition Matrix: $$P[i \rightarrow j], \forall i, j$$</li>
-<li>Cost Matrix, e.g. the loss due to deterioration of borrowers: $$cost[i \rightarrow j], \forall i, j$$</li>
+<li>Transition Matrix: $$$$P[i \rightarrow j], \forall i, j$$$$</li>
+<li>Cost Matrix, e.g. the loss due to deterioration of borrowers: $$$$cost[i \rightarrow j], \forall i, j$$$$</li>
 </ul>
-<br>
-
+<p><br></p>
 <h1 id="Factor-Model"><a href="#Factor-Model" class="headerlink" title="Factor Model"></a>Factor Model</h1><h2 id="Single-Factor-Model"><a href="#Single-Factor-Model" class="headerlink" title="Single Factor Model"></a>Single Factor Model</h2><p>We construct the <code>single risk factor</code> model with latent variable Z<sub>i</sub>:</p>
-<p>$$ Z_i = -\sqrt{\rho_i}Z + \sqrt{1-\rho_i}X_i $$</p>
-<p>The pair-wise correlation between two firms i and j’s latent variables is:</p>
-<p>$$ corr[Z_i, Z_j] = \rho_{i, j} =  \sqrt{\rho_i\rho_j} $$</p>
-<p>Where:</p>
+<script type="math/tex; mode=display">Z_i = -\sqrt{\rho_i}Z + \sqrt{1-\rho_i}X_i</script><p>The pair-wise correlation between two firms i and j’s latent variables is:</p>
+<script type="math/tex; mode=display">corr[Z_i, Z_j] = \rho_{i, j} =  \sqrt{\rho_i\rho_j}</script><p>Where:</p>
 <ul>
 <li>Z and X<sub>i</sub> are Independent</li>
 <li>Z is the <code>systematic factor</code> that affects all firms. If Z increase, all Z<sub>i</sub> decrease and become more likely to default. Z summarizes the effects of all observable macroeconomic factors plus the effects of unobservable factors.</li>
@@ -195,40 +130,28 @@ P[1 \rightarrow 0] = 0$$</p>
 <li>{Z<sub>i</sub>} are jointly normal and connected by a <code>Gauss copula</code></li>
 </ul>
 <h2 id="cDR-and-Vasicek"><a href="#cDR-and-Vasicek" class="headerlink" title="cDR and Vasicek"></a>cDR and Vasicek</h2><p>Define <code>Conditional (Expected) Default Rate</code> (cDR) as:</p>
-<p>$$cDR_i[z] = P[Z_i &lt; \Phi^{-1}[PD_i] | Z = z] $$</p>
-<p>This gives the final form of cDR, which is called the <code>Vasicek</code> formula, named after Oldrich Vasicek. Note that the Vasicek formula is monotonic in z and in PD, i.e., higher the z/PD, higher the cDR.</p>
-<p>$$ cDR_i[z] = \Phi[\dfrac{\Phi^{-1}[PD_i] + \sqrt{\rho_i}z}{\sqrt{1-\rho_i}}]$$</p>
-<p>The expected default rate for firm i is always PD<sub>i</sub>, since:</p>
-<p>$$ D_i \sim Bernoulli (PD_i) $$</p>
-<p>However, when Z is known, the expected default rate is cDR<sub>i</sub>. Firms are now uncorrelated as Z is known:</p>
-<p>$$ (D_i | Z = z) \sim Bernoulli (cDR_i[z]) $$</p>
-<p>If there are large numbers of identical firms with uniform PD and &rho;, the default rate of such asymptotic portfolio follows the unconditional <code>Vasicek distribution</code>.</p>
-<p>$$ cDR \sim Vasicek[PD, \rho] $$</p>
-<p>The unconditional <code>Vasicek pdf</code> can be derived with change-of-variable technique. Note that we eliminate z and the pdf only has parameter PD and &rho;:</p>
-<p>$$ pdf_{cDR}[cDR] = \phi[\dfrac{\sqrt{1-\rho},\Phi^{-1}[cDR] - \Phi^{-1}[PD]}{\sqrt{\rho}}]\dfrac{\sqrt{1-\rho}}{\sqrt{\rho},\phi[\Phi^{-1}[cDR]]}, ;;x \in [0, 1]$$</p>
-<p>The mean of cDR is PD:</p>
-<p>$$\mathbb{E}cDR = PD $$</p>
-<h2 id="Multi-factor-Model"><a href="#Multi-factor-Model" class="headerlink" title="Multi-factor Model"></a>Multi-factor Model</h2><p>Suppose that there are two jointly normal systematic risk factors &psi; and &omega;, and that there are two group of firms depending on each of the factors:</p>
-<p>$$ Z_{i}^{\psi} = -\sqrt{\rho^{\psi}}\psi + \sqrt{1-\rho^{\psi}}X_i^{\psi} \\
-Z_{j}^{\omega} = -\sqrt{\rho^{\omega}}\omega + \sqrt{1-\rho^{\omega}}X_j^{\omega}$$</p>
-<p>Between the two groups:</p>
-<p>$$ corr[Z_{i}^{\psi}, Z_{j}^{\omega}] = \sqrt{\rho^{\psi}\rho^{\omega}}corr[\psi, \omega] $$</p>
-<p>Note that:</p>
+<script type="math/tex; mode=display">cDR_i[z] = P[Z_i < \Phi^{-1}[PD_i] | Z = z]</script><p>This gives the final form of cDR, which is called the <code>Vasicek</code> formula, named after Oldrich Vasicek. Note that the Vasicek formula is monotonic in z and in PD, i.e., higher the z/PD, higher the cDR.</p>
+<script type="math/tex; mode=display">cDR_i[z] = \Phi[\dfrac{\Phi^{-1}[PD_i] + \sqrt{\rho_i}z}{\sqrt{1-\rho_i}}]</script><p>The expected default rate for firm i is always PD<sub>i</sub>, since:</p>
+<script type="math/tex; mode=display">D_i \sim Bernoulli (PD_i)</script><p>However, when Z is known, the expected default rate is cDR<sub>i</sub>. Firms are now uncorrelated as Z is known:</p>
+<script type="math/tex; mode=display">(D_i | Z = z) \sim Bernoulli (cDR_i[z])</script><p>If there are large numbers of identical firms with uniform PD and &rho;, the default rate of such asymptotic portfolio follows the unconditional <code>Vasicek distribution</code>.</p>
+<script type="math/tex; mode=display">cDR \sim Vasicek[PD, \rho]</script><p>The unconditional <code>Vasicek pdf</code> can be derived with change-of-variable technique. Note that we eliminate z and the pdf only has parameter PD and &rho;:</p>
+<script type="math/tex; mode=display">pdf_{cDR}[cDR] = \phi[\dfrac{\sqrt{1-\rho}\,\Phi^{-1}[cDR] - \Phi^{-1}[PD]}{\sqrt{\rho}}]\dfrac{\sqrt{1-\rho}}{\sqrt{\rho}\,\phi[\Phi^{-1}[cDR]]}, \;\;x \in [0, 1]</script><p>The mean of cDR is PD:</p>
+<script type="math/tex; mode=display">\mathbb{E}cDR = PD</script><h2 id="Multi-factor-Model"><a href="#Multi-factor-Model" class="headerlink" title="Multi-factor Model"></a>Multi-factor Model</h2><p>Suppose that there are two jointly normal systematic risk factors &psi; and &omega;, and that there are two group of firms depending on each of the factors:</p>
+<script type="math/tex; mode=display">Z_{i}^{\psi} = -\sqrt{\rho^{\psi}}\psi + \sqrt{1-\rho^{\psi}}X_i^{\psi} \\\\
+Z_{j}^{\omega} = -\sqrt{\rho^{\omega}}\omega + \sqrt{1-\rho^{\omega}}X_j^{\omega}</script><p>Between the two groups:</p>
+<script type="math/tex; mode=display">corr[Z_{i}^{\psi}, Z_{j}^{\omega}] = \sqrt{\rho^{\psi}\rho^{\omega}}corr[\psi, \omega]</script><p>Note that:</p>
 <ul>
 <li>If corr[&psi;, &omega;] = 1, this becomes the single factor model and that:</li>
 </ul>
-<p>$$ corr[Z_{i}^{\psi}, Z_{i}^{\omega}] =\sqrt{\rho^{\psi}\rho^{\omega}}$$</p>
-<ul>
+<script type="math/tex; mode=display">corr[Z_{i}^{\psi}, Z_{i}^{\omega}] =\sqrt{\rho^{\psi}\rho^{\omega}}</script><ul>
 <li>If corr[&psi;, &omega;] &lt; 1, the cross-correlations are less than that in the single factor case. It is called <code>diversification</code>.</li>
 <li>With multi-factor model, risk becomes <code>sub-additive</code>, as oppose to <code>additive</code> in the single factor models. This means that the risk in the portfolio is less than the sum of the cDRs’.</li>
 <li>The <code>Moody&#39;s Factor Model</code> attribute each Z<sub>i</sub> to about 250 factors, along with a firm-specific idiosyncratic factor.</li>
 </ul>
 <h2 id="Basel-II-Capital-formula"><a href="#Basel-II-Capital-formula" class="headerlink" title="Basel II Capital formula"></a>Basel II Capital formula</h2><p>The <code>Bank For International Settlements</code> is in Basel, Switzerland. The <code>Basel Committee on Bank Supervision</code> drafted legislation requiring banks to hold minimum capital, e.g. Basel II, Basel III, etc.</p>
 <p>The <code>Basel II</code> formula is an <code>Asymptotic Single Risk Factor</code> model, where the portfolio is large enough for the Law of Large Number to work and it generalizes the Vasicek Distribution and include a diverse choice of PD and &rho; within the portfolio. The core of the capital requirement for <code>credit capital</code> is the inverse CDF of Vasicek Distribution.</p>
-<p>$$ K = [LGD \times \Phi[\dfrac{\Phi^{-1}[PD] + \sqrt{R} \Phi^{-1}[0.999]}{\sqrt{1-R}}] - LGD \times PD] \times (\dfrac{1 + (M - 2.5) \times b}{1 - 1.5 \times b})$$</p>
-<p>Inverse Vasicek (with parameter PD and &rho;):</p>
-<p>$$ cdf^{-1}_{Vasicek}[x] = \Phi [\dfrac{\Phi^{-1}[PD] + \sqrt{\rho}\Phi^{-1}[x]}{\sqrt{1-\rho}}]$$</p>
-<p>Note:</p>
+<script type="math/tex; mode=display">K = [LGD \times \Phi[\dfrac{\Phi^{-1}[PD] + \sqrt{R} \Phi^{-1}[0.999]}{\sqrt{1-R}}] - LGD \times PD] \times (\dfrac{1 + (M - 2.5) \times b}{1 - 1.5 \times b})</script><p>Inverse Vasicek (with parameter PD and &rho;):</p>
+<script type="math/tex; mode=display">cdf^{-1}_{Vasicek}[x] = \Phi [\dfrac{\Phi^{-1}[PD] + \sqrt{\rho}\Phi^{-1}[x]}{\sqrt{1-\rho}}]</script><p>Note:</p>
 <ul>
 <li>K is the capital requirement per dollar of wholesale loan.</li>
 <li>LGD is the average LGD in historical downturn conditions</li>
@@ -243,21 +166,15 @@ Z_{j}^{\omega} = -\sqrt{\rho^{\omega}}\omega + \sqrt{1-\rho^{\omega}}X_j^{\omega
 <li>Loans might deteriorate without defaulting, hence a <code>maturity adjustment</code> is added to impose higher capital for longer maturity loan.</li>
 <li>The estimation of PD and LGD is performed by the banks and supervised by bank supervisor.</li>
 </ul>
-<br>
-
+<p><br></p>
 <h1 id="Estimation-Statistical-Test-and-Overfit"><a href="#Estimation-Statistical-Test-and-Overfit" class="headerlink" title="Estimation, Statistical Test and Overfit"></a>Estimation, Statistical Test and Overfit</h1><h2 id="Estimating-PD"><a href="#Estimating-PD" class="headerlink" title="Estimating PD"></a>Estimating PD</h2><p>Firms differ widely in their credit quality, and PD tend to change over time as well. So a firm’s PD is neither known or fixed. We analyze analogous firms with <code>identical credit ratings</code> to estimate PD.</p>
 <p>Method 1, for all A-rated firms in the dataset:</p>
-<p>$$ Annual PD = \dfrac{Defaults Next Year}{TotalNumberOfFirms} $$</p>
-<p>Method 2, for all A-rated firms in the dataset:</p>
-<p>$$ Average PD = \dfrac{AllHistoricalDefaults}{TotalNumberOfFirms} $$</p>
-<p>Method 3, estimate PD as a parameter in a pdf describing A-rated firms. This tries to find a distribution that best fits the data. We will focus on this method.</p>
-<p>$$ PD = Best,,Estimate,,Of,, Parameter $$</p>
-<h2 id="Method-Of-Moments"><a href="#Method-Of-Moments" class="headerlink" title="Method Of Moments"></a>Method Of Moments</h2><p>Given a dataset {X<sub>i</sub>}<sub>N</sub>, we set the moments of the Vasicek distribution equal to the moments of the data.</p>
+<script type="math/tex; mode=display">Annual PD = \dfrac{Defaults Next Year}{TotalNumberOfFirms}</script><p>Method 2, for all A-rated firms in the dataset:</p>
+<script type="math/tex; mode=display">Average PD = \dfrac{AllHistoricalDefaults}{TotalNumberOfFirms}</script><p>Method 3, estimate PD as a parameter in a pdf describing A-rated firms. This tries to find a distribution that best fits the data. We will focus on this method.</p>
+<script type="math/tex; mode=display">PD = Best\,\,Estimate\,\,Of\,\, Parameter</script><h2 id="Method-Of-Moments"><a href="#Method-Of-Moments" class="headerlink" title="Method Of Moments"></a>Method Of Moments</h2><p>Given a dataset {X<sub>i</sub>}<sub>N</sub>, we set the moments of the Vasicek distribution equal to the moments of the data.</p>
 <p>First moment:</p>
-<p>$$ \mathbb{E}_{vasicek}X = PD = \dfrac{\sum X_i}{N}$$</p>
-<p>Second moment (unbiased, using N-1 in denominator):</p>
-<p>$$ \mathbb{V}<em>{vasicek}X = \int_0^1 (x - PD)^2 pdf</em>{vasicek}[x, PD, \rho]dx = \dfrac{\sum (X_i - PD)^2}{N-1} $$</p>
-<p>Note:</p>
+<script type="math/tex; mode=display">\mathbb{E}_{vasicek}X = PD = \dfrac{\sum X_i}{N}</script><p>Second moment (unbiased, using N-1 in denominator):</p>
+<script type="math/tex; mode=display">\mathbb{V}_{vasicek}X = \int_0^1 (x - PD)^2 pdf_{vasicek}[x, PD, \rho]dx = \dfrac{\sum (X_i - PD)^2}{N-1}</script><p>Note:</p>
 <ul>
 <li>The method of moment matches the broad features of distribution with the data</li>
 <li>The solution is not unique. Choices can be made between central moment/raw moment, lower moment/higher moment.</li>
@@ -266,10 +183,8 @@ Z_{j}^{\omega} = -\sqrt{\rho^{\omega}}\omega + \sqrt{1-\rho^{\omega}}X_j^{\omega
 <h2 id="Maximum-Likelihood-Estimation"><a href="#Maximum-Likelihood-Estimation" class="headerlink" title="Maximum Likelihood Estimation"></a>Maximum Likelihood Estimation</h2><p>The MLE method chooses parameter values that make the data most likely under the assumed distribution. MLE matches the distribution to the data <code>as a whole</code>, as oppose to M.o.M. which only matches the <code>moments</code>. The MLE fits the <code>PDF</code> to the <code>dataset</code>.</p>
 <p>When data is not highly dispersed, however, the MLE estimate tend to be close to the M.o.M. estimate.</p>
 <p>The MLE method is biased estimate that choose parameters that maximize the <code>likelihood function</code>. Given a dataset {X<sub>i</sub>}<sub>N</sub>, we assume the true default rates follow Vasicek distribution. The likelihood function is:</p>
-<p>$$ L[PD, \rho] = \prod pdf_{vasicek}[X_i, PD, \rho]$$</p>
-<p>Often we try to maximize the log-likelihood function, i.e. find PD and &rho; such that:</p>
-<p>$$ \dfrac{\partial \log L[PD, \rho]}{\partial PD} = 0, ;; \dfrac{\partial \log L[PD, \rho]}{\partial \rho} = 0 $$</p>
-<h2 id="Hypothesis-Testing-amp-Wilks’-Theorem"><a href="#Hypothesis-Testing-amp-Wilks’-Theorem" class="headerlink" title="Hypothesis Testing &amp; Wilks’ Theorem"></a>Hypothesis Testing &amp; Wilks’ Theorem</h2><p>We does not assert truth, as truth is often unknown. With a given set of data, we can only assert some models are <code>better</code> in predicting the future behavior of similar data.</p>
+<script type="math/tex; mode=display">L[PD, \rho] = \prod pdf_{vasicek}[X_i, PD, \rho]</script><p>Often we try to maximize the log-likelihood function, i.e. find PD and &rho; such that:</p>
+<script type="math/tex; mode=display">\dfrac{\partial \log L[PD, \rho]}{\partial PD} = 0, \;\; \dfrac{\partial \log L[PD, \rho]}{\partial \rho} = 0</script><h2 id="Hypothesis-Testing-amp-Wilks’-Theorem"><a href="#Hypothesis-Testing-amp-Wilks’-Theorem" class="headerlink" title="Hypothesis Testing &amp; Wilks’ Theorem"></a>Hypothesis Testing &amp; Wilks’ Theorem</h2><p>We does not assert truth, as truth is often unknown. With a given set of data, we can only assert some models are <code>better</code> in predicting the future behavior of similar data.</p>
 <p>We called the simpler model the <code>null hypothesis</code>, the more complicated ones the <code>alternative hypothesis</code>. The null generally nests under the alternative, i.e. the alternative becomes the null when some parameters are set to certain values.</p>
 <p>We prefer the null, because it is <code>simpler</code>, and by doing so we avoid <code>Type 1 error</code>, which is the rejection of a true null.</p>
 <p>Hence we only reject the null if the alternative fits the data <code>significantly better</code> through a statistical test.</p>
@@ -279,25 +194,17 @@ Z_{j}^{\omega} = -\sqrt{\rho^{\omega}}\omega + \sqrt{1-\rho^{\omega}}X_j^{\omega
 <li>The null hypothesis is true</li>
 </ul>
 <p>Then <code>D</code> has a distribution that approaches the &chi;<sup>2</sup> distribution (with df = number of extra parameters in the alternative), given dataset {X<sub>i</sub>}<sub>N</sub>:</p>
-<p>$$ D = - 2 \log \dfrac{L_0}{L_1} = 2(\log L_1 - \log L_0) $$</p>
-<p>The likelihood ratio is defined as follow. It is less or equal than 1 as the alternative is more flexible, and it leads to more probability densities given certain data:</p>
-<p>$$ \dfrac{L_0}{L_1} = Likelihood;;Ratio \leq 1 \\
-L_0 = max_{MLE}[; pdf[; X_i’s ;|; Null;];] \\
-L_1 = max_{MLE}[; pdf[; X_i’s ;|; Alternative;];]$$</p>
-<br>
-
+<script type="math/tex; mode=display">D = - 2 \log \dfrac{L_0}{L_1} = 2(\log L_1 - \log L_0)</script><p>The likelihood ratio is defined as follow. It is less or equal than 1 as the alternative is more flexible, and it leads to more probability densities given certain data:</p>
+<script type="math/tex; mode=display">\dfrac{L_0}{L_1} = Likelihood\;\;Ratio \leq 1 \\\\
+L_0 = max_{MLE}[\; pdf[\; X_i's \;|\; Null\;]\;] \\\\
+L_1 = max_{MLE}[\; pdf[\; X_i's \;|\; Alternative\;]\;]</script><p><br></p>
 <p>We reject the null hypothesis if D statistic is a tail observation that either the null is not true or the null is true and something (type 1 error) unlikely happen. We reject the null when:</p>
-<p>$$ D &gt; Critical;; Value_{95th;percentile}^{df} $$</p>
-<p>For example when df = 1, the critical value = 3.84, we will reject the null with 95% confidence when:</p>
-<p>$$ D &gt; 3.84 $$</p>
-<h2 id="Overfit"><a href="#Overfit" class="headerlink" title="Overfit"></a>Overfit</h2><p>An <code>overfit</code> model makes worse forecast than a simpler model.</p>
+<script type="math/tex; mode=display">D > Critical\;\; Value_{95th\;percentile}^{df}</script><p>For example when df = 1, the critical value = 3.84, we will reject the null with 95% confidence when:</p>
+<script type="math/tex; mode=display">D > 3.84</script><h2 id="Overfit"><a href="#Overfit" class="headerlink" title="Overfit"></a>Overfit</h2><p>An <code>overfit</code> model makes worse forecast than a simpler model.</p>
 <p>We assume the population data (X, Y) follows bivariate normal distribution:</p>
-<p>$$ X, Y \sim N^2(0, \Sigma=\begin{bmatrix}1 &amp; \rho \\ \rho &amp; 1\end{bmatrix}) $$</p>
-<p>Given &rho;, the population regression line is:</p>
-<p>$$ \hat{Y} = \rho X $$</p>
-<p>The sample regression line is:</p>
-<p>$$ \hat{Y} = bX + a $$</p>
-<p>From a sample of 30 observations of (X, Y), <code>ordinary least square</code> (OLS) is performed to find the in-sample p-value for the coefficient and R<sup>2</sup>. MSE is used to evaluate forecast error.</p>
+<script type="math/tex; mode=display">X, Y \sim N^2(0, \Sigma=\begin{bmatrix}1 & \rho \\\\ \rho & 1\end{bmatrix})</script><p>Given &rho;, the population regression line is:</p>
+<script type="math/tex; mode=display">\hat{Y} = \rho X</script><p>The sample regression line is:</p>
+<script type="math/tex; mode=display">\hat{Y} = bX + a</script><p>From a sample of 30 observations of (X, Y), <code>ordinary least square</code> (OLS) is performed to find the in-sample p-value for the coefficient and R<sup>2</sup>. MSE is used to evaluate forecast error.</p>
 <ul>
 <li>When &rho; = 0.8, the sample regression line (yellow) is close to the population regression line (red):</li>
 </ul>
@@ -307,15 +214,10 @@ L_1 = max_{MLE}[; pdf[; X_i’s ;|; Alternative;];]$$</p>
 </ul>
 <p><img src="03-image2.png" alt="image2.png"></p>
 <p>This shows that when the population has a week relationship (&rho; = 0.2), estimates of slope are more dispersed.  </p>
-<br>
-Now we look at the relationship between statistically significance and MSE. The population `Mean-Squared Error` (MSE) is an `out-of-sample` measure of forecast errors. The population MSE does NOT depend on any in-sample data:
-
-<p>$$MSE = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} (Y - \hat{Y})^2 ;pdf[X, Y];dXdY = 1 + a ^2 + b ^2 - 2b \rho$$</p>
-<p>We can see that the population regression (b = &rho;, a = 0) would minimize MSE, by taking partial derivatives. We can also see that higher the &rho;, lower the MSE.</p>
-<p>$$ \dfrac{\partial MSE}{\partial a} = 0 \rightarrow a = 0, ;
-\dfrac{\partial MSE}{\partial b} = 0 \rightarrow b = \rho$$</p>
-<br>
-
+<p><br><br>Now we look at the relationship between statistically significance and MSE. The population <code>Mean-Squared Error</code> (MSE) is an <code>out-of-sample</code> measure of forecast errors. The population MSE does NOT depend on any in-sample data:</p>
+<script type="math/tex; mode=display">MSE = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} (Y - \hat{Y})^2 \;pdf[X, Y]\;dXdY = 1 + a ^2 + b ^2 - 2b \rho</script><p>We can see that the population regression (b = &rho;, a = 0) would minimize MSE, by taking partial derivatives. We can also see that higher the &rho;, lower the MSE.</p>
+<script type="math/tex; mode=display">\dfrac{\partial MSE}{\partial a} = 0 \rightarrow a = 0, \;
+\dfrac{\partial MSE}{\partial b} = 0 \rightarrow b = \rho</script><p><br></p>
 <p>A regression is significant (at 95% confidence) if the p-value for the coefficient b is less than 0.05.</p>
 <p>We have observed that when population has a <code>weak relationship</code> (&rho; = 0.2):</p>
 <ul>
@@ -324,24 +226,18 @@ Now we look at the relationship between statistically significance and MSE. The 
 </ul>
 <p>This is because the strong relationship suggested by the regression does NOT forecast the week population relationship well.</p>
 <p>When population has a <code>strong relation</code> (&rho; = 0.8), however, the significant regression/high R-square holds out-of-sample.</p>
-<br>
-
+<p><br></p>
 <h1 id="Conditional-LGD-Risk"><a href="#Conditional-LGD-Risk" class="headerlink" title="Conditional LGD Risk"></a>Conditional LGD Risk</h1><h2 id="cLGD"><a href="#cLGD" class="headerlink" title="cLGD"></a>cLGD</h2><p>The history of <code>bond</code> LGD shows that LGD is elevated when default rate is elevated. The elevation is shown to be moderate and similar across different debt types:</p>
-<p>$$ DR \uparrow ;;\rightarrow LGD \uparrow $$</p>
-<p>It is important to model LGD appropriately in different economic conditions. Like cDR, we define <code>cLGD</code>:</p>
-<p>$$ Loss = D \times LGD\\
-\mathbb{E}L = PD \times \mathbb{E}LGD\\
-cLoss = cDR \times cLGD $$</p>
-<p>Note that:</p>
-<p>$$\mathbb{E}cDR = PD\\
-\mathbb{E}cLoss = \mathbb{E}L\\
+<script type="math/tex; mode=display">DR \uparrow \;\;\rightarrow LGD \uparrow</script><p>It is important to model LGD appropriately in different economic conditions. Like cDR, we define <code>cLGD</code>:</p>
+<script type="math/tex; mode=display">Loss = D \times LGD\\\\
+\mathbb{E}L = PD \times \mathbb{E}LGD\\\\
+cLoss = cDR \times cLGD</script><p>Note that:</p>
+<script type="math/tex; mode=display">\mathbb{E}cDR = PD\\\\
+\mathbb{E}cLoss = \mathbb{E}L\\\\
 however,
-\mathbb{E}cLGD \neq \mathbb{E}LGD $$</p>
-<p>There are two ways to calculate ELGD:</p>
-<p>$$\mathbb{E}LGD = \dfrac{\mathbb{E}L}{PD} = \mathbb{E} \dfrac{cDR \times cLGD}{PD}$$</p>
-<p>Futhermore,</p>
-<p>$$\mathbb{E}cLGD &lt; \mathbb{E}LGD $$</p>
-<p>Where:</p>
+\mathbb{E}cLGD \neq \mathbb{E}LGD</script><p>There are two ways to calculate ELGD:</p>
+<script type="math/tex; mode=display">\mathbb{E}LGD = \dfrac{\mathbb{E}L}{PD} = \mathbb{E} \dfrac{cDR \times cLGD}{PD}</script><p>Futhermore,</p>
+<script type="math/tex; mode=display">\mathbb{E}cLGD < \mathbb{E}LGD</script><p>Where:</p>
 <ul>
 <li>EcLGD is the average LGD over conditions</li>
 <li>ELGD is the average LGD over different loans</li>
@@ -352,11 +248,9 @@ however,
 <ol>
 <li><p>cDR and cLoss are <code>comonotonic</code>.</p>
 <ul>
-<li><p>If cDR goes up, cLoss must go up.</p>
-</li>
+<li>If cDR goes up, cLoss must go up.</li>
 <li><p>If cDR is in its q<sup>th</sup> quantile, then cLoss must also be in its q<sup>th</sup> quantile. This implies that there is a cLGD function of cDR:</p>
-<p>$$ cLGD[cDR] = \dfrac{F^{-1}<em>{cLoss}[F</em>{cDR};[cDR];]}{cDR} $$</p>
-</li>
+<script type="math/tex; mode=display">cLGD[cDR] = \dfrac{F^{-1}_{cLoss}[F_{cDR}\;[cDR]\;]}{cDR}</script></li>
 </ul>
 </li>
 <li><p><code>cDR</code> follows Vasicek distribution, which stems from the simplest portfolio structure:</p>
@@ -368,77 +262,54 @@ however,
 </ul>
 </li>
 </ol>
-<p>$$ cDR \sim Vasicek [PD, \rho] $$</p>
-<ol start="3">
-<li><p>Distribution of <code>cLoss</code> does NOT depend of the definition of default.
- \times This implies the distribution of cLoss <code>does not</code> have separate parameters for PD and ELGD. It <code>does</code> have a parameter EL.</p>
+<script type="math/tex; mode=display">cDR \sim Vasicek [PD, \rho]</script><ol>
+<li><p>Distribution of <code>cLoss</code> does NOT depend of the definition of default.<br> \times This implies the distribution of cLoss <code>does not</code> have separate parameters for PD and ELGD. It <code>does</code> have a parameter EL.</p>
 </li>
 <li><p><code>cLoss</code> follows Vasicek distribution</p>
 </li>
 </ol>
-<p>$$ cLoss \sim Vasicek [PD, \rho] $$</p>
-<ol start="5">
-<li><code>cLoss</code> and <code>cDR</code> have the same &rho; parameter.
- \times This ensure that the LGD function is <code>monotonic</code></li>
+<script type="math/tex; mode=display">cLoss \sim Vasicek [PD, \rho]</script><ol>
+<li><code>cLoss</code> and <code>cDR</code> have the same &rho; parameter.<br> \times This ensure that the LGD function is <code>monotonic</code></li>
 </ol>
 <p>Finally,</p>
-<p>$$ cLGD[cDR] = \dfrac{\Phi[\Phi^{-1}[cDR] - k]}{cDR}, where ;; k = \dfrac{\Phi^{-1}[PD] - \Phi^{-1}[\mathbb{E}L]}{\sqrt{1-\rho}}]$$</p>
-<p>Observations:</p>
+<script type="math/tex; mode=display">cLGD[cDR] = \dfrac{\Phi[\Phi^{-1}[cDR] - k]}{cDR}, where \;\; k = \dfrac{\Phi^{-1}[PD] - \Phi^{-1}[\mathbb{E}L]}{\sqrt{1-\rho}}]</script><p>Observations:</p>
 <ol>
 <li>cLGD is strictly monotonic with range (0, 1), for all k</li>
 </ol>
-<p>$$ \dfrac{\partial LGD[DR]}{\partial DR} &gt; 0, \forall; k $$</p>
-<ol start="2">
+<script type="math/tex; mode=display">\dfrac{\partial LGD[DR]}{\partial DR} > 0, \forall\; k</script><ol>
 <li>cLGD increases slowly, and similarly for all k, at low cDR</li>
 <li>Elasticity is greatest for loans wth low LGD.</li>
 </ol>
-<p>$$ Elasticity = \dfrac{\dfrac{\partial LGD[DR]}{\partial DR}}{\dfrac{LGD[DR]}{DR}} $$</p>
-<h2 id="Frye-Jacobs-Develop-Alternative-Hypothesis"><a href="#Frye-Jacobs-Develop-Alternative-Hypothesis" class="headerlink" title="Frye-Jacobs: Develop Alternative Hypothesis"></a>Frye-Jacobs: Develop Alternative Hypothesis</h2><p>Introduce an additional sensitivity parameter to test the <code>slope</code> of the LGD function.</p>
+<script type="math/tex; mode=display">Elasticity = \dfrac{\dfrac{\partial LGD[DR]}{\partial DR}}{\dfrac{LGD[DR]}{DR}}</script><h2 id="Frye-Jacobs-Develop-Alternative-Hypothesis"><a href="#Frye-Jacobs-Develop-Alternative-Hypothesis" class="headerlink" title="Frye-Jacobs: Develop Alternative Hypothesis"></a>Frye-Jacobs: Develop Alternative Hypothesis</h2><p>Introduce an additional sensitivity parameter to test the <code>slope</code> of the LGD function.</p>
 <p>We know that:</p>
-<p>$$ \mathbb{E}L = \mathbb{E}[cDR \times cLGD[cDR]] $$</p>
-<p>In integration form:</p>
-<p>$$ \mathbb{E}L = \int_0^1 x \times cLGD[x] \times pdf_{cDR}[x, PD, \rho] ;dx $$</p>
-<p>Bring in the Frye-Jacobs cLGD function:</p>
-<p>$$ \mathbb{E}L = \int_0^1 \Phi[\Phi^{-1}[x] - \dfrac{\Phi^{-1}[PD] - \Phi^{-1}[\mathbb{E}L]}{\sqrt{1-\rho}}] \times pdf_{cDR}[x, PD, \rho] ;dx $$</p>
-<p>Note that EL is in both lhs and rhs, divide both EL by ELGD<sup>a</sup>:</p>
-<p>$$ \mathbb{E}L = \int_0^1 \mathbb{E}LGD^a \Phi[\Phi^{-1}[x] - \dfrac{\Phi^{-1}[PD] - \Phi^{-1}[\dfrac{\mathbb{E}L}{\mathbb{E}LGD^a}]}{\sqrt{1-\rho}}] \times pdf_{cDR}[x, PD, \rho] ;dx $$</p>
-<p>Note that we have identified a new LGD function:</p>
-<p>$$cLGD[cDR] = \dfrac{\mathbb{E}LGD^a \Phi[\Phi^{-1}[cDR] - \dfrac{\Phi^{-1}[PD] - \Phi^{-1}[\dfrac{\mathbb{E}L}{\mathbb{E}LGD^a}]}{\sqrt{1-\rho}}]}{cDR} $$</p>
-<p>Analyzing the choice of a:</p>
+<script type="math/tex; mode=display">\mathbb{E}L = \mathbb{E}[cDR \times cLGD[cDR]]</script><p>In integration form:</p>
+<script type="math/tex; mode=display">\mathbb{E}L = \int_0^1 x \times cLGD[x] \times pdf_{cDR}[x, PD, \rho] \;dx</script><p>Bring in the Frye-Jacobs cLGD function:</p>
+<script type="math/tex; mode=display">\mathbb{E}L = \int_0^1 \Phi[\Phi^{-1}[x] - \dfrac{\Phi^{-1}[PD] - \Phi^{-1}[\mathbb{E}L]}{\sqrt{1-\rho}}] \times pdf_{cDR}[x, PD, \rho] \;dx</script><p>Note that EL is in both lhs and rhs, divide both EL by ELGD<sup>a</sup>:</p>
+<script type="math/tex; mode=display">\mathbb{E}L = \int_0^1 \mathbb{E}LGD^a \Phi[\Phi^{-1}[x] - \dfrac{\Phi^{-1}[PD] - \Phi^{-1}[\dfrac{\mathbb{E}L}{\mathbb{E}LGD^a}]}{\sqrt{1-\rho}}] \times pdf_{cDR}[x, PD, \rho] \;dx</script><p>Note that we have identified a new LGD function:</p>
+<script type="math/tex; mode=display">cLGD[cDR] = \dfrac{\mathbb{E}LGD^a \Phi[\Phi^{-1}[cDR] - \dfrac{\Phi^{-1}[PD] - \Phi^{-1}[\dfrac{\mathbb{E}L}{\mathbb{E}LGD^a}]}{\sqrt{1-\rho}}]}{cDR}</script><p>Analyzing the choice of a:</p>
 <ul>
 <li>When a = 0, the cLGD function is the Frye-Jacob formula.</li>
 <li>When a = 1, cLGD = ELGD, which implies cLGD does not depend on conditions:</li>
 </ul>
-<p>$$ cLGD[cDR] = \mathbb{E}LGD $$</p>
-<h2 id="Frye-Jacobs-Hypothesis-Test"><a href="#Frye-Jacobs-Hypothesis-Test" class="headerlink" title="Frye-Jacobs: Hypothesis Test"></a>Frye-Jacobs: Hypothesis Test</h2><p>We introduce <code>finite portfolio</code>,  which brings randomness into the D’s and LGD^{dollar}s.</p>
+<script type="math/tex; mode=display">cLGD[cDR] = \mathbb{E}LGD</script><h2 id="Frye-Jacobs-Hypothesis-Test"><a href="#Frye-Jacobs-Hypothesis-Test" class="headerlink" title="Frye-Jacobs: Hypothesis Test"></a>Frye-Jacobs: Hypothesis Test</h2><p>We introduce <code>finite portfolio</code>,  which brings randomness into the D’s and LGD^{dollar}s.</p>
 <ul>
 <li>We assume the finite portfolio is uniform and all N loans have the same PD and &rho;</li>
 <li>We assume that given portfolio cDR, the number of defaults is binomial:</li>
 </ul>
-<p>$$ \sum D \sim Binomial (cDR, N) $$</p>
-<ul>
+<script type="math/tex; mode=display">\sum D \sim Binomial (cDR, N)</script><ul>
 <li>We assume that LGD is normally distributed around cLGD, with &sigma; = 0.2. Note under this assumption, ELGD = cLGD which correspond with a = 1.</li>
 </ul>
-<p>$$ LGD \sim N(cLGD [cDR], \sigma^2) $$</p>
-<p>Under finite portfolio, the probability of 0 defaults is:</p>
-<p>$$ P[\sum D = 0] = \int_0^1 (1-x)^N pdf_{cDR}[x] ;dx$$</p>
-<p>When conditional on cDR and &Sigma; D &gt; 0, the <code>average portfolio LGD rate</code> is normal:</p>
-<p>$$ LGD_{portfolio} \sim N(cLGD [cDR], \dfrac{\sigma^2}{\sum D})$$</p>
-<p>Let Y ~ N(0, 1) be a standard normal variable, then LGD becomes:</p>
-<p>$$ LGD = cLGD[cDR] + \dfrac{\sigma}{\sqrt{\sum D}}Y $$</p>
-<p>Now calculate Loss based on DR and LGD:</p>
-<p>$$ Loss = \dfrac{\sum D}{N} \times LGD = \dfrac{cLGD[cDR]\sum D + \sigma Y\sqrt{\sum D}}{N}$$</p>
-<p>Use change-of-variable technique to calculate the pdf for Loss:</p>
-<p>$$ pdf_{Loss}[x] = pdf_Y[g^{-1}(x)] \times |\dfrac{\partial g^{-1}(x)}{\partial x}|$$</p>
-<p>Where:</p>
-<p>$$ g^{-1}(Loss) = Y = \dfrac{N Loss + cLGD[cDR]\sum D}{\sigma\sqrt{\sum D}} \\
-|\dfrac{\partial g^{-1}(x)}{\partial x}| = \dfrac{N}{\sigma\sqrt{\sum D}}$$</p>
-<p>Finally, the pdf of loss conditional on &Sigma; D and cDR:</p>
-<p>$$ pdf_{Loss | \sum D, cDR}[x] = \dfrac{N}{\sigma\sqrt{\sum D}} \phi[\dfrac{N x + cLGD[cDR]\sum D}{\sigma\sqrt{\sum D}}] $$</p>
-<p>Removing the conditional, the distribution of loss in a uniform portfolio, with N loans, same PD and &rho; and the cLGD function, becomes:</p>
-<p>$$ pdf_{Loss}[x] = \int \sum_{\sum D = 1}^{N} pdf_{Loss | \sum D, cDR}[x] \times pmf_{\sum D | cDR}[\sum D] \times pdf_{cDR}[cDR] ;dcDR \\
-where;; pmf_{\sum D | cDR}[\sum D] = \binom{N}{\sum D}cDR^{\sum D}(1-cDR)^{N-\sum D}$$</p>
-<p>Here is a plot of the the unconditional loss density in a finite (N = 10) portfolio in red and loss density in an infinite portfolio (Vasicek) in blue. (note that the plot use D to denote &Sigma; D):</p>
+<script type="math/tex; mode=display">LGD \sim N(cLGD [cDR], \sigma^2)</script><p>Under finite portfolio, the probability of 0 defaults is:</p>
+<script type="math/tex; mode=display">P[\sum D = 0] = \int_0^1 (1-x)^N pdf_{cDR}[x] \;dx</script><p>When conditional on cDR and &Sigma; D &gt; 0, the <code>average portfolio LGD rate</code> is normal:</p>
+<script type="math/tex; mode=display">LGD_{portfolio} \sim N(cLGD [cDR], \dfrac{\sigma^2}{\sum D})</script><p>Let Y ~ N(0, 1) be a standard normal variable, then LGD becomes:</p>
+<script type="math/tex; mode=display">LGD = cLGD[cDR] + \dfrac{\sigma}{\sqrt{\sum D}}Y</script><p>Now calculate Loss based on DR and LGD:</p>
+<script type="math/tex; mode=display">Loss = \dfrac{\sum D}{N} \times LGD = \dfrac{cLGD[cDR]\sum D + \sigma Y\sqrt{\sum D}}{N}</script><p>Use change-of-variable technique to calculate the pdf for Loss:</p>
+<script type="math/tex; mode=display">pdf_{Loss}[x] = pdf_Y[g^{-1}(x)] \times |\dfrac{\partial g^{-1}(x)}{\partial x}|</script><p>Where:</p>
+<script type="math/tex; mode=display">g^{-1}(Loss) = Y = \dfrac{N Loss + cLGD[cDR]\sum D}{\sigma\sqrt{\sum D}} \\\\
+|\dfrac{\partial g^{-1}(x)}{\partial x}| = \dfrac{N}{\sigma\sqrt{\sum D}}</script><p>Finally, the pdf of loss conditional on &Sigma; D and cDR:</p>
+<script type="math/tex; mode=display">pdf_{Loss | \sum D, cDR}[x] = \dfrac{N}{\sigma\sqrt{\sum D}} \phi[\dfrac{N x + cLGD[cDR]\sum D}{\sigma\sqrt{\sum D}}]</script><p>Removing the conditional, the distribution of loss in a uniform portfolio, with N loans, same PD and &rho; and the cLGD function, becomes:</p>
+<script type="math/tex; mode=display">pdf_{Loss}[x] = \int \sum_{\sum D = 1}^{N} pdf_{Loss | \sum D, cDR}[x] \times pmf_{\sum D | cDR}[\sum D] \times pdf_{cDR}[cDR] \;dcDR \\\\
+where\;\; pmf_{\sum D | cDR}[\sum D] = \binom{N}{\sum D}cDR^{\sum D}(1-cDR)^{N-\sum D}</script><p>Here is a plot of the the unconditional loss density in a finite (N = 10) portfolio in red and loss density in an infinite portfolio (Vasicek) in blue. (note that the plot use D to denote &Sigma; D):</p>
 <p><img src="03-image3.png" alt="image3.png"></p>
 <p>Now we have the pdf for loss, we an test the hypothesis:</p>
 <ul>
@@ -455,10 +326,8 @@ where;; pmf_{\sum D | cDR}[\sum D] = \binom{N}{\sum D}cDR^{\sum D}(1-cDR)^{N-\su
 <li>joint default of firm i and j depends on PD and asset return correlation</li>
 </ul>
 <p>Moody’s suggests that loan contains the option to default, and attempts to use risk-neutral probability to estimate the probability of default. In the context of a put:</p>
-<p>$$ \mathbb{P}[S_T &lt; K ] = \Phi(-d_2) = \Phi(-\dfrac{\log{\dfrac{S_T}{K}} + (r-\dfrac{\sigma^2}{2})T}{\sigma \sqrt{T}}) $$</p>
-<p>Under Moody’s assumption, the firm has an option to default on its assets once it drops below its liability. Here, liability is the strike price, for which Moody’s uses <code>D</code>, or “default point”, to denote short term debt plus half of long term debt to represent liability. <code>DD</code> stands for <code>Distance-To-Default</code>, suggested by Merton. So the probability of default is:</p>
-<p>$$ \mathbb{P}[Asset &lt; D] = \Phi(-DD) = \Phi(-\dfrac{\log{\dfrac{Asset}{D}}}{AnnualVolatilityOfAssets})$$</p>
-<p>Moody’s then estimates the value and volatility of the assets (unobservable) based on the value and volatility of the market capitalization (observable).</p>
+<script type="math/tex; mode=display">\mathbb{P}[S_T < K ] = \Phi(-d_2) = \Phi(-\dfrac{\log{\dfrac{S_T}{K}} + (r-\dfrac{\sigma^2}{2})T}{\sigma \sqrt{T}})</script><p>Under Moody’s assumption, the firm has an option to default on its assets once it drops below its liability. Here, liability is the strike price, for which Moody’s uses <code>D</code>, or “default point”, to denote short term debt plus half of long term debt to represent liability. <code>DD</code> stands for <code>Distance-To-Default</code>, suggested by Merton. So the probability of default is:</p>
+<script type="math/tex; mode=display">\mathbb{P}[Asset < D] = \Phi(-DD) = \Phi(-\dfrac{\log{\dfrac{Asset}{D}}}{AnnualVolatilityOfAssets})</script><p>Moody’s then estimates the value and volatility of the assets (unobservable) based on the value and volatility of the market capitalization (observable).</p>
 <p>However, since &Phi;(-DD) gave very poor estimate for the default probability, Moody’s sets the <code>EDF</code>(Estimated Default Frequency) of a firm equal to the <code>average historical default rate</code> of firms with the same <code>Distance-To-Default</code>. An EDF uses DD to find historical analogs of current firms.</p>
 <h2 id="Correlation"><a href="#Correlation" class="headerlink" title="Correlation"></a>Correlation</h2><p>Merton assumes that the correlation &rho; between the latent variable Z’s is equal to the asset return correlation r.</p>
 <p>However, data suggests that correlation estimated from credit data is <code>less</code> than the correlation based on asset returns. Hence a credit portfolio model that uses asset correlation to estimate &rho; overstates credit risk.</p>
