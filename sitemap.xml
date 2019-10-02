@@ -2,30 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://jackliu234.com/2019/09/blockchain/</loc>
+    <loc>http://jackliu234.com/2019/04/islr/</loc>
     
-    <lastmod>2019-10-01T08:54:35.687Z</lastmod>
+    <lastmod>2019-10-02T18:48:10.776Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://jackliu234.com/2019/01/yosemite/</loc>
     
-    <lastmod>2019-10-01T08:49:22.313Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/09/amazing/</loc>
-    
-    <lastmod>2019-10-01T08:38:24.104Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/09/europe/</loc>
-    
-    <lastmod>2019-09-30T23:54:47.367Z</lastmod>
+    <lastmod>2019-10-02T18:24:44.182Z</lastmod>
     
   </url>
   
@@ -44,23 +30,9 @@
   </url>
   
   <url>
-    <loc>http://jackliu234.com/2019/09/generator/</loc>
-    
-    <lastmod>2019-09-17T16:40:18.378Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jackliu234.com/2019/02/portfolio-theory/</loc>
     
     <lastmod>2019-09-14T15:26:49.695Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/05/apollo-add-tags/</loc>
-    
-    <lastmod>2019-09-14T13:55:34.684Z</lastmod>
     
   </url>
   
@@ -72,48 +44,6 @@
   </url>
   
   <url>
-    <loc>http://jackliu234.com/2019/04/islr/</loc>
-    
-    <lastmod>2019-09-11T09:31:25.834Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/07/high-freq-data-model/</loc>
-    
-    <lastmod>2019-09-04T19:20:13.824Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/06/spx-vol-term-struct/</loc>
-    
-    <lastmod>2019-09-04T19:14:12.568Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/03/generate-color-image/</loc>
-    
-    <lastmod>2019-09-04T19:11:38.809Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/06/financial-exchange/</loc>
-    
-    <lastmod>2019-09-04T19:10:22.481Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/08/gradient-descent/</loc>
-    
-    <lastmod>2019-09-04T19:10:04.641Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jackliu234.com/2019/02/texas-holdem-strategies-t9/</loc>
     
     <lastmod>2019-09-04T19:07:00.575Z</lastmod>
@@ -121,65 +51,9 @@
   </url>
   
   <url>
-    <loc>http://jackliu234.com/2019/07/algo-2/</loc>
-    
-    <lastmod>2019-09-04T19:05:52.769Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/07/algo-1/</loc>
-    
-    <lastmod>2019-09-04T19:03:33.303Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/07/variance-swap/</loc>
-    
-    <lastmod>2019-09-04T13:45:46.666Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jackliu234.com/2019/02/portfolio-credit-risk-modeling/</loc>
     
     <lastmod>2019-09-04T13:41:20.641Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/03/foreign-exchange-market/</loc>
-    
-    <lastmod>2019-09-04T13:35:39.509Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/03/stochastic-calculus/</loc>
-    
-    <lastmod>2019-09-04T13:33:48.293Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/03/option-theory/</loc>
-    
-    <lastmod>2019-09-04T13:31:31.856Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/07/leetcode/</loc>
-    
-    <lastmod>2019-08-23T13:04:05.927Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/07/w2v/</loc>
-    
-    <lastmod>2019-08-23T13:02:52.432Z</lastmod>
     
   </url>
   
@@ -201,13 +75,6 @@
     <loc>http://jackliu234.com/2019/01/guide-to-create-a-blog-with-hexo/</loc>
     
     <lastmod>2019-08-23T02:24:41.428Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/07/fiji/</loc>
-    
-    <lastmod>2019-08-23T02:21:15.792Z</lastmod>
     
   </url>
   
