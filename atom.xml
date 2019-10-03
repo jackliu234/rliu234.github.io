@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2019-10-03T03:34:57.133Z</updated>
+  <updated>2019-10-03T03:47:31.200Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -17,63 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test1</title>
-    <link href="http://jackliu234.com/2019/10/redington3/"/>
-    <id>http://jackliu234.com/2019/10/redington3/</id>
-    <published>2019-12-01T06:00:00.000Z</published>
-    <updated>2019-10-03T03:34:57.133Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Content&lt;/p&gt;
-
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>test1</title>
-    <link href="http://jackliu234.com/2019/10/redington2/"/>
-    <id>http://jackliu234.com/2019/10/redington2/</id>
-    <published>2019-11-01T05:00:00.000Z</published>
-    <updated>2019-10-03T03:34:58.871Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Content&lt;/p&gt;
-
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>test1</title>
+    <title>Literature Review: Redington Immunization</title>
     <link href="http://jackliu234.com/2019/10/redington/"/>
     <id>http://jackliu234.com/2019/10/redington/</id>
-    <published>2019-10-01T05:00:00.000Z</published>
-    <updated>2019-10-03T03:34:38.331Z</updated>
+    <published>2019-10-02T05:00:00.000Z</published>
+    <updated>2019-10-03T03:47:31.200Z</updated>
     
     <summary type="html">
     
@@ -81,8 +29,7 @@
       
         
         
-          &lt;p&gt;Content&lt;/p&gt;
-
+          &lt;p&gt;Content is being
         
       
     
@@ -605,6 +552,57 @@
     
     
       <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes on C++</title>
+    <link href="http://jackliu234.com/2019/04/cpp/"/>
+    <id>http://jackliu234.com/2019/04/cpp/</id>
+    <published>2019-04-06T05:00:00.000Z</published>
+    <updated>2019-08-23T02:14:24.803Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;C++ is a &lt;code&gt;complied&lt;/code&gt; （vs interpreted: python), &lt;code&gt;general-purpose&lt;/code&gt; (vs domain-specific: HTML) programming language
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes on Algorithm, MIT Open Course</title>
+    <link href="http://jackliu234.com/2019/04/intro-to-algorithm/"/>
+    <id>http://jackliu234.com/2019/04/intro-to-algorithm/</id>
+    <published>2019-04-03T05:00:00.000Z</published>
+    <updated>2019-08-23T13:02:26.185Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;Notation&quot;&gt;&lt;a href=&quot;#Notation&quot; class=&quot;headerlink&quot; title=&quot;Notation&quot;&gt;&lt;/a&gt;Notation&lt;/h1&gt;&lt;p&gt;Define &lt;script
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
     
   </entry>
   
