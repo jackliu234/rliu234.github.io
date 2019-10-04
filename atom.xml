@@ -423,6 +423,31 @@
   </entry>
   
   <entry>
+    <title>Notes on HTML</title>
+    <link href="http://jackliu234.com/2019/07/html/"/>
+    <id>http://jackliu234.com/2019/07/html/</id>
+    <published>2019-07-02T05:00:00.000Z</published>
+    <updated>2019-10-04T17:04:07.093Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;HTML stands for &lt;code&gt;Hyper Text Markup Language&lt;/code&gt;, and it is a display/mark-up language and &lt;code&gt;NOT&lt;/code&gt; a programming
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Simluating A Financial Exchange with Socket Server</title>
     <link href="http://jackliu234.com/2019/06/financial-exchange/"/>
     <id>http://jackliu234.com/2019/06/financial-exchange/</id>
@@ -578,32 +603,6 @@
     
     
       <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Peru &amp; Bolivia</title>
-    <link href="http://jackliu234.com/2019/04/peru-bolivia/"/>
-    <id>http://jackliu234.com/2019/04/peru-bolivia/</id>
-    <published>2019-04-01T05:00:00.000Z</published>
-    <updated>2019-09-13T23:03:18.563Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;Pictures I took in Peru recently with my dated (but still awesome) Nikon D5100.&lt;br&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Travel" scheme="http://jackliu234.com/tags/Travel/"/>
     
   </entry>
   
