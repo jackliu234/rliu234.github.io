@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2019-10-02T19:19:28.464Z</updated>
+  <updated>2019-10-07T01:12:34.701Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How to Set Up A Photo Library with Raspberry Pi</title>
+    <link href="http://jackliu234.com/2019/10/ddns/"/>
+    <id>http://jackliu234.com/2019/10/ddns/</id>
+    <published>2019-10-06T05:00:00.000Z</published>
+    <updated>2019-10-07T01:12:34.701Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Recent I brought a &lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Raspberry Pi
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+    
+  </entry>
   
   <entry>
     <title>Blockchain DIY with Python</title>
@@ -569,32 +594,6 @@
         
         
           &lt;p&gt;C++ is a &lt;code&gt;complied&lt;/code&gt; （vs interpreted: python), &lt;code&gt;general-purpose&lt;/code&gt; (vs domain-specific: HTML) programming language
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Notes on Algorithm, MIT Open Course</title>
-    <link href="http://jackliu234.com/2019/04/intro-to-algorithm/"/>
-    <id>http://jackliu234.com/2019/04/intro-to-algorithm/</id>
-    <published>2019-04-03T05:00:00.000Z</published>
-    <updated>2019-08-23T13:02:26.185Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;Notation&quot;&gt;&lt;a href=&quot;#Notation&quot; class=&quot;headerlink&quot; title=&quot;Notation&quot;&gt;&lt;/a&gt;Notation&lt;/h1&gt;&lt;p&gt;Define &lt;script
         
       
     
