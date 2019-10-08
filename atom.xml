@@ -448,31 +448,6 @@
   </entry>
   
   <entry>
-    <title>Notes on HTML</title>
-    <link href="http://jackliu234.com/2019/07/html/"/>
-    <id>http://jackliu234.com/2019/07/html/</id>
-    <published>2019-07-02T05:00:00.000Z</published>
-    <updated>2019-10-04T17:04:07.093Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;HTML stands for &lt;code&gt;Hyper Text Markup Language&lt;/code&gt;, and it is a display/mark-up language and &lt;code&gt;NOT&lt;/code&gt; a programming
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Simluating A Financial Exchange with Socket Server</title>
     <link href="http://jackliu234.com/2019/06/financial-exchange/"/>
     <id>http://jackliu234.com/2019/06/financial-exchange/</id>
@@ -594,6 +569,32 @@
         
         
           &lt;p&gt;C++ is a &lt;code&gt;complied&lt;/code&gt; （vs interpreted: python), &lt;code&gt;general-purpose&lt;/code&gt; (vs domain-specific: HTML) programming language
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes on Algorithm, MIT Open Course</title>
+    <link href="http://jackliu234.com/2019/04/intro-to-algorithm/"/>
+    <id>http://jackliu234.com/2019/04/intro-to-algorithm/</id>
+    <published>2019-04-03T05:00:00.000Z</published>
+    <updated>2019-08-23T13:02:26.185Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;Notation&quot;&gt;&lt;a href=&quot;#Notation&quot; class=&quot;headerlink&quot; title=&quot;Notation&quot;&gt;&lt;/a&gt;Notation&lt;/h1&gt;&lt;p&gt;Define &lt;script
         
       
     
