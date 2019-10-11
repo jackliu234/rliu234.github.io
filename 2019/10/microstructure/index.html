@@ -4,6 +4,7 @@
 </blockquote>
 <p>The modern day <code>High-Frequency Trading</code> depends on and contributes to the market microstructure, especially those established in electronic exchanges.</p>
 <p>To observe the microstructures, we have to be sensitive to miniscule movements in the markets with a <code>Frog&#39;s Eye View</code>, which can detect a single photon.</p>
+<p><br></p>
 <h2 id="History"><a href="#History" class="headerlink" title="History"></a>History</h2><p>In 1998, the SEC authorizes <code>Electronic Exchanges</code> and since allowed HFT, which gained significance in early 2000s first as a market making approach.</p>
 <p>In 2005, the SEC promulgated the <code>Regulation NMS</code> (National Market System) to strengthen the <code>NMS</code> for equity securities.</p>
 <ul>
@@ -18,6 +19,7 @@
 <li>Trading with reckless disregard for orderly executions during the closing period</li>
 <li>Spoofing, which is a trader’s intent to cancel the posted bid or ask order before execution, in order to overload the quotation system, delay another person’s execution or create false appearance of market depth.</li>
 </ol>
+<p><br></p>
 <h2 id="Theory"><a href="#Theory" class="headerlink" title="Theory"></a>Theory</h2><p>In HFT, <code>Price discovery</code> is a <a href="https://en.wikipedia.org/wiki/Destructive_testing" target="_blank" rel="noopener">destructive experiement</a> involving unique counterparts. Since <code>the last seen price</code> does not necessarily indicate current price, price becomes a <code>distribution</code> and therefore multiple probing is needed to discover price.</p>
 <p>According to <a href="https://en.wikipedia.org/wiki/Uncertainty_principle" target="_blank" rel="noopener">Wikipedia</a>:</p>
 <blockquote>
@@ -32,12 +34,13 @@
 <li><strong>Returns of Two Stocks</strong>: Cross-correlation between lag 1</li>
 <li><strong>Single Stock</strong>: Negative auto-correlations</li>
 </ol>
+<p><br></p>
 <h2 id="Bid-Ask-Spread"><a href="#Bid-Ask-Spread" class="headerlink" title="Bid-Ask Spread"></a>Bid-Ask Spread</h2><p>Some exchanges have an official status of <code>Market Maker</code>, who agrees to provide liquidity by guaranteeing order fulfillment. Market maker therefore have the right to demand a <code>bid-ask spread</code> between the price they buy <script type="math/tex">P^{bid}</script> and the price they sell <script type="math/tex">P^{ask}</script></p>
 <script type="math/tex; mode=display">\text{bid-ask spread} = P^{ask} - P^{bid}</script><p>The <code>bid-ask bounce</code> is the tendency for price to jump between <script type="math/tex">P^{bid}</script> and <script type="math/tex">P^{ask}</script> (causing negative auto-correlation).</p>
 <p>By obvious reason, a traded security will never have a <code>unique</code> price. There are ways to come up with a unique number as the price, however. For example, a <code>mid-price</code> is defined as such:</p>
 <script type="math/tex; mode=display">\text{mid-price} = \dfrac{P^{bid} + P^{ask}}{2}</script><p>However, to more accurately reflect the market microstructure, we can use the <code>micro-price</code>, which is essentially the bid and ask price weighted by their volumes.</p>
-<script type="math/tex; mode=display">\text{micro-price} = \dfrac{V^{ask}}{V^{bid} + V^{ask}}P^{bid} + \dfrac{V^{bid}}{V^{bid} + V^{ask}}P^{ask}</script><p>As we observed in the market, when the volume of the limit orders is relatively large on one side, the price tends to move toward the other side. The micro-price reflects this hypothetical relationship. </p>
-<p>&lt;img src=”<a href="https://jackliu234.com/2019/10/orderbook.png">https://jackliu234.com/2019/10/orderbook.png</a>  height=60%&gt;</p>
+<script type="math/tex; mode=display">\text{micro-price} = \dfrac{V^{ask}}{V^{bid} + V^{ask}}P^{bid} + \dfrac{V^{bid}}{V^{bid} + V^{ask}}P^{ask}</script><p>As we observed in the market, when the volume of the limit orders is relatively large on one side, the price tends to move toward the other side. The micro-price reflects this hypothetical relationship.</p>
+<p><img src="orderbook.png" height="250"></p>
 <p><br><br><br></p>
 <p>Reference:</p>
 <ul>
