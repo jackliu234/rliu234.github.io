@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2019-10-11T22:03:50.140Z</updated>
+  <updated>2019-10-12T16:11:01.466Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>紧跟潮流，开启Dark Mode</title>
+    <link href="http://jackliu234.com/2019/10/darkmode/"/>
+    <id>http://jackliu234.com/2019/10/darkmode/</id>
+    <published>2019-10-12T05:00:00.000Z</published>
+    <updated>2019-10-12T16:11:01.466Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;如果你的操作系统正在深色主题，那么恭喜你将能限时体验到此网站的深色模式。&lt;/p&gt;
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Notes on Market Microstructure</title>
     <link href="http://jackliu234.com/2019/10/microstructure/"/>
     <id>http://jackliu234.com/2019/10/microstructure/</id>
     <published>2019-10-11T05:00:00.000Z</published>
-    <updated>2019-10-11T22:03:50.140Z</updated>
+    <updated>2019-10-11T23:40:50.317Z</updated>
     
     <summary type="html">
     
@@ -577,31 +603,6 @@
     
     
       <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Notes on C++</title>
-    <link href="http://jackliu234.com/2019/04/cpp/"/>
-    <id>http://jackliu234.com/2019/04/cpp/</id>
-    <published>2019-04-06T05:00:00.000Z</published>
-    <updated>2019-08-23T02:14:24.803Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;C++ is a &lt;code&gt;complied&lt;/code&gt; （vs interpreted: python), &lt;code&gt;general-purpose&lt;/code&gt; (vs domain-specific: HTML) programming language
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
     
   </entry>
   

@@ -93,9 +93,6 @@ hr {
     height: 0
 }
 
-pre {
-    overflow: auto
-}
 
 kbd, samp {
     font-family: 'Inconsolata', monospace;
@@ -171,7 +168,6 @@ optgroup {
     font-weight: bold
 }
 
-
 ::-moz-selection {
     color: #FFFFFF;
     background-color: #6B8EE1
@@ -234,6 +230,9 @@ code {
     border-width: thin; */
     background: #D7E7FF;
     white-space: inherit;
+    font-size: 1em;
+    font-family: 'Garamond';
+
 }
 
 iframe, video {
@@ -251,7 +250,6 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
     border-bottom: 2px solid;
-
 }
 
 table thead {
@@ -274,10 +272,6 @@ table tr td {
     vertical-align: middle;
     white-space: nowrap;
     white-spa
-}
-
-pre {
-    text-align: normal
 }
 
 header {
@@ -305,7 +299,6 @@ header .nav-list-item a {
     font-size: 22px;
     line-height: 1.0
 }
-
 
 .home.post-list .post-list-item {
     padding: 0em 0 2em;
@@ -337,7 +330,6 @@ header .nav-list-item a {
 }
 
 .archive .post-title-link {
-
     display: block;
     margin-left: 170px;
     color: #6190e8;
@@ -467,16 +459,12 @@ header .nav-list-item a {
     max-width: 95%
 }
 
-code {
-    font-size: 1em;
-    font-family: 'Garamond';
-}
-
 pre {
     font-size: 12px;
     background-color: #F5F5F5;
     font-family: 'monaco', monospace;
     text-align: left;
+    overflow: auto
 }
 
 .highlight {
@@ -739,6 +727,30 @@ footer .copyright p, footer .copyright a {
 
 footer .copyright a:hover {
     color: #888
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color: #fff;
+        background-color: #333333;
+    }
+
+    a, a:active {
+        color: #fff;
+    }
+
+    .post-block .post-title {
+        color: #fff;
+    }
+
+    code {
+        color: #fff;
+        background-color: #6190E8;
+    }
+
+    pre {
+        color: #525252;
+    }
 }
 
 @font-face {
