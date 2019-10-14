@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2019-10-12T17:30:24.431Z</updated>
+  <updated>2019-10-14T04:22:47.154Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Random NLH Strats with AXs</title>
+    <link href="http://jackliu234.com/2019/10/nlh-ax/"/>
+    <id>http://jackliu234.com/2019/10/nlh-ax/</id>
+    <published>2019-10-13T05:00:00.000Z</published>
+    <updated>2019-10-14T04:22:47.154Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;AKs-ATs&quot;&gt;&lt;a href=&quot;#AKs-ATs&quot; class=&quot;headerlink&quot; title=&quot;AKs - ATs&quot;&gt;&lt;/a&gt;AKs - ATs&lt;/h1&gt;&lt;h2 id=&quot;Balancing-River-Check-Range&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+    
+  </entry>
   
   <entry>
     <title>Dark Mode</title>
@@ -69,10 +94,10 @@
   
   <entry>
     <title>How to Set Up A Photo Library with Raspberry Pi</title>
-    <link href="http://jackliu234.com/2019/10/ddns/"/>
-    <id>http://jackliu234.com/2019/10/ddns/</id>
+    <link href="http://jackliu234.com/2019/10/pi/"/>
+    <id>http://jackliu234.com/2019/10/pi/</id>
     <published>2019-10-06T05:00:00.000Z</published>
-    <updated>2019-10-08T13:25:33.671Z</updated>
+    <updated>2019-10-13T15:31:45.281Z</updated>
     
     <summary type="html">
     
@@ -570,31 +595,6 @@
         
           &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;PCA finds low dimensional representation of a dataset that contains as much as possible of the variation. As each of
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Notes on ISLR</title>
-    <link href="http://jackliu234.com/2019/04/islr/"/>
-    <id>http://jackliu234.com/2019/04/islr/</id>
-    <published>2019-04-13T05:00:00.000Z</published>
-    <updated>2019-10-02T19:26:43.097Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;This is a study note on the book &lt;a href=&quot;http://faculty.marshall.usc.edu/gareth-james/ISL/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;An
         
       
     
