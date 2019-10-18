@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jackliu234.com/2019/04/islr/</loc>
+    
+    <lastmod>2019-10-18T19:33:04.201Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackliu234.com/about/index.html</loc>
+    
+    <lastmod>2019-10-18T19:29:51.813Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jackliu234.com/2019/02/nlh-t9/</loc>
     
     <lastmod>2019-10-14T04:22:56.411Z</lastmod>
@@ -51,13 +65,6 @@
   </url>
   
   <url>
-    <loc>http://jackliu234.com/2019/04/islr/</loc>
-    
-    <lastmod>2019-10-02T19:26:43.097Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jackliu234.com/2019/01/yosemite/</loc>
     
     <lastmod>2019-10-02T18:24:44.182Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>http://jackliu234.com/2019/04/pca-deep-dive/</loc>
     
     <lastmod>2019-09-25T22:21:16.086Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/about/index.html</loc>
-    
-    <lastmod>2019-09-23T14:56:12.119Z</lastmod>
     
   </url>
   
