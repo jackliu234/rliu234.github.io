@@ -41,6 +41,17 @@
 <script type="math/tex; mode=display">\text{mid-price} = \dfrac{P^{bid} + P^{ask}}{2}</script><p>However, to more accurately reflect the market microstructure, we can use the <code>micro-price</code>, which is essentially the bid and ask price weighted by their volumes.</p>
 <script type="math/tex; mode=display">\text{micro-price} = \dfrac{V^{ask}}{V^{bid} + V^{ask}}P^{bid} + \dfrac{V^{bid}}{V^{bid} + V^{ask}}P^{ask}</script><p>As we observed in the market, when the volume of the limit orders is relatively large on one side, the price tends to move toward the other side. The micro-price reflects this hypothetical relationship.</p>
 <p><img src="orderbook.png" height="250"></p>
+<h2 id="Poisson-Process"><a href="#Poisson-Process" class="headerlink" title="Poisson Process"></a>Poisson Process</h2><p><strong><em><code>Poisson Distribution</code></em></strong><br>Given a Bernoulli trial with small success rate and a timer, we count the number of success <script type="math/tex">N</script> in each time interval. Then <script type="math/tex">X</script> follows a Poisson distribution, i.e. <script type="math/tex">N\sim Poi(\lambda)</script> where:</p>
+<script type="math/tex; mode=display">\mathbb{P}\{N = n\} = \dfrac{\lambda^n}{n!}e^{-\lambda}</script><p>A nice property comes with a Possion distribution:</p>
+<script type="math/tex; mode=display">\mathbb{E}N = \mathbb{V}N = \lambda</script><p><strong><em><code>Poisson Process</code></em></strong><br>A point process <script type="math/tex">N_t</script> is called a Poisson process with intensity <script type="math/tex">\lambda</script> if:</p>
+<script type="math/tex; mode=display">N_t \text{ has independent increments, and} \\
+N_t - N_s \sim Poi(\lambda (t-s))</script><p>The Poisson process is one of the most difficult to predict. While the count follows Poisson distribution, the intensity (interval between jumps) follows exponential distribution.</p>
+<p><strong><em><code>Mixed Poisson Distribution</code></em></strong><br>Let <script type="math/tex">N</script> have mixed Poisson distribution <script type="math/tex">N\sim MP(t, \mathbb{U})</script>, where <script type="math/tex">\mathbb{U}</script> is the structure distribution of random variable <script type="math/tex">\Lambda</script>:</p>
+<script type="math/tex; mode=display">\mathbb{E}\Lambda = \mu_{\Lambda} \\
+\mathbb{V}\Lambda = \sigma^2_{\Lambda}</script><p>Therefore the mixed Poisson distribution is over-dispersed, with variance larger than a normal Poisson distribution:</p>
+<script type="math/tex; mode=display">\begin{align} \mathbb{E}N &= t\mu_{\Lambda} \\
+\mathbb{V}N &= t\mu_{\Lambda} + t^2\sigma^2_{\Lambda}
+\end{align}</script><p>When the structure distribution is <code>Gamma</code>, then the mixed Poisson distribution becomes negative binomial.</p>
 <p><br><br><br></p>
 <p>Reference:</p>
 <ul>
