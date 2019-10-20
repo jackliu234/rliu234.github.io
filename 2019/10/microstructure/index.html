@@ -45,14 +45,17 @@
 <script type="math/tex; mode=display">\mathbb{P}\{N = n\} = \dfrac{\lambda^n}{n!}e^{-\lambda}</script><p>A nice property comes with a Possion distribution:</p>
 <script type="math/tex; mode=display">\mathbb{E}N = \mathbb{V}N = \lambda</script><p><strong><em><code>Poisson Process</code></em></strong><br>A point process <script type="math/tex">N_t</script> is called a Poisson process with intensity <script type="math/tex">\lambda</script> if:</p>
 <script type="math/tex; mode=display">N_t \text{ has independent increments, and} \\
-N_t - N_s \sim Poi(\lambda (t-s))</script><p>The Poisson process is one of the most difficult to predict. While the count follows Poisson distribution, the intensity (interval between jumps) follows exponential distribution.</p>
+N_t - N_s \sim Poi(\lambda (t-s))</script><p>The Poisson process is one of the most difficult to predict. While the count follows Poisson distribution, the intensity (interval between jumps) follows <code>exponential</code> distribution.</p>
 <p><strong><em><code>Mixed Poisson Distribution</code></em></strong><br>Let <script type="math/tex">N</script> have mixed Poisson distribution <script type="math/tex">N\sim MP(t, \mathbb{U})</script>, where <script type="math/tex">\mathbb{U}</script> is the structure distribution of random variable <script type="math/tex">\Lambda</script>:</p>
 <script type="math/tex; mode=display">\mathbb{E}\Lambda = \mu_{\Lambda} \\
-\mathbb{V}\Lambda = \sigma^2_{\Lambda}</script><p>Therefore the mixed Poisson distribution is over-dispersed, with variance larger than a normal Poisson distribution:</p>
+\mathbb{V}\Lambda = \sigma^2_{\Lambda}</script><p>Therefore the mixed Poisson distribution is <code>over-dispersed</code>, with variance larger than a normal Poisson distribution:</p>
 <script type="math/tex; mode=display">\begin{align} \mathbb{E}N &= t\mu_{\Lambda} \\
 \mathbb{V}N &= t\mu_{\Lambda} + t^2\sigma^2_{\Lambda}
-\end{align}</script><p>When the structure distribution is <code>Gamma</code>, then the mixed Poisson distribution becomes negative binomial.</p>
-<p><strong><em><code>Cox Process</code></em></strong></p>
+\end{align}</script><p>When the structure distribution is <code>Gamma</code>, then the mixed Poisson distribution becomes <code>negative binomial</code>.</p>
+<p><strong><em><code>Cox Process</code></em></strong><br>Cox process is a generalization of <code>non-homogeneous Poisson process</code> in which intensity measure can be stochastic in a certain way.</p>
+<p>Let <script type="math/tex">\mathcal{A}</script> be a set of right-continuous non-decreasing functions <script type="math/tex">A_t</script>, such that <script type="math/tex">A_0=0, A_t<\infty</script> for each <script type="math/tex">t<\infty</script>. A point process <script type="math/tex">N_A(t)</script> is called a <code>non-homogeneous Poisson process</code> with intensity measure <script type="math/tex">A_t\in\mathcal{A}</script> if:</p>
+<script type="math/tex; mode=display">N_A(t) \text{ has independent increments, and} \\
+N_A(t) - N_A(s) \sim Poi(A_t - A_s)</script><p>Let <script type="math/tex">\Lambda_t, t\geq0</script> be a random process with trajectories from <script type="math/tex">\mathcal{A}</script>. A point process <script type="math/tex">N_{\Lambda}(t)</script> is called <code>Cox process</code> with random intensity measure <script type="math/tex">\Lambda_t</script> if for any realization <script type="math/tex">A_t</script> of <script type="math/tex">\Lambda_t</script> the process <script type="math/tex">N_{\Lambda}(t)</script> is a non-homogeneous Poisson process with intensity measure <script type="math/tex">A_t</script></p>
 <p><br><br><br></p>
 <p>Reference:</p>
 <ul>
