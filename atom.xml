@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2019-10-14T04:22:47.154Z</updated>
+  <updated>2019-10-23T14:33:00.671Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://jackliu234.com/2019/10/nlh-ax/"/>
     <id>http://jackliu234.com/2019/10/nlh-ax/</id>
     <published>2019-10-13T05:00:00.000Z</published>
-    <updated>2019-10-14T04:22:47.154Z</updated>
+    <updated>2019-10-23T14:33:00.671Z</updated>
     
     <summary type="html">
     
@@ -38,32 +38,6 @@
     
     
       <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Dark Mode</title>
-    <link href="http://jackliu234.com/2019/10/darkmode/"/>
-    <id>http://jackliu234.com/2019/10/darkmode/</id>
-    <published>2019-10-12T05:00:00.000Z</published>
-    <updated>2019-10-12T17:30:24.431Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;如果你的操作系统正在使用苹果的深色主题，那么恭喜你将能限时体验到此网站的深色模式。&lt;/p&gt;
-&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
     
   </entry>
   
@@ -595,6 +569,31 @@
         
           &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;PCA finds low dimensional representation of a dataset that contains as much as possible of the variation. As each of
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes on ISLR</title>
+    <link href="http://jackliu234.com/2019/04/islr/"/>
+    <id>http://jackliu234.com/2019/04/islr/</id>
+    <published>2019-04-13T05:00:00.000Z</published>
+    <updated>2019-10-21T19:56:12.826Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;This is a study note on the book &lt;a href=&quot;http://faculty.marshall.usc.edu/gareth-james/ISL/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;An
         
       
     
