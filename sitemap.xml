@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jackliu234.com/2019/10/microstructure/</loc>
+    
+    <lastmod>2019-10-25T17:15:42.167Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jackliu234.com/about/index.html</loc>
     
     <lastmod>2019-10-21T23:42:43.933Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://jackliu234.com/2019/04/islr/</loc>
     
     <lastmod>2019-10-21T19:56:12.826Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/10/microstructure/</loc>
-    
-    <lastmod>2019-10-19T00:30:03.484Z</lastmod>
     
   </url>
   
