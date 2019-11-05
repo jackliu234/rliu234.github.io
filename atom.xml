@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2019-10-26T16:18:04.997Z</updated>
+  <updated>2019-11-05T03:08:48.590Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Can We Optimize Buy-In Size with Kelly&#39;s Criterion?</title>
+    <link href="http://jackliu234.com/2019/11/kelly/"/>
+    <id>http://jackliu234.com/2019/11/kelly/</id>
+    <published>2019-11-04T06:00:00.000Z</published>
+    <updated>2019-11-05T03:08:48.590Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;The &lt;code&gt;Kelly&amp;#39;s Criterion&lt;/code&gt;, famous for its various application in sports betting and asset management, is detailed in a &lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+    
+  </entry>
   
   <entry>
     <title>Notes on Market Microstructure</title>
@@ -71,7 +96,7 @@
     <link href="http://jackliu234.com/2019/09/blockchain/"/>
     <id>http://jackliu234.com/2019/09/blockchain/</id>
     <published>2019-09-30T05:00:00.000Z</published>
-    <updated>2019-10-08T12:04:30.347Z</updated>
+    <updated>2019-11-03T17:41:34.821Z</updated>
     
     <summary type="html">
     
@@ -162,11 +187,11 @@
   </entry>
   
   <entry>
-    <title>Notes on Word2Vec, Stanford Open Course</title>
+    <title>Notes on Word2Vec - Stanford Open Course</title>
     <link href="http://jackliu234.com/2019/07/w2v/"/>
     <id>http://jackliu234.com/2019/07/w2v/</id>
     <published>2019-07-29T05:00:00.000Z</published>
-    <updated>2019-08-23T13:02:52.432Z</updated>
+    <updated>2019-11-03T17:39:39.483Z</updated>
     
     <summary type="html">
     
@@ -188,11 +213,11 @@
   </entry>
   
   <entry>
-    <title>Notes on High Frequency Data Model</title>
-    <link href="http://jackliu234.com/2019/07/high-freq-data-model/"/>
-    <id>http://jackliu234.com/2019/07/high-freq-data-model/</id>
+    <title>Hypothesis Test and CI Review</title>
+    <link href="http://jackliu234.com/2019/07/ht-ci/"/>
+    <id>http://jackliu234.com/2019/07/ht-ci/</id>
     <published>2019-07-26T05:00:00.000Z</published>
-    <updated>2019-10-08T19:27:18.419Z</updated>
+    <updated>2019-11-03T17:37:48.678Z</updated>
     
     <summary type="html">
     
@@ -201,7 +226,9 @@
         
         
           &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;Hypothesis-Test-and-Confidence-Interval&quot;&gt;&lt;a href=&quot;#Hypothesis-Test-and-Confidence-Interval&quot; class=&quot;headerlink&quot;
+&lt;p&gt;A formal statistical data analysis includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;hypothesis testings&lt;/code&gt;: seeing whether a structure
         
       
     
@@ -569,32 +596,6 @@
         
         
           &lt;p&gt;C++ is a &lt;code&gt;complied&lt;/code&gt; （vs interpreted: python), &lt;code&gt;general-purpose&lt;/code&gt; (vs domain-specific: HTML) programming language
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Notes on Algorithm, MIT Open Course</title>
-    <link href="http://jackliu234.com/2019/04/intro-to-algorithm/"/>
-    <id>http://jackliu234.com/2019/04/intro-to-algorithm/</id>
-    <published>2019-04-03T05:00:00.000Z</published>
-    <updated>2019-08-23T13:02:26.185Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;Notation&quot;&gt;&lt;a href=&quot;#Notation&quot; class=&quot;headerlink&quot; title=&quot;Notation&quot;&gt;&lt;/a&gt;Notation&lt;/h1&gt;&lt;p&gt;Define &lt;script
         
       
     

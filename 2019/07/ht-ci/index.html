@@ -1,0 +1,61 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Hypothesis Test and CI Review · Rongjia Liu</title><meta name="description" content="Hypothesis Test and CI Review - Rongjia Liu"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/arctic.css"><link rel="search" type="application/opensearchdescription+xml" href="http://jackliu234.com/atom.xml" title="Rongjia Liu"><script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/search/" target="_self" class="nav-list-link">SEARCH</a></li><!-- li.nav-list-item--><!--    a.nav-list-link(class="search" href=url_for("search") target="_self") <i class="fa fa-search" aria-hidden="true"></i>--></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Hypothesis Test and CI Review</h1><div class="post-info">Jul 26, 2019</div><div class="post-content"><a id="more"></a>
+<p>A formal statistical data analysis includes:</p>
+<ul>
+<li><code>hypothesis testings</code>: seeing whether a structure is present</li>
+<li><code>confidence interval</code>: setting error limits on estimates</li>
+<li>prediction interval: setting error limits on future outcomes</li>
+</ul>
+<p>We will discuss a typical setting as follow:</p>
+<ul>
+<li>Let <script type="math/tex">\beta</script> be the <code>unknown parameter</code>, and <script type="math/tex">\hat{\beta}_n</script> is the parameter estimator based on <script type="math/tex">n</script> observations</li>
+<li>Let <script type="math/tex">\hat{\sigma}^2_n</script> be the estimator of <script type="math/tex">\sigma^2_n</script>, equal to <script type="math/tex">var(\sqrt{n}(\hat{\beta}_n - \beta))</script></li>
+<li>In rare circumstances where <script type="math/tex">\sqrt{n}(\hat{\beta}_n - \beta)/\hat{\sigma}</script> is independent of the unknown <script type="math/tex">\beta</script>, such as in regression settings where the error terms <script type="math/tex">\epsilon_i</script> are i.i.d. normally distributed, we can show that it follows a t-distribution with <script type="math/tex">n-1</script> degree of freedom.</li>
+</ul>
+<script type="math/tex; mode=display">\dfrac{\sqrt{n}(\hat{\beta}_n - \beta)}{\hat{\sigma}} \sim t_{n-1}</script><ul>
+<li>However, asymptotically as <script type="math/tex">n\rightarrow\infty</script>, the <code>Central Limit Theorem</code> applies which release us from the assumption restriction above. Under a variety of regular conditions:</li>
+</ul>
+<script type="math/tex; mode=display">\lim_{n\rightarrow\infty} \dfrac{\sqrt{n}(\hat{\beta}_n - \beta)}{\hat{\sigma}} \sim \mathcal{N}(0, 1)</script><ul>
+<li>The <script type="math/tex">1-\alpha</script> <code>confidence interval</code> can then be computed as:</li>
+</ul>
+<script type="math/tex; mode=display">\beta \in CI = \hat{\beta}_n \pm t^{\alpha}_{n-1}\hat{\sigma}_n/\sqrt{n} \\ \text{or asymptotically, swapping } t^{\alpha}_{n-1} \text{ by } z^{\alpha}</script><ul>
+<li><p>The <script type="math/tex">1-\alpha</script> <code>hypothesis test</code> of <script type="math/tex">\beta=\beta_0</script> would:</p>
+<ul>
+<li>accept <script type="math/tex">H_0</script> that  <script type="math/tex">\beta=\beta_0</script> if <script type="math/tex">\beta \in CI</script></li>
+<li>reject <script type="math/tex">H_0</script> that <script type="math/tex">\beta=\beta_0</script> if <script type="math/tex">\beta \notin CI</script></li>
+</ul>
+</li>
+<li><p>The <code>p-value</code> is <script type="math/tex">\alpha</script> such that the hypothesis test is indifference between accept or reject.</p>
+</li>
+<li><p>In practice, t-distribution is typically used for regression data as it is more conservative (<script type="math/tex">t^{\alpha}_{n-1} > z^{\alpha}</script>). For non-regression data, normal distribution is often used.</p>
+</li>
+</ul>
+<p>Some background on LLN and CLT:</p>
+<ul>
+<li><p>Given <script type="math/tex">n</script> i.i.d. random variable <script type="math/tex">X_i</script>. Let <script type="math/tex">\bar{X} = \sum X_i/n</script></p>
+</li>
+<li><p>The <code>Law of Large Numbers</code> states that if <script type="math/tex">\mathbb{E}|X|<\infty</script>, then <script type="math/tex">\lim_{n\rightarrow\infty}\bar{X}\rightarrow\mathbb{E}X</script> a.s.</p>
+</li>
+<li><p>The <code>Central Limit Theorem</code> states that if <script type="math/tex">\mathbb{E}X^2<\infty</script>, then</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">\begin{align}
+\lim_{n\rightarrow\infty}\sqrt{n}(\bar{X}-\mathbb{E}X)&\rightarrow\mathcal{N}(0, var[X]) \\ \text{or equivalently, } \lim_{n\rightarrow\infty}\dfrac{\bar{X}-\mathbb{E}X}{std[\bar{X}]}&\rightarrow\mathcal{N}(0, 1)
+\end{align}</script><ul>
+<li>Therefore, if we have a consistent estimator <script type="math/tex">\hat{\sigma}_n</script> for <script type="math/tex">\sigma_n</script>, meaning <script type="math/tex">\hat{\sigma}_n\rightarrow\sigma</script> as <script type="math/tex">n\rightarrow\infty</script>, <code>Slutsky&#39;s Theorem</code> concludes that</li>
+</ul>
+<script type="math/tex; mode=display">\dfrac{\sqrt{n}(\hat{\beta}_n - \beta)}{\hat{\sigma}_n} \rightarrow\mathcal{N}(0, 1)</script><ul>
+<li>We can then use the normal distribution to set confidence intervals and perform hypothesis tests.</li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/07/w2v/" class="prev">PREV</a><a href="/2019/07/leetcode/" class="next">NEXT</a></div><div id="container"></div><!-- link(rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css")--><link rel="stylesheet" href="/css/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+    clientID: '4ec287ddd4ac34ff5087',
+    clientSecret: 'ae45426765f12ac3e2f903662b8938dc4881f703',
+    repo: 'jackliu234.github.io',
+    owner: 'jackliu234',
+    admin: ['jackliu234'],
+    perPage: 100,
+    id: 'Fri Jul 26 2019 00:00:00 GMT-0500 GMT'.split('GMT')[0].replace(/\s/g, '-'),
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+})
+
+gitalk.render('container')</script><!-- block copyright--></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-133275176-1",'auto');ga('send','pageview');</script><link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" media="screen" type="text/css"><script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script><script>$(function(){$('.datatable').dataTable( {"order": [[ 0, "desc" ]],"iDisplayLength": -1,"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]} );});</script></body></html>
