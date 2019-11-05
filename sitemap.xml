@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jackliu234.com/about/index.html</loc>
+    
+    <lastmod>2019-11-05T15:59:07.625Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jackliu234.com/2019/11/kelly/</loc>
     
     <lastmod>2019-11-05T04:43:43.398Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://jackliu234.com/2019/10/microstructure/</loc>
     
     <lastmod>2019-10-26T16:18:04.997Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/about/index.html</loc>
-    
-    <lastmod>2019-10-21T23:42:43.933Z</lastmod>
     
   </url>
   
@@ -229,13 +229,6 @@
     <loc>http://jackliu234.com/2019/03/option-theory/</loc>
     
     <lastmod>2019-09-04T13:31:31.856Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/07/leetcode/</loc>
-    
-    <lastmod>2019-08-23T13:04:05.927Z</lastmod>
     
   </url>
   
