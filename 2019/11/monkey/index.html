@@ -1,0 +1,42 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>The Monkey and the Coconuts · Rongjia Liu</title><meta name="description" content="The Monkey and the Coconuts - Rongjia Liu"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/arctic.css"><link rel="search" type="application/opensearchdescription+xml" href="http://jackliu234.com/atom.xml" title="Rongjia Liu"><script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/search/" target="_self" class="nav-list-link">SEARCH</a></li><!-- li.nav-list-item--><!--    a.nav-list-link(class="search" href=url_for("search") target="_self") <i class="fa fa-search" aria-hidden="true"></i>--></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">The Monkey and the Coconuts</h1><div class="post-info">Nov 6, 2019</div><div class="post-content"><blockquote>
+<p>Five men and a monkey were shipwrecked on an island. They spent the first night gathering coconuts. During the night, one man woke up and decided to take his share of the coconuts. He divided them into five piles. One coconut was left over so he gave it to the monkey, then hid his share and went back to sleep.</p>
+<p>Soon a second man woke up and did the same thing. After dividing the coconuts into five piles, one coconut was left over which he gave to the monkey. He then hid his share and went back to bed. The third, fourth, and fifth man followed exactly the same procedure. The next morning, after they all woke up, they divided the remaining coconuts into five equal shares. This time no coconuts were left over.</p>
+<p>What is the smallest number of coconuts there could have been in the original pile?<sup><a href="https://en.wikipedia.org/wiki/The_monkey_and_the_coconuts" target="_blank" rel="noopener">[source]</a></sup></p>
+</blockquote>
+<button onclick="myAnswer()">Show Answer</button>
+
+<div id="Answer" style="display: none;">
+
+$$\text{TotalCoconuts}=\dfrac{5}{4}\{\dfrac{5}{4}\{\dfrac{5}{4}[\dfrac{5}{4}(\dfrac{5}{4}\text{FinalCoconuts}+1)+1]+1\}+1\}+1$$
+
+$$\text{we need to solve for }\underset{\text{FinalCononuts}\in\mathbb{N}}{argmin}\bigg\{\text{TotalCoconuts}:\text{TotalCoconuts}\in\mathbb{N}\bigg\}$$
+
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> FinalCononuts <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">10000</span>):</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">3125</span> * FinalCononuts + <span class="number">8404</span>) % <span class="number">1024</span> == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">f'Smallest Number of Final Cononuts: %d'</span> % FinalCononuts)</span><br><span class="line">        print(<span class="string">f'Smallest Number of Total Coconuts: %d'</span> % ((<span class="number">3125</span> * FinalCononuts + <span class="number">8404</span>) / <span class="number">1024</span>))</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Smallest Number of Final Cononuts: <span class="number">1020</span></span><br><span class="line">Smallest Number of Total Coconuts: <span class="number">3121</span></span><br></pre></td></tr></table></figure>
+
+</div>
+
+<script>
+function myAnswer() {
+  var x = document.getElementById("Answer");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/11/kelly/" class="next">NEXT</a></div><div id="container"></div><!-- link(rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css")--><link rel="stylesheet" href="/css/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+    clientID: '4ec287ddd4ac34ff5087',
+    clientSecret: 'ae45426765f12ac3e2f903662b8938dc4881f703',
+    repo: 'jackliu234.github.io',
+    owner: 'jackliu234',
+    admin: ['jackliu234'],
+    perPage: 100,
+    id: 'Wed Nov 06 2019 00:00:00 GMT-0600 GMT'.split('GMT')[0].replace(/\s/g, '-'),
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+})
+
+gitalk.render('container')</script><!-- block copyright--></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-133275176-1",'auto');ga('send','pageview');</script><link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" media="screen" type="text/css"><script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script><script>$(function(){$('.datatable').dataTable( {"order": [[ 0, "desc" ]],"iDisplayLength": -1,"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]} );});</script></body></html>

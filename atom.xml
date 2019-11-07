@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2019-11-05T04:43:43.398Z</updated>
+  <updated>2019-11-07T01:33:34.050Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The Monkey and the Coconuts</title>
+    <link href="http://jackliu234.com/2019/11/monkey/"/>
+    <id>http://jackliu234.com/2019/11/monkey/</id>
+    <published>2019-11-06T06:00:00.000Z</published>
+    <updated>2019-11-07T01:33:34.050Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;Five men and a monkey were shipwrecked on an island. They spent the first night gathering coconuts. During the night, one
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+    
+  </entry>
   
   <entry>
     <title>Can We Optimize Buy-In Size with Kelly&#39;s Criterion?</title>
@@ -570,32 +596,6 @@
         
         
           &lt;p&gt;C++ is a &lt;code&gt;complied&lt;/code&gt; （vs interpreted: python), &lt;code&gt;general-purpose&lt;/code&gt; (vs domain-specific: HTML) programming language
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Notes on Algorithm - MIT Open Course</title>
-    <link href="http://jackliu234.com/2019/04/intro-to-algorithm/"/>
-    <id>http://jackliu234.com/2019/04/intro-to-algorithm/</id>
-    <published>2019-04-03T05:00:00.000Z</published>
-    <updated>2019-11-03T17:39:56.714Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;Notation&quot;&gt;&lt;a href=&quot;#Notation&quot; class=&quot;headerlink&quot; title=&quot;Notation&quot;&gt;&lt;/a&gt;Notation&lt;/h1&gt;&lt;p&gt;Define &lt;script
         
       
     
