@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2019-11-07T03:44:30.987Z</updated>
+  <updated>2019-11-05T04:43:43.398Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -15,32 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>The Monkey and the Coconuts</title>
-    <link href="http://jackliu234.com/2019/11/monkey/"/>
-    <id>http://jackliu234.com/2019/11/monkey/</id>
-    <published>2019-11-06T06:00:00.000Z</published>
-    <updated>2019-11-07T03:44:30.987Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;Five men and a monkey were shipwrecked on an island. They spent the first night gathering coconuts. During the night, one
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
-    
-  </entry>
   
   <entry>
     <title>Can We Optimize Buy-In Size with Kelly&#39;s Criterion?</title>
@@ -56,31 +30,6 @@
         
         
           &lt;p&gt;The &lt;code&gt;Kelly&amp;#39;s Criterion&lt;/code&gt;, famous for its various application in sports betting and asset management, is detailed in a &lt;a
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Notes on Market Microstructure</title>
-    <link href="http://jackliu234.com/2019/10/microstructure/"/>
-    <id>http://jackliu234.com/2019/10/microstructure/</id>
-    <published>2019-10-11T05:00:00.000Z</published>
-    <updated>2019-11-09T01:28:02.769Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Without-Rationality-Assumption&quot;&gt;&lt;a href=&quot;#Without-Rationality-Assumption&quot; class=&quot;headerlink&quot; title=&quot;Without Rationality
         
       
     
@@ -143,36 +92,11 @@
   </entry>
   
   <entry>
-    <title>A-Mazing</title>
-    <link href="http://jackliu234.com/2019/09/amazing/"/>
-    <id>http://jackliu234.com/2019/09/amazing/</id>
-    <published>2019-09-23T05:00:00.000Z</published>
-    <updated>2019-10-02T16:21:18.062Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;This is a maze game created by &lt;a href=&quot;https://juejin.im/post/5d8842b3f265da03c8155fd4&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;this&lt;/a&gt; guy
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Writing CLI with Node</title>
-    <link href="http://jackliu234.com/2019/09/generator/"/>
-    <id>http://jackliu234.com/2019/09/generator/</id>
+    <title>Simple Command-Line Program with Node</title>
+    <link href="http://jackliu234.com/2019/09/cli-node/"/>
+    <id>http://jackliu234.com/2019/09/cli-node/</id>
     <published>2019-09-15T05:00:00.000Z</published>
-    <updated>2019-09-17T16:40:18.378Z</updated>
+    <updated>2019-11-10T13:02:05.878Z</updated>
     
     <summary type="html">
     
@@ -213,11 +137,11 @@
   </entry>
   
   <entry>
-    <title>Notes on Word2Vec - Stanford Open Course</title>
+    <title>Notes on Word2Vec</title>
     <link href="http://jackliu234.com/2019/07/w2v/"/>
     <id>http://jackliu234.com/2019/07/w2v/</id>
     <published>2019-07-29T05:00:00.000Z</published>
-    <updated>2019-11-03T17:39:39.483Z</updated>
+    <updated>2019-11-10T12:40:37.313Z</updated>
     
     <summary type="html">
     
@@ -235,34 +159,6 @@
     
     
       <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hypothesis Test and CI Review</title>
-    <link href="http://jackliu234.com/2019/07/ht-ci/"/>
-    <id>http://jackliu234.com/2019/07/ht-ci/</id>
-    <published>2019-07-26T05:00:00.000Z</published>
-    <updated>2019-11-03T17:37:48.678Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;A formal statistical data analysis includes:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;hypothesis testings&lt;/code&gt;: seeing whether a structure
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
     
   </entry>
   
@@ -494,11 +390,11 @@
   </entry>
   
   <entry>
-    <title>Uncovering the Term Structure of Volatility Skew</title>
+    <title>Discovering the Term Structure of Volatility Skew</title>
     <link href="http://jackliu234.com/2019/06/spx-vol-term-struct/"/>
     <id>http://jackliu234.com/2019/06/spx-vol-term-struct/</id>
     <published>2019-06-13T05:00:00.000Z</published>
-    <updated>2019-09-04T19:14:12.568Z</updated>
+    <updated>2019-11-10T12:30:49.311Z</updated>
     
     <summary type="html">
     
@@ -532,11 +428,11 @@
   </entry>
   
   <entry>
-    <title>PCA: A Deeper Dive</title>
+    <title>A Deeper Dive into PCA</title>
     <link href="http://jackliu234.com/2019/04/pca-deep-dive/"/>
     <id>http://jackliu234.com/2019/04/pca-deep-dive/</id>
     <published>2019-04-27T05:00:00.000Z</published>
-    <updated>2019-09-25T22:21:16.086Z</updated>
+    <updated>2019-11-10T12:59:12.885Z</updated>
     
     <summary type="html">
     
@@ -562,7 +458,7 @@
     <link href="http://jackliu234.com/2019/04/islr/"/>
     <id>http://jackliu234.com/2019/04/islr/</id>
     <published>2019-04-13T05:00:00.000Z</published>
-    <updated>2019-10-21T19:56:12.826Z</updated>
+    <updated>2019-11-10T12:53:15.853Z</updated>
     
     <summary type="html">
     
@@ -587,7 +483,7 @@
     <link href="http://jackliu234.com/2019/04/cpp/"/>
     <id>http://jackliu234.com/2019/04/cpp/</id>
     <published>2019-04-06T05:00:00.000Z</published>
-    <updated>2019-08-23T02:14:24.803Z</updated>
+    <updated>2019-11-10T12:43:50.925Z</updated>
     
     <summary type="html">
     
@@ -604,6 +500,103 @@
     
     
       <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Peru &amp; Bolivia</title>
+    <link href="http://jackliu234.com/2019/04/peru-bolivia/"/>
+    <id>http://jackliu234.com/2019/04/peru-bolivia/</id>
+    <published>2019-04-01T05:00:00.000Z</published>
+    <updated>2019-09-13T23:03:18.563Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;Pictures I took in Peru recently with my dated (but still awesome) Nikon D5100.&lt;br&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Travel" scheme="http://jackliu234.com/tags/Travel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes on Option Theory</title>
+    <link href="http://jackliu234.com/2019/03/option-theory/"/>
+    <id>http://jackliu234.com/2019/03/option-theory/</id>
+    <published>2019-03-19T05:00:00.000Z</published>
+    <updated>2019-11-10T12:29:36.288Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This is a study note on the fundamental theory of the pricing of a &lt;code&gt;financial derivative&lt;/code&gt;, whose payoff is defined in terms of an underlying asset. We hereby try to compute a consistent price of the derivative &lt;code&gt;in relative terms to&lt;/code&gt; the market price of the underlying asset.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes on Foreign Exchange</title>
+    <link href="http://jackliu234.com/2019/03/foreign-exchange-market/"/>
+    <id>http://jackliu234.com/2019/03/foreign-exchange-market/</id>
+    <published>2019-03-16T05:00:00.000Z</published>
+    <updated>2019-09-04T13:35:39.509Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;Theoretical-Pricing&quot;&gt;&lt;a href=&quot;#Theoretical-Pricing&quot; class=&quot;headerlink&quot; title=&quot;Theoretical
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes on Stochastic Calculus</title>
+    <link href="http://jackliu234.com/2019/03/stochastic-calculus/"/>
+    <id>http://jackliu234.com/2019/03/stochastic-calculus/</id>
+    <published>2019-03-10T06:00:00.000Z</published>
+    <updated>2019-09-04T13:33:48.293Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;Discrete-Time-Martingales&quot;&gt;&lt;a href=&quot;#Discrete-Time-Martingales&quot; class=&quot;headerlink&quot; title=&quot;Discrete Time
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
     
   </entry>
   

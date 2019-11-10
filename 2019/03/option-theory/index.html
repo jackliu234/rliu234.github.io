@@ -93,7 +93,7 @@
 \text{ with terminal condition: } C(S, T)=(S-K)^{+}</script><p>We can solve the call price analytically with the <code>Black-Scholes formula</code>:</p>
 <script type="math/tex; mode=display">C^{BS}(S_t, t) := S_tN(d_1) - Ke^{-r(T-t)}N(d_2) \\
 \text{where } d_{1,\ 2} := \dfrac{log(S_t/K) + (r \pm \sigma^2/2)(T-t))}{\sigma\sqrt(T-t)}</script><p>Here we plotted the BS call price <script type="math/tex">C^{BS}</script>, the <span style="color:blue">intrinsic value <script type="math/tex">(S_t - K)^{+}</script></span>  and the <span style="color:red">lower bound <script type="math/tex">(S_t - Ke^{-r(T-t)})^{+}</script></span>  against the current underlying price <script type="math/tex">S_t</script>, with paramters <script type="math/tex">K=100</script>, <script type="math/tex">T-t=1</script>, <script type="math/tex">\sigma=0.2</script> and <script type="math/tex">r=0.05</script></p>
-<p><img src="theoretical-option-pricing-img1.png" alt="img1.png"></p>
+<p><img src="option-pricing-img1.png" alt="img.png" height="350"></p>
 <h1 id="The-Greeks"><a href="#The-Greeks" class="headerlink" title="The Greeks"></a>The Greeks</h1><h2 id="Delta"><a href="#Delta" class="headerlink" title="Delta"></a>Delta</h2><p>Suppose an asset has a time t value <script type="math/tex">V_t(S_t, t)</script>, then its <code>Delta</code> at time <script type="math/tex">t</script> is <script type="math/tex">\partial V_t(S_t, t)/\partial S_t</script>. Delta can be interpreted as:</p>
 <ul>
 <li>the slope of the asset value <script type="math/tex">V_t</script>, plotted as a function of S_t.</li>
@@ -106,7 +106,7 @@
 &=N(d_1) + S_tN'(d_1)\dfrac{\partial d_1}{\partial S_t} - Ke^{-(T-t)}N'(d_2)\dfrac{\partial d_2}{\partial S_t} \\
 &=N(d_1)
 \end{align}</script><p>The <code>Delta</code> of a call option is <code>strictly between 0 and 1</code>. As the time-to-maturity decreases, the Delta increases faster the the option becomes more ITM. Here we plotted the BS Delta for <script type="math/tex">T-t</script> equals <script type="math/tex">1</script> and <span style="color:blue"><script type="math/tex">0.25</script></span>  against the current underlying price <script type="math/tex">S_t</script>.</p>
-<p><img src="theoretical-option-pricing-Screen Shot 2019-06-27 at 12.16.28 AM.png" alt="Screen Shot 2019-06-27 at 12.16.28 AM.png"></p>
+<p><img src="theoretical-option-pricing-Screen Shot 2019-06-27 at 12.16.28 AM.png" alt="img2.png" height="350"></p>
 <h2 id="Gamma"><a href="#Gamma" class="headerlink" title="Gamma"></a>Gamma</h2><p>For a call option in a B-S model,</p>
 <script type="math/tex; mode=display">\text{Gamma} = \dfrac{\partial^2 C^{BS}}{\partial S_t^2} = N'(d_1)\dfrac{1}{S_t\sigma\sqrt{T-t}}</script><p>In this case, the Gamma can be interpreted as:</p>
 <ul>
@@ -115,10 +115,10 @@
 <li>how much rebalancing of the replicating portfolio is needed, per unit move in <script type="math/tex">S_t</script></li>
 </ul>
 <p>The <code>Gamma</code> of a call option is <code>strictly positive</code>. As the time-to-maturity decreases, the Gamma increases for ATM options. Here we plotted the BS Delta for <script type="math/tex">T-t</script> equals <script type="math/tex">1</script> and <span style="color:blue"><script type="math/tex">0.25</script></span>  against the current underlying price <script type="math/tex">S_t</script>.</p>
-<p><img src="theoretical-option-pricing-Screen Shot 2019-06-27 at 12.20.30 AM.png" alt="Screen Shot 2019-06-27 at 12.20.30 AM.png"></p>
+<p><img src="theoretical-option-pricing-Screen Shot 2019-06-27 at 12.20.30 AM.png" alt="img4.png" height="350"></p>
 <h2 id="Theta"><a href="#Theta" class="headerlink" title="Theta"></a>Theta</h2><p>For a call in B-S model,</p>
 <script type="math/tex; mode=display">\text{Theta} = \dfrac{\partial C^{BS}}{\partial t}</script><p>The <code>Theta</code> of a call option is <code>strictly negative</code>. As the time-to-maturity decreases, the Theta decreases for ATM options (faster time-decay). Here we plotted the BS Theta for <script type="math/tex">T-t</script> equals <script type="math/tex">1</script> and <span style="color:blue"><script type="math/tex">0.25</script></span>  against the current underlying price <script type="math/tex">S_t</script>.</p>
-<p><img src="theoretical-option-pricing-Screen Shot 2019-06-27 at 12.25.48 AM.png" alt="Screen Shot 2019-06-27 at 12.25.48 AM.png"></p>
+<p><img src="theoretical-option-pricing-Screen Shot 2019-06-27 at 12.25.48 AM.png" alt="img3.png" height="350"></p>
 <h2 id="Discrete-Delta-Hedge-and-Gamma-Scalping"><a href="#Discrete-Delta-Hedge-and-Gamma-Scalping" class="headerlink" title="Discrete Delta Hedge and Gamma Scalping"></a>Discrete Delta Hedge and Gamma Scalping</h2><p>A discretely <code>Delta-hedged</code> portfolio could buy <script type="math/tex">C</script> and short <script type="math/tex">\text{Delta} \cdot S</script>. In this case it is a <code>Delta neutral</code> and <code>long Gamma</code>/<code>Gamma scalping</code> portfolio:</p>
 <ul>
 <li>Delta of the portfolio is <script type="math/tex">0</script></li>
@@ -126,7 +126,7 @@
 <li>achieve net profit only if the <code>realized volatility</code> of <script type="math/tex">S</script> is <code>high</code> enough to overcome <code>time decay</code>, otherwise portfolio loss happens. This is the opposite from a <code>short Gamma</code> position, e.g. sell <script type="math/tex">C</script> and long Delta <script type="math/tex">S</script></li>
 </ul>
 <p>We can visualize the P&amp;L of a long Gamma portfolio in the following graph, where the <span style="color:green">green</span> area indicate profits and the <span style="color:red">red</span> area indicate losses. The curved line is <script type="math/tex">C_{t+\Delta t}</script> the straight line is <script type="math/tex">\text{Delta}_t \cdot S_{t+\Delta t}</script>. As <script type="math/tex">\Delta t</script> increases, <script type="math/tex">C_{t+\Delta t}</script> shifts downwards due to time-decay.</p>
-<p><img src="theoretical-option-pricing-Screen Shot 2019-06-27 at 12.40.47 AM.png" alt="Screen Shot 2019-06-27 at 12.40.47 AM.png"></p>
+<p><img src="theoretical-option-pricing-Screen Shot 2019-06-27 at 12.40.47 AM.png" alt="img5.png" height="350"></p>
 <p>In addition, we can show that the P&amp;L of such portfolio <script type="math/tex">dV = dC - C_S dS</script> does not depend on the drift <script type="math/tex">\mu</script> of the stock:</p>
 <script type="math/tex; mode=display">\begin{align}
 dV &= dC - C_S dS \\

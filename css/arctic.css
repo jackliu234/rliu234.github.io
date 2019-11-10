@@ -186,7 +186,7 @@ html, body {
 body {
     margin: 0;
     color: #000000;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.4;
     background-color: #fff;
     font-family: 'Garamond';
@@ -326,7 +326,7 @@ header .nav-list-item a {
 }
 
 .archive .post-time, .post-title-link {
-    font-size: 17px
+    font-size: 16px
 }
 
 .archive .post-title-link {

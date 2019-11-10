@@ -1,6 +1,7 @@
 <!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Notes on ISLR · Rongjia Liu</title><meta name="description" content="Notes on ISLR - Rongjia Liu"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/arctic.css"><link rel="search" type="application/opensearchdescription+xml" href="http://jackliu234.com/atom.xml" title="Rongjia Liu"><script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/search/" target="_self" class="nav-list-link">SEARCH</a></li><!-- li.nav-list-item--><!--    a.nav-list-link(class="search" href=url_for("search") target="_self") <i class="fa fa-search" aria-hidden="true"></i>--></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Notes on ISLR</h1><div class="post-info">Apr 13, 2019</div><div class="post-content"><p>This is a study note on the book <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/" target="_blank" rel="noopener">An Introduction to Statistical Learning with Applications in R</a>, with my own experimental R-code for each topic. Cheers!</p>
-<p><img src="islr-images.jpeg" alt="images.jpeg"></p>
-<h1 id="Navigation"><a href="#Navigation" class="headerlink" title="Navigation"></a><span id="nav">Navigation</span></h1><p><a href="#00">00. Introduction</a><br><a href="#01">01. Linear Model</a><br><a href="#02">02. Tree-Based Method</a><br><a href="#03">03. Unsupervised Learning</a></p>
+<p><img src="islr-images.jpeg" height="100"></p>
+<h1 id="Navigation"><a href="#Navigation" class="headerlink" title="Navigation"></a><span id="nav">Navigation</span></h1><p><a href="#00">00. Introduction</a><br><a href="#01">01. Linear Model</a><br><a href="#02">02. Tree-Based Method</a><br><a href="#03">03. Unsupervised Learning</a><br><a href="#04">04. A Side Note on Hypothesis Test and Confidence Interval</a></p>
+<p><br></p>
 <h1 id="Introduction-8634"><a href="#Introduction-8634" class="headerlink" title="Introduction &#8634;"></a><span id="00">Introduction</span> <sup><a href="#nav">&#8634;</a></sup></h1><p>Suppose we observe a quantitative response <script type="math/tex">Y</script> and <script type="math/tex">p</script> different predicting variables <script type="math/tex">X = (X_1, X_2...X_p)</script>. We assume that there is a underlying relationship <script type="math/tex">f</script> between <script type="math/tex">Y</script> and <script type="math/tex">X</script>:</p>
 <script type="math/tex; mode=display">Y=f(X) + \epsilon</script><p>We want to estimate <script type="math/tex">f</script> mainly for two purpose:</p>
 <ul>
@@ -65,6 +66,7 @@ with\; p(C_k | \textbf{x}) = \dfrac{\sum_{i\in\mathcal{N}}\textbf{1}_{y_i = C_k}
 <p><br></p>
 <p>Now run KNN with the tune wrapper to perform 10-fold cross validation. The result recommends KNN with K=1, which turns out to be the same as what we originally tested.<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; knn.cv</span><br><span class="line"></span><br><span class="line">Parameter tuning of ‘knn.wrapper’:</span><br><span class="line"></span><br><span class="line">- sampling method: <span class="number">10</span>-fold cross validation</span><br><span class="line"></span><br><span class="line">- best parameters:</span><br><span class="line"> k</span><br><span class="line"> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">- best performance: <span class="number">0.2157576</span></span><br></pre></td></tr></table></figure></p>
 <p>Summarizing the test error rate for naiveBayes and KNN.<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">naiveBayes (cv10):          <span class="number">0.2095</span></span><br><span class="line">KNN (cv10, K=<span class="number">1</span>):            <span class="number">0.1942</span></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
 <h1 id="Linear-Model-8634"><a href="#Linear-Model-8634" class="headerlink" title="Linear Model &#8634;"></a><span id="01">Linear Model</span> <sup><a href="#nav">&#8634;</a></sup></h1><h2 id="Simple-Linear-Regression"><a href="#Simple-Linear-Regression" class="headerlink" title="Simple Linear Regression"></a>Simple Linear Regression</h2><p>A simple linear regression assumes that:</p>
 <script type="math/tex; mode=display">Y \sim \beta_0 + \beta_1X</script><h3 id="Coefficient-Estimate"><a href="#Coefficient-Estimate" class="headerlink" title="Coefficient Estimate"></a>Coefficient Estimate</h3><p>Given data points <script type="math/tex">(x_i, y_i)</script>, let <script type="math/tex">\hat{y_i} = \hat{\beta_0} + \hat{\beta_1}x_i</script>. We define the <code>residual sum of squares</code>, or <script type="math/tex">RSS</script>, as:</p>
 <script type="math/tex; mode=display">RSS = \sum (y_i -  \hat{y_i})^2</script><p>Minimizing <script type="math/tex">RSS</script> as an objective function, we can solve for <script type="math/tex">\hat{\beta_0}, \hat{\beta_1}</script>:</p>
@@ -217,6 +219,7 @@ H_a: \text{ at least one } \beta \text{ is non-zero}</script><p>We calculate the
 <p><img src="statistical-learning-Rplot.new.png" alt="Rplot.new.png"></p>
 <h2 id="Goodness-of-Fit"><a href="#Goodness-of-Fit" class="headerlink" title="Goodness of Fit"></a>Goodness of Fit</h2><p><code>Deviance</code> is a measure of the goodness of fit of a generalized linear model, similar to a <script type="math/tex">RSS</script> in the simple linear model. . The default value is called <code>null deviance</code> and is the deviance calculated when the response variable is predicted using its sample mean.</p>
 <p><code>Adding</code> additional feature to the model would generally <code>decrease</code> the deviance and <code>decrease</code> the degree of freedoms.</p>
+<p><br></p>
 <h1 id="Tree-Based-Method-8634"><a href="#Tree-Based-Method-8634" class="headerlink" title="Tree-Based Method &#8634;"></a><span id="02">Tree-Based Method</span> <sup><a href="#nav">&#8634;</a></sup></h1><p>The <code>tree-based</code> method involve segmenting the predictor space into several regions to make a prediction for a given observation. There are several advantages to the tree-based methods:</p>
 <ul>
 <li>Easy to explain</li>
@@ -318,6 +321,7 @@ H_a: \text{ at least one } \beta \text{ is non-zero}</script><p>We calculate the
 <p>Unfortunately xgboost predict everything to be “No”</p>
 <p>Comparing the test error rate with naiveBayes, KNN and logistic regression.<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">naiveBayes (cv10):           <span class="number">0.2095</span></span><br><span class="line">KNN (cv10, K=<span class="number">1</span>):             <span class="number">0.1942</span></span><br><span class="line">classification tree:         <span class="number">0.1985</span></span><br><span class="line">classification tree (prune): <span class="number">0.2040</span></span><br><span class="line">random forest:               <span class="number">0.2040</span></span><br><span class="line">xgboost:                     <span class="number">0.3273</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="Ensemble-Model-Interpretation"><a href="#Ensemble-Model-Interpretation" class="headerlink" title="Ensemble Model Interpretation"></a>Ensemble Model Interpretation</h3><p><code>Feature Importance</code> ranks the contribution of each feature.<br><code>Partial Dependence Plots</code> visualizes the model’s <code>average</code> dependence on a specific feature (or a pair of features).</p>
+<p><br></p>
 <h1 id="Unsupervised-Learning-8634"><a href="#Unsupervised-Learning-8634" class="headerlink" title="Unsupervised Learning &#8634;"></a><span id="03">Unsupervised Learning</span> <sup><a href="#nav">&#8634;</a></sup></h1><p>In <code>supervised learning</code>, we are provided a set of <script type="math/tex">n</script> observations <script type="math/tex">X</script>, each containing <script type="math/tex">p</script> features, and a response variable <script type="math/tex">Y</script>. We are interested at predicting <script type="math/tex">Y</script> using the observations and features.</p>
 <p>In <code>unsupervised learning</code>, we are interested at exploring hidden relationships within the data themself without involving any response variables. It is “unsupervised” in the sense that the learning outcome is subjective, unlike supervised learning in which specific metrics such as error rates are used to evaluate learning outcomes.</p>
 <h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><p>See another <a href="https://jackliu234.com/2019/04/pca-deep-dive/">blog post</a> on PCA.</p>
@@ -341,6 +345,54 @@ H_a: \text{ at least one } \beta \text{ is non-zero}</script><p>We calculate the
 <h2 id="Hierarchical-Clustering"><a href="#Hierarchical-Clustering" class="headerlink" title="Hierarchical Clustering"></a>Hierarchical Clustering</h2><p>The <code>hierarchical</code> clustering provide flexibilities in terms of the number of clusters <script type="math/tex">K</script>. It results in a tree-based representation of the data called <code>dendrogram</code>, which is built either <code>bottom-up/agglomerative</code> or <code>top-down/divisive</code>.</p>
 <p>Hierarchical clustering assumes that there exists a hierarchical structure. In most feature generation cases, we prefer k-means clustering instead.</p>
 <h3 id="Agglomerative"><a href="#Agglomerative" class="headerlink" title="Agglomerative"></a>Agglomerative</h3><p>An <code>agglomerative</code> hierarchical cluster starts off by assigning each data point in its own cluster. Each step in the clustering process two similar clusters with minimum <code>distance</code> among all are merged, where the distance is calculated between the elements within the cluster that are closest (<code>single-linkage</code>) or furthest (<code>complete-linkage</code>)</p>
+<p><br></p>
+<h1 id="A-Side-Note-on-Hypothesis-Test-and-Confidence-Interval-8634"><a href="#A-Side-Note-on-Hypothesis-Test-and-Confidence-Interval-8634" class="headerlink" title="A Side Note on Hypothesis Test and Confidence Interval &#8634;"></a><span id="04">A Side Note on Hypothesis Test and Confidence Interval</span> <sup><a href="#nav">&#8634;</a></sup></h1><p>A formal statistical data analysis includes:</p>
+<ul>
+<li><code>hypothesis testings</code>: seeing whether a structure is present</li>
+<li><code>confidence interval</code>: setting error limits on estimates</li>
+<li>prediction interval: setting error limits on future outcomes</li>
+</ul>
+<p>We will discuss a typical setting as follow:</p>
+<ul>
+<li>Let <script type="math/tex">\beta</script> be the <code>unknown parameter</code>, and <script type="math/tex">\hat{\beta}_n</script> is the parameter estimator based on <script type="math/tex">n</script> observations</li>
+<li>Let <script type="math/tex">\hat{\sigma}^2_n</script> be the estimator of <script type="math/tex">\sigma^2_n</script>, equal to <script type="math/tex">var(\sqrt{n}(\hat{\beta}_n - \beta))</script></li>
+<li>In rare circumstances where <script type="math/tex">\sqrt{n}(\hat{\beta}_n - \beta)/\hat{\sigma}</script> is independent of the unknown <script type="math/tex">\beta</script>, such as in regression settings where the error terms <script type="math/tex">\epsilon_i</script> are i.i.d. normally distributed, we can show that it follows a t-distribution with <script type="math/tex">n-1</script> degree of freedom.</li>
+</ul>
+<script type="math/tex; mode=display">\dfrac{\sqrt{n}(\hat{\beta}_n - \beta)}{\hat{\sigma}} \sim t_{n-1}</script><ul>
+<li>However, asymptotically as <script type="math/tex">n\rightarrow\infty</script>, the <code>Central Limit Theorem</code> applies which release us from the assumption restriction above. Under a variety of regular conditions:</li>
+</ul>
+<script type="math/tex; mode=display">\lim_{n\rightarrow\infty} \dfrac{\sqrt{n}(\hat{\beta}_n - \beta)}{\hat{\sigma}} \sim \mathcal{N}(0, 1)</script><ul>
+<li>The <script type="math/tex">1-\alpha</script> <code>confidence interval</code> can then be computed as:</li>
+</ul>
+<script type="math/tex; mode=display">\beta \in CI = \hat{\beta}_n \pm t^{\alpha}_{n-1}\hat{\sigma}_n/\sqrt{n} \\ \text{or asymptotically, swapping } t^{\alpha}_{n-1} \text{ by } z^{\alpha}</script><ul>
+<li><p>The <script type="math/tex">1-\alpha</script> <code>hypothesis test</code> of <script type="math/tex">\beta=\beta_0</script> would:</p>
+<ul>
+<li>accept <script type="math/tex">H_0</script> that  <script type="math/tex">\beta=\beta_0</script> if <script type="math/tex">\beta \in CI</script></li>
+<li>reject <script type="math/tex">H_0</script> that <script type="math/tex">\beta=\beta_0</script> if <script type="math/tex">\beta \notin CI</script></li>
+</ul>
+</li>
+<li><p>The <code>p-value</code> is <script type="math/tex">\alpha</script> such that the hypothesis test is indifference between accept or reject.</p>
+</li>
+<li><p>In practice, t-distribution is typically used for regression data as it is more conservative (<script type="math/tex">t^{\alpha}_{n-1} > z^{\alpha}</script>). For non-regression data, normal distribution is often used.</p>
+</li>
+</ul>
+<p>Some background on LLN and CLT:</p>
+<ul>
+<li><p>Given <script type="math/tex">n</script> i.i.d. random variable <script type="math/tex">X_i</script>. Let <script type="math/tex">\bar{X} = \sum X_i/n</script></p>
+</li>
+<li><p>The <code>Law of Large Numbers</code> states that if <script type="math/tex">\mathbb{E}|X|<\infty</script>, then <script type="math/tex">\lim_{n\rightarrow\infty}\bar{X}\rightarrow\mathbb{E}X</script> a.s.</p>
+</li>
+<li><p>The <code>Central Limit Theorem</code> states that if <script type="math/tex">\mathbb{E}X^2<\infty</script>, then</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">\begin{align}
+\lim_{n\rightarrow\infty}\sqrt{n}(\bar{X}-\mathbb{E}X)&\rightarrow\mathcal{N}(0, var[X]) \\ \text{or equivalently, } \lim_{n\rightarrow\infty}\dfrac{\bar{X}-\mathbb{E}X}{std[\bar{X}]}&\rightarrow\mathcal{N}(0, 1)
+\end{align}</script><ul>
+<li>Therefore, if we have a consistent estimator <script type="math/tex">\hat{\sigma}_n</script> for <script type="math/tex">\sigma_n</script>, meaning <script type="math/tex">\hat{\sigma}_n\rightarrow\sigma</script> as <script type="math/tex">n\rightarrow\infty</script>, <code>Slutsky&#39;s Theorem</code> concludes that</li>
+</ul>
+<script type="math/tex; mode=display">\dfrac{\sqrt{n}(\hat{\beta}_n - \beta)}{\hat{\sigma}_n} \rightarrow\mathcal{N}(0, 1)</script><ul>
+<li>We can then use the normal distribution to set confidence intervals and perform hypothesis tests.</li>
+</ul>
 <p><br><br><br></p>
 <p>Reference:</p>
 <ul>
