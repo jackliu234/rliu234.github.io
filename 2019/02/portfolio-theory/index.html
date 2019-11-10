@@ -1,4 +1,11 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Notes on Portfolio Theory · Rongjia Liu</title><meta name="description" content="Notes on Portfolio Theory - Rongjia Liu"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/arctic.css"><link rel="search" type="application/opensearchdescription+xml" href="http://jackliu234.com/atom.xml" title="Rongjia Liu"><script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/search/" target="_self" class="nav-list-link">SEARCH</a></li><!-- li.nav-list-item--><!--    a.nav-list-link(class="search" href=url_for("search") target="_self") <i class="fa fa-search" aria-hidden="true"></i>--></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Notes on Portfolio Theory</h1><div class="post-info">Feb 11, 2019</div><div class="post-content"><a id="more"></a>
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Notes on Portfolio Theory · Rongjia Liu</title><meta name="description" content="Notes on Portfolio Theory - Rongjia Liu"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/arctic.css"><link rel="search" type="application/opensearchdescription+xml" href="http://jackliu234.com/atom.xml" title="Rongjia Liu"><script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/search/" target="_self" class="nav-list-link">SEARCH</a></li><!-- li.nav-list-item--><!--    a.nav-list-link(class="search" href=url_for("search") target="_self") <i class="fa fa-search" aria-hidden="true"></i>--></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Notes on Portfolio Theory</h1><div class="post-info">Feb 11, 2019</div><div class="post-content"><style type="text/css">
+    img.resize {
+        max-width:50%;
+        max-height:50%;
+    }
+</style>
+
+<a id="more"></a>
 <h1 id="Portfolio-Diversification"><a href="#Portfolio-Diversification" class="headerlink" title="Portfolio Diversification"></a>Portfolio Diversification</h1><h2 id="Two-Asset-Portfolio"><a href="#Two-Asset-Portfolio" class="headerlink" title="Two-Asset Portfolio"></a>Two-Asset Portfolio</h2><p>Consider an investment portfolio <script type="math/tex">V</script> on two assets:</p>
 <script type="math/tex; mode=display">P = wB + (1-w)S</script><p>We can calculate the mean and variance of the return on the portfolio, based on the mean and variance of the return on each asset.</p>
 <script type="math/tex; mode=display">\begin{align}
@@ -8,7 +15,7 @@
 <script type="math/tex; mode=display">\begin{align} \mu_p &= w\mu_b + (1-w)\mu_s \\
 \sigma_p &< w\sigma_b + (1-w)\sigma_s \end{align}</script><p>When <script type="math/tex">\rho=-1</script>, the portfolio variance can be as small as desired. If we set <script type="math/tex">w=\sigma_s/(\sigma_b+\sigma_s)</script> then <script type="math/tex">\sigma_p=0</script> and the portfolio becomes riskless.</p>
 <p>In this following chart we can see a two-asset portfolio return volatility plotted against different weights and correlation.</p>
-<p><img src="portfolio-theory-img1.png" alt="img1.png"></p>
+<p><img src="portfolio-theory-img1.png" height="400" alt="img1.png"></p>
 <p>We see that to as long as the correlation is not perfect between the two assets, there exist a weight that would minimize the portfolio variance (not taking portfolio return into consideration, yet)</p>
 <h2 id="Multi-Asset-Portfolio"><a href="#Multi-Asset-Portfolio" class="headerlink" title="Multi-Asset Portfolio"></a>Multi-Asset Portfolio</h2><p>Consider <script type="math/tex">n</script> assets with return volatility <script type="math/tex">\sigma_i</script> and covariance <script type="math/tex">\sigma_{i, j}</script>. Let <script type="math/tex">w^i</script> denote the allocation to asset <script type="math/tex">i</script>. Then the variance of portfolio return becomes:</p>
 <script type="math/tex; mode=display">\sigma^2_{p} = \sum_{j=1}^n\sum_{i=1}^nw^iw^j\sigma_{i, j} \\
@@ -29,7 +36,7 @@
 <li><script type="math/tex">\rho=-1</script> for a two-asset portfolio</li>
 </ul>
 <h1 id="Mean-Variance-Frontier"><a href="#Mean-Variance-Frontier" class="headerlink" title="Mean-Variance Frontier"></a>Mean-Variance Frontier</h1><p>In a mean-variance space, the set of all possible portfolio with <script type="math/tex">n</script> assets form a <code>convex set</code>. The bounday of this set is known as the <code>mean-variance frontier</code> and forms a parabola.</p>
-<p><img src="portfolio-theory-img2.png" alt="img2.png"></p>
+<p><img src="portfolio-theory-img2.png" height="400" alt="img2.png"></p>
 <p>The top half of the MV frontier is the set of <code>efficient MV portfolios</code> which maximize mean return given return variance.</p>
 <p>Let us define <script type="math/tex">\boldsymbol{r}</script> as the random variable vector of asset returns on <script type="math/tex">n</script> assets:</p>
 <script type="math/tex; mode=display">\begin{align} \boldsymbol{\mu} &= \mathbb{E}[\boldsymbol{r}] \\
@@ -42,7 +49,7 @@ r_p &= \boldsymbol{w'r} \\
 \end{align}</script><p>Also,</p>
 <script type="math/tex; mode=display">cov(\boldsymbol{r}, r_p) = cov(\boldsymbol{r}, \boldsymbol{w'r})  = \boldsymbol{\Sigma w}</script><h2 id="The-GMV-and-Tangent-Portfolios"><a href="#The-GMV-and-Tangent-Portfolios" class="headerlink" title="The GMV and Tangent Portfolios"></a>The GMV and Tangent Portfolios</h2><p>The <code>Global Minimum Variance</code> (GMV) portfolio has the <code>lowest return variance</code> among all possible portfolios, characterized by the leftmost point on the MV frontier. It can be constructed with weight <script type="math/tex">\boldsymbol{w}_v</script> which minimizes the objective function <script type="math/tex">\boldsymbol{w'\Sigma w}</script> under the constraint of <script type="math/tex">\boldsymbol{w'1}=1</script>:</p>
 <script type="math/tex; mode=display">\boldsymbol{w}_v := \dfrac{1}{\boldsymbol{1'\Sigma^{-1}\mu}} \boldsymbol{\Sigma^{-1}1}</script><p>The <code>Tangent</code> portfolio is a portfolio <script type="math/tex">\boldsymbol{w}_t</script> with the <code>highest mean/variance ratio</code> among all possible portfolios, characterized by the point that is tangent to the MV frontier and going through the origin:</p>
-<script type="math/tex; mode=display">\boldsymbol{w}_t := \dfrac{1}{\boldsymbol{1'\Sigma^{-1}\mu}} \boldsymbol{\Sigma^{-1}\mu}</script><p><img src="portfolio-theory-img3.png" alt="img3.png"></p>
+<script type="math/tex; mode=display">\boldsymbol{w}_t := \dfrac{1}{\boldsymbol{1'\Sigma^{-1}\mu}} \boldsymbol{\Sigma^{-1}\mu}</script><p><img src="portfolio-theory-img3.png" height="400" alt="img3.png"></p>
 <h2 id="The-MV-Portfolio"><a href="#The-MV-Portfolio" class="headerlink" title="The MV Portfolio"></a>The MV Portfolio</h2><p>It turns out that any portfolios on the efficient MV frontier can be constructed based off a linear combination of the GMV and tangent portfolios, which solves the following optimization:</p>
 <script type="math/tex; mode=display">\text{given }\mu_p \\
 \text{minimizes }\boldsymbol{w'\Sigma w} \\
@@ -65,7 +72,7 @@ r_p &= \boldsymbol{w'r} \\
 <li><script type="math/tex">\boldsymbol{w}_t</script> is the <code>unique</code> portfolio that is on both the risky and risk-less MV frontiers</li>
 <li><script type="math/tex">\boldsymbol{w}_t</script> is the point on the <code>risky MV frontier</code> at which the tangency line goes through point (0, risk-free rate).</li>
 </ul>
-<p><img src="portfolio-theory-img4.png" alt="img4.png"></p>
+<p><img src="portfolio-theory-img4.png" height="400" alt="img4.png"></p>
 <h2 id="Sharpe-Ratio"><a href="#Sharpe-Ratio" class="headerlink" title="Sharpe Ratio"></a>Sharpe Ratio</h2><p>We define the <code>Sharpe ratio</code> (SR) of a portfolio <script type="math/tex">\boldsymbol{w}</script> as:</p>
 <script type="math/tex; mode=display">\text{Sharpe Ratio}(\boldsymbol{w}) = \dfrac{\tilde{\mu_p}}{\sigma_p}</script><p>Therefore, the tangency portfolio <script type="math/tex">\boldsymbol{w}_t</script> is the portfolio on the risky MV frontier with the maximum Sharpe ratio.</p>
 <script type="math/tex; mode=display">\text{Sharpe Ratio}(\boldsymbol{w}^{\ast}) = \sqrt{\boldsymbol{\tilde{\mu}'\Sigma^{-1}\tilde{\mu}}}</script><p>On the risk-free efficient MV frontier (a.k.a the <code>Capital Market Line</code>) all portfolio has the same SR the tangency portfolio, since the frontier itself is a straight line.</p>
