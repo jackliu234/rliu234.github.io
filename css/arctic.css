@@ -331,7 +331,7 @@ header .nav-list-item a {
 
 .archive .post-title-link {
     display: block;
-    margin-left: 170px;
+    margin-left: 180px;
     color: #6190e8;
     word-break: break-all
 }
@@ -339,11 +339,12 @@ header .nav-list-item a {
 .archive .post-title-link:hover {
     /* border-bottom: solid; */
     border-bottom: 0;
-    color: #6190e8
+    color: #405F8C
 }
 
 .archive .post-info {
     float: left;
+    font-size: 15px;
     width: 125px;
     color: #969696
 }
