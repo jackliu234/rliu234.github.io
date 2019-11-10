@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jackliu234.com/2019/09/blockchain/</loc>
+    
+    <lastmod>2019-11-10T13:45:03.959Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jackliu234.com/2019/09/cli-node/</loc>
     
     <lastmod>2019-11-10T13:02:05.878Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://jackliu234.com/2019/11/kelly/</loc>
     
     <lastmod>2019-11-05T04:43:43.398Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/09/blockchain/</loc>
-    
-    <lastmod>2019-11-03T17:41:34.821Z</lastmod>
     
   </url>
   
