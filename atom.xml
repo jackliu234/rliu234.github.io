@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2019-11-12T08:21:31.909Z</updated>
+  <updated>2019-11-12T10:24:01.906Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://jackliu234.com/2019/11/kelly/"/>
     <id>http://jackliu234.com/2019/11/kelly/</id>
     <published>2019-11-04T06:00:00.000Z</published>
-    <updated>2019-11-12T08:21:31.909Z</updated>
+    <updated>2019-11-12T10:24:01.906Z</updated>
     
     <summary type="html">
     
@@ -37,7 +37,7 @@
     
     
     
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+      <category term="math" scheme="http://jackliu234.com/tags/math/"/>
     
   </entry>
   
@@ -46,7 +46,7 @@
     <link href="http://jackliu234.com/2019/10/pi/"/>
     <id>http://jackliu234.com/2019/10/pi/</id>
     <published>2019-10-06T05:00:00.000Z</published>
-    <updated>2019-10-13T15:31:45.281Z</updated>
+    <updated>2019-11-12T10:23:57.424Z</updated>
     
     <summary type="html">
     
@@ -62,7 +62,7 @@
     
     
     
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
     
   </entry>
   
@@ -71,7 +71,7 @@
     <link href="http://jackliu234.com/2019/09/blockchain/"/>
     <id>http://jackliu234.com/2019/09/blockchain/</id>
     <published>2019-09-30T05:00:00.000Z</published>
-    <updated>2019-11-10T13:45:03.959Z</updated>
+    <updated>2019-11-12T10:23:46.614Z</updated>
     
     <summary type="html">
     
@@ -87,7 +87,7 @@
     
     
     
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
     
   </entry>
   
@@ -96,7 +96,7 @@
     <link href="http://jackliu234.com/2019/09/cli-node/"/>
     <id>http://jackliu234.com/2019/09/cli-node/</id>
     <published>2019-09-15T05:00:00.000Z</published>
-    <updated>2019-11-10T13:02:05.878Z</updated>
+    <updated>2019-11-12T10:23:51.265Z</updated>
     
     <summary type="html">
     
@@ -112,7 +112,7 @@
     
     
     
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
     
   </entry>
   
@@ -121,7 +121,7 @@
     <link href="http://jackliu234.com/2019/08/gradient-descent/"/>
     <id>http://jackliu234.com/2019/08/gradient-descent/</id>
     <published>2019-08-16T05:00:00.000Z</published>
-    <updated>2019-09-04T19:10:04.641Z</updated>
+    <updated>2019-11-12T10:23:41.762Z</updated>
     
     <summary type="html">
     
@@ -132,7 +132,7 @@
     
     
     
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+      <category term="math" scheme="http://jackliu234.com/tags/math/"/>
     
   </entry>
   
@@ -141,7 +141,7 @@
     <link href="http://jackliu234.com/2019/07/w2v/"/>
     <id>http://jackliu234.com/2019/07/w2v/</id>
     <published>2019-07-29T05:00:00.000Z</published>
-    <updated>2019-11-10T12:40:37.313Z</updated>
+    <updated>2019-11-12T10:23:34.576Z</updated>
     
     <summary type="html">
     
@@ -158,7 +158,7 @@
     
     
     
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+      <category term="notes" scheme="http://jackliu234.com/tags/notes/"/>
     
   </entry>
   
@@ -167,7 +167,7 @@
     <link href="http://jackliu234.com/2019/07/algo-2/"/>
     <id>http://jackliu234.com/2019/07/algo-2/</id>
     <published>2019-07-21T05:00:00.000Z</published>
-    <updated>2019-09-04T19:05:52.769Z</updated>
+    <updated>2019-11-12T10:23:22.005Z</updated>
     
     <summary type="html">
     
@@ -211,7 +211,7 @@
     
     
     
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
     
   </entry>
   
@@ -220,7 +220,7 @@
     <link href="http://jackliu234.com/2019/07/algo-1/"/>
     <id>http://jackliu234.com/2019/07/algo-1/</id>
     <published>2019-07-20T05:00:00.000Z</published>
-    <updated>2019-09-04T19:03:33.303Z</updated>
+    <updated>2019-11-12T10:23:17.896Z</updated>
     
     <summary type="html">
     
@@ -320,7 +320,7 @@
     
     
     
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
     
   </entry>
   
@@ -329,7 +329,7 @@
     <link href="http://jackliu234.com/2019/07/variance-swap/"/>
     <id>http://jackliu234.com/2019/07/variance-swap/</id>
     <published>2019-07-12T05:00:00.000Z</published>
-    <updated>2019-09-04T13:45:46.666Z</updated>
+    <updated>2019-11-12T10:23:30.018Z</updated>
     
     <summary type="html">
     
@@ -340,7 +340,7 @@
     
     
     
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+      <category term="math" scheme="http://jackliu234.com/tags/math/"/>
     
   </entry>
   
@@ -349,7 +349,7 @@
     <link href="http://jackliu234.com/2019/07/fiji/"/>
     <id>http://jackliu234.com/2019/07/fiji/</id>
     <published>2019-07-08T05:00:00.000Z</published>
-    <updated>2019-08-23T02:21:15.792Z</updated>
+    <updated>2019-11-12T10:23:26.853Z</updated>
     
     <summary type="html">
     
@@ -366,7 +366,7 @@
     
     
     
-      <category term="Travel" scheme="http://jackliu234.com/tags/Travel/"/>
+      <category term="travel" scheme="http://jackliu234.com/tags/travel/"/>
     
   </entry>
   
@@ -375,7 +375,7 @@
     <link href="http://jackliu234.com/2019/06/financial-exchange/"/>
     <id>http://jackliu234.com/2019/06/financial-exchange/</id>
     <published>2019-06-24T05:00:00.000Z</published>
-    <updated>2019-09-04T19:10:22.481Z</updated>
+    <updated>2019-11-12T10:23:07.520Z</updated>
     
     <summary type="html">
     
@@ -385,7 +385,7 @@
     
     
     
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
     
   </entry>
   
@@ -394,7 +394,7 @@
     <link href="http://jackliu234.com/2019/06/spx-vol-term-struct/"/>
     <id>http://jackliu234.com/2019/06/spx-vol-term-struct/</id>
     <published>2019-06-13T05:00:00.000Z</published>
-    <updated>2019-11-10T12:30:49.311Z</updated>
+    <updated>2019-11-12T10:23:11.583Z</updated>
     
     <summary type="html">
     
@@ -404,7 +404,7 @@
     
     
     
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+      <category term="math" scheme="http://jackliu234.com/tags/math/"/>
     
   </entry>
   
@@ -413,7 +413,7 @@
     <link href="http://jackliu234.com/2019/05/apollo-add-tags/"/>
     <id>http://jackliu234.com/2019/05/apollo-add-tags/</id>
     <published>2019-05-02T05:00:00.000Z</published>
-    <updated>2019-09-14T13:55:34.684Z</updated>
+    <updated>2019-11-12T10:23:01.364Z</updated>
     
     <summary type="html">
     
@@ -423,7 +423,7 @@
     
     
     
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
     
   </entry>
   
@@ -432,7 +432,7 @@
     <link href="http://jackliu234.com/2019/04/pca-deep-dive/"/>
     <id>http://jackliu234.com/2019/04/pca-deep-dive/</id>
     <published>2019-04-27T05:00:00.000Z</published>
-    <updated>2019-11-10T12:59:12.885Z</updated>
+    <updated>2019-11-12T10:22:51.950Z</updated>
     
     <summary type="html">
     
@@ -449,7 +449,7 @@
     
     
     
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+      <category term="math" scheme="http://jackliu234.com/tags/math/"/>
     
   </entry>
   
@@ -458,7 +458,7 @@
     <link href="http://jackliu234.com/2019/04/islr/"/>
     <id>http://jackliu234.com/2019/04/islr/</id>
     <published>2019-04-13T05:00:00.000Z</published>
-    <updated>2019-11-10T12:53:15.853Z</updated>
+    <updated>2019-11-12T10:22:47.921Z</updated>
     
     <summary type="html">
     
@@ -474,7 +474,7 @@
     
     
     
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+      <category term="math" scheme="http://jackliu234.com/tags/math/"/>
     
   </entry>
   
@@ -483,7 +483,7 @@
     <link href="http://jackliu234.com/2019/04/cpp/"/>
     <id>http://jackliu234.com/2019/04/cpp/</id>
     <published>2019-04-06T05:00:00.000Z</published>
-    <updated>2019-11-10T12:43:50.925Z</updated>
+    <updated>2019-11-12T10:22:44.697Z</updated>
     
     <summary type="html">
     
@@ -499,7 +499,7 @@
     
     
     
-      <category term="Tech" scheme="http://jackliu234.com/tags/Tech/"/>
+      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
     
   </entry>
   
@@ -508,7 +508,7 @@
     <link href="http://jackliu234.com/2019/04/peru-bolivia/"/>
     <id>http://jackliu234.com/2019/04/peru-bolivia/</id>
     <published>2019-04-01T05:00:00.000Z</published>
-    <updated>2019-09-13T23:03:18.563Z</updated>
+    <updated>2019-11-12T10:22:56.253Z</updated>
     
     <summary type="html">
     
@@ -525,7 +525,7 @@
     
     
     
-      <category term="Travel" scheme="http://jackliu234.com/tags/Travel/"/>
+      <category term="travel" scheme="http://jackliu234.com/tags/travel/"/>
     
   </entry>
   
@@ -534,7 +534,7 @@
     <link href="http://jackliu234.com/2019/03/option-theory/"/>
     <id>http://jackliu234.com/2019/03/option-theory/</id>
     <published>2019-03-19T05:00:00.000Z</published>
-    <updated>2019-11-10T12:29:36.288Z</updated>
+    <updated>2019-11-12T10:22:36.936Z</updated>
     
     <summary type="html">
     
@@ -544,7 +544,7 @@
     
     
     
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+      <category term="math" scheme="http://jackliu234.com/tags/math/"/>
     
   </entry>
   
@@ -553,7 +553,7 @@
     <link href="http://jackliu234.com/2019/03/foreign-exchange-market/"/>
     <id>http://jackliu234.com/2019/03/foreign-exchange-market/</id>
     <published>2019-03-16T05:00:00.000Z</published>
-    <updated>2019-09-04T13:35:39.509Z</updated>
+    <updated>2019-11-12T10:22:28.277Z</updated>
     
     <summary type="html">
     
@@ -570,7 +570,7 @@
     
     
     
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+      <category term="notes" scheme="http://jackliu234.com/tags/notes/"/>
     
   </entry>
   
@@ -579,7 +579,7 @@
     <link href="http://jackliu234.com/2019/03/stochastic-calculus/"/>
     <id>http://jackliu234.com/2019/03/stochastic-calculus/</id>
     <published>2019-03-10T06:00:00.000Z</published>
-    <updated>2019-09-04T13:33:48.293Z</updated>
+    <updated>2019-11-12T10:22:40.251Z</updated>
     
     <summary type="html">
     
@@ -596,7 +596,7 @@
     
     
     
-      <category term="Math" scheme="http://jackliu234.com/tags/Math/"/>
+      <category term="math" scheme="http://jackliu234.com/tags/math/"/>
     
   </entry>
   
