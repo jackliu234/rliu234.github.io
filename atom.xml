@@ -409,25 +409,6 @@
   </entry>
   
   <entry>
-    <title>Creating a Tags Page for Apollo</title>
-    <link href="http://jackliu234.com/2019/05/apollo-add-tags/"/>
-    <id>http://jackliu234.com/2019/05/apollo-add-tags/</id>
-    <published>2019-05-02T05:00:00.000Z</published>
-    <updated>2019-11-12T10:23:01.364Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Recently I updated my hexo theme, and as much as I love some of the perks in NexT (e.g. index side bar), I eventually decided to publish with a more simplistic design. I spent quite some time these two days to iron out the kinks during the transition to a cleaner, Apollo-based theme. I have uploaded my fully customized theme, named &lt;code&gt;arctic&lt;/code&gt;, on &lt;a href=&quot;https://github.com/jackliu234/hexo-theme-apollo&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;github&lt;/a&gt;. In this post I will discuss a solution for creating a customized tags page.&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
-    
-  </entry>
-  
-  <entry>
     <title>A Deeper Dive into PCA</title>
     <link href="http://jackliu234.com/2019/04/pca-deep-dive/"/>
     <id>http://jackliu234.com/2019/04/pca-deep-dive/</id>
@@ -597,6 +578,25 @@
     
     
       <category term="math" scheme="http://jackliu234.com/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Generating Color Image in Python</title>
+    <link href="http://jackliu234.com/2019/03/generate-color-image/"/>
+    <id>http://jackliu234.com/2019/03/generate-color-image/</id>
+    <published>2019-03-08T06:00:00.000Z</published>
+    <updated>2019-11-12T10:22:32.464Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Today when browsing Zhihu, I came across this interesting package in python where I can generate digital images by creating a matrix of RGB parameters. Here I created a very simple example to generate pure color image.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
     
   </entry>
   
