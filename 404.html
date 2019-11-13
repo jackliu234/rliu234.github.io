@@ -144,17 +144,16 @@
     var x = 20,
         y = 20;
 
-    var img_start = new Image();
-    img_start.src = '1.png';
-
-    var img_end = new Image();
-    img_end.src = '2.png';
-
     function load() {
         var canvas = document.getElementById("mycanvas");
         Context = canvas.getContext("2d");
 
+        var img_start = new Image();
+        img_start.src = '1.png';
         Context.drawImage(img_start, x, y, 20, 20)
+
+        var img_end = new Image();
+        img_end.src = '2.png';
         Context.drawImage(img_end, a, b, 20, 20)
 
         canvas.addEventListener('keydown', doKeyDown, true);
