@@ -152,10 +152,11 @@
         Context = canvas.getContext("2d");
         // Context.fillStyle = "blue";
         // Context.fillRect(x, y, 20, 20);
-        Context.drawImage(img_start, x, y)
+        Context.drawImage(img_start, x, y, x, y, 20, 20)
 
         context.fillStyle = "red";
         context.fillRect(a, b, 20, 20);
+
         Context.fillStyle = "blue";
         canvas.addEventListener('keydown', doKeyDown, true);
         canvas.focus();
