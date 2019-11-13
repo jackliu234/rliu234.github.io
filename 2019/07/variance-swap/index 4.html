@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Pricing A Variance Swap · Rongjia Liu</title><meta name="description" content="Pricing A Variance Swap - Rongjia Liu"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/arctic.css"><link rel="search" type="application/opensearchdescription+xml" href="http://jackliu234.com/atom.xml" title="Rongjia Liu"><script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/search/" target="_self" class="nav-list-link">SEARCH</a></li><!-- li.nav-list-item--><!--    a.nav-list-link(class="search" href=url_for("search") target="_self") <i class="fa fa-search" aria-hidden="true"></i>--></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Pricing A Variance Swap</h1><div class="post-info"><!-- if is_post()--><!--     span &#128197; &nbsp;-->Jul 12, 2019<!-- if is_post()--><!--    span#busuanzi_container_page_pv | &#128065;--><!--    span#busuanzi_value_page_pv--><!--    if item.tags--><!--        span | &nbsp;--><!--        for tag in item.tags.toArray()--><!--            a(href=url_for(tag.path))=  '#' + tag.name--><!-- if item.from && (is_home() || is_post())--><!--    a.post-from(href=item.from target="_blank" title=item.from)!= __('translated')-->
+</div><div class="post-content"><p>In this article I examine the risk-neutral pricing of a variance swap, which can be constructed with this elegant formula:</p>
+<script type="math/tex; mode=display">\sigma^2_{strike} = \dfrac{2e^{rT}}{T}\Bigg[\int_0^{S_0e^{rT}} \dfrac{1}{K^2} P(K) dK + \int^{\infty}_{S_0e^{rT}} \dfrac{1}{K^2}C(K)dK\Bigg]</script><a id="more"></a>
+<h1 id="Static-Portfolio-Replication"><a href="#Static-Portfolio-Replication" class="headerlink" title="Static Portfolio Replication"></a>Static Portfolio Replication</h1><p><strong><em>proposition</em></strong> Let <script type="math/tex">f:(0, \infty)\rightarrow\mathbb{R}</script> be twice continuous differentiable so that for any <script type="math/tex">k>0</script> and any <script type="math/tex">s>0</script>, then,</p>
+<script type="math/tex; mode=display">f(s) = f(k) + f'(k)(s-k) + \int_0^kf''(K)(K-s)^+dK + \int_k^{\infty}f''(K)(s-K)^+dK</script><p><strong><em>proof</em></strong> We will prove the case in which <script type="math/tex">s>k</script>; similar proof can be sketched for the other case. When <script type="math/tex">s>k</script>, we have <script type="math/tex">\int_0^kf''(K)(K-s)^+dK = 0</script>. The the second integral can be simplified as:</p>
+<script type="math/tex; mode=display">\int_k^{\infty}f''(K)(s-K)^+dK = \int_k^sf''(K)(s-K)dK</script><p>Using integration by part:</p>
+<script type="math/tex; mode=display">du = f''(K)dK ,\;\; v = s-K \\
+\rightarrow u = f'(K) ,\;\; dv = -dK</script><p>And,</p>
+<script type="math/tex; mode=display">\begin{align} \int_k^s vdu &= uv |^s_k - \int_k^s udv \\
+&= f'(K)(s-K) |^s_k - \int_k^s -f'(K)dK \\
+&= -f'(K)(s-k) + f(s) - f(k) \;\;\square \end{align}</script><p><br></p>
+<p>The above formula shows that <code>any</code> twice-differentiable continuous time-T payoff <script type="math/tex">f(S_T)</script> can be replicated using a <code>static portfolio</code> of:</p>
+<script type="math/tex; mode=display">f(k) \text{ zero-coupon bond} \\
+f'(k) \text{ forward at } k \\\
+f''(K) \text{ puts across a continuum of strike } K \text{ from } 0 \text{ to } k \\
+f''(K) \text{ calls across a continuum of strike } K \text{ from } k \text{ to } \infty</script><p>In practice, discrete set of strike can be used to approximately replicate. For example, given <script type="math/tex">S_0=100</script> and payoff function <script type="math/tex">f(S_T) = \log S_T</script>. Here we choose to replicate with <script type="math/tex">k=100</script> (Though we can theoretically replicate the payoff <script type="math/tex">f</script> with any <script type="math/tex">k\in(0, \infty)</script>, a <script type="math/tex">k</script> close to <script type="math/tex">S_0</script> is typically chosen) and a discrete set of option strikes with increment of <script type="math/tex">5</script> capping at <script type="math/tex">200</script>. In this replicating portfolio we will hold:</p>
+<script type="math/tex; mode=display">\log 100 \text{ zero-coupon bond} \\
+\dfrac{1}{100} \text{ forward at } 100 \\
+-\dfrac{5}{97.5^2} \text{ put striked at } 97.5 \\
+\vdots \\
+-\dfrac{5}{2.5^2} \text{ put striked at } 2.5 \\
+\text{and} \\
+-\dfrac{5}{102.5^2} \text{ call striked at } 102.5 \\
+\vdots \\
+-\dfrac{5}{197.5^2} \text{ put striked at } 197.5 \\</script><h1 id="Variance-Swap"><a href="#Variance-Swap" class="headerlink" title="Variance Swap"></a>Variance Swap</h1><p>A <code>variance swap</code> is an over-the-counter financial derivative that allows a party to trade on the future variance of a given underlying security. For example, a trader would pay the <code>realized variance</code> of log-price changes in exchange of a fixed payment called <code>variance strike</code>, normalized by the <code>vega notional</code> into dollar terms. The payoff of the VS is:</p>
+<script type="math/tex; mode=display">\text{Payoff (VS)} = N(\sigma^2_{realized} - \sigma^2_{strike})</script><p>We can calculate the variance strike which results in a zero discounted expectation of the payoff (per unit of vega notional).</p>
+<script type="math/tex; mode=display">\sigma^2_{strike} = \mathbb{E}\sigma^2_{realized}</script><p>Assuming that the underlying process follows a geometric Brownian motion with local volatility <script type="math/tex">\sigma_t</script>:</p>
+<script type="math/tex; mode=display">\dfrac{dS_t}{S_t} = \mu_t dt + \sigma_t dW \\
+\rightarrow d\log S_t = (\mu_t - \sigma_t^2/2)dt + \sigma_t dW \\
+\rightarrow logS_T \sim \mathcal{N}(logS_0 + rT -\dfrac{1}{2} \int_0^T \sigma^2_tdt, \;[\dfrac{1}{T}\int_0^T \sigma^2_tdt]\;T)</script><p>Therefore the <code>realized variance</code> of <script type="math/tex">\log S_T</script> is:</p>
+<script type="math/tex; mode=display">\sigma^2_{realized} = \dfrac{1}{T}\int_0^T \sigma_t^2dt</script><p>Furthermore, if we combine the SDE of <script type="math/tex">dS_t</script> and <script type="math/tex">d\log S_t</script>,</p>
+<script type="math/tex; mode=display">\dfrac{dS_t}{S_t} - d\log S_t = \dfrac{\sigma^2_t}{2}dt</script><p>Taking integral on both sides,</p>
+<script type="math/tex; mode=display">\int_0^T\dfrac{dS_t}{S_t} - \log \dfrac{S_T}{S_0} = \int_0^T \dfrac{\sigma^2_t}{2}dt</script><p>Combining with the formula for the realizead variance of <script type="math/tex">\log S_t</script>,</p>
+<script type="math/tex; mode=display">\sigma^2_{realized} = \dfrac{2}{T}[\int_0^T\dfrac{dS_t}{S_t} - \log \dfrac{S_T}{S_0}]</script><p>Using the proposition proven above, we can create a static replication portfolio and replicate the <script type="math/tex">\log S_T</script> payoff.</p>
+<script type="math/tex; mode=display">\begin{align}
+\sigma^2_{strike} &= \mathbb{E}\sigma^2_{realized} \\
+&= \mathbb{E}\{\dfrac{2}{T}[\int_0^T\dfrac{dS_t}{S_t} - \log \dfrac{S_T}{S_0}]\} \\
+&= \dfrac{2}{T}[rT - \log \dfrac{S^{\ast}}{S_0} - \dfrac{Se^{rT} - S^{\ast}}{S^{\ast}} - \int_0^{S^{\ast}} \dfrac{-1}{K^2} (K-S_T)^+dK - \int^{\infty}_{S^{\ast}} \dfrac{-1}{K^2}(S_T-K)^+dK]
+\end{align}</script><p>If we choose the cutoff as the forward price <script type="math/tex">S^{\ast} = S_0e^{rT}</script>, we can largely simplified the formula as follow:</p>
+<script type="math/tex; mode=display">\sigma^2_{strike} = \dfrac{2e^{rT}}{T}[\int_0^{S_0e^{rT}} \dfrac{1}{K^2} P(K) dK + \int^{\infty}_{S_0e^{rT}} \dfrac{1}{K^2}C(K)dK]</script><p>In conclusion, if we assume a GBM underlying process, the fair-value variance strike can be calculated as the sum of calls and puts across a continuum of strikes.</p>
+<h1 id="Practical-Consideration"><a href="#Practical-Consideration" class="headerlink" title="Practical Consideration"></a>Practical Consideration</h1><p>In practice, variance swap is costly to implement, requires constant hedging and an entire array of options. The advantage of a variance swap is that it is <code>purely exposed to volatility risk</code>, as oppose to an option which contains directional risk.</p>
+<p>The P&amp;L of a variance swap depends directly on the difference between realized and implied volatility. Since historically the implied volatility has been above realized volatility, a.k.a. <code>variance risk premium</code>, volatility arbitrage (rolling short variance trade) can be carried out with variance swaps.</p>
+<p><br><br><br><br>Reference</p>
+<ul>
+<li><em>Variance and Volatility Swaps</em>, FinancialCAD Corporation, <a href="http://docs.fincad.com/support/developerFunc/mathref/VarianceSwaps.htm" target="_blank" rel="noopener">http://docs.fincad.com/support/developerFunc/mathref/VarianceSwaps.htm</a></li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/07/algo-1/" class="prev">PREV</a><a href="/2019/07/fiji/" class="next">NEXT</a></div><div id="container"></div><!-- link(rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css")--><link rel="stylesheet" href="/css/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+    clientID: '4ec287ddd4ac34ff5087',
+    clientSecret: 'ae45426765f12ac3e2f903662b8938dc4881f703',
+    repo: 'jackliu234.github.io',
+    owner: 'jackliu234',
+    admin: ['jackliu234'],
+    perPage: 100,
+    id: 'Fri Jul 12 2019 00:00:00 GMT-0500 GMT'.split('GMT')[0].replace(/\s/g, '-'),
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+})
+
+gitalk.render('container')</script><!-- block copyright--></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-133275176-1",'auto');ga('send','pageview');</script><link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" media="screen" type="text/css"><script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script><script>$(function(){$('.datatable').dataTable( {"order": [[ 0, "desc" ]],"iDisplayLength": -1,"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]} );});</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></body></html>

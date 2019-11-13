@@ -144,11 +144,16 @@
     var x = 20,
         y = 20;
 
+    var img_start = new Image();
+    img_start.src = '1.png';
+
     function load() {
         var canvas = document.getElementById("mycanvas");
         Context = canvas.getContext("2d");
-        Context.fillStyle = "blue";
-        Context.fillRect(x, y, 20, 20);
+        // Context.fillStyle = "blue";
+        // Context.fillRect(x, y, 20, 20);
+        Context.drawImage(img_start, x, y)
+
         context.fillStyle = "red";
         context.fillRect(a, b, 20, 20);
         Context.fillStyle = "blue";
@@ -215,7 +220,7 @@
     function gameover() {
         if (x >= a && y >= b) {
             end = true;
-            window.location.href = "http://jackliu234.com/archive";
+            window.location.href = "http://jackliu234.com/archives";
         }
     }
 
