@@ -1,11 +1,9 @@
 <!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> · Rongjia Liu</title><meta name="description" content=" - Rongjia Liu"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/arctic.css"><link rel="search" type="application/opensearchdescription+xml" href="http://jackliu234.com/atom.xml" title="Rongjia Liu"><script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/search/" target="_self" class="nav-list-link">SEARCH</a></li><!-- li.nav-list-item--><!--    a.nav-list-link(class="search" href=url_for("search") target="_self") <i class="fa fa-search" aria-hidden="true"></i>--></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title"></h1><div class="post-content"><h1 id="Ops-You-Had-Accidentally-Enter-The-404-Maze"><a href="#Ops-You-Had-Accidentally-Enter-The-404-Maze" class="headerlink" title="Ops, You Had Accidentally Enter The 404 Maze"></a>Ops, You Had Accidentally Enter The 404 Maze</h1><p><canvas id="mycanvas" width="500px" height="500px"></canvas></p>
 <script type="text/javascript">
-    var aa = 14;
+    var aa = 5;
     var chess = document.getElementById("mycanvas");
     var context = chess.getContext('2d');
 
-    //  var context2 = chess.getContext('2d');
-    //      context.strokeStyle = 'yellow';
     var tree = []; //存放是否联通
     var isling = []; //判断是否相连
     for (var i = 0; i < aa; i++) {
@@ -33,12 +31,6 @@
         }
     }
     drawChessBoard(); //绘制棋盘
-
-    //      var mymap=new Array(36);
-    //      for(var i=0;i<36;i++)
-    //     {mymap[i]=-1;}
-
-
 
     function getnei(a) //获得邻居号  random
     {
@@ -107,20 +99,15 @@
         var y3 = (y1 + y2) / 2;
         if (x1 - x2 == 1 || x1 - x2 == -1) //左右方向的点  需要上下划线
         {
-            //alert(x1);
-            //  context.beginPath();
+
             context.strokeStyle = 'white';
-            //    context.moveTo(30+x3*30,y3*30+15);//
-            //   context.lineTo(30+x3*30,y3*30+45);
             context.clearRect(29 + x3 * 30, y3 * 30 + 16, 2, 28);
-            //    context.stroke();
+
         } else {
-            //   context.beginPath();
+
             context.strokeStyle = 'white';
-            //  context.moveTo(x3*30+15,30+y3*30);//
-            //    context.lineTo(45+x3*30,30+y3*30);
             context.clearRect(x3 * 30 + 16, 29 + y3 * 30, 28, 2);
-            //      context.stroke();
+
         }
     }
 
@@ -164,8 +151,6 @@
     load();
 
     function doKeyDown(e) {
-        //alert(x+" "+y);
-        // console.log(x+" "+y);测试
         var keyID = e.keyCode ? e.keyCode : e.which; //获取按键的Unicode代码值
         if (i == 1) {
             if (keyID === 38 || keyID === 87) { // W键以及上键的移动方向
@@ -242,9 +227,6 @@
 
     function show() {
         if (end == true) {
-            // stop();
-            // aa = aa + 2;
-
             if (aa == 20) {
                 rangeinsert();
                 stop();
