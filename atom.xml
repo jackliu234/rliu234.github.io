@@ -554,15 +554,20 @@
   </entry>
   
   <entry>
-    <title>Yosemite</title>
-    <link href="http://jackliu234.com/2019/01/yosemite/"/>
-    <id>http://jackliu234.com/2019/01/yosemite/</id>
+    <title>About</title>
+    <link href="http://jackliu234.com/2019/01/about/"/>
+    <id>http://jackliu234.com/2019/01/about/</id>
     <published>2019-01-01T06:00:00.000Z</published>
-    <updated>2019-11-12T10:22:09.706Z</updated>
+    <updated>2019-12-05T11:11:40.189Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://jackliu234.com/2019/01/yosemite/yosemite-fullsizeoutput_38b9.jpeg&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://jackliu234.com/2019/01/profile.jpeg&quot; ,=&quot;&quot; alt=&quot;&quot; width=&quot;250&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Hi there! My name is Jack and I am an actuary in the United States. This is a website where I share random study notes and occasional ramblings. I can be reached at jackliu234@gmail.com.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Here is another (more interesting) blog: &lt;a href=&quot;https://allenfrostline.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://allenfrostline.com&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
