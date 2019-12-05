@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2019-12-05T08:17:29.669Z</updated>
+  <updated>2019-12-05T08:44:25.996Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Notes on Financial Mathematics</title>
+    <title>&amp;#128214; Notes on Financial Mathematics</title>
     <link href="http://jackliu234.com/2019/12/finm-notes/"/>
     <id>http://jackliu234.com/2019/12/finm-notes/</id>
     <published>2019-12-05T06:00:00.000Z</published>
-    <updated>2019-12-05T08:17:29.669Z</updated>
+    <updated>2019-12-05T08:44:25.996Z</updated>
     
     <summary type="html">
     
@@ -161,11 +161,11 @@
   </entry>
   
   <entry>
-    <title>Notes on Word2Vec</title>
+    <title>&amp;#128214; Notes on Word2Vec</title>
     <link href="http://jackliu234.com/2019/07/w2v/"/>
     <id>http://jackliu234.com/2019/07/w2v/</id>
     <published>2019-07-29T05:00:00.000Z</published>
-    <updated>2019-11-12T10:23:34.576Z</updated>
+    <updated>2019-12-05T08:44:57.208Z</updated>
     
     <summary type="html">
     
@@ -433,11 +433,11 @@
   </entry>
   
   <entry>
-    <title>Notes on ISLR</title>
+    <title>&amp;#128214; Notes on ISLR</title>
     <link href="http://jackliu234.com/2019/04/islr/"/>
     <id>http://jackliu234.com/2019/04/islr/</id>
     <published>2019-04-13T05:00:00.000Z</published>
-    <updated>2019-12-05T06:42:35.056Z</updated>
+    <updated>2019-12-05T08:45:41.730Z</updated>
     
     <summary type="html">
     
@@ -454,31 +454,6 @@
     
     
       <category term="math" scheme="http://jackliu234.com/tags/math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Notes on C++</title>
-    <link href="http://jackliu234.com/2019/04/cpp/"/>
-    <id>http://jackliu234.com/2019/04/cpp/</id>
-    <published>2019-04-06T05:00:00.000Z</published>
-    <updated>2019-11-12T10:22:44.697Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;C++ is a &lt;code&gt;complied&lt;/code&gt; （vs interpreted: python), &lt;code&gt;general-purpose&lt;/code&gt; (vs domain-specific: HTML) programming language
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
     
   </entry>
   
@@ -505,25 +480,6 @@
     
     
       <category term="travel" scheme="http://jackliu234.com/tags/travel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Generate Colors in Python</title>
-    <link href="http://jackliu234.com/2019/03/generate-color-image/"/>
-    <id>http://jackliu234.com/2019/03/generate-color-image/</id>
-    <published>2019-03-08T06:00:00.000Z</published>
-    <updated>2019-12-05T08:22:03.985Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Today when browsing Zhihu, I came across this interesting package in python where I can generate digital images by creating a matrix of RGB parameters. Here I created a very simple example to generate pure color image.&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
     
   </entry>
   

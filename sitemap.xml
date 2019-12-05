@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jackliu234.com/2019/04/islr/</loc>
+    
+    <lastmod>2019-12-05T08:45:41.730Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackliu234.com/2019/07/w2v/</loc>
+    
+    <lastmod>2019-12-05T08:44:57.208Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackliu234.com/2019/12/finm-notes/</loc>
+    
+    <lastmod>2019-12-05T08:44:25.996Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jackliu234.com/2019/08/gradient-descent/</loc>
     
     <lastmod>2019-12-05T08:32:18.028Z</lastmod>
@@ -44,27 +65,6 @@
   </url>
   
   <url>
-    <loc>http://jackliu234.com/2019/03/generate-color-image/</loc>
-    
-    <lastmod>2019-12-05T08:22:03.985Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/12/finm-notes/</loc>
-    
-    <lastmod>2019-12-05T08:17:29.669Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/04/islr/</loc>
-    
-    <lastmod>2019-12-05T06:42:35.056Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jackliu234.com/2019/11/kelly/</loc>
     
     <lastmod>2019-11-12T10:24:01.906Z</lastmod>
@@ -75,13 +75,6 @@
     <loc>http://jackliu234.com/2019/10/pi/</loc>
     
     <lastmod>2019-11-12T10:23:57.424Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/07/w2v/</loc>
-    
-    <lastmod>2019-11-12T10:23:34.576Z</lastmod>
     
   </url>
   
@@ -110,13 +103,6 @@
     <loc>http://jackliu234.com/2019/04/peru-bolivia/</loc>
     
     <lastmod>2019-11-12T10:22:56.253Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/04/cpp/</loc>
-    
-    <lastmod>2019-11-12T10:22:44.697Z</lastmod>
     
   </url>
   
