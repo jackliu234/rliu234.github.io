@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2019-12-05T10:46:29.955Z</updated>
+  <updated>2019-12-05T10:55:26.916Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Bitcoin Analysis (3): Perpetual Swap Funding Trade</title>
-    <link href="http://jackliu234.com/2019/12/perpetual-swap/"/>
-    <id>http://jackliu234.com/2019/12/perpetual-swap/</id>
+    <title>Bitcoin Trading Strategy (3): Perpetual Swap Funding</title>
+    <link href="http://jackliu234.com/2019/12/algo-3/"/>
+    <id>http://jackliu234.com/2019/12/algo-3/</id>
     <published>2019-12-05T06:00:00.000Z</published>
-    <updated>2019-12-05T10:46:29.955Z</updated>
+    <updated>2019-12-05T10:55:26.916Z</updated>
     
     <summary type="html">
     
@@ -212,11 +212,11 @@
   </entry>
   
   <entry>
-    <title>Bitcoin Analysis (2): Momentum Strategies</title>
+    <title>Bitcoin Trading Strategy (2): Momentum</title>
     <link href="http://jackliu234.com/2019/07/algo-2/"/>
     <id>http://jackliu234.com/2019/07/algo-2/</id>
     <published>2019-07-21T05:00:00.000Z</published>
-    <updated>2019-11-12T10:23:22.005Z</updated>
+    <updated>2019-12-05T10:56:17.645Z</updated>
     
     <summary type="html">
     
@@ -265,11 +265,11 @@
   </entry>
   
   <entry>
-    <title>Bitcoin Analysis (1): A Classification Approach</title>
+    <title>Bitcoin Trading Strategy (1): Classification Approach</title>
     <link href="http://jackliu234.com/2019/07/algo-1/"/>
     <id>http://jackliu234.com/2019/07/algo-1/</id>
     <published>2019-07-20T05:00:00.000Z</published>
-    <updated>2019-11-12T10:23:17.896Z</updated>
+    <updated>2019-12-05T10:57:10.329Z</updated>
     
     <summary type="html">
     
