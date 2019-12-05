@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jackliu234.com/about/index.html</loc>
+    
+    <lastmod>2019-12-05T09:02:07.950Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackliu234.com/2019/07/fiji/</loc>
+    
+    <lastmod>2019-12-05T08:57:30.358Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackliu234.com/2019/04/peru-bolivia/</loc>
+    
+    <lastmod>2019-12-05T08:57:18.517Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackliu234.com/2019/09/cli-node/</loc>
+    
+    <lastmod>2019-12-05T08:48:15.367Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackliu234.com/2019/09/blockchain/</loc>
+    
+    <lastmod>2019-12-05T08:47:11.520Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jackliu234.com/2019/04/islr/</loc>
     
     <lastmod>2019-12-05T08:45:41.730Z</lastmod>
@@ -44,20 +79,6 @@
   </url>
   
   <url>
-    <loc>http://jackliu234.com/2019/09/cli-node/</loc>
-    
-    <lastmod>2019-12-05T08:32:10.463Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/09/blockchain/</loc>
-    
-    <lastmod>2019-12-05T08:30:31.678Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jackliu234.com/2019/06/spx-vol-term-struct/</loc>
     
     <lastmod>2019-12-05T08:25:02.127Z</lastmod>
@@ -79,13 +100,6 @@
   </url>
   
   <url>
-    <loc>http://jackliu234.com/2019/07/fiji/</loc>
-    
-    <lastmod>2019-11-12T10:23:26.853Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jackliu234.com/2019/07/algo-2/</loc>
     
     <lastmod>2019-11-12T10:23:22.005Z</lastmod>
@@ -96,13 +110,6 @@
     <loc>http://jackliu234.com/2019/07/algo-1/</loc>
     
     <lastmod>2019-11-12T10:23:17.896Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/04/peru-bolivia/</loc>
-    
-    <lastmod>2019-11-12T10:22:56.253Z</lastmod>
     
   </url>
   
@@ -131,13 +138,6 @@
     <loc>http://jackliu234.com/tags/index.html</loc>
     
     <lastmod>2019-11-12T08:53:36.952Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/about/index.html</loc>
-    
-    <lastmod>2019-11-07T01:29:32.811Z</lastmod>
     
   </url>
   
