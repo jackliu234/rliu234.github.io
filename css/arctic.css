@@ -287,7 +287,8 @@ header .logo-link img {
 }
 
 header .nav {
-    float: right;
+    float: left;
+    margin-left: 30px;
 }
 
 header .nav-list-item {
@@ -331,7 +332,7 @@ header .nav-list-item a {
 
 .archive .post-title-link {
     display: block;
-    margin-left: 180px;
+    margin-left: 30px;
     color: #6190e8;
     word-break: break-all
 }
