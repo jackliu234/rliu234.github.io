@@ -328,7 +328,7 @@ header .nav-list-item a {
 }
 
 .archive .post-item {
-    padding: 0px 0 0 50px // adjust post indent
+    padding: 0px 0 0 150px // adjust post indent when overflow. need to set equal to post-info width
 }
 
 .archive .post-time, .post-title-link {
@@ -337,7 +337,7 @@ header .nav-list-item a {
 
 .archive .post-title-link {
     display: block;
-    margin-left: 50px;
+    margin-left: 150px;
     color: #6190e8;
     word-break: normal;
 }

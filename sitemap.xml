@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jackliu234.com/2019/12/algo-3/</loc>
+    
+    <lastmod>2019-12-08T13:09:55.654Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jackliu234.com/2019/01/about/</loc>
     
     <lastmod>2019-12-05T11:21:27.643Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://jackliu234.com/2019/07/algo-2/</loc>
     
     <lastmod>2019-12-05T10:56:17.645Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/12/algo-3/</loc>
-    
-    <lastmod>2019-12-05T10:55:26.916Z</lastmod>
     
   </url>
   
