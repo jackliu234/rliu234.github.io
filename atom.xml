@@ -20,7 +20,7 @@
     <title>Can We Optimize Buy-In Size with Kelly&#39;s Criterion?</title>
     <link href="http://jackliu234.com/2019/11/kelly/"/>
     <id>http://jackliu234.com/2019/11/kelly/</id>
-    <published>2019-11-04T05:00:00.000Z</published>
+    <published>2019-11-04T06:00:00.000Z</published>
     <updated>2019-11-12T10:24:01.906Z</updated>
     
     <summary type="html">
@@ -45,7 +45,7 @@
     <title>How to Set Up A Photo Library with Raspberry Pi</title>
     <link href="http://jackliu234.com/2019/10/pi/"/>
     <id>http://jackliu234.com/2019/10/pi/</id>
-    <published>2019-10-06T04:00:00.000Z</published>
+    <published>2019-10-06T05:00:00.000Z</published>
     <updated>2019-11-12T10:23:57.424Z</updated>
     
     <summary type="html">
@@ -70,7 +70,7 @@
     <title>Understand Gradient Descent in Neural Network</title>
     <link href="http://jackliu234.com/2019/08/gradient-descent/"/>
     <id>http://jackliu234.com/2019/08/gradient-descent/</id>
-    <published>2019-08-16T04:00:00.000Z</published>
+    <published>2019-08-16T05:00:00.000Z</published>
     <updated>2019-12-05T08:32:18.028Z</updated>
     
     <summary type="html">
@@ -90,7 +90,7 @@
     <title>&amp;#128214; Notes on ISLR</title>
     <link href="http://jackliu234.com/2019/04/islr/"/>
     <id>http://jackliu234.com/2019/04/islr/</id>
-    <published>2019-04-13T04:00:00.000Z</published>
+    <published>2019-04-13T05:00:00.000Z</published>
     <updated>2020-01-09T02:06:16.492Z</updated>
     
     <summary type="html">
@@ -112,10 +112,35 @@
   </entry>
   
   <entry>
+    <title>&amp;#128214; Notes on C++</title>
+    <link href="http://jackliu234.com/2019/04/cpp/"/>
+    <id>http://jackliu234.com/2019/04/cpp/</id>
+    <published>2019-04-06T05:00:00.000Z</published>
+    <updated>2020-01-14T17:50:28.236Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;C++ is a &lt;code&gt;complied&lt;/code&gt; （vs interpreted: python), &lt;code&gt;general-purpose&lt;/code&gt; (vs domain-specific: HTML) programming language
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
     <title>The St. Petersburg Paradox and Utility Function</title>
     <link href="http://jackliu234.com/2019/02/the-st-petersburg-paradox/"/>
     <id>http://jackliu234.com/2019/02/the-st-petersburg-paradox/</id>
-    <published>2019-02-15T05:00:00.000Z</published>
+    <published>2019-02-15T06:00:00.000Z</published>
     <updated>2019-11-12T10:22:23.520Z</updated>
     
     <summary type="html">
@@ -141,7 +166,7 @@
     <title>About</title>
     <link href="http://jackliu234.com/2019/01/about/"/>
     <id>http://jackliu234.com/2019/01/about/</id>
-    <published>2019-01-01T05:00:00.000Z</published>
+    <published>2019-01-01T06:00:00.000Z</published>
     <updated>2020-01-01T15:31:53.063Z</updated>
     
     <summary type="html">
