@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://jackliu234.com/2019/01/about/</loc>
+    <loc>http://jackliu234.com/2019/01/guide-to-create-a-blog-with-hexo/</loc>
     
-    <lastmod>2020-05-07T10:49:33.452Z</lastmod>
+    <lastmod>2020-05-14T21:22:10.067Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jackliu234.com/2019/06/financial-exchange/</loc>
+    <loc>http://jackliu234.com/2019/01/about/</loc>
     
-    <lastmod>2020-05-07T10:44:45.246Z</lastmod>
+    <lastmod>2020-05-07T10:49:33.452Z</lastmod>
     
   </url>
   
@@ -47,20 +47,6 @@
     <loc>http://jackliu234.com/2019/10/pi/</loc>
     
     <lastmod>2019-11-12T10:23:57.424Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/02/the-st-petersburg-paradox/</loc>
-    
-    <lastmod>2019-11-12T10:22:23.520Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/01/guide-to-create-a-blog-with-hexo/</loc>
-    
-    <lastmod>2019-11-12T10:22:06.456Z</lastmod>
     
   </url>
   
