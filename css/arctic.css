@@ -705,15 +705,15 @@ main.container {
 
 
     .archive .post-item {
-        padding: 0px 0 0 100px // adjust post indent when overflow. need to set equal to post-info width
+        padding: 0px 0 0 125px // adjust post indent when overflow. need to set equal to post-info width
     }
 
     .archive .post-title-link {
-        margin-left: 100px;
+        margin-left: 125px;
     }
 
     .archive .post-info {
-        width: 100px;
+        width: 125px;
     }
 
     .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
