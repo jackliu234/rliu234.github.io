@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2019-12-08T13:09:55.654Z</updated>
+  <updated>2020-06-10T00:30:45.486Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Birdies</title>
+    <link href="http://jackliu234.com/2020/06/bird/"/>
+    <id>http://jackliu234.com/2020/06/bird/</id>
+    <published>2020-06-09T05:00:00.000Z</published>
+    <updated>2020-06-10T00:30:45.486Z</updated>
+    
+    <summary type="html">
+    
+      This article is encrypted.
+    
+    </summary>
+    
+    
+    
+      <category term="notes" scheme="http://jackliu234.com/tags/notes/"/>
+    
+  </entry>
   
   <entry>
     <title>Bitcoin Trading Strategy (3): Perpetual Swap Funding</title>
