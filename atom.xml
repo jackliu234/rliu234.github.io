@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2020-06-10T00:30:45.486Z</updated>
+  <updated>2020-06-11T01:17:46.288Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -17,15 +17,21 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Birdies</title>
+    <title>Backyard Birdie Cam</title>
     <link href="http://jackliu234.com/2020/06/bird/"/>
     <id>http://jackliu234.com/2020/06/bird/</id>
     <published>2020-06-09T05:00:00.000Z</published>
-    <updated>2020-06-10T00:30:45.486Z</updated>
+    <updated>2020-06-11T01:17:46.288Z</updated>
     
     <summary type="html">
     
-      This article is encrypted.
+      
+      
+        
+        
+          &lt;p&gt;Stumbled upon this little nest on the roof of my backyard. The mother looks like a sparrow but I am not entirely sure… It generally
+        
+      
     
     </summary>
     
@@ -365,12 +371,12 @@
     <link href="http://jackliu234.com/2019/01/about/"/>
     <id>http://jackliu234.com/2019/01/about/</id>
     <published>2019-01-01T06:00:00.000Z</published>
-    <updated>2020-05-14T21:37:59.885Z</updated>
+    <updated>2020-06-10T21:29:30.571Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://jackliu234.com/2019/01/about/profile-yosemite.jpeg&quot; ,=&quot;&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;Hi there, my name is Jack. I love sharing my thoughts and occasional ramblings on this corner of the web. The covering picture is my favorite over the years taken at Yosemite, CA. Here is another interesting &lt;a href=&quot;https://allenfrostline.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;blog&lt;/a&gt; by Allen.&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;https://jackliu234.com/2019/01/about/profile-yosemite.jpeg&quot; ,=&quot;&quot; alt=&quot;&quot; height=&quot;400&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Hi there, my name is Jack and I love sharing thoughts and occasional ramblings on this corner of the web. The cover picture is taken at Yosemite, CA. Here is another interesting &lt;a href=&quot;https://allenfrostline.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;blog&lt;/a&gt; by Allen.&lt;/p&gt;
     
     </summary>
     
