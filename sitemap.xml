@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jackliu234.com/2019/08/gradient-descent/</loc>
+    
+    <lastmod>2020-06-25T06:11:30.558Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jackliu234.com/2019/12/finm-notes/</loc>
     
     <lastmod>2020-06-22T02:25:46.343Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://jackliu234.com/2019/04/islr/</loc>
     
     <lastmod>2020-01-09T02:06:16.492Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/08/gradient-descent/</loc>
-    
-    <lastmod>2019-12-05T08:32:18.028Z</lastmod>
     
   </url>
   
