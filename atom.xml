@@ -136,6 +136,168 @@
   </entry>
   
   <entry>
+    <title>Bitcoin Trading Strategy (2): Chasing Momentum</title>
+    <link href="http://jackliu234.com/2019/07/algo-2/"/>
+    <id>http://jackliu234.com/2019/07/algo-2/</id>
+    <published>2019-07-21T05:00:00.000Z</published>
+    <updated>2020-05-14T21:39:26.562Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In this research I studied on the performance of simple and exponential moving average crossover strategies, with window sizes chosen by optimizing in-sample PNL, sharpe ratio and 30-day maximum drawdown. The calibrated strategy performs well, earning 500% cumulative return compared to baseline and a sharpe ratio of 1.30. The the 30-day maximum drawdown is similar to the baseline.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr style=&quot;text-align: right;&quot;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Strategy&lt;/th&gt;
+      &lt;th&gt;P&amp;amp;L&lt;/th&gt;
+      &lt;th&gt;Sharpe Ratio&lt;/th&gt;
+      &lt;th&gt;Maximum Drawdown&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;Baseline&lt;/td&gt;
+      &lt;td&gt;0.28&lt;/td&gt;
+      &lt;td&gt;-1.48&lt;/td&gt;
+      &lt;td&gt;0.35&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;MA&lt;/td&gt;
+      &lt;td&gt;1.54&lt;/td&gt;
+      &lt;td&gt;1.30&lt;/td&gt;
+      &lt;td&gt;0.37&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;EWMA&lt;/td&gt;
+      &lt;td&gt;1.45&lt;/td&gt;
+      &lt;td&gt;1.10&lt;/td&gt;
+      &lt;td&gt;0.38&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bitcoin Trading Strategy (1): Classification Approach</title>
+    <link href="http://jackliu234.com/2019/07/algo-1/"/>
+    <id>http://jackliu234.com/2019/07/algo-1/</id>
+    <published>2019-07-20T05:00:00.000Z</published>
+    <updated>2019-12-05T10:57:10.329Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In this research I looked at intraday Bitcoin trading based on price and volume information using classification models.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr style=&quot;text-align: center;&quot;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Strategy&lt;/th&gt;
+      &lt;th&gt;Precision&lt;/th&gt;
+      &lt;th&gt;P&amp;amp;L&lt;/th&gt;
+      &lt;th&gt;Sharpe Ratio&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;10&lt;/th&gt;
+      &lt;td&gt;MLP Classifier&lt;/td&gt;
+      &lt;td&gt;0.55&lt;/td&gt;
+      &lt;td&gt;2.06&lt;/td&gt;
+      &lt;td&gt;1.79&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;KNN&lt;/td&gt;
+      &lt;td&gt;0.50&lt;/td&gt;
+      &lt;td&gt;1.95&lt;/td&gt;
+      &lt;td&gt;1.85&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;Baseline&lt;/td&gt;
+      &lt;td&gt;0.00&lt;/td&gt;
+      &lt;td&gt;1.69&lt;/td&gt;
+      &lt;td&gt;1.14&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;Decision Tree&lt;/td&gt;
+      &lt;td&gt;0.49&lt;/td&gt;
+      &lt;td&gt;1.61&lt;/td&gt;
+      &lt;td&gt;1.84&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;5&lt;/th&gt;
+      &lt;td&gt;Random Forest&lt;/td&gt;
+      &lt;td&gt;0.53&lt;/td&gt;
+      &lt;td&gt;1.55&lt;/td&gt;
+      &lt;td&gt;1.16&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;8&lt;/th&gt;
+      &lt;td&gt;XGBoost&lt;/td&gt;
+      &lt;td&gt;0.52&lt;/td&gt;
+      &lt;td&gt;1.33&lt;/td&gt;
+      &lt;td&gt;0.86&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;9&lt;/th&gt;
+      &lt;td&gt;SVC&lt;/td&gt;
+      &lt;td&gt;0.47&lt;/td&gt;
+      &lt;td&gt;1.31&lt;/td&gt;
+      &lt;td&gt;0.73&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;Logistic Regression&lt;/td&gt;
+      &lt;td&gt;0.47&lt;/td&gt;
+      &lt;td&gt;1.14&lt;/td&gt;
+      &lt;td&gt;0.47&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;7&lt;/th&gt;
+      &lt;td&gt;Gradient Boost&lt;/td&gt;
+      &lt;td&gt;0.48&lt;/td&gt;
+      &lt;td&gt;1.06&lt;/td&gt;
+      &lt;td&gt;0.33&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;6&lt;/th&gt;
+      &lt;td&gt;AdaBoost&lt;/td&gt;
+      &lt;td&gt;0.50&lt;/td&gt;
+      &lt;td&gt;0.86&lt;/td&gt;
+      &lt;td&gt;-0.09&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;Linear Discriminant Analysis&lt;/td&gt;
+      &lt;td&gt;0.47&lt;/td&gt;
+      &lt;td&gt;0.85&lt;/td&gt;
+      &lt;td&gt;-0.17&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
     <title>&amp;#128214; Notes on ISLR</title>
     <link href="http://jackliu234.com/2019/04/islr/"/>
     <id>http://jackliu234.com/2019/04/islr/</id>
