@@ -116,6 +116,26 @@
   </entry>
   
   <entry>
+    <title>Understand Gradient Descent in Neural Network</title>
+    <link href="http://jackliu234.com/2019/08/gradient-descent/"/>
+    <id>http://jackliu234.com/2019/08/gradient-descent/</id>
+    <published>2019-08-16T05:00:00.000Z</published>
+    <updated>2019-12-05T08:32:18.028Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;Gradient Descent&lt;/code&gt; is an optimization method used in neural network, where the weight parameters &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{w}&lt;/script&gt; are updated recursively by subtracting a small percentage &lt;script type=&quot;math/tex&quot;&gt;\alpha&lt;/script&gt; of the gradient of the loss function &lt;script type=&quot;math/tex&quot;&gt;\nabla \mathcal{L}&lt;/script&gt;, in order to minimize the loss function.&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boldsymbol{w}_i = \boldsymbol{w}_{i-1} - \alpha\nabla \mathcal{L}(\boldsymbol{w}_{i-1})&lt;/script&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="math" scheme="http://jackliu234.com/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
     <title>&amp;#128214; Notes on ISLR</title>
     <link href="http://jackliu234.com/2019/04/islr/"/>
     <id>http://jackliu234.com/2019/04/islr/</id>
