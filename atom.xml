@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2020-11-15T22:08:15.495Z</updated>
+  <updated>2020-11-15T23:08:50.692Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>An Efficient KNN Mahalanobis Distance Calculation</title>
+    <title>Efficiently Compute KNN with Mahalanobis Distance</title>
     <link href="http://jackliu234.com/2020/11/mah/"/>
     <id>http://jackliu234.com/2020/11/mah/</id>
     <published>2020-11-15T06:00:00.000Z</published>
-    <updated>2020-11-15T22:08:15.495Z</updated>
+    <updated>2020-11-15T23:08:50.692Z</updated>
     
     <summary type="html">
     
@@ -194,11 +194,11 @@
   </entry>
   
   <entry>
-    <title>Bitcoin Trading Strategy (1): Classification Approach</title>
+    <title>Bitcoin Trading Strategy (1): Classification Approaches</title>
     <link href="http://jackliu234.com/2019/07/algo-1/"/>
     <id>http://jackliu234.com/2019/07/algo-1/</id>
     <published>2019-07-20T05:00:00.000Z</published>
-    <updated>2019-12-05T10:57:10.329Z</updated>
+    <updated>2020-11-15T22:53:53.289Z</updated>
     
     <summary type="html">
     
@@ -332,11 +332,11 @@
     <link href="http://jackliu234.com/2019/01/about/"/>
     <id>http://jackliu234.com/2019/01/about/</id>
     <published>2019-01-01T06:00:00.000Z</published>
-    <updated>2020-10-08T10:19:19.435Z</updated>
+    <updated>2020-11-15T23:15:57.969Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://jackliu234.com/2019/01/about/profile-yosemite.jpeg&quot; ,=&quot;&quot; alt=&quot;&quot; width=&quot;700&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;https://jackliu234.com/2019/01/about/profile-yosemite.jpeg&quot; ,=&quot;&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
