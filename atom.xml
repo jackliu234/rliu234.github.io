@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackliu234.com/"/>
-  <updated>2020-06-30T22:18:35.025Z</updated>
+  <updated>2020-11-15T22:08:15.495Z</updated>
   <id>http://jackliu234.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Backyard Birdie Cam</title>
-    <link href="http://jackliu234.com/2020/06/bird/"/>
-    <id>http://jackliu234.com/2020/06/bird/</id>
-    <published>2020-06-09T05:00:00.000Z</published>
-    <updated>2020-06-30T22:18:35.025Z</updated>
+    <title>An Efficient KNN Mahalanobis Distance Calculation</title>
+    <link href="http://jackliu234.com/2020/11/mah/"/>
+    <id>http://jackliu234.com/2020/11/mah/</id>
+    <published>2020-11-15T06:00:00.000Z</published>
+    <updated>2020-11-15T22:08:15.495Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;p&gt;Stumbled upon this little nest on the roof of my backyard. The mother bird is quite small (a nightingale maybe?) It usually takes the
+          &lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;There are many proximity-based
         
       
     
@@ -37,32 +37,7 @@
     
     
     
-      <category term="notes" scheme="http://jackliu234.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bitcoin Trading Strategy (3): Perpetual Swap Funding</title>
-    <link href="http://jackliu234.com/2019/12/algo-3/"/>
-    <id>http://jackliu234.com/2019/12/algo-3/</id>
-    <published>2019-12-05T06:00:00.000Z</published>
-    <updated>2019-12-08T13:09:55.654Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;In this research, we dive into the
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="notes" scheme="http://jackliu234.com/tags/notes/"/>
+      <category term="math" scheme="http://jackliu234.com/tags/math/"/>
     
   </entry>
   
@@ -141,22 +116,27 @@
   </entry>
   
   <entry>
-    <title>Understand Gradient Descent in Neural Network</title>
-    <link href="http://jackliu234.com/2019/08/gradient-descent/"/>
-    <id>http://jackliu234.com/2019/08/gradient-descent/</id>
-    <published>2019-08-16T05:00:00.000Z</published>
-    <updated>2020-06-25T06:11:30.558Z</updated>
+    <title>Bitcoin Trading Strategy (3): Perpetual Swap Funding</title>
+    <link href="http://jackliu234.com/2019/07/algo-3/"/>
+    <id>http://jackliu234.com/2019/07/algo-3/</id>
+    <published>2019-07-22T05:00:00.000Z</published>
+    <updated>2020-11-15T22:09:31.048Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;code&gt;Gradient Descent&lt;/code&gt; is an optimization method used in neural network, where the weight parameters &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{w}&lt;/script&gt; are updated recursively by subtracting a small percentage &lt;script type=&quot;math/tex&quot;&gt;\alpha&lt;/script&gt; of the gradient of the loss function &lt;script type=&quot;math/tex&quot;&gt;\nabla \mathcal{L}&lt;/script&gt;, in order to minimize the loss function.&lt;/p&gt;
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boldsymbol{w}_i = \boldsymbol{w}_{i-1} - \alpha\nabla \mathcal{L}(\boldsymbol{w}_{i-1})&lt;/script&gt;
+      
+      
+        
+        
+          &lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;In this research, we dive into the
+        
+      
     
     </summary>
     
     
     
-      <category term="math" scheme="http://jackliu234.com/tags/math/"/>
+      <category term="notes" scheme="http://jackliu234.com/tags/notes/"/>
     
   </entry>
   
@@ -352,11 +332,11 @@
     <link href="http://jackliu234.com/2019/01/about/"/>
     <id>http://jackliu234.com/2019/01/about/</id>
     <published>2019-01-01T06:00:00.000Z</published>
-    <updated>2020-07-05T04:20:26.401Z</updated>
+    <updated>2020-10-08T10:19:19.435Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://jackliu234.com/2019/01/about/profile-yosemite.jpeg&quot; ,=&quot;&quot; alt=&quot;&quot; height=&quot;400&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;https://jackliu234.com/2019/01/about/profile-yosemite.jpeg&quot; ,=&quot;&quot; alt=&quot;&quot; width=&quot;700&quot;&gt;&lt;/p&gt;
     
     </summary>
     

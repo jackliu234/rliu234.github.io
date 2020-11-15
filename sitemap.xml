@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jackliu234.com/2019/07/algo-3/</loc>
+    
+    <lastmod>2020-11-15T22:09:31.048Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackliu234.com/2020/11/mah/</loc>
+    
+    <lastmod>2020-11-15T22:08:15.495Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jackliu234.com/2019/01/about/</loc>
     
-    <lastmod>2020-07-05T04:20:26.401Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2020/06/bird/</loc>
-    
-    <lastmod>2020-06-30T22:18:35.025Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/08/gradient-descent/</loc>
-    
-    <lastmod>2020-06-25T06:11:30.558Z</lastmod>
+    <lastmod>2020-10-08T10:19:19.435Z</lastmod>
     
   </url>
   
@@ -40,13 +40,6 @@
     <loc>http://jackliu234.com/2019/04/islr/</loc>
     
     <lastmod>2020-01-09T02:06:16.492Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackliu234.com/2019/12/algo-3/</loc>
-    
-    <lastmod>2019-12-08T13:09:55.654Z</lastmod>
     
   </url>
   
