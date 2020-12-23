@@ -95,7 +95,7 @@
     <link href="http://jackliu234.com/2019/10/pi/"/>
     <id>http://jackliu234.com/2019/10/pi/</id>
     <published>2019-10-06T05:00:00.000Z</published>
-    <updated>2019-11-12T10:23:57.424Z</updated>
+    <updated>2020-12-23T02:45:40.320Z</updated>
     
     <summary type="html">
     
@@ -116,93 +116,17 @@
   </entry>
   
   <entry>
-    <title>Bitcoin Trading Strategy (3): Perpetual Swap Funding</title>
-    <link href="http://jackliu234.com/2019/07/algo-3/"/>
-    <id>http://jackliu234.com/2019/07/algo-3/</id>
-    <published>2019-07-22T05:00:00.000Z</published>
-    <updated>2020-11-15T22:09:31.048Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;In this research, we dive into the
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="notes" scheme="http://jackliu234.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bitcoin Trading Strategy (2): Chasing Momentum</title>
-    <link href="http://jackliu234.com/2019/07/algo-2/"/>
-    <id>http://jackliu234.com/2019/07/algo-2/</id>
-    <published>2019-07-21T05:00:00.000Z</published>
-    <updated>2020-05-14T21:39:26.562Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;In this research I studied on the performance of simple and exponential moving average crossover strategies, with window sizes chosen by optimizing in-sample PNL, sharpe ratio and 30-day maximum drawdown. The calibrated strategy performs well, earning 500% cumulative return compared to baseline and a sharpe ratio of 1.30. The the 30-day maximum drawdown is similar to the baseline.&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr style=&quot;text-align: right;&quot;&gt;
-      &lt;th&gt;&lt;/th&gt;
-      &lt;th&gt;Strategy&lt;/th&gt;
-      &lt;th&gt;P&amp;amp;L&lt;/th&gt;
-      &lt;th&gt;Sharpe Ratio&lt;/th&gt;
-      &lt;th&gt;Maximum Drawdown&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;th&gt;0&lt;/th&gt;
-      &lt;td&gt;Baseline&lt;/td&gt;
-      &lt;td&gt;0.28&lt;/td&gt;
-      &lt;td&gt;-1.48&lt;/td&gt;
-      &lt;td&gt;0.35&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;1&lt;/th&gt;
-      &lt;td&gt;MA&lt;/td&gt;
-      &lt;td&gt;1.54&lt;/td&gt;
-      &lt;td&gt;1.30&lt;/td&gt;
-      &lt;td&gt;0.37&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;2&lt;/th&gt;
-      &lt;td&gt;EWMA&lt;/td&gt;
-      &lt;td&gt;1.45&lt;/td&gt;
-      &lt;td&gt;1.10&lt;/td&gt;
-      &lt;td&gt;0.38&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="tech" scheme="http://jackliu234.com/tags/tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bitcoin Trading Strategy (1): Classification Approaches</title>
+    <title>Bitcoin Quant Strategies with Backtesting Results</title>
     <link href="http://jackliu234.com/2019/07/algo-1/"/>
     <id>http://jackliu234.com/2019/07/algo-1/</id>
     <published>2019-07-20T05:00:00.000Z</published>
-    <updated>2020-11-15T22:53:53.289Z</updated>
+    <updated>2020-12-23T02:44:51.771Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;In this research I looked at intraday Bitcoin trading based on price and volume information using classification models.&lt;/p&gt;
+      &lt;h1 id=&quot;Navigation&quot;&gt;&lt;a href=&quot;#Navigation&quot; class=&quot;headerlink&quot; title=&quot;Navigation&quot;&gt;&lt;/a&gt;&lt;span id=&quot;nav&quot;&gt;Navigation&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;#01&quot;&gt;01. Classification Methods&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#02&quot;&gt;02. Momemtum&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#03&quot;&gt;03. Perpectual Swap Funding&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h1 id=&quot;128214-Classification-Methods-8634&quot;&gt;&lt;a href=&quot;#128214-Classification-Methods-8634&quot; class=&quot;headerlink&quot; title=&quot;&amp;#128214; Classification Methods &amp;#8634;&quot;&gt;&lt;/a&gt;&lt;span id=&quot;01&quot;&gt;&amp;#128214; Classification Methods&lt;/span&gt; &lt;sup&gt;&lt;a href=&quot;#nav&quot;&gt;&amp;#8634;&lt;/a&gt;&lt;/sup&gt;&lt;/h1&gt;&lt;p&gt;In this research I looked at intraday Bitcoin trading based on price and volume information using classification models.&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr style=&quot;text-align: center;&quot;&gt;
