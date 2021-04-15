@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rliu234.com/"/>
-  <updated>2021-04-15T03:41:36.921Z</updated>
+  <updated>2020-11-15T23:08:50.692Z</updated>
   <id>http://rliu234.com/</id>
   
   <author>
@@ -15,25 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Term Structure of Volatility under Black-Scholes</title>
-    <link href="http://rliu234.com/2020/12/spx-vol-term-struct/"/>
-    <id>http://rliu234.com/2020/12/spx-vol-term-struct/</id>
-    <published>2020-12-22T06:00:00.000Z</published>
-    <updated>2021-04-15T03:41:36.921Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;In this research, we extracted a term structure from the implied volatility skewness under the Black-Scholes framework and S&amp;amp;P 500 adjusted close prices. With the daily close prices over the period of 1970-2018, we calibrated a local volatility function by fitting the BS-implied density based on the Dupire formula (which is the aggregation of a bunch of log-normal densities at each strike, since volatility is not constant and depended on strike) to the observed S&amp;amp;P 500 log return distribution.&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="math" scheme="http://rliu234.com/tags/math/"/>
-    
-  </entry>
   
   <entry>
     <title>Efficiently Compute KNN with Mahalanobis Distance</title>
@@ -243,6 +224,25 @@
     
     
       <category term="tech" scheme="http://rliu234.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Term Structure of Volatility under Black-Scholes</title>
+    <link href="http://rliu234.com/2019/06/spx-vol-term-struct/"/>
+    <id>http://rliu234.com/2019/06/spx-vol-term-struct/</id>
+    <published>2019-06-30T05:00:00.000Z</published>
+    <updated>2021-04-15T04:31:13.849Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In this research, we extracted a term structure from the implied volatility skewness under the Black-Scholes framework and S&amp;amp;P 500 adjusted close prices. With the daily close prices over the period of 1970-2018, we calibrated a local volatility function by fitting the BS-implied density based on the Dupire formula (which is the aggregation of a bunch of log-normal densities at each strike, since volatility is not constant and depended on strike) to the observed S&amp;amp;P 500 log return distribution.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="math" scheme="http://rliu234.com/tags/math/"/>
     
   </entry>
   
