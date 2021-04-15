@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rliu234.com/"/>
-  <updated>2020-12-23T03:07:54.305Z</updated>
+  <updated>2021-04-15T03:41:36.921Z</updated>
   <id>http://rliu234.com/</id>
   
   <author>
@@ -21,13 +21,11 @@
     <link href="http://rliu234.com/2020/12/spx-vol-term-struct/"/>
     <id>http://rliu234.com/2020/12/spx-vol-term-struct/</id>
     <published>2020-12-22T06:00:00.000Z</published>
-    <updated>2020-12-23T03:07:54.305Z</updated>
+    <updated>2021-04-15T03:41:36.921Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;This research project was collaborated during my study at the University of Chicago, back in the spring of 2019. Reposting it here at the end of 2020 just for fun.&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h2&gt;&lt;p&gt;In this research, we extracted a term structure from the implied volatility skewness under the Black-Scholes framework and S&amp;amp;P 500 adjusted close prices. With the daily close prices over the period of 1970-2018, we calibrated a local volatility function by fitting the BS-implied density based on the Dupire formula (which is the aggregation of a bunch of log-normal densities at each strike, since volatility is not constant and depended on strike) to the observed S&amp;amp;P 500 log return distribution.&lt;/p&gt;
+      &lt;p&gt;In this research, we extracted a term structure from the implied volatility skewness under the Black-Scholes framework and S&amp;amp;P 500 adjusted close prices. With the daily close prices over the period of 1970-2018, we calibrated a local volatility function by fitting the BS-implied density based on the Dupire formula (which is the aggregation of a bunch of log-normal densities at each strike, since volatility is not constant and depended on strike) to the observed S&amp;amp;P 500 log return distribution.&lt;/p&gt;
     
     </summary>
     
