@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Rongjia Liu</title>
-  <icon>http://rliu234.com/icon.png</icon>
+  <icon>http://rliu6.com/icon.png</icon>
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://rliu234.com/"/>
+  <link href="http://rliu6.com/"/>
   <updated>2020-11-15T23:08:50.692Z</updated>
-  <id>http://rliu234.com/</id>
+  <id>http://rliu6.com/</id>
   
   <author>
     <name>Rongjia Liu</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Efficiently Compute KNN with Mahalanobis Distance</title>
-    <link href="http://rliu234.com/2020/11/mah/"/>
-    <id>http://rliu234.com/2020/11/mah/</id>
+    <link href="http://rliu6.com/2020/11/mah/"/>
+    <id>http://rliu6.com/2020/11/mah/</id>
     <published>2020-11-15T06:00:00.000Z</published>
     <updated>2020-11-15T23:08:50.692Z</updated>
     
@@ -37,14 +37,14 @@
     
     
     
-      <category term="math" scheme="http://rliu234.com/tags/math/"/>
+      <category term="math" scheme="http://rliu6.com/tags/math/"/>
     
   </entry>
   
   <entry>
     <title>&amp;#128214; Notes on Financial Mathematics</title>
-    <link href="http://rliu234.com/2019/12/finm-notes/"/>
-    <id>http://rliu234.com/2019/12/finm-notes/</id>
+    <link href="http://rliu6.com/2019/12/finm-notes/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/</id>
     <published>2019-12-04T06:00:00.000Z</published>
     <updated>2020-06-22T02:25:46.343Z</updated>
     
@@ -61,14 +61,14 @@
     
     
     
-      <category term="notes" scheme="http://rliu234.com/tags/notes/"/>
+      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
     
   </entry>
   
   <entry>
     <title>Can We Optimize Buy-In Size with Kelly&#39;s Criterion?</title>
-    <link href="http://rliu234.com/2019/11/kelly/"/>
-    <id>http://rliu234.com/2019/11/kelly/</id>
+    <link href="http://rliu6.com/2019/11/kelly/"/>
+    <id>http://rliu6.com/2019/11/kelly/</id>
     <published>2019-11-04T06:00:00.000Z</published>
     <updated>2019-11-12T10:24:01.906Z</updated>
     
@@ -86,14 +86,14 @@
     
     
     
-      <category term="math" scheme="http://rliu234.com/tags/math/"/>
+      <category term="math" scheme="http://rliu6.com/tags/math/"/>
     
   </entry>
   
   <entry>
     <title>How to Set Up A Photo Library with Raspberry Pi</title>
-    <link href="http://rliu234.com/2019/10/pi/"/>
-    <id>http://rliu234.com/2019/10/pi/</id>
+    <link href="http://rliu6.com/2019/10/pi/"/>
+    <id>http://rliu6.com/2019/10/pi/</id>
     <published>2019-10-06T05:00:00.000Z</published>
     <updated>2021-04-15T03:28:41.349Z</updated>
     
@@ -112,14 +112,14 @@
     
     
     
-      <category term="tech" scheme="http://rliu234.com/tags/tech/"/>
+      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
     
   </entry>
   
   <entry>
     <title>Bitcoin Quant Strategies with Backtesting Results</title>
-    <link href="http://rliu234.com/2019/07/algo-1/"/>
-    <id>http://rliu234.com/2019/07/algo-1/</id>
+    <link href="http://rliu6.com/2019/07/algo-1/"/>
+    <id>http://rliu6.com/2019/07/algo-1/</id>
     <published>2019-07-20T05:00:00.000Z</published>
     <updated>2020-12-23T02:44:51.771Z</updated>
     
@@ -223,14 +223,14 @@
     
     
     
-      <category term="tech" scheme="http://rliu234.com/tags/tech/"/>
+      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
     
   </entry>
   
   <entry>
     <title>Term Structure of Volatility under Black-Scholes</title>
-    <link href="http://rliu234.com/2019/06/spx-vol-term-struct/"/>
-    <id>http://rliu234.com/2019/06/spx-vol-term-struct/</id>
+    <link href="http://rliu6.com/2019/06/spx-vol-term-struct/"/>
+    <id>http://rliu6.com/2019/06/spx-vol-term-struct/</id>
     <published>2019-06-30T05:00:00.000Z</published>
     <updated>2021-04-15T04:31:13.849Z</updated>
     
@@ -242,14 +242,14 @@
     
     
     
-      <category term="math" scheme="http://rliu234.com/tags/math/"/>
+      <category term="math" scheme="http://rliu6.com/tags/math/"/>
     
   </entry>
   
   <entry>
     <title>&amp;#128214; Notes on ISLR</title>
-    <link href="http://rliu234.com/2019/04/islr/"/>
-    <id>http://rliu234.com/2019/04/islr/</id>
+    <link href="http://rliu6.com/2019/04/islr/"/>
+    <id>http://rliu6.com/2019/04/islr/</id>
     <published>2019-04-13T05:00:00.000Z</published>
     <updated>2020-01-09T02:06:16.492Z</updated>
     
@@ -267,26 +267,26 @@
     
     
     
-      <category term="math" scheme="http://rliu234.com/tags/math/"/>
+      <category term="math" scheme="http://rliu6.com/tags/math/"/>
     
   </entry>
   
   <entry>
     <title>About</title>
-    <link href="http://rliu234.com/2019/01/about/"/>
-    <id>http://rliu234.com/2019/01/about/</id>
+    <link href="http://rliu6.com/2019/01/about/"/>
+    <id>http://rliu6.com/2019/01/about/</id>
     <published>2019-01-01T06:00:00.000Z</published>
-    <updated>2021-04-15T03:21:17.957Z</updated>
+    <updated>2021-05-05T03:36:41.034Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://rliu234.com/2019/01/about/profile-yosemite.jpeg&quot; ,=&quot;&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;https://rliu6.com/2019/01/about/profile-yosemite.jpeg&quot; ,=&quot;&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
     
     
-      <category term="travel" scheme="http://rliu234.com/tags/travel/"/>
+      <category term="travel" scheme="http://rliu6.com/tags/travel/"/>
     
   </entry>
   
