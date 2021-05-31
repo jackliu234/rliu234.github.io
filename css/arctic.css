@@ -1,13 +1,10 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-    font-family: 'Garamond';
+    font-family: 'Lora';
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
 }
 
-body {
-    margin: 0
-}
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
     display: block
@@ -45,11 +42,6 @@ b, strong {
 
 dfn {
     font-style: italic
-}
-
-h1 {
-    font-size: 30px;
-    margin: 0.67em 0
 }
 
 mark {
@@ -185,11 +177,30 @@ html, body {
 
 body {
     margin: 0;
+    padding: 0;
     color: #000000;
-    font-size: 17px;
-    line-height: 1.4;
+    font-size: 1em;
+    line-height: 1.5;
     background-color: #fff;
-    font-family: 'Garamond';
+    font-family: 'Lora';
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+    font-family: "Marcellus SC", sans-serif;
+    margin-bottom: 0.2em;
+    margin-top: 0.8em;
+}
+
+
+h1 {
+    font-size: 1.7em;
+}
+h2 {
+    font-size: 1.5em;
+}
+h3 {
+    font-size: 1.3em;
 }
 
 ul.nav, ul.post-list {
@@ -223,15 +234,15 @@ hr {
 
 code {
     margin: 0 0px;
-    padding: 0.5px 1.5px;
-    /* color: #6190e8;
-    border: solid #6190e8;
-    border-radius: 5px;
-    border-width: thin; */
-    background: #D7E7FF;
+    padding: 0.25px 1.5px;
+
+    border-bottom: solid #6190e8;
+    border-radius: 0px;
+    border-width: 2px;
+
     white-space: inherit;
     font-size: 1em;
-    font-family: 'Garamond';
+    font-family: 'Lora';
 
 }
 
@@ -297,7 +308,8 @@ header .nav-list-item {
 }
 
 header .nav-list-item a {
-    font-size: 22px;
+    font-family: 'Garamond', serif;
+    font-size: 1.5em;
     line-height: 1.0
 }
 
@@ -403,7 +415,7 @@ header .nav-list-item a {
 
 .post-content a {
     color: #6190e8;
-    word-break: break-all
+    word-break: normal
 }
 
 .post-content blockquote {
@@ -450,7 +462,7 @@ header .nav-list-item a {
     font-weight: bold;
     text-align: center;
     background-color: #f66;
-    font-family: 'Garamond';
+    font-family: 'Lora';
 }
 
 #mask {
@@ -768,6 +780,20 @@ footer .copyright a:hover {
     pre {
         color: #525252;
     }
+}
+
+@font-face {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/Lora/static/Lora-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Marcellus SC';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/Marcellus_SC/MarcellusSC-Regular.ttf');
 }
 
 @font-face {

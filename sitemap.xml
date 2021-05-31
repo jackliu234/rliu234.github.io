@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://rliu6.com/about/index.html</loc>
+    
+    <lastmod>2021-05-31T17:24:03.201Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://rliu6.com/2019/12/finm-notes/05_foreign_exchange/</loc>
     
     <lastmod>2021-05-31T15:41:39.908Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://rliu6.com/2019/07/algo-1/</loc>
     
     <lastmod>2020-12-23T02:44:51.771Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://rliu6.com/about/index.html</loc>
-    
-    <lastmod>2020-11-16T03:38:04.628Z</lastmod>
     
   </url>
   
