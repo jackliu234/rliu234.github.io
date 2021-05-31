@@ -70,7 +70,7 @@
     <link href="http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/"/>
     <id>http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:40:35.371Z</updated>
+    <updated>2021-05-31T23:25:16.389Z</updated>
     
     <summary type="html">
     
@@ -95,30 +95,6 @@
     <id>http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/</id>
     <published>2019-12-04T06:00:00.000Z</published>
     <updated>2021-05-31T15:40:51.378Z</updated>
-    
-    <summary type="html">
-    
-      &lt;style type=&quot;text/css&quot;&gt;
-    img.resize {
-        max-width:50%;
-        max-height:50%;
-    }
-&lt;/style&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&amp;#128214; Notes on MSFM - Option Theory</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/02_option_theory/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/02_option_theory/</id>
-    <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T18:18:00.904Z</updated>
     
     <summary type="html">
     
@@ -163,11 +139,11 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - Portfolio Theory</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/</id>
+    <title>&amp;#128214; Notes on MSFM - C++</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:39:03.489Z</updated>
+    <updated>2021-05-31T23:24:59.981Z</updated>
     
     <summary type="html">
     
@@ -187,11 +163,35 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - C++</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/</id>
+    <title>&amp;#128214; Notes on MSFM - Option Theory</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/02_option_theory/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/02_option_theory/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:41:16.905Z</updated>
+    <updated>2021-05-31T18:18:00.904Z</updated>
+    
+    <summary type="html">
+    
+      &lt;style type=&quot;text/css&quot;&gt;
+    img.resize {
+        max-width:50%;
+        max-height:50%;
+    }
+&lt;/style&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&amp;#128214; Notes on MSFM - Portfolio Theory</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/</id>
+    <published>2019-12-04T06:00:00.000Z</published>
+    <updated>2021-05-31T23:23:24.642Z</updated>
     
     <summary type="html">
     
@@ -240,7 +240,7 @@
     <link href="http://rliu6.com/2019/10/pi/"/>
     <id>http://rliu6.com/2019/10/pi/</id>
     <published>2019-10-06T05:00:00.000Z</published>
-    <updated>2021-05-31T19:12:53.146Z</updated>
+    <updated>2021-05-31T23:25:50.374Z</updated>
     
     <summary type="html">
     
@@ -328,31 +328,6 @@
         
         
           &lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;In this research, we dive into the
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bitcoin Quant Strategies</title>
-    <link href="http://rliu6.com/2019/07/algo/"/>
-    <id>http://rliu6.com/2019/07/algo/</id>
-    <published>2019-07-20T05:00:00.000Z</published>
-    <updated>2021-05-31T17:56:56.925Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;a href=&quot;method-1/&quot;&gt;01. Classification Methods&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-2/&quot;&gt;02. Momemtum&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-3/&quot;&gt;03. Perpectual Swap
         
       
     
@@ -474,6 +449,31 @@
   </entry>
   
   <entry>
+    <title>Bitcoin Quant Strategies</title>
+    <link href="http://rliu6.com/2019/07/algo/"/>
+    <id>http://rliu6.com/2019/07/algo/</id>
+    <published>2019-07-20T05:00:00.000Z</published>
+    <updated>2021-05-31T17:56:56.925Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;method-1/&quot;&gt;01. Classification Methods&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-2/&quot;&gt;02. Momemtum&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-3/&quot;&gt;03. Perpectual Swap
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Pricing A Variance Swap</title>
     <link href="http://rliu6.com/2019/07/variance-swap/"/>
     <id>http://rliu6.com/2019/07/variance-swap/</id>
@@ -523,7 +523,7 @@
     <link href="http://rliu6.com/2019/04/islr/"/>
     <id>http://rliu6.com/2019/04/islr/</id>
     <published>2019-04-13T05:00:00.000Z</published>
-    <updated>2021-05-31T17:31:11.025Z</updated>
+    <updated>2021-05-31T23:26:48.297Z</updated>
     
     <summary type="html">
     
@@ -531,7 +531,7 @@
       
         
         
-          &lt;p&gt;This is a study note on the book &lt;a href=&quot;http://faculty.marshall.usc.edu/gareth-james/ISL/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;An
+          &lt;p&gt;This is a study note on the book &lt;a href=&quot;https://faculty.marshall.usc.edu/gareth-james/ISL/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;An
         
       
     
@@ -548,11 +548,11 @@
     <link href="http://rliu6.com/2019/01/about/"/>
     <id>http://rliu6.com/2019/01/about/</id>
     <published>2019-01-01T06:00:00.000Z</published>
-    <updated>2021-05-05T03:36:41.034Z</updated>
+    <updated>2021-05-31T23:29:14.263Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://rliu6.com/2019/01/about/profile-yosemite.jpeg&quot; ,=&quot;&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;profile-yosemite.jpeg&quot;&gt;&lt;/p&gt;
     
     </summary>
     
