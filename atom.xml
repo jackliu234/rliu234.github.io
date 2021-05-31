@@ -90,6 +90,30 @@
   </entry>
   
   <entry>
+    <title>&amp;#128214; Notes on MSFM - C++</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/</id>
+    <published>2019-12-04T06:00:00.000Z</published>
+    <updated>2021-05-31T15:41:16.905Z</updated>
+    
+    <summary type="html">
+    
+      &lt;style type=&quot;text/css&quot;&gt;
+    img.resize {
+        max-width:50%;
+        max-height:50%;
+    }
+&lt;/style&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
     <title>&amp;#128214; Notes on MSFM - Portfolio Theory</title>
     <link href="http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/"/>
     <id>http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/</id>
@@ -114,11 +138,11 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - C++</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/</id>
+    <title>&amp;#128214; Notes on MSFM - Option Theory</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/02_option_theory/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/02_option_theory/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:41:16.905Z</updated>
+    <updated>2021-05-31T15:40:27.080Z</updated>
     
     <summary type="html">
     
@@ -167,30 +191,6 @@
     <id>http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/</id>
     <published>2019-12-04T06:00:00.000Z</published>
     <updated>2021-05-31T15:40:35.371Z</updated>
-    
-    <summary type="html">
-    
-      &lt;style type=&quot;text/css&quot;&gt;
-    img.resize {
-        max-width:50%;
-        max-height:50%;
-    }
-&lt;/style&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&amp;#128214; Notes on MSFM - Option Theory</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/02_option_theory/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/02_option_theory/</id>
-    <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:40:27.080Z</updated>
     
     <summary type="html">
     
@@ -395,7 +395,7 @@
     <link href="http://rliu6.com/2019/04/islr/"/>
     <id>http://rliu6.com/2019/04/islr/</id>
     <published>2019-04-13T05:00:00.000Z</published>
-    <updated>2020-01-09T02:06:16.492Z</updated>
+    <updated>2021-05-31T17:31:11.025Z</updated>
     
     <summary type="html">
     
