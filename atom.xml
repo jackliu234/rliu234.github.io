@@ -66,30 +66,6 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - C++</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/</id>
-    <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:41:16.905Z</updated>
-    
-    <summary type="html">
-    
-      &lt;style type=&quot;text/css&quot;&gt;
-    img.resize {
-        max-width:50%;
-        max-height:50%;
-    }
-&lt;/style&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
     <title>&amp;#128214; Notes on MSFM - Stochastic Calculus</title>
     <link href="http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/"/>
     <id>http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/</id>
@@ -211,11 +187,35 @@
   </entry>
   
   <entry>
-    <title>Can We Optimize Buy-In Size with Kelly&#39;s Criterion?</title>
+    <title>&amp;#128214; Notes on MSFM - C++</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/</id>
+    <published>2019-12-04T06:00:00.000Z</published>
+    <updated>2021-05-31T15:41:16.905Z</updated>
+    
+    <summary type="html">
+    
+      &lt;style type=&quot;text/css&quot;&gt;
+    img.resize {
+        max-width:50%;
+        max-height:50%;
+    }
+&lt;/style&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Optimizing No-Limit Hold&#39;em Buy-In under Kelly&#39;s Criterion</title>
     <link href="http://rliu6.com/2019/11/kelly/"/>
     <id>http://rliu6.com/2019/11/kelly/</id>
     <published>2019-11-04T06:00:00.000Z</published>
-    <updated>2019-11-12T10:24:01.906Z</updated>
+    <updated>2021-05-31T19:15:27.706Z</updated>
     
     <summary type="html">
     
@@ -240,7 +240,7 @@
     <link href="http://rliu6.com/2019/10/pi/"/>
     <id>http://rliu6.com/2019/10/pi/</id>
     <published>2019-10-06T05:00:00.000Z</published>
-    <updated>2021-04-15T03:28:41.349Z</updated>
+    <updated>2021-05-31T19:12:53.146Z</updated>
     
     <summary type="html">
     
@@ -250,31 +250,6 @@
         
           &lt;p&gt;&lt;img src=&quot;pi-fullsizeoutput_3973.jpeg&quot; alt=&quot;fullsizeoutput_3973.jpeg&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Recent I brought a &lt;a
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bitcoin Quant Strategies</title>
-    <link href="http://rliu6.com/2019/07/algo/"/>
-    <id>http://rliu6.com/2019/07/algo/</id>
-    <published>2019-07-20T05:00:00.000Z</published>
-    <updated>2021-05-31T17:56:56.925Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;a href=&quot;method-1/&quot;&gt;01. Classification Methods&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-2/&quot;&gt;02. Momemtum&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-3/&quot;&gt;03. Perpectual Swap
         
       
     
@@ -353,6 +328,31 @@
         
         
           &lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;In this research, we dive into the
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bitcoin Quant Strategies</title>
+    <link href="http://rliu6.com/2019/07/algo/"/>
+    <id>http://rliu6.com/2019/07/algo/</id>
+    <published>2019-07-20T05:00:00.000Z</published>
+    <updated>2021-05-31T17:56:56.925Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;method-1/&quot;&gt;01. Classification Methods&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-2/&quot;&gt;02. Momemtum&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-3/&quot;&gt;03. Perpectual Swap
         
       
     
