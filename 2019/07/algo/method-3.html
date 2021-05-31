@@ -1,0 +1,467 @@
+<hr>
+<p>title: “Bitcoin Quant Strategies - Perpetual Swap Funding”<br>date: 2019-07-20<br>tags: tech<br>mathjax: true</p>
+<h2 id="home-true"><a href="#home-true" class="headerlink" title="home: true"></a>home: true</h2><h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>In this research, we dive into the bitcoin <a href="https://www.bitmex.com/app/perpetualContractsGuide">perpetual swap</a> contract on the BitMEX exchange. Specifically, we are interested at the predicting power of its funding structure and the subsequent applications to algorithmic trading.</p>
+<p>Traditionally, <code>future</code> provides additional liquidity and leverage to market participants. With <script type="math/tex">10k</script> USD, one may either buy <script type="math/tex">1</script> Bitcoin, or <script type="math/tex">100</script> Bitcoin futures which provide <script type="math/tex">100</script>x more gain potentials. However, every future contract has an expiry date and can be traded at significantly spread. The first Bitcoin future in the U.S. was traded on Dec 10, 2017 on the Cboe Futures Exchange.</p>
+<p>The Bitcoin <code>perpetual swap</code> contract, on the contrast, does not have an expiry date thus removing the need to rollover. It trades much closer to the underlying Bitcoin price via a funding mechanism. On BitMEX, the swap holders must exchange fundings every <script type="math/tex">8</script> hours between the long and short counter-parties. This create price pressure for the <code>swap price</code> to converge to the actual <code>Bitcoin price</code>.</p>
+<p>For example, if swap price <script type="math/tex">></script> Bitcoin price, then the funding would be positive and therefore the long positions will need to pay funding to its short counter-parties. This creates pressures for the swap price to decrease and move towards the Bitcoin price.</p>
+<h1 id="Strategy"><a href="#Strategy" class="headerlink" title="Strategy"></a>Strategy</h1><p>The funding creates a great monetary incentive if you are holding the contract on the right side and we would like to see if we can capture the funding gain overtime with an algorithmic trading strategy. Since the funding is announced <script type="math/tex">8</script> hours before the actual exchange happens, we have an <script type="math/tex">8</script> hour window of entry after knowing that a profitable funding will occur. After we enter the contract and collect the funding, we then have another <script type="math/tex">8</script> hour window for exiting (this assumes we only want to enter <script type="math/tex">1</script> contract at any given time). We will try to look for optimal enter/exit time combinations and evaluate performances.</p>
+<p>This is similar to the mean reversion strategy discussed by BitMEX’s founder Arthur Hayes in his blog<sup><a href="#1">[1]</a></sup><sup><a href="#2">[2]</a></sup>. We are carrying this strategy further, analyzing enter and exit options at more granular level and proposing a more optimal execution strategy.</p>
+<h1 id="Dependency"><a href="#Dependency" class="headerlink" title="Dependency"></a>Dependency</h1><pre><code class="lang-python">import pytz
+import time
+import datetime
+import requests
+import numpy as np
+import pandas as pd
+from random import random
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+from IPython.display import display, HTML, Image
+from sklearn.linear_model import LinearRegression
+from pandas.plotting import register_matplotlib_converters
+register_matplotlib_converters()
+</code></pre>
+<pre><code class="lang-python">plt.rcParams[&#39;font.family&#39;] = &quot;serif&quot;
+plt.rcParams[&#39;font.serif&#39;] = &quot;DejaVu Serif&quot;
+plt.rcParams[&#39;figure.figsize&#39;] = (12, 6)
+plt.rcParams[&#39;figure.dpi&#39;] = 400
+plt.rcParams[&#39;lines.linewidth&#39;] = 0.75
+pd.set_option(&#39;max_row&#39;, 6)
+</code></pre>
+<pre><code class="lang-python">def disp(df, max_rows=6):
+    return display(HTML(df.to_html(max_rows=max_rows, header=True).replace(&#39;&lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;&#39;,&#39;&lt;table&gt;&#39;)))
+</code></pre>
+<h1 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h1><p>We can retrieve historical funding rates and minutely swap price data from the BitMEX api.</p>
+<pre><code class="lang-python">def get_funding():
+    start_date = datetime.datetime(2016, 5, 14, 0, 0, 0, 0, tzinfo=pytz.utc)
+    end_date   = datetime.datetime.now(tz=pytz.utc) - datetime.timedelta(days=14)
+
+    endpoint = &#39;https://www.bitmex.com/api/v1/funding&#39;
+    payload  = {&#39;count&#39;:&#39;500&#39;, &#39;reverse&#39;:&#39;false&#39;, &#39;symbol&#39;:&#39;XBTUSD&#39;, &#39;startTime&#39;: start_date}
+    response = requests.get(endpoint, params=payload)
+
+    funding_rates_df = pd.DataFrame(response.json())
+    funding_rates_df[&#39;timestamp&#39;] = pd.to_datetime(funding_rates_df[&#39;timestamp&#39;], utc=True)
+    funding_rates_df.set_index(&#39;timestamp&#39;, drop=True, inplace=True)
+    start_date = funding_rates_df.index[-1] + datetime.timedelta(hours=1)
+
+    while start_date &lt; end_date:
+        time.sleep(random()) # requesting too frequently will cause error
+        endpoint = &#39;https://www.bitmex.com/api/v1/funding&#39;
+        payload  = {&#39;count&#39;:&#39;500&#39;, &#39;reverse&#39;:&#39;false&#39;, &#39;symbol&#39;:&#39;XBTUSD&#39;, &#39;startTime&#39;: start_date}
+        response = requests.get(endpoint, params=payload)
+
+        funding_rates_df_tmp = pd.DataFrame(response.json())
+        funding_rates_df_tmp[&#39;timestamp&#39;] = pd.to_datetime(funding_rates_df_tmp[&#39;timestamp&#39;], utc=True)
+        funding_rates_df_tmp.set_index(&#39;timestamp&#39;, drop=True, inplace=True)
+        start_date = funding_rates_df_tmp.index[-1] + datetime.timedelta(hours=1)
+
+        funding_rates_df = funding_rates_df.append([funding_rates_df_tmp])
+
+    funding_rates_df.to_csv(&#39;funding_rates_df.csv&#39;)
+    return funding_rates_df
+
+def get_swap():
+    # start_date = datetime.datetime(2016, 5, 14, 0, 0, 0, 0, tzinfo=pytz.utc)
+    # end_date   = datetime.datetime.now(tz=pytz.utc)
+
+    start_date = datetime.datetime(2019, 1, 1, 0, 0, 0, 0, tzinfo=pytz.utc)
+    end_date   = datetime.datetime(2019, 11, 14, 23, 59, 59, 0, tzinfo=pytz.utc)
+
+    endpoint = &#39;https://www.bitmex.com/api/v1/trade/bucketed&#39;
+    payload  = {&#39;count&#39;:&#39;1000&#39;, &#39;reverse&#39;:&#39;false&#39;,
+                &#39;symbol&#39;:&#39;XBTUSD&#39;, &#39;startTime&#39;: start_date, &#39;binSize&#39;: &#39;1m&#39;}
+    response = requests.get(endpoint, params=payload)
+    print(response)
+    swap_df = pd.DataFrame(response.json())
+    swap_df[&#39;timestamp&#39;] = pd.to_datetime(swap_df[&#39;timestamp&#39;], utc=True)
+    swap_df.set_index(&#39;timestamp&#39;, drop=True, inplace=True)
+    start_date = swap_df.index[-1] + datetime.timedelta(hours=1)
+
+    while start_date &lt; end_date:
+        try:
+            time.sleep(random())
+            endpoint = &#39;https://www.bitmex.com/api/v1/trade/bucketed&#39;
+            payload  = {&#39;count&#39;:&#39;1000&#39;, &#39;reverse&#39;:&#39;false&#39;,
+                        &#39;symbol&#39;:&#39;XBTUSD&#39;, &#39;startTime&#39;: start_date, &#39;binSize&#39;: &#39;1m&#39;}
+            response = requests.get(endpoint, params=payload)
+
+            swap_df_tmp = pd.DataFrame(response.json())
+            swap_df_tmp[&#39;timestamp&#39;] = pd.to_datetime(swap_df_tmp[&#39;timestamp&#39;], utc=True)
+            swap_df_tmp.set_index(&#39;timestamp&#39;, drop=True, inplace=True)
+            start_date = swap_df_tmp.index[-1] + datetime.timedelta(hours=1)
+
+            swap_df = swap_df.append([swap_df_tmp])
+            print(start_date)
+        except Exception as e:
+            print(e)
+            continue
+
+    swap_df.to_csv(&quot;swap_df_1m_2019.csv&quot;)
+    return swap_df_tmp
+</code></pre>
+<pre><code class="lang-python">swap = pd.read_csv(&quot;swap_df_1m.csv&quot;)
+swap[&#39;timestamp&#39;] = pd.to_datetime(swap[&#39;timestamp&#39;], utc=True)
+swap.set_index(&#39;timestamp&#39;, inplace=True)
+swap.fillna(method=&#39;ffill&#39;, inplace=True)
+swap.dropna(inplace=True)
+
+funding = pd.read_csv(&quot;funding_rates_df.csv&quot;)
+funding[&#39;timestamp&#39;] = pd.to_datetime(funding[&#39;timestamp&#39;], utc=True)
+funding.set_index(&#39;timestamp&#39;, inplace=True)
+funding = funding[&#39;fundingRate&#39;].to_frame()
+funding = funding.loc[funding.index &gt;= &#39;2016-06-05&#39;]
+
+df = swap.join([funding])
+
+# swap return by holding from funding time -30m to +1m
+df[&#39;swapRet&#39;] = df.swapPrice.shift(-300) / df.swapPrice.shift(30) - 1
+df.dropna(inplace=True)
+disp(df)
+</code></pre>
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>swapPrice</th>
+      <th>fundingRate</th>
+      <th>swapRet</th>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2016-06-05 04:00:00+00:00</th>
+      <td>585.6001</td>
+      <td>0.000242</td>
+      <td>-0.002756</td>
+    </tr>
+    <tr>
+      <th>2016-06-05 12:00:00+00:00</th>
+      <td>581.3784</td>
+      <td>0.000237</td>
+      <td>-0.004034</td>
+    </tr>
+    <tr>
+      <th>2016-06-05 20:00:00+00:00</th>
+      <td>580.9900</td>
+      <td>0.000234</td>
+      <td>-0.000978</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2019-11-06 04:00:00+00:00</th>
+      <td>9314.4560</td>
+      <td>0.000100</td>
+      <td>0.013475</td>
+    </tr>
+    <tr>
+      <th>2019-11-06 12:00:00+00:00</th>
+      <td>9395.8470</td>
+      <td>0.000198</td>
+      <td>-0.008921</td>
+    </tr>
+    <tr>
+      <th>2019-11-06 20:00:00+00:00</th>
+      <td>9301.4603</td>
+      <td>0.000374</td>
+      <td>0.002900</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<pre><code class="lang-python">colors = np.where(df.fundingRate &gt;= 0, &#39;tab:green&#39;, &#39;tab:red&#39;)
+fig, ax1 = plt.subplots()
+
+ax1.plot(df.swapPrice, c=&#39;black&#39;, linewidth=0.3)
+ax1.set_ylabel(&#39;swapPrice&#39;)
+ax1.set_ylim(-22500, 22500)
+
+ax2 = ax1.twinx()
+ax2.scatter(df.index, df.fundingRate, c=colors, s=0.1)
+ax2.set_ylabel(&#39;fundingRate&#39;)
+ax2.set_ylim(-0.0075, 0.025)
+
+plt.title(&quot;Swap Price vs Funding Rate&quot;)
+plt.show()
+</code></pre>
+<p><img src="output_11_0.png" alt="output_11_0.png"></p>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>Regress the funding rates to the swap return at different enter/exit time. Here we are trying to look for statistically significant (ideally, negative) correlation between the two. Since a negative correlation would imply additional gain from price change on top of the funding profit. We only consider entering a contract if the funding is outside twice of its 60-day historical rolling standard deviations.</p>
+<pre><code class="lang-python">def filter_on_rolling_std(df, window, sigma_band, t1, t2, run_reg=False, show_summary=False, show_coef=True):
+    df_sigma = df.copy()
+    df_sigma[&#39;sigma&#39;] = df_sigma.fundingRate.rolling(window).std()
+    df_sigma = df_sigma.fillna(method = &#39;ffill&#39;).dropna()
+    df_sigma = df_sigma.loc[(df_sigma.fundingRate &gt; sigma_band * df_sigma.sigma) | (df_sigma.fundingRate &lt; -sigma_band * df_sigma.sigma)]
+    if run_reg:
+        y = np.array(df_sigma[&#39;swapRet&#39;])
+        X = np.array(df_sigma[[&#39;fundingRate&#39;]])
+        X = sm.add_constant(X)
+        model = sm.OLS(y,X).fit()
+
+        coef = model.params[1].round(4)
+        pval = model.pvalues[0].round(4)
+        if show_summary:
+            print(model.summary())
+        if show_coef:
+            print(&#39;enter&#39;, t1, &#39;exit&#39;, t2, &#39;coef&#39;, coef, &#39;pval&#39;, pval)
+
+    return df_sigma, coef, pval
+</code></pre>
+<pre><code class="lang-python">comp_exit = pd.DataFrame(columns=[&#39;exit time&#39;, &#39;coef&#39;, &#39;pval&#39;])
+t1 = -100
+
+for i in np.arange(0, 481, 10):
+    t2=i
+
+    df = swap.join([funding])
+    df[&#39;swapRet&#39;] = df.swapPrice.shift(-t2) / df.swapPrice.shift(-t1) - 1
+    df.dropna(inplace=True)
+    df_sigma, coef, pval = filter_on_rolling_std(df, 180, 2, t1, t2, True, show_coef=False)
+    comp_exit = comp_exit.append({&#39;exit time&#39;: t2, &#39;coef&#39;: coef, &#39;pval&#39;: pval}, ignore_index=True)
+
+
+comp_exit = comp_exit.set_index(&#39;exit time&#39;)
+plt.plot(comp_exit)
+plt.axhline(y=0.05, color=&#39;grey&#39;, linestyle=&#39;dashed&#39;)
+plt.legend(comp_exit.columns, frameon=False)
+plt.xlabel(&#39;Exit Time&#39;)
+plt.xticks(np.arange(0, 481, step=60))
+plt.show()
+</code></pre>
+<p><img src="output_13_0.png" alt="png"></p>
+<p>Here we observe that as exit time becomes longer, the coefficient becomes more negative and p-value of the coefficient indicates higher significance. Thus we would want to hold the swap position more than 360 minutes/6 hours. Next we look at the impact from entry time.</p>
+<pre><code class="lang-python">comp_enter = pd.DataFrame(columns=[&#39;enter time&#39;, &#39;coef&#39;, &#39;pval&#39;])
+t1 = -60
+t2 = 420
+
+for i in np.arange(-120, 0, 1):
+    t1=i
+
+    df = swap.join([funding])
+    df[&#39;swapRet&#39;] = df.swapPrice.shift(-t2) / df.swapPrice.shift(-t1) - 1
+    df.dropna(inplace=True)
+    if t1 == -60:
+        df_sigma, coef, pval = filter_on_rolling_std(df, 180, 2, t1, t2, True, show_summary=True, show_coef=False)
+    else:
+        df_sigma, coef, pval = filter_on_rolling_std(df, 180, 2, t1, t2, True, show_coef=False)
+    comp_enter = comp_enter.append({&#39;enter time&#39;: t1, &#39;coef&#39;: coef, &#39;pval&#39;: pval}, ignore_index=True)
+
+
+comp_enter = comp_enter.set_index(&#39;enter time&#39;)
+plt.plot(comp_enter)
+plt.axhline(y=0.05, color=&#39;grey&#39;, linestyle=&#39;dashed&#39;)
+plt.legend(comp_enter.columns, frameon=False)
+plt.xlabel(&#39;Enter Time&#39;)
+plt.xticks(np.arange(-120, 0, step=30))
+plt.show()
+</code></pre>
+<p><img src="output_14_1.png" alt="png"></p>
+<p>Similar trends are observed in the entry times and that earlier the entry, the more profit it seems to imply from price changes. We show a summary of the regression at enter time<script type="math/tex">=-60</script> minutes and exit time<script type="math/tex">=420</script> minutes. There is  a moderate R-square of 0.039 and high significance in coefficient which suggest a mean reversion in price given that specific time window.</p>
+<pre><code>                                OLS Regression Results                            
+    ==============================================================================
+    Dep. Variable:                      y   R-squared:                       0.039
+    Model:                            OLS   Adj. R-squared:                  0.036
+    Method:                 Least Squares   F-statistic:                     10.46
+    Date:                Thu, 05 Dec 2019   Prob (F-statistic):            0.00138
+    Time:                        03:38:11   Log-Likelihood:                 552.01
+    No. Observations:                 257   AIC:                            -1100.
+    Df Residuals:                     255   BIC:                            -1093.
+    Df Model:                           1                                         
+    Covariance Type:            nonrobust                                         
+    ==============================================================================
+                     coef    std err          t      P&gt;|t|      [0.025      0.975]
+    ------------------------------------------------------------------------------
+    const          0.0035      0.002      1.809      0.072      -0.000       0.007
+    x1            -2.2357      0.691     -3.235      0.001      -3.597      -0.875
+    ==============================================================================
+    Omnibus:                       17.788   Durbin-Watson:                   2.247
+    Prob(Omnibus):                  0.000   Jarque-Bera (JB):               54.546
+    Skew:                           0.089   Prob(JB):                     1.43e-12
+    Kurtosis:                       5.250   Cond. No.                         391.
+    ==============================================================================
+
+    Warnings:
+    [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre><h1 id="Strategy-1"><a href="#Strategy-1" class="headerlink" title="Strategy"></a>Strategy</h1><p>Based on the research above, this strategy will enter into a swap agreement to collect funding at <script type="math/tex">t1= -1H</script> and exit at <script type="math/tex">t2= +7H</script>. At <script type="math/tex">t2</script>, if the next funding does not fall outside of the 2-sigma band <strong>AND</strong> if we are in a position to collect the next funding, we will test two choices of</p>
+<ul>
+<li>holding for <script type="math/tex">1H</script> more and exit after colllecting the funding</li>
+<li>exiting</li>
+</ul>
+<p>We will test the impact of a 10bps fee + slippage on each trade.</p>
+<pre><code class="lang-python">t1 = -60
+t2 = 420
+window = 180
+sigma_band = 2
+fee = 0.0010 # per two trades
+
+df = swap.join([funding])
+df[&#39;swapRet&#39;]   = df.swapPrice.shift(-t2) / df.swapPrice.shift(-t1) - 1
+df[&#39;swapRet1H&#39;] = df.swapPrice.shift(1) / df.swapPrice.shift(-t1) - 1
+df.dropna(inplace=True)
+df[&#39;sigma&#39;] = df.fundingRate.rolling(window).std()
+df.dropna(inplace=True)
+df[&#39;pnl&#39;] = np.where((df.fundingRate &gt; sigma_band*df.sigma) \
+                    | (df.fundingRate &lt; -sigma_band*df.sigma), \
+                    1 + np.abs(df.fundingRate) + \
+                    df.swapRet * -np.sign(df.fundingRate), 1)
+
+df[&#39;pnlOptimized&#39;] = np.where((df.pnl != 1) &amp; (df.pnl.shift(-1) == 1) \
+                              &amp; (np.sign(df.fundingRate) == np.sign(df.fundingRate.shift(-1))),
+                              df.pnl + np.abs(df.fundingRate.shift(-1)) + \
+                              df.swapRet1H.shift(-1) * -np.sign(df.fundingRate.shift(-1)), df.pnl)
+
+df[&#39;pnlFee&#39;] = np.where((df.pnl != 1) &amp; (df.pnl.shift(1) == 1), df.pnl - fee, df.pnl) # enter fee
+df[&#39;pnlFee&#39;] = np.where((df.pnl != 1) &amp; (df.pnl.shift(-1) == 1), df.pnlFee - fee, df.pnlFee) # exit fee
+df[&#39;pnlFee&#39;] = np.where((df.pnl != 1) &amp; (df.pnl.shift(1) != 1) \
+                        &amp; (np.sign(df.fundingRate) != np.sign(df.fundingRate.shift(1))),
+                        df.pnlFee - fee, df.pnlFee) # change position enter fee
+df[&#39;pnlFee&#39;] = np.where((df.pnl != 1) &amp; (df.pnl.shift(-1) != 1) \
+                        &amp; (np.sign(df.fundingRate) != np.sign(df.fundingRate.shift(-1))),
+                        df.pnlFee - fee, df.pnlFee) # change position exit fee
+disp(df.iloc[289:293])
+</code></pre>
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>swapPrice</th>
+      <th>fundingRate</th>
+      <th>swapRet</th>
+      <th>swapRet1H</th>
+      <th>sigma</th>
+      <th>pnl</th>
+      <th>pnlOptimized</th>
+      <th>pnlFee</th>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2016-11-16 20:00:00+00:00</th>
+      <td>748.1800</td>
+      <td>0.000264</td>
+      <td>0.008467</td>
+      <td>0.014128</td>
+      <td>0.001042</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>2016-11-17 04:00:00+00:00</th>
+      <td>744.8734</td>
+      <td>0.003750</td>
+      <td>0.008865</td>
+      <td>0.001431</td>
+      <td>0.001066</td>
+      <td>0.994885</td>
+      <td>0.994885</td>
+      <td>0.993885</td>
+    </tr>
+    <tr>
+      <th>2016-11-17 20:00:00+00:00</th>
+      <td>742.2400</td>
+      <td>0.003140</td>
+      <td>-0.007095</td>
+      <td>-0.001269</td>
+      <td>0.001081</td>
+      <td>1.010235</td>
+      <td>1.008677</td>
+      <td>1.009235</td>
+    </tr>
+    <tr>
+      <th>2016-11-18 04:00:00+00:00</th>
+      <td>740.0665</td>
+      <td>0.001242</td>
+      <td>0.012663</td>
+      <td>0.002800</td>
+      <td>0.001080</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<pre><code class="lang-python">plt.plot(df.pnl.cumprod(), c=&#39;black&#39;)
+plt.plot(df.pnlOptimized.cumprod(), c=&#39;tab:blue&#39;)
+plt.plot(df.pnlFee.cumprod(), c=&#39;grey&#39;)
+plt.legend([&#39;PNL&#39;, &#39;PNL optimized&#39;, &#39;PNL with fee (not optimized)&#39;])
+plt.show()
+</code></pre>
+<p><img src="output_18_0.png" alt="png"></p>
+<pre><code class="lang-python">def backtest_metric(df, pnl_column, mdd_interval=180):
+    pnl = round(df[pnl_column].cumprod()[-1], 4)
+    spr = round(np.mean(df[pnl_column]-1) / np.std(df[pnl_column]-1) * np.sqrt(365 * 3), 4)
+    mdd = round(np.min((df[pnl_column].cumprod().rolling(mdd_interval).min() \
+                        - df[pnl_column].cumprod().shift(mdd_interval)) \
+                        / df[pnl_column].cumprod().shift(mdd_interval)), 4)
+    return pnl, spr, mdd
+</code></pre>
+<pre><code class="lang-python">result = pd.DataFrame(columns=[&#39;Strategy&#39;, &#39;P&amp;L&#39;, &#39;Sharpe Ratio&#39;, &#39;Maximum Drawdown&#39;])
+
+pnl, spr, mdd = backtest_metric(df, &#39;pnl&#39;)
+result = result.append({&#39;Strategy&#39;: &#39;Baseline&#39;, &#39;P&amp;L&#39;: pnl,
+                        &#39;Sharpe Ratio&#39;: spr, &#39;Maximum Drawdown&#39;: mdd}, ignore_index=True)
+
+pnl, spr, mdd = backtest_metric(df, &#39;pnlOptimized&#39;)
+result = result.append({&#39;Strategy&#39;: &#39;Optimized&#39;, &#39;P&amp;L&#39;: pnl,
+                        &#39;Sharpe Ratio&#39;: spr, &#39;Maximum Drawdown&#39;: mdd}, ignore_index=True)
+disp(result)
+</code></pre>
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Strategy</th>
+      <th>P&amp;L</th>
+      <th>Sharpe Ratio</th>
+      <th>Maximum Drawdown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Baseline</td>
+      <td>5.5625</td>
+      <td>2.2086</td>
+      <td>-0.1438</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Optimized</td>
+      <td>6.7478</td>
+      <td>2.3101</td>
+      <td>-0.1221</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br><br>We can see that this strategy does provide substantial P&amp;L from the historical periods tested with relatively limited capital exposure. Fees would impact the gains slightly, and using an optimize approach would further improve the performance.</p>
+<p><br><br><br></p>
+<p>Reference:</p>
+<blockquote>
+<p><span id="1">[1]</span>: XBTUSD Funding Mean Reversion Strategy, <a href="https://blog.bitmex.com/xbtusd-funding-mean-reversion-strategy/">https://blog.bitmex.com/xbtusd-funding-mean-reversion-strategy/</a><br><span id="2">[2]</span>: Funding Mean Reversions 2018, <a href="https://blog.bitmex.com/funding-mean-reversions-2018/">https://blog.bitmex.com/funding-mean-reversions-2018/</a></p>
+</blockquote>

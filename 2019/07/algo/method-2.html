@@ -1,0 +1,755 @@
+<hr>
+<p>title: “Bitcoin Quant Strategies - Momentum Trading”<br>date: 2019-07-20<br>tags: tech<br>mathjax: true</p>
+<h2 id="home-true"><a href="#home-true" class="headerlink" title="home: true"></a>home: true</h2><p>In this research I studied on the performance of simple and exponential moving average crossover strategies, with window sizes chosen by optimizing in-sample PNL, sharpe ratio and 30-day maximum drawdown. The calibrated strategy performs well, earning 500% cumulative return compared to baseline and a sharpe ratio of 1.30. The the 30-day maximum drawdown is similar to the baseline.</p>
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Strategy</th>
+      <th>P&amp;L</th>
+      <th>Sharpe Ratio</th>
+      <th>Maximum Drawdown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Baseline</td>
+      <td>0.28</td>
+      <td>-1.48</td>
+      <td>0.35</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MA</td>
+      <td>1.54</td>
+      <td>1.30</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>EWMA</td>
+      <td>1.45</td>
+      <td>1.10</td>
+      <td>0.38</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--more-->
+<h1 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h1><p>It is no secret that price manipulations have always plagued the rising crypto-market. In this [paper], the auther studies large transactions behind the <code>tether</code> coin, and showed more evidence supporting that each large move in the crypto-market usually only come from the act of only a few. In this type of regime, I argue that technical indicator may be a better bet to profit compared to any attempt to apply fundamental analysis, because an increase in price no longer comes from the increase in a crypto’s intrinsic value, but rather speculation and manipulation. In this exercise I will mainly focus on moving average crossover techniques and its optimization.</p>
+<h1 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h1><pre><code class="lang-python">import itertools
+from IPython.display import display, HTML, Image
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+import numpy as np
+import pandas as pd
+from pandas.plotting import register_matplotlib_converters
+import warnings
+
+register_matplotlib_converters()
+warnings.filterwarnings(&quot;ignore&quot;)
+
+plt.rcParams[&#39;font.family&#39;] = &quot;serif&quot;
+plt.rcParams[&#39;font.serif&#39;] = &quot;DejaVu Serif&quot;
+plt.rcParams[&#39;figure.figsize&#39;] = (12, 6)
+plt.rcParams[&#39;figure.dpi&#39;] = 150
+plt.rcParams[&#39;lines.linewidth&#39;] = 0.75
+pd.set_option(&#39;max_row&#39;, 10)
+</code></pre>
+<h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><pre><code class="lang-python">def disp(df):
+    return display(HTML(df.to_html(max_rows=10, header=True).replace(&#39;&lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;&#39;,&#39;&lt;table&gt;&#39;)))
+</code></pre>
+<h1 id="Data-Exploration"><a href="#Data-Exploration" class="headerlink" title="Data Exploration"></a>Data Exploration</h1><p>I got the preliminary bitcoin data from <a href="https://api.bitcoincharts.com/v1/csv/">bitcoincharts</a>. Data include price and volume information recorded by Bitstamp and split by seconds. This provide great granularity that can be grouped into any desirable levels later on.</p>
+<pre><code class="lang-python">data = pd.read_csv(&#39;bitstampUSD.csv&#39;, header=None, names=[&#39;time&#39;, &#39;price&#39;, &#39;volume&#39;])
+data[&#39;time&#39;] = pd.to_datetime(data[&#39;time&#39;], unit=&#39;s&#39;)
+data.set_index(&#39;time&#39;, inplace=True)
+</code></pre>
+<p>Get 3-month treasury data.</p>
+<pre><code class="lang-python">url = &#39;https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTB3&#39;
+tr  = pd.read_csv(url, index_col=0, parse_dates=True)
+</code></pre>
+<p>Data are grouped in to daily, with average applied to price and sum applied to trade volume. The backtest period is selected to be from 2018 to 2019, where the market was in continuous downturn. This ensure that our strategy performs well in adverse scenarios.</p>
+<pre><code class="lang-python">df1 = data.loc[&#39;2018-01-01&#39;:&#39;2019-01-01&#39;].resample(&#39;1D&#39;).agg({&#39;price&#39;: np.mean, &#39;volume&#39;: np.sum})
+df2 = tr.loc[&#39;2018-01-01&#39;:&#39;2019-01-01&#39;]
+df = df1.join(df2).replace(&#39;.&#39;, np.NaN).fillna(method=&#39;ffill&#39;).fillna(method=&#39;bfill&#39;).rename({&#39;DTB3&#39;: &#39;tr&#39;}, axis=1)
+df.tr = df.tr.astype(float)/100
+disp(df)
+</code></pre>
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>price</th>
+      <th>volume</th>
+      <th>tr</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2018-01-01</th>
+      <td>13386.429268</td>
+      <td>7688.030685</td>
+      <td>0.0142</td>
+    </tr>
+    <tr>
+      <th>2018-01-02</th>
+      <td>14042.643870</td>
+      <td>16299.669303</td>
+      <td>0.0142</td>
+    </tr>
+    <tr>
+      <th>2018-01-03</th>
+      <td>14947.898046</td>
+      <td>12275.001197</td>
+      <td>0.0139</td>
+    </tr>
+    <tr>
+      <th>2018-01-04</th>
+      <td>14802.363927</td>
+      <td>15004.018593</td>
+      <td>0.0139</td>
+    </tr>
+    <tr>
+      <th>2018-01-05</th>
+      <td>15967.972719</td>
+      <td>16248.914680</td>
+      <td>0.0137</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2018-12-28</th>
+      <td>3752.739978</td>
+      <td>13055.718407</td>
+      <td>0.0235</td>
+    </tr>
+    <tr>
+      <th>2018-12-29</th>
+      <td>3862.153295</td>
+      <td>6901.382332</td>
+      <td>0.0235</td>
+    </tr>
+    <tr>
+      <th>2018-12-30</th>
+      <td>3783.210991</td>
+      <td>5736.453708</td>
+      <td>0.0235</td>
+    </tr>
+    <tr>
+      <th>2018-12-31</th>
+      <td>3745.258717</td>
+      <td>6667.163737</td>
+      <td>0.0240</td>
+    </tr>
+    <tr>
+      <th>2019-01-01</th>
+      <td>3709.889253</td>
+      <td>5149.606277</td>
+      <td>0.0240</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<pre><code class="lang-python">plt.plot(df.price, c=&#39;tab:grey&#39;)
+plt.ylabel(&#39;Bitcoin Price in USD&#39;)
+plt.show()
+</code></pre>
+<p><img src="output_15_0.png" alt="png"></p>
+<h1 id="Simple-Moving-Average"><a href="#Simple-Moving-Average" class="headerlink" title="Simple Moving Average"></a>Simple Moving Average</h1><p>A simple moving average strategy use the cross-over point of two moving averages as the trading signal. Here we use grid-search to find out the window size pair that optimizes our desired metrics, namely P&amp;L, Sharpe ratio and 30-day maximum drawdown.</p>
+<pre><code class="lang-python">def moving_average(df0, ma1, ma2, transactionFee=0, runBaseline=False, returnStats=True, ewma=False):
+    df = df0.copy()
+    if ewma:
+        df[&#39;ma&#39;+str(ma1)] = df.price.ewm(span=ma1).mean()
+        df[&#39;ma&#39;+str(ma2)] = df.price.ewm(span=ma2).mean()
+    else:
+        df[&#39;ma&#39;+str(ma1)] = df.price.rolling(ma1).mean()
+        df[&#39;ma&#39;+str(ma2)] = df.price.rolling(ma2).mean()
+
+    df[&#39;ind&#39;] = df[&#39;ma&#39;+str(ma1)] &gt; df[&#39;ma&#39;+str(ma2)]
+    df.dropna(inplace=True)
+    df[&#39;buy&#39;] = (df.ind != df.ind.shift(1)) &amp; df.ind &amp; (df.index != df.index[0])
+    df[&#39;sell&#39;] = (df.ind != df.ind.shift(1)) &amp; df.ind.shift(1) &amp; (df.buy.cumsum() &gt; 0)
+
+    if runBaseline:
+        df.ind = 1
+        df.buy = 1
+
+    df[&#39;pnl&#39;] = df.ind * (df.buy.cumsum() &gt; 0) * df.price.shift(-1) / df.price
+    df.pnl = df.pnl * np.where(df.ind != df.ind.shift(1), 1-transactionFee, 1)
+    df.dropna(inplace=True)
+    df.pnl.replace(0, 1, inplace=True)
+
+    if returnStats:
+        df[&#39;tr_daily&#39;] = (1 + df.tr)**(1/365) - 1
+        pnl            = round(df.pnl.cumprod()[-1], 2)
+        sharpe_ratio   = round(np.mean(df.pnl-1-df.tr_daily) / np.std(df.pnl-1) * np.sqrt(365), 2)
+        mdd_dur        = 30
+        max_draw_down  = round(np.max(df.pnl.cumprod().rolling(mdd_dur).max() -
+                                     df.pnl.cumprod().shift(mdd_dur)), 2)
+        return pnl, sharpe_ratio, max_draw_down
+    else:
+        return df
+</code></pre>
+<p>First let’s compute the baseline results, from a simple buy and hold strategy.</p>
+<pre><code class="lang-python">pnl, spr, mdd = moving_average(df, 1, 1, runBaseline=True)
+comp = pd.DataFrame({&#39;Strategy&#39;: &#39;Baseline&#39;, &#39;P&amp;L&#39;: pnl, &#39;Sharpe Ratio&#39;: spr, &#39;Maximum Drawdown&#39;: mdd}, index=[0])
+disp(comp)
+</code></pre>
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Strategy</th>
+      <th>P&amp;L</th>
+      <th>Sharpe Ratio</th>
+      <th>Maximum Drawdown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Baseline</td>
+      <td>0.28</td>
+      <td>-1.48</td>
+      <td>0.35</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<p>Performing grid-search for the optimal window size pair. Note that 25bps of transaction fee is added, this is to reflect the typical fee charged by crypto exchanges. I used coinbase pro’s fee here as an example.</p>
+<pre><code class="lang-python">fee = 0.0025
+test_range = np.arange(1, 61)
+result_ma = pd.DataFrame(columns=[&#39;Strategy&#39;,&#39;MA1&#39;, &#39;MA2&#39;, &#39;P&amp;L&#39;, &#39;Sharpe Ratio&#39;, &#39;Maximum Drawdown&#39;])
+
+# grid-search
+for ma1 in test_range:
+    for ma2 in test_range:
+        if ma2 &gt; ma1 + 3:
+            pnl, spr, mdd = moving_average(df, ma1, ma2, transactionFee=fee)
+            result_ma = result_ma.append({&#39;Strategy&#39;: &#39;MA&#39;, &#39;MA1&#39;: ma1, &#39;MA2&#39;: ma2,
+                                          &#39;P&amp;L&#39;: pnl,
+                                          &#39;Sharpe Ratio&#39;: spr,
+                                          &#39;Maximum Drawdown&#39;: mdd}, ignore_index=True)
+</code></pre>
+<pre><code class="lang-python">disp(result_ma.sort_values(&#39;P&amp;L&#39;, ascending=False).head())
+</code></pre>
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Strategy</th>
+      <th>MA1</th>
+      <th>MA2</th>
+      <th>P&amp;L</th>
+      <th>Sharpe Ratio</th>
+      <th>Maximum Drawdown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>MA</td>
+      <td>1</td>
+      <td>7</td>
+      <td>1.54</td>
+      <td>1.30</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MA</td>
+      <td>1</td>
+      <td>8</td>
+      <td>1.31</td>
+      <td>0.86</td>
+      <td>0.34</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>MA</td>
+      <td>1</td>
+      <td>17</td>
+      <td>1.26</td>
+      <td>0.81</td>
+      <td>0.33</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>MA</td>
+      <td>1</td>
+      <td>16</td>
+      <td>1.26</td>
+      <td>0.81</td>
+      <td>0.32</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>MA</td>
+      <td>1</td>
+      <td>14</td>
+      <td>1.25</td>
+      <td>0.78</td>
+      <td>0.32</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<pre><code class="lang-python">disp(result_ma.sort_values(&#39;Sharpe Ratio&#39;, ascending=False).head())
+</code></pre>
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Strategy</th>
+      <th>MA1</th>
+      <th>MA2</th>
+      <th>P&amp;L</th>
+      <th>Sharpe Ratio</th>
+      <th>Maximum Drawdown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>MA</td>
+      <td>1</td>
+      <td>7</td>
+      <td>1.54</td>
+      <td>1.30</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MA</td>
+      <td>1</td>
+      <td>8</td>
+      <td>1.31</td>
+      <td>0.86</td>
+      <td>0.34</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>MA</td>
+      <td>1</td>
+      <td>16</td>
+      <td>1.26</td>
+      <td>0.81</td>
+      <td>0.32</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>MA</td>
+      <td>1</td>
+      <td>17</td>
+      <td>1.26</td>
+      <td>0.81</td>
+      <td>0.33</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>MA</td>
+      <td>1</td>
+      <td>14</td>
+      <td>1.25</td>
+      <td>0.78</td>
+      <td>0.32</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<pre><code class="lang-python">disp(result_ma.sort_values(&#39;Maximum Drawdown&#39;, ascending=True).head())
+</code></pre>
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Strategy</th>
+      <th>MA1</th>
+      <th>MA2</th>
+      <th>P&amp;L</th>
+      <th>Sharpe Ratio</th>
+      <th>Maximum Drawdown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1129</th>
+      <td>MA</td>
+      <td>26</td>
+      <td>59</td>
+      <td>0.51</td>
+      <td>-3.38</td>
+      <td>0.04</td>
+    </tr>
+    <tr>
+      <th>1099</th>
+      <td>MA</td>
+      <td>25</td>
+      <td>60</td>
+      <td>0.54</td>
+      <td>-3.19</td>
+      <td>0.04</td>
+    </tr>
+    <tr>
+      <th>1130</th>
+      <td>MA</td>
+      <td>26</td>
+      <td>60</td>
+      <td>0.52</td>
+      <td>-3.29</td>
+      <td>0.04</td>
+    </tr>
+    <tr>
+      <th>1160</th>
+      <td>MA</td>
+      <td>27</td>
+      <td>60</td>
+      <td>0.52</td>
+      <td>-3.35</td>
+      <td>0.04</td>
+    </tr>
+    <tr>
+      <th>1128</th>
+      <td>MA</td>
+      <td>26</td>
+      <td>58</td>
+      <td>0.54</td>
+      <td>-3.01</td>
+      <td>0.06</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<p>Choosing 1-7 as our selected window pair. Plotting the PNL over the 1-year backtest period.</p>
+<pre><code class="lang-python">bt = df.copy()
+bt[&#39;Baseline: Buy and Hold&#39;] = bt.price/bt.price[0]
+bt[&#39;Strategy 1: MA 1-7&#39;]          = moving_average(df.copy(), 1, 7, returnStats=False).pnl.cumprod()
+bt[&#39;Strategy 2: MA 1-7 with Fee&#39;] = moving_average(df.copy(), 1, 7, transactionFee=fee, returnStats=False).pnl.cumprod()
+
+plt.plot(bt.iloc[:, 3], c=&#39;tab:grey&#39;)
+plt.plot(bt.iloc[:, 4], c=&#39;tab:red&#39;)
+plt.plot(bt.iloc[:, 5], c=&#39;tab:red&#39;, alpha=0.5)
+plt.legend(bt.columns[3:6], frameon=False)
+plt.ylabel(&#39;Cumulative Asset Value Based on $1 Investment&#39;)
+plt.show()
+</code></pre>
+<p><img src="output_27_0.png" alt="png"></p>
+<p>It seems that the trading fee does not have a material impact on the result. We plot the buy/sell signals as follow.</p>
+<pre><code class="lang-python">bt = df.copy()
+ma = moving_average(bt, 1, 7, transactionFee=fee, returnStats=False)
+
+plt.plot(bt.price, c=&#39;black&#39;, label=&#39;Bitcoin Price&#39;)
+plt.plot(ma.price.loc[ma.buy], &#39;^&#39;, markersize=3, color=&#39;g&#39;, label=&#39;Buy Signal&#39;)
+plt.plot(ma.price.loc[ma.sell], &#39;v&#39;, markersize=3, color=&#39;r&#39;, label=&#39;Sell Signal&#39;)
+plt.legend()
+plt.show()
+</code></pre>
+<p><img src="output_29_0.png" alt="png"></p>
+<h1 id="EWMA"><a href="#EWMA" class="headerlink" title="EWMA"></a>EWMA</h1><p>Perform the same grid-search optimization using EWMA (Exponentially Weighted Moving Averages).</p>
+<pre><code class="lang-python">test_range = np.arange(1, 61)
+result_ewma = pd.DataFrame(columns=[&#39;Strategy&#39;,&#39;MA1&#39;, &#39;MA2&#39;, &#39;P&amp;L&#39;, &#39;Sharpe Ratio&#39;, &#39;Maximum Drawdown&#39;])
+
+# grid-search
+for ma1 in test_range:
+    for ma2 in test_range:
+        if ma2 &gt; ma1 + 3:
+            pnl, spr, mdd = moving_average(df, ma1, ma2, transactionFee=fee, ewma=True)
+            result_ewma = result_ewma.append({&#39;Strategy&#39;: &#39;EWMA&#39;, &#39;MA1&#39;: ma1, &#39;MA2&#39;: ma2,
+                                    &#39;P&amp;L&#39;: pnl,
+                                    &#39;Sharpe Ratio&#39;: spr,
+                                    &#39;Maximum Drawdown&#39;: mdd}, ignore_index=True)
+</code></pre>
+<pre><code class="lang-python">disp(result_ewma.sort_values(&#39;P&amp;L&#39;, ascending=False).head())
+</code></pre>
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Strategy</th>
+      <th>MA1</th>
+      <th>MA2</th>
+      <th>P&amp;L</th>
+      <th>Sharpe Ratio</th>
+      <th>Maximum Drawdown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>EWMA</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1.45</td>
+      <td>1.10</td>
+      <td>0.38</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>EWMA</td>
+      <td>1</td>
+      <td>6</td>
+      <td>1.39</td>
+      <td>0.98</td>
+      <td>0.39</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>EWMA</td>
+      <td>1</td>
+      <td>10</td>
+      <td>1.38</td>
+      <td>1.01</td>
+      <td>0.32</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>EWMA</td>
+      <td>1</td>
+      <td>15</td>
+      <td>1.36</td>
+      <td>0.99</td>
+      <td>0.38</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>EWMA</td>
+      <td>1</td>
+      <td>11</td>
+      <td>1.31</td>
+      <td>0.87</td>
+      <td>0.31</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<pre><code class="lang-python">disp(result_ewma.sort_values(&#39;Sharpe Ratio&#39;, ascending=False).head())
+</code></pre>
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Strategy</th>
+      <th>MA1</th>
+      <th>MA2</th>
+      <th>P&amp;L</th>
+      <th>Sharpe Ratio</th>
+      <th>Maximum Drawdown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>EWMA</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1.45</td>
+      <td>1.10</td>
+      <td>0.38</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>EWMA</td>
+      <td>1</td>
+      <td>10</td>
+      <td>1.38</td>
+      <td>1.01</td>
+      <td>0.32</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>EWMA</td>
+      <td>1</td>
+      <td>15</td>
+      <td>1.36</td>
+      <td>0.99</td>
+      <td>0.38</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>EWMA</td>
+      <td>1</td>
+      <td>6</td>
+      <td>1.39</td>
+      <td>0.98</td>
+      <td>0.39</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>EWMA</td>
+      <td>1</td>
+      <td>17</td>
+      <td>1.31</td>
+      <td>0.89</td>
+      <td>0.38</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<pre><code class="lang-python">disp(result_ewma.sort_values(&#39;Maximum Drawdown&#39;, ascending=True).head())
+</code></pre>
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Strategy</th>
+      <th>MA1</th>
+      <th>MA2</th>
+      <th>P&amp;L</th>
+      <th>Sharpe Ratio</th>
+      <th>Maximum Drawdown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>797</th>
+      <td>EWMA</td>
+      <td>17</td>
+      <td>42</td>
+      <td>0.51</td>
+      <td>-2.34</td>
+      <td>0.18</td>
+    </tr>
+    <tr>
+      <th>1069</th>
+      <td>EWMA</td>
+      <td>25</td>
+      <td>30</td>
+      <td>0.53</td>
+      <td>-2.22</td>
+      <td>0.18</td>
+    </tr>
+    <tr>
+      <th>1068</th>
+      <td>EWMA</td>
+      <td>25</td>
+      <td>29</td>
+      <td>0.51</td>
+      <td>-2.29</td>
+      <td>0.18</td>
+    </tr>
+    <tr>
+      <th>1067</th>
+      <td>EWMA</td>
+      <td>24</td>
+      <td>60</td>
+      <td>0.67</td>
+      <td>-1.92</td>
+      <td>0.18</td>
+    </tr>
+    <tr>
+      <th>1066</th>
+      <td>EWMA</td>
+      <td>24</td>
+      <td>59</td>
+      <td>0.67</td>
+      <td>-1.92</td>
+      <td>0.18</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<p>Selecting 1-7 as our window pair. Plotting the cumulative strategy return and buy/sell signals.</p>
+<pre><code class="lang-python">bt = df.copy()
+bt[&#39;Baseline: Buy and Hold&#39;] = bt.price/bt.price[0]
+bt[&#39;Strategy 1: EMWA 1-5 (Best PNL)&#39;]          = moving_average(df.copy(), 1, 5, returnStats=False, ewma=True).pnl.cumprod()
+bt[&#39;Strategy 2: EMWA 1-5 (Best PNL) with Fee&#39;] = moving_average(df.copy(), 1, 5, transactionFee=fee, returnStats=False, ewma=True).pnl.cumprod()
+
+plt.plot(bt.iloc[:, 3], c=&#39;tab:grey&#39;)
+plt.plot(bt.iloc[:, 4], c=&#39;tab:blue&#39;)
+plt.plot(bt.iloc[:, 5], c=&#39;tab:blue&#39;, alpha=0.5)
+plt.legend(bt.columns[3:6], frameon=False)
+plt.ylabel(&#39;Cumulative Asset Value Based on $1 Investment&#39;)
+plt.show()
+</code></pre>
+<p><img src="output_37_0.png" alt="png"></p>
+<pre><code class="lang-python">bt = df.copy()
+ma = moving_average(bt, 1, 5, transactionFee=fee, returnStats=False, ewma=True).copy()
+
+plt.plot(bt.price, c=&#39;black&#39;, label=&#39;Bitcoin Price&#39;)
+plt.plot(ma.price.loc[ma.buy], &#39;^&#39;, markersize=3, color=&#39;g&#39;, label=&#39;Buy Signal&#39;)
+plt.plot(ma.price.loc[ma.sell], &#39;v&#39;, markersize=3, color=&#39;r&#39;, label=&#39;Sell Signal&#39;)
+plt.legend()
+plt.show()
+</code></pre>
+<p><img src="output_38_0.png" alt="png"></p>
+<p>Comparing the MA and EWMA strategies.</p>
+<pre><code class="lang-python">bt = df.copy()
+bt[&#39;Baseline: Buy and Hold&#39;] = bt.price/bt.price[0]
+bt[&#39;Strategy 1: Moving Average 1-7&#39;] = moving_average(df.copy(), 1, 7, transactionFee=fee, returnStats=False).pnl.cumprod()
+bt[&#39;Strategy 2: EWMA 1-5&#39;]           = moving_average(df.copy(), 1, 5, transactionFee=fee, returnStats=False, ewma=True).pnl.cumprod()
+
+plt.plot(bt.iloc[:, 3], c=&#39;tab:grey&#39;)
+plt.plot(bt.iloc[:, 4], c=&#39;tab:red&#39;)
+plt.plot(bt.iloc[:, 5], c=&#39;tab:blue&#39;)
+plt.legend(bt.columns[3:6], frameon=False)
+plt.ylabel(&#39;Cumulative Asset Value Based on $1 Investment&#39;)
+plt.show()
+</code></pre>
+<p><img src="output_40_0.png" alt="png"></p>
+<p>As we can see, the MA strategy slightly outperforms the EWMA strategy in all three metrics.</p>
+<pre><code class="lang-python">comp = comp.append(result_ma.iloc[2, [0, 3, 4, 5]], ignore_index=True)
+comp = comp.append(result_ewma.iloc[0, [0, 3, 4, 5]], ignore_index=True)
+disp(comp)
+</code></pre>
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Strategy</th>
+      <th>P&amp;L</th>
+      <th>Sharpe Ratio</th>
+      <th>Maximum Drawdown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Baseline</td>
+      <td>0.28</td>
+      <td>-1.48</td>
+      <td>0.35</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MA</td>
+      <td>1.54</td>
+      <td>1.30</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>EWMA</td>
+      <td>1.45</td>
+      <td>1.10</td>
+      <td>0.38</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h1 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h1><p>Starting 08-01-2019, I have implemented the optimal MA strategy on a VPS (virtual private server), running 24/7 through the coinbase pro api. Will post update on this periodically.</p>
+<p><br></p>

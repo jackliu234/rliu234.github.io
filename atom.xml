@@ -42,11 +42,11 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - Portfolio Theory</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/</id>
+    <title>&amp;#128214; Notes on MSFM - Option Theory</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/02_option_theory/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/02_option_theory/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:39:03.489Z</updated>
+    <updated>2021-05-31T15:40:27.080Z</updated>
     
     <summary type="html">
     
@@ -90,11 +90,35 @@
   </entry>
   
   <entry>
+    <title>&amp;#128214; Notes on MSFM - Credit Risk Model</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/</id>
+    <published>2019-12-04T06:00:00.000Z</published>
+    <updated>2021-05-31T15:40:51.378Z</updated>
+    
+    <summary type="html">
+    
+      &lt;style type=&quot;text/css&quot;&gt;
+    img.resize {
+        max-width:50%;
+        max-height:50%;
+    }
+&lt;/style&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
     <title>&amp;#128214; Notes on MSFM</title>
     <link href="http://rliu6.com/2019/12/finm-notes/"/>
     <id>http://rliu6.com/2019/12/finm-notes/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:41:31.807Z</updated>
+    <updated>2021-05-31T17:43:04.293Z</updated>
     
     <summary type="html">
     
@@ -138,35 +162,11 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - Option Theory</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/02_option_theory/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/02_option_theory/</id>
+    <title>&amp;#128214; Notes on MSFM - Portfolio Theory</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:40:27.080Z</updated>
-    
-    <summary type="html">
-    
-      &lt;style type=&quot;text/css&quot;&gt;
-    img.resize {
-        max-width:50%;
-        max-height:50%;
-    }
-&lt;/style&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&amp;#128214; Notes on MSFM - Credit Risk Model</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/</id>
-    <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:40:51.378Z</updated>
+    <updated>2021-05-31T15:39:03.489Z</updated>
     
     <summary type="html">
     
@@ -261,17 +261,93 @@
   </entry>
   
   <entry>
-    <title>Bitcoin Quant Strategies with Backtesting Results</title>
-    <link href="http://rliu6.com/2019/07/algo-1/"/>
-    <id>http://rliu6.com/2019/07/algo-1/</id>
+    <title>Bitcoin Quant Strategies - Momentum Trading</title>
+    <link href="http://rliu6.com/2019/07/algo/method-2/"/>
+    <id>http://rliu6.com/2019/07/algo/method-2/</id>
     <published>2019-07-20T05:00:00.000Z</published>
-    <updated>2020-12-23T02:44:51.771Z</updated>
+    <updated>2021-05-31T17:50:01.079Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Navigation&quot;&gt;&lt;a href=&quot;#Navigation&quot; class=&quot;headerlink&quot; title=&quot;Navigation&quot;&gt;&lt;/a&gt;&lt;span id=&quot;nav&quot;&gt;Navigation&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;#01&quot;&gt;01. Classification Methods&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#02&quot;&gt;02. Momemtum&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#03&quot;&gt;03. Perpectual Swap Funding&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h1 id=&quot;128214-Classification-Methods-8634&quot;&gt;&lt;a href=&quot;#128214-Classification-Methods-8634&quot; class=&quot;headerlink&quot; title=&quot;&amp;#128214; Classification Methods &amp;#8634;&quot;&gt;&lt;/a&gt;&lt;span id=&quot;01&quot;&gt;&amp;#128214; Classification Methods&lt;/span&gt; &lt;sup&gt;&lt;a href=&quot;#nav&quot;&gt;&amp;#8634;&lt;/a&gt;&lt;/sup&gt;&lt;/h1&gt;&lt;p&gt;In this research I looked at intraday Bitcoin trading based on price and volume information using classification models.&lt;/p&gt;
+      &lt;p&gt;In this research I studied on the performance of simple and exponential moving average crossover strategies, with window sizes chosen by optimizing in-sample PNL, sharpe ratio and 30-day maximum drawdown. The calibrated strategy performs well, earning 500% cumulative return compared to baseline and a sharpe ratio of 1.30. The the 30-day maximum drawdown is similar to the baseline.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr style=&quot;text-align: right;&quot;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Strategy&lt;/th&gt;
+      &lt;th&gt;P&amp;amp;L&lt;/th&gt;
+      &lt;th&gt;Sharpe Ratio&lt;/th&gt;
+      &lt;th&gt;Maximum Drawdown&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;Baseline&lt;/td&gt;
+      &lt;td&gt;0.28&lt;/td&gt;
+      &lt;td&gt;-1.48&lt;/td&gt;
+      &lt;td&gt;0.35&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;MA&lt;/td&gt;
+      &lt;td&gt;1.54&lt;/td&gt;
+      &lt;td&gt;1.30&lt;/td&gt;
+      &lt;td&gt;0.37&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;EWMA&lt;/td&gt;
+      &lt;td&gt;1.45&lt;/td&gt;
+      &lt;td&gt;1.10&lt;/td&gt;
+      &lt;td&gt;0.38&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bitcoin Quant Strategies - Perpetual Swap Funding</title>
+    <link href="http://rliu6.com/2019/07/algo/method-3/"/>
+    <id>http://rliu6.com/2019/07/algo/method-3/</id>
+    <published>2019-07-20T05:00:00.000Z</published>
+    <updated>2021-05-31T17:50:31.811Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;In this research, we dive into the
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bitcoin Quant Strategies - Classification Methods</title>
+    <link href="http://rliu6.com/2019/07/algo/method-1/"/>
+    <id>http://rliu6.com/2019/07/algo/method-1/</id>
+    <published>2019-07-20T05:00:00.000Z</published>
+    <updated>2021-05-31T17:48:26.709Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In this research I looked at intraday Bitcoin trading based on price and volume information using classification models.&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr style=&quot;text-align: center;&quot;&gt;
@@ -362,6 +438,31 @@
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bitcoin Quant Strategies</title>
+    <link href="http://rliu6.com/2019/07/algo/"/>
+    <id>http://rliu6.com/2019/07/algo/</id>
+    <published>2019-07-20T05:00:00.000Z</published>
+    <updated>2021-05-31T17:52:02.639Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;method-1&quot;&gt;01. Classification Methods&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-2&quot;&gt;02. Momemtum&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-3&quot;&gt;03. Perpectual Swap
+        
+      
     
     </summary>
     
