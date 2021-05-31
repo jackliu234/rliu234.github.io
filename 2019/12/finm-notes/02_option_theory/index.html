@@ -1,0 +1,250 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>&#128214; Notes on MSFM - Option Theory · Rongjia Liu</title><meta name="description" content="&amp;#128214; Notes on MSFM - Option Theory - Rongjia Liu"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/arctic.css"><link rel="search" type="application/opensearchdescription+xml" href="http://rliu6.com/atom.xml" title="Rongjia Liu"><script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/search/" target="_self" class="nav-list-link">SEARCH</a></li><!-- li.nav-list-item--><!--    a.nav-list-link(class="search" href=url_for("search") target="_self") <i class="fa fa-search" aria-hidden="true"></i>--></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">&#128214; Notes on MSFM - Option Theory</h1><div class="post-info"><!-- if is_post()--><!--     span &#128197; &nbsp;-->Dec 4, 2019<!-- if is_post()--><!--    span#busuanzi_container_page_pv | &#128065;--><!--    span#busuanzi_value_page_pv--><!--    if item.tags--><!--        span | &nbsp;--><!--        for tag in item.tags.toArray()--><!--            a(href=url_for(tag.path))=  '#' + tag.name--><!-- if item.from && (is_home() || is_post())--><!--    a.post-from(href=item.from target="_blank" title=item.from)!= __('translated')-->
+</div><div class="post-content"><style type="text/css">
+    img.resize {
+        max-width:50%;
+        max-height:50%;
+    }
+</style>
+
+<a id="more"></a>
+<p>This is a study note on the fundamental theory of the pricing of a <code>financial derivative</code>, whose payoff is defined in terms of an underlying asset. We hereby try to compute a consistent price of the derivative <code>in relative terms to</code> the market price of the underlying asset.</p>
+<h1 id="Option-Pricing-Theory"><a href="#Option-Pricing-Theory" class="headerlink" title="Option Pricing Theory"></a>Option Pricing Theory</h1><p>We make our first assumption that the market is <code>frictionless</code>, by which we mean that:</p>
+<ul>
+<li>no transaction cost (commission, bid-ask spread, taxes)</li>
+<li>can hold negative asset (shortting) and there is no margin constraint</li>
+<li>can hold fractional asset</li>
+<li>no market impact from trading</li>
+</ul>
+<h2 id="Arbitrage-Static-Portfolio"><a href="#Arbitrage-Static-Portfolio" class="headerlink" title="Arbitrage (Static Portfolio)"></a>Arbitrage (Static Portfolio)</h2><p>We assume that the market lives in a probability space <script type="math/tex">\mathbb{P}</script> and it includes <script type="math/tex">N</script> <code>tradable assets</code> with non-random time-<script type="math/tex">0</script> prices and random time-<script type="math/tex">T</script> prices:</p>
+<script type="math/tex; mode=display">\textbf{X}_t := (X^1_t, \dots, X^N_t)</script><p>A <code>static portfolio</code> is a vector of quantities, where each <script type="math/tex">\theta</script> is non-random and constant in time:</p>
+<script type="math/tex; mode=display">\Theta := (\theta^1, \dots, \theta^N)</script><p>Thus the time-<script type="math/tex">t</script> value of the static portfolio <script type="math/tex">\Theta</script> is;</p>
+<script type="math/tex; mode=display">V_t := \Theta \cdot \textbf{X}_t</script><p>A static portfolio <script type="math/tex">\Theta</script> is an <code>arbitrage</code> if its value <script type="math/tex">V_t</script> satisfies that:</p>
+<script type="math/tex; mode=display">V_0 = 0 \text{, and both } \mathbb{P}[V_T \geq 0] = 1 \text{ and } \mathbb{P}[V_T > 0] > 0</script><p>Suppose portfolio <script type="math/tex">\Theta^a</script> <code>super-replicates</code> portfolio <script type="math/tex">\Theta^b</script>, which means that <script type="math/tex">\mathbb{P}[V^a_T > V^b_T] = 1</script>. Then <script type="math/tex">V^a_0 \geq V^b_0</script>, otherwise arbitrage exists. Same goes if it is a <code>sub-replication</code>. Therefore, if <script type="math/tex">\Theta^a</script> <code>replicate</code> <script type="math/tex">\Theta^b</script>, which menas that <script type="math/tex">\mathbb{P}[V^a_T = V^b_T] = 1</script>, then <script type="math/tex">V^a_0 = V^b_0</script>. This is called <code>the law of one price</code>.</p>
+<h2 id="Assets"><a href="#Assets" class="headerlink" title="Assets"></a>Assets</h2><h3 id="Discount-Bond"><a href="#Discount-Bond" class="headerlink" title="Discount Bond"></a>Discount Bond</h3><p>A <code>discount bond</code> <script type="math/tex">Z</script> pays <script type="math/tex">1</script> at maturity <script type="math/tex">T</script>. Given non-random interest rate <script type="math/tex">r_t</script>, the no-arbitrage price of the discount bond is:</p>
+<script type="math/tex; mode=display">Z_0 = 1/B_T = e^{-\int_0^Tr_tdt} \\
+= e^{-rT} \text{ if r is constant}</script><h3 id="Forward-Contract"><a href="#Forward-Contract" class="headerlink" title="Forward Contract"></a>Forward Contract</h3><p>A <code>forward contract</code> on <script type="math/tex">S_T</script> with non-random delivery price <script type="math/tex">K</script> obligates its holder to pay <script type="math/tex">K</script> and receive <script type="math/tex">S_T</script> at time <script type="math/tex">T</script>. The time-<script type="math/tex">0</script> value of the forward contract is <script type="math/tex">S_0 - KZ_0</script>.</p>
+<p>A <code>forward price</code> <script type="math/tex">F_0</script> is <code>delivery price</code> such that the value of forward contract at time-<script type="math/tex">0</script> is zero.</p>
+<script type="math/tex; mode=display">F_0 = S_0/Z_0\\
+= S_0e^{-rT} \text{ if r is constant}</script><h3 id="European-Call-Option"><a href="#European-Call-Option" class="headerlink" title="European Call Option"></a>European Call Option</h3><p>An <code>European call option</code> gives its holder the right at time <script type="math/tex">T</script> to pay <script type="math/tex">K</script> and receive <script type="math/tex">S_T</script>. A call has payoff <script type="math/tex">(S_T-K)^+</script>, and it is <code>in the money</code> if <script type="math/tex">S_t>K</script> at time <script type="math/tex">t\leq T</script>.</p>
+<p>The time-<script type="math/tex">0</script> price <script type="math/tex">C_0</script> of a call option satisfies:</p>
+<script type="math/tex; mode=display">(S_0-KZ_0)^+\leq C_0 \leq S_0</script><p>For strike <script type="math/tex">K_1<K_2</script>:</p>
+<script type="math/tex; mode=display">0\leq C_0(K_1) - C_0(K_2) \leq (K_2 - K_1)Z_0 \\
+\text{this can be proved by bull call spread}</script><h3 id="European-Put-Option"><a href="#European-Put-Option" class="headerlink" title="European Put Option"></a>European Put Option</h3><p>An <code>European put option</code> gives its holder the right at time <script type="math/tex">T</script> to pay <script type="math/tex">S_T</script> and receive <script type="math/tex">K</script>. A put has payoff <script type="math/tex">(K-S_T)^+</script>, and it is <code>in the money</code> if <script type="math/tex">S_t<K</script> at time <script type="math/tex">t\leq T</script>.</p>
+<p>The time-<script type="math/tex">0</script> price <script type="math/tex">P_0</script> of a put option satisfies:</p>
+<script type="math/tex; mode=display">(KZ_0 - S_0)^+\leq P_0 \leq KZ_0</script><p>For strike <script type="math/tex">K_1<K_2</script>:</p>
+<script type="math/tex; mode=display">0\leq C_0(K_2) - C_0(K_1) \leq (K_2 - K_1)Z_0</script><p>In addition,</p>
+<script type="math/tex; mode=display">P_0(K_1)\leq \dfrac{K_1}{K_2}P_0(K_2) \leq P_0(K_2)</script><h3 id="Put-Call-Parity"><a href="#Put-Call-Parity" class="headerlink" title="Put-Call Parity"></a>Put-Call Parity</h3><script type="math/tex; mode=display">C_0 - P_0 = S_0 - KZ_0</script><h1 id="Binomial-Tree"><a href="#Binomial-Tree" class="headerlink" title="Binomial Tree"></a>Binomial Tree</h1><p>We can create a <code>replicating portfolio</code> to calculate the value of a call option under a simple binomial tree:</p>
+<script type="math/tex; mode=display">C_0 = \alpha + \beta S_0</script><p>Where,</p>
+<script type="math/tex; mode=display">\begin{align}
+\alpha e^{rT} + \beta s_u &= c_u\\
+\alpha e^{rT} + \beta s_d &= c_d
+\end{align}</script><p>And,</p>
+<script type="math/tex; mode=display">\beta = \dfrac{c_u - c_d}{s_u - s_d} \\
+\text{and, } \alpha=e^{-rT}(c_d - \beta s_d)</script><p>Plugging in <script type="math/tex">\alpha</script> and <script type="math/tex">\beta</script>:</p>
+<script type="math/tex; mode=display">C_0 = e^{-rT}(p_uc_u + p_dc_d) \\
+\text{where } p_u := \dfrac{S_0e^{rT} - s_d}{s_u - s_d} \text{, and } p_d := \dfrac{s_u - s_0e^{rT}}{s_u - s_d}</script><p>We can interpret <script type="math/tex">p_u</script> and <script type="math/tex">p_d</script> as probabilities that construct a risk-neutal measure <script type="math/tex">\mathbb{P}</script> and that:</p>
+<script type="math/tex; mode=display">C_0 = e^{-rT}\mathbb{E}C_T</script><h1 id="The-Fundamental-Theorem"><a href="#The-Fundamental-Theorem" class="headerlink" title="The Fundamental Theorem"></a>The Fundamental Theorem</h1><p><code>The fundamental theorem of asset pricing</code> states that:</p>
+<blockquote>
+<p>no arbitrage</p>
+</blockquote>
+<p>if and only if:</p>
+<blockquote>
+<p>there exists a probability measure <script type="math/tex">\mathbb{P}</script> equivalent to P such that the discounted prices of all tradable assets are martingales w.r.t. <script type="math/tex">\mathbb{P}</script></p>
+</blockquote>
+<p>The proof can be summarized as two ideas:</p>
+<ul>
+<li><script type="math/tex">\exists\ M.G. \mathbb{P} \rightarrow \text{no arb}</script>:<blockquote>
+<p><em>a martingale is the cumulative P&amp;L from betting on zero-</em><script type="math/tex">\mathbb{E}</script> <em>games, which is always zero no matter how you vary your bet size across games and time. you cannot riskless make something from nothing.</em></p>
+</blockquote>
+</li>
+<li><script type="math/tex">\text{no arb} \rightarrow \exists\ M.G. \mathbb{P}</script>:<blockquote>
+<p><em>the</em> <script type="math/tex">\mathbb{P}</script> <em>probability of an event is simply the</em> <strong><em>price</em></strong> <em>of an asset that pays 1 unit of B iff that event happen</em></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Risk-Neutral-Measure"><a href="#Risk-Neutral-Measure" class="headerlink" title="Risk-Neutral Measure"></a>Risk-Neutral Measure</h2><p>The physical probability is not accurate in evaluating a payoff’s true market price. Considering a 50/50 coin flip worth <script type="math/tex">1M</script> or nothing. Using physical probability the price will be <script type="math/tex">500K</script>.</p>
+<p>However, the actual <code>market</code> price would be different. If the market is risk-adverse, the price would be lower, say <script type="math/tex">300K</script>. We can view it as this market represents a risk-neutral measure where the down move has higher risk-neutral probabilities than up move.</p>
+<p>We can see that the risk-neutral probability <code>is</code> price, that the risk-neutral probability of an event is the price of one-unit payout contingent on the event. Taking a risk-neutral expectation is the same as pricing by replication.  </p>
+<h2 id="Radon-Nikodym-derivative"><a href="#Radon-Nikodym-derivative" class="headerlink" title="Radon-Nikodym derivative"></a>Radon-Nikodym derivative</h2><p>In a discrete settimgn with outcomes <script type="math/tex">\{\omega_1\,\dots ,\omega_n\}</script>, the relatioship between the risk-neutral measure and physical measure <script type="math/tex">P</script> can be expressed by the <code>Radon-Nikodym Derivative</code>, or liklehood ratio:</p>
+<script type="math/tex; mode=display">\mathbb{P}(\omega) = LR * P(\omega)</script><p>The LR is typically larger in bad states than good states, reflecting the price margin on adverse events.</p>
+<h2 id="The-Second-Fundamental-Theorem"><a href="#The-Second-Fundamental-Theorem" class="headerlink" title="The Second Fundamental Theorem"></a>The Second Fundamental Theorem</h2><p>A market is said to be <code>complete</code> if every random variable <script type="math/tex">Y_T</script> can be replicated by a static portfolio <script type="math/tex">\Theta</script>.</p>
+<p><code>The second fundamental theorem of asset pricing</code> states that:</p>
+<blockquote>
+<p>a no arbitrage market is complete</p>
+</blockquote>
+<p>if and only if:</p>
+<blockquote>
+<p>there exists a <strong>unqiue</strong> measure <script type="math/tex">\mathbb{P}</script> equivalent to P such that the discounted prices of all tradable assets are martingales w.r.t. <script type="math/tex">\mathbb{P}</script></p>
+</blockquote>
+<h1 id="Trading-Strategy"><a href="#Trading-Strategy" class="headerlink" title="Trading Strategy"></a>Trading Strategy</h1><p>A <code>filtration</code> <script type="math/tex">\{\mathcal{F}_t\}</script> represents all information revealed at or before time <script type="math/tex">t</script>. A stochastic process <script type="math/tex">X</script> is <code>adapted</code> to <script type="math/tex">\{\mathcal{F}_t\}</script> if <script type="math/tex">X_t</script> is <script type="math/tex">\mathcal{F}_t</script>-<code>measurable</code> for each <script type="math/tex">t</script>, meaning that the value of <script type="math/tex">X_t</script> is determined by the information in <script type="math/tex">\mathcal{F}_t</script>.</p>
+<p>A <code>trading strategy</code> is a sequence of static strategy <script type="math/tex">\Theta_t</script> adapted to <script type="math/tex">\mathcal{F}_t</script>. A trading strategy is <code>self-financing</code> if for all <script type="math/tex">t>0</script>:</p>
+<script type="math/tex; mode=display">\Theta_{t-1}\cdot\textbf{X}_t = \Theta_t\cdot\textbf{X}_t \text{ with probability 1}</script><p>This implies that the change in the portfolio value is fully attributable to gains and losses in asset prices:</p>
+<script type="math/tex; mode=display">V_{t+1} - V_t = \Theta_t\cdot(\textbf{X}_{t+1} - \textbf{X}_t) \\
+\text{or equivalently, } dV_t = \Theta_t\cdot d\textbf{X}_t</script><p>Therefore,</p>
+<script type="math/tex; mode=display">V_T - V_0 = \sum\Theta_t\cdot (\textbf{X}_{t+1} - \textbf{X_t}) \\
+\text{or equivalently, } V_T - V_0 = \int_0^T\Theta_t\cdot d\textbf{X}_t</script><p>We define that a trading strategy <script type="math/tex">\Theta</script> <code>replicates</code> a time-T payoff <script type="math/tex">X_T</script> if it is <code>self-financing</code> and the value <script type="math/tex">V_T=X_T</script>. By the <code>law of one price</code>, at any time <script type="math/tex">t</script>, the no-arbitrage price of an asset paying <script type="math/tex">X_T</script> must have the same value of the replicating portfolio.</p>
+<h2 id="Arbitrage-Trading-Strategy"><a href="#Arbitrage-Trading-Strategy" class="headerlink" title="Arbitrage (Trading Strategy)"></a>Arbitrage (Trading Strategy)</h2><p>We now expand on the previous definition of arbitrage, that an <code>arbitrage</code> is a self-finance trading strategy <script type="math/tex">\Theta_t</script> whose value <script type="math/tex">V_t</script> satisfies:</p>
+<script type="math/tex; mode=display">V_0 = 0 \text{, and both } \mathbb{P}[V_T \geq 0] = 1 \text{ and } \mathbb{P}[V_T > 0] > 0</script><h1 id="Ito-Process"><a href="#Ito-Process" class="headerlink" title="Ito Process"></a>Ito Process</h1><p>We define an <code>Ito process</code> to be a stochastic process <script type="math/tex">X</script> that:</p>
+<script type="math/tex; mode=display">X_t = X_0+\int_0^t\mu_sds + \int_0^t\sigma_sdW_s \\
+\text{equivalently, } dX_t = \mu_tdt + \sigma_tdW_t</script><p>The existence and uniqueness of a solution of <script type="math/tex">X</script> can be guaranteed by Lipschitz-type technical condition on <script type="math/tex">\mu_t</script> and <script type="math/tex">\sigma_t</script></p>
+<h2 id="Ito’s-Rule"><a href="#Ito’s-Rule" class="headerlink" title="Ito’s Rule"></a>Ito’s Rule</h2><p>The <code>Ito&#39;s rule</code> states that give n an Ito process <script type="math/tex">X_t</script>, and a sufficiently smooth function <script type="math/tex">f(X_t)</script>:</p>
+<script type="math/tex; mode=display">df(X_t) = \dfrac{\partial f}{\partial x}dX_t + \dfrac{1}{2}\dfrac{\partial^2f}{\partial x^2}(dX_t)^2</script><p>With two processes <script type="math/tex">X_t</script> and <script type="math/tex">Y_t</script>, and <script type="math/tex">f(X_t, Y_t)</script>:</p>
+<script type="math/tex; mode=display">df(X_t, Y_t) = \dfrac{\partial f}{\partial x}dX_t + \dfrac{\partial f}{\partial y}dY_t + \dfrac{1}{2}\dfrac{\partial^2f}{\partial x^2}(dX_t)^2 + \dfrac{1}{2}\dfrac{\partial^2f}{\partial y^2}(dY_t)^2 + \dfrac{\partial^2f}{\partial x\partial y}(dX_t)(dY_t)</script><p>In a special case where <script type="math/tex">Y_t = t</script>, the formula becomes:</p>
+<script type="math/tex; mode=display">df(X_t, t) = \dfrac{\partial f}{\partial x}dX_t + \dfrac{\partial f}{\partial t}dt + \dfrac{1}{2}\dfrac{\partial^2f}{\partial x^2}(dX_t)^2</script><p>Note that the Ito’s Rule applies under any probability measure, it is purely math.</p>
+<h2 id="Black-Scholes-Model"><a href="#Black-Scholes-Model" class="headerlink" title="Black-Scholes Model"></a>Black-Scholes Model</h2><p><strong><em>Assumptions</em></strong> Consider two basic assets <script type="math/tex">B_t</script> and <script type="math/tex">S_t</script> in continuous time, where:</p>
+<script type="math/tex; mode=display">dB_t = rB_tdt \text{ , }\\
+\text{ where }B_0=1</script><p>And <script type="math/tex">S_t</script> follows GBM dynamics,</p>
+<script type="math/tex; mode=display">dS_t = \mu S_tdt + \sigma S_tdW_t \\
+ \text{ where }S_0>0 \text{ , }\sigma>0\text{ ,and W is BM under physical measure}</script><p><strong><em>Conclusion</em></strong> Then by <code>no-arbitrage</code> and <code>Ito&#39;s rule</code>, the time-<script type="math/tex">t</script> price <script type="math/tex">C_t</script> of a call option with payoff <script type="math/tex">(S_T-K)^{+}</script> satisfies the <code>Black-Scholes PDE</code> for <script type="math/tex">(S, t)\in [0, \infty]\times (0, T)</script></p>
+<script type="math/tex; mode=display">\dfrac{\partial C}{\partial t} + rS\dfrac{\partial C}{\partial S} + \dfrac{1}{2}\sigma^2S^2\dfrac{\partial^2C}{\partial S^2} = rC \\
+\text{ with terminal condition: } C(S, T)=(S-K)^{+}</script><p>We can solve the call price analytically with the <code>Black-Scholes formula</code>:</p>
+<script type="math/tex; mode=display">C^{BS}(S_t, t) := S_tN(d_1) - Ke^{-r(T-t)}N(d_2) \\
+\text{where } d_{1,\ 2} := \dfrac{log(S_t/K) + (r \pm \sigma^2/2)(T-t))}{\sigma\sqrt(T-t)}</script><p>Here we plotted the BS call price <script type="math/tex">C^{BS}</script>, the <span style="color:blue">intrinsic value <script type="math/tex">(S_t - K)^{+}</script></span>  and the <span style="color:red">lower bound <script type="math/tex">(S_t - Ke^{-r(T-t)})^{+}</script></span>  against the current underlying price <script type="math/tex">S_t</script>, with paramters <script type="math/tex">K=100</script>, <script type="math/tex">T-t=1</script>, <script type="math/tex">\sigma=0.2</script> and <script type="math/tex">r=0.05</script></p>
+<p><img src="option-pricing-img1.png" alt="img.png" height="350"></p>
+<h1 id="The-Greeks"><a href="#The-Greeks" class="headerlink" title="The Greeks"></a>The Greeks</h1><h2 id="Delta"><a href="#Delta" class="headerlink" title="Delta"></a>Delta</h2><p>Suppose an asset has a time t value <script type="math/tex">V_t(S_t, t)</script>, then its <code>Delta</code> at time <script type="math/tex">t</script> is <script type="math/tex">\partial V_t(S_t, t)/\partial S_t</script>. Delta can be interpreted as:</p>
+<ul>
+<li>the slope of the asset value <script type="math/tex">V_t</script>, plotted as a function of S_t.</li>
+<li>how much the asset value movies per unit move in <script type="math/tex">S_t</script></li>
+<li>humber of <script type="math/tex">S_t</script> needed to replicate this asset.</li>
+</ul>
+<p>If the asset is a call option on <script type="math/tex">S_t</script> and we assumes the <code>Black-Scholes assumptions</code> on <script type="math/tex">S_t</script>, then:</p>
+<script type="math/tex; mode=display">\begin{align}
+\text{Delta} &:= \dfrac{\partial C^{BS}}{\partial S_t} \\
+&=N(d_1) + S_tN'(d_1)\dfrac{\partial d_1}{\partial S_t} - Ke^{-(T-t)}N'(d_2)\dfrac{\partial d_2}{\partial S_t} \\
+&=N(d_1)
+\end{align}</script><p>The <code>Delta</code> of a call option is <code>strictly between 0 and 1</code>. As the time-to-maturity decreases, the Delta increases faster the the option becomes more ITM. Here we plotted the BS Delta for <script type="math/tex">T-t</script> equals <script type="math/tex">1</script> and <span style="color:blue"><script type="math/tex">0.25</script></span>  against the current underlying price <script type="math/tex">S_t</script>.</p>
+<p><img src="theoretical-option-pricing-Screen Shot 2019-06-27 at 12.16.28 AM.png" alt="img2.png" height="350"></p>
+<h2 id="Gamma"><a href="#Gamma" class="headerlink" title="Gamma"></a>Gamma</h2><p>For a call option in a B-S model,</p>
+<script type="math/tex; mode=display">\text{Gamma} = \dfrac{\partial^2 C^{BS}}{\partial S_t^2} = N'(d_1)\dfrac{1}{S_t\sigma\sqrt{T-t}}</script><p>In this case, the Gamma can be interpreted as:</p>
+<ul>
+<li>the convextity of <script type="math/tex">C^{BS}</script> w.r.t. S_t</li>
+<li>how much the Delta moves, per unit move in <script type="math/tex">S_t</script></li>
+<li>how much rebalancing of the replicating portfolio is needed, per unit move in <script type="math/tex">S_t</script></li>
+</ul>
+<p>The <code>Gamma</code> of a call option is <code>strictly positive</code>. As the time-to-maturity decreases, the Gamma increases for ATM options. Here we plotted the BS Delta for <script type="math/tex">T-t</script> equals <script type="math/tex">1</script> and <span style="color:blue"><script type="math/tex">0.25</script></span>  against the current underlying price <script type="math/tex">S_t</script>.</p>
+<p><img src="theoretical-option-pricing-Screen Shot 2019-06-27 at 12.20.30 AM.png" alt="img4.png" height="350"></p>
+<h2 id="Theta"><a href="#Theta" class="headerlink" title="Theta"></a>Theta</h2><p>For a call in B-S model,</p>
+<script type="math/tex; mode=display">\text{Theta} = \dfrac{\partial C^{BS}}{\partial t}</script><p>The <code>Theta</code> of a call option is <code>strictly negative</code>. As the time-to-maturity decreases, the Theta decreases for ATM options (faster time-decay). Here we plotted the BS Theta for <script type="math/tex">T-t</script> equals <script type="math/tex">1</script> and <span style="color:blue"><script type="math/tex">0.25</script></span>  against the current underlying price <script type="math/tex">S_t</script>.</p>
+<p><img src="theoretical-option-pricing-Screen Shot 2019-06-27 at 12.25.48 AM.png" alt="img3.png" height="350"></p>
+<h2 id="Discrete-Delta-Hedge-and-Gamma-Scalping"><a href="#Discrete-Delta-Hedge-and-Gamma-Scalping" class="headerlink" title="Discrete Delta Hedge and Gamma Scalping"></a>Discrete Delta Hedge and Gamma Scalping</h2><p>A discretely <code>Delta-hedged</code> portfolio could buy <script type="math/tex">C</script> and short <script type="math/tex">\text{Delta} \cdot S</script>. In this case it is a <code>Delta neutral</code> and <code>long Gamma</code>/<code>Gamma scalping</code> portfolio:</p>
+<ul>
+<li>Delta of the portfolio is <script type="math/tex">0</script></li>
+<li>Gamma of the portfolio is positive</li>
+<li>achieve net profit only if the <code>realized volatility</code> of <script type="math/tex">S</script> is <code>high</code> enough to overcome <code>time decay</code>, otherwise portfolio loss happens. This is the opposite from a <code>short Gamma</code> position, e.g. sell <script type="math/tex">C</script> and long Delta <script type="math/tex">S</script></li>
+</ul>
+<p>We can visualize the P&amp;L of a long Gamma portfolio in the following graph, where the <span style="color:green">green</span> area indicate profits and the <span style="color:red">red</span> area indicate losses. The curved line is <script type="math/tex">C_{t+\Delta t}</script> the straight line is <script type="math/tex">\text{Delta}_t \cdot S_{t+\Delta t}</script>. As <script type="math/tex">\Delta t</script> increases, <script type="math/tex">C_{t+\Delta t}</script> shifts downwards due to time-decay.</p>
+<p><img src="theoretical-option-pricing-Screen Shot 2019-06-27 at 12.40.47 AM.png" alt="img5.png" height="350"></p>
+<p>In addition, we can show that the P&amp;L of such portfolio <script type="math/tex">dV = dC - C_S dS</script> does not depend on the drift <script type="math/tex">\mu</script> of the stock:</p>
+<script type="math/tex; mode=display">\begin{align}
+dV &= dC - C_S dS \\
+&= C_tdt + C_SdS^{\sigma_{implied}} + C_{SS}dS^2 - C_SdS^{\sigma_{realized}} \\
+&= (C_t + C_{SS}\sigma_{implied}^2S^2/2)dt + C_S(\sigma_{implied} - \sigma_{realized})SdW
+\end{align}</script><p>Continue on L5</p>
+<h1 id="Numerical-Methods"><a href="#Numerical-Methods" class="headerlink" title="Numerical Methods"></a>Numerical Methods</h1><p>The <code>Taylor series</code> of a real or complex value function <script type="math/tex">f(x)</script> that is differentiable at <script type="math/tex">a</script> is:</p>
+<script type="math/tex; mode=display">f(x) = f(a) + \dfrac{f'(a)}{1!}(x-a) + \dfrac{f''(a)}{2!}(x-a)^2 ...</script><h1 id="Implied-Volatility"><a href="#Implied-Volatility" class="headerlink" title="Implied Volatility"></a>Implied Volatility</h1><p>Given the time-<script type="math/tex">t</script> price of a European call option on a non-dividend stock <script type="math/tex">S</script>, the time-<script type="math/tex">t</script> Black Scholes <code>implied volatility</code> <script type="math/tex">\sigma(t)</script> is the unique solution to <script type="math/tex">C_t = C^{BS}(\sigma(t))</script>.</p>
+<p>Uniqueness is because <script type="math/tex">C^{BS}</script> is strictly increasing in <script type="math/tex">\sigma</script> and Existence is because <script type="math/tex">C^{BS}</script> covers the full range of arbitrage-free prices of the European option <script type="math/tex">[S_0-Ke^{-rT}, S_0]</script></p>
+<p>If <script type="math/tex">S_t</script> follows the SDE dynamic <script type="math/tex">dS_t = rS_tdt + \sigma(t)S_tdW_t</script>, where <script type="math/tex">\sigma(t)</script> a non-random function of <script type="math/tex">t</script>, then we can first find the implied volatility <script type="math/tex">\bar{\sigma}_T</script> given call prices with different maturity <script type="math/tex">T</script>, and use the equation below to find (not uniquely) the true function <script type="math/tex">\sigma(t)</script>:</p>
+<script type="math/tex; mode=display">\begin{align}
+logS_T &= logS_0 + (r-\bar{\sigma}^2_T/2)T + \int_0^T \sigma(t)dW_t \\
+&\sim \mathcal{N}(logS_0 + (r-\bar{\sigma}^2_T/2)T, \;\bar{\sigma}^2_TT) \\
+&\text{where } \bar{\sigma}_T := \sqrt{\dfrac{1}{T} \int_0^T \sigma^2(t)dt}
+\end{align}</script><h2 id="Volatility-Smile-Skew-and-Surface"><a href="#Volatility-Smile-Skew-and-Surface" class="headerlink" title="Volatility Smile, Skew and Surface"></a>Volatility Smile, Skew and Surface</h2><p>If <script type="math/tex">S_t</script> truely follows GBM with constant volatility <script type="math/tex">\sigma</script>, then <script type="math/tex">\sigma_{imp}(K, T) = \sigma, \;\forall\;K, T</script>. However, empirically the <script type="math/tex">\sigma_{imp}</script> is lower when <script type="math/tex">K \approx S_t</script> (<code>volatility smile</code>), possibly because</p>
+<ul>
+<li>the market price option using a risk-neutral distribution of log-returns with fatter tails than Normal</li>
+</ul>
+<p>Note that <script type="math/tex">\sigma_{imp}</script> is also higher when <script type="math/tex">K < S_t</script> (<code>volatility skew</code>), possibly due to:</p>
+<ul>
+<li>instantaneous volatility increases as price decreases</li>
+<li>possibility of severe crash fuels demand for downside protection</li>
+</ul>
+<p>In addition, the <script type="math/tex">\sigma_{imp}</script> has a term structure and varies for different <script type="math/tex">T</script>. The function <script type="math/tex">\sigma_{imp}(K, T)</script> is call the implied <code>volatility surface</code></p>
+<h1 id="Tree-Model"><a href="#Tree-Model" class="headerlink" title="Tree Model"></a>Tree Model</h1><h2 id="Binomial-Tree-1"><a href="#Binomial-Tree-1" class="headerlink" title="Binomial Tree"></a>Binomial Tree</h2><h3 id="European-Option"><a href="#European-Option" class="headerlink" title="European Option"></a>European Option</h3><p>Given option price at the <script type="math/tex">j</script>-th node <script type="math/tex">C_T^j = f(S_T^j)</script>, we can induct backward to find <script type="math/tex">C_t^j</script>:</p>
+<script type="math/tex; mode=display">C_t^j = e^{-r\tau}[p_n^jC_{t+1}^{j+1} + (1-p_n^j)C_{t+1}^{j-1}] \\
+\text{where } p_n^j = \dfrac{S_t^je^{r\tau} - S_{t+1}^{j-1}\;}{S_{t+1}^{j+1} - S_{t+1}^{j-1}\;}</script><h3 id="American-Option-Put"><a href="#American-Option-Put" class="headerlink" title="American Option - Put"></a>American Option - Put</h3><p>Given option price at the <script type="math/tex">j</script>-th node <script type="math/tex">C_T^j = (K - S_T^j)^+</script>, we can induct backward to find <script type="math/tex">C_t^j</script>:</p>
+<script type="math/tex; mode=display">C_t^j = max[(K - S_t^j)^+,\;e^{-r\tau}[p_n^jC_{t+1}^{j+1} + (1-p_n^j)C_{t+1}^{j-1}]] \\
+\text{where } p_n^j = \dfrac{S_t^je^{r\tau} - S_{t+1}^{j-1}\;}{S_{t+1}^{j+1} - S_{t+1}^{j-1}\;}</script><h3 id="American-Option-Call"><a href="#American-Option-Call" class="headerlink" title="American Option - Call"></a>American Option - Call</h3><p>Given option price at the <script type="math/tex">j</script>-th node <script type="math/tex">C_T^j = (S_T^j - K)^+</script>. If <script type="math/tex">r>0</script> and stock dividend <script type="math/tex">\delta=0</script>, then it is <code>never</code> optimal to exercise early on an American call option. Therefore <script type="math/tex">C^{American} = C^{European}</script></p>
+<p><code>Argument 1</code> At all <script type="math/tex">t>0</script>, the American call is worth more than the exercise payoff <script type="math/tex">S_t - K</script>:</p>
+<script type="math/tex; mode=display">\text{American Call} \geq \text{European Call} \geq S_t - KZ_t > S_t - K</script><p><code>Argument 2</code> If <script type="math/tex">C^{American} > C^{European}</script> then construct portfolio <script type="math/tex">V = [-C^{American}, C^{European}]</script>. Then V is an arbitrage as <script type="math/tex">V_0 > 0</script> and <script type="math/tex">V_T \geq 0</script>.</p>
+<h2 id="Trinomial-Tree"><a href="#Trinomial-Tree" class="headerlink" title="Trinomial Tree"></a>Trinomial Tree</h2><p>Let <script type="math/tex">\Delta t:= T/N</script> and choose <script type="math/tex">\Delta x \approx \sigma\sqrt{3\Delta t}</script> to improve accruacy.</p>
+<h1 id="Finite-Difference-Model"><a href="#Finite-Difference-Model" class="headerlink" title="Finite Difference Model"></a>Finite Difference Model</h1><h2 id="Explicit-Scheme"><a href="#Explicit-Scheme" class="headerlink" title="Explicit Scheme"></a>Explicit Scheme</h2><p>Inducting backward from <script type="math/tex">t=T</script> to <script type="math/tex">0</script>:</p>
+<script type="math/tex; mode=display">\begin{align}
+\dfrac{\partial C}{\partial t} &\approx \dfrac{C^j_{t+1} - C^j_t}{\Delta t} \\
+\dfrac{\partial C}{\partial x} &\approx \dfrac{C^{j+1}_{t+1} - C^{j-1}_{t+1}\;}{2\Delta x} \\
+\dfrac{\partial^2 C}{\partial x^2} &\approx \dfrac{1}{\Delta x} (\dfrac{C^{j+1}_{t+1} - C^{j}_{t+1}\;}{\Delta x} - \dfrac{C^{j}_{t+1} - C^{j-1}_{t+1}\;}{\Delta x}) = \dfrac{C^{j+1}_{t+1} -2C^{j}_{t+1} + C^{j-1}_{t+1}\;}{(\Delta x)^2}
+\end{align}</script><p>Solving for the B-S PDE: <script type="math/tex">rC = C_t + vC_S + 0.5\sigma^2C_{SS}</script> where <script type="math/tex">v = (r-\sigma^2/2)</script>, we get:</p>
+<script type="math/tex; mode=display">C^j_t = \dfrac{1}{1 + r\Delta t}(q_uC^{j+1}_{t+1} + q_mC^{j}_{t+1} + q_dC^{j-1}_{t+1})</script><p>Where:</p>
+<script type="math/tex; mode=display">\begin{align}
+q_u &= \dfrac{1}{2}[\dfrac{\sigma^2\Delta t}{(\Delta x)^2} + \dfrac{v\Delta t}{\Delta x}] &=p_u - \dfrac{v^2(\Delta t)^2}{2(\Delta x)^2}\\
+q_m &= 1 - \dfrac{\sigma^2\Delta t}{(\Delta x)^2} &=p_m + \dfrac{v^2(\Delta t)^2}{(\Delta x)^2}\\
+q_d &= \dfrac{1}{2}[\dfrac{\sigma^2\Delta t}{(\Delta x)^2} - \dfrac{v\Delta t}{\Delta x}] &=p_d - \dfrac{v^2(\Delta t)^2}{2(\Delta x)^2}\\
+\end{align}</script><p>Note that <script type="math/tex">p_u, p_m, p_d</script> are trinomial tree probabilities.</p>
+<h2 id="Implicit-Scheme"><a href="#Implicit-Scheme" class="headerlink" title="Implicit Scheme"></a>Implicit Scheme</h2><p>Inducting backward from <script type="math/tex">t=T</script> to <script type="math/tex">0</script>:</p>
+<script type="math/tex; mode=display">(-\alpha C^{j+1}_{t} + (1+2\alpha)C^{j}_{t} + \alpha C^{j-1}_{t}) = C^j_{t+1}</script><p>Solving the <script type="math/tex">LHS</script> requires solutions of a system of <script type="math/tex">2J-1</script> equation with <script type="math/tex">2J-1</script> unknowns.</p>
+<h2 id="Crank-Nicolson-Scheme"><a href="#Crank-Nicolson-Scheme" class="headerlink" title="Crank-Nicolson Scheme"></a>Crank-Nicolson Scheme</h2><p>Inducting backward from <script type="math/tex">t=T</script> to <script type="math/tex">0</script>:</p>
+<script type="math/tex; mode=display">-F^j_tC^{j+1}_t + (1+G^j_t)C^j_t - H^j_tC^{j-1}_t = F^j_{t+1}C^{j+1}_{t+1} + (1-G^j_{t+1})C^j_{t+1} + H^j_{t+1}C^{j-1}_{t+1}</script><p>If given terminal conditions, then we know <script type="math/tex">C_{t+1}</script>‘s and can solve for <script type="math/tex">C_t</script>.</p>
+<h1 id="Monte-Carlo-Model"><a href="#Monte-Carlo-Model" class="headerlink" title="Monte Carlo Model"></a>Monte Carlo Model</h1><p>Given <script type="math/tex">Y</script> be a discounted payoff and the time-<script type="math/tex">0</script> price of the payoff <script type="math/tex">C=\mathbb{E}Y</script>. The <code>Monte Carlo estimator</code> <script type="math/tex">\hat{C}_M</script> of <script type="math/tex">C</script>:</p>
+<script type="math/tex; mode=display">\hat{C}_M = \dfrac{1}{M}\sum Y \\
+\text{where } \mathbb{E}\hat{C}_M = C \text{, and } Var(\hat{C}_M) = Var(Y)/M</script><p>By the <code>strong law of large numbers</code>, the sample average <script type="math/tex">\hat{C}_M</script> converges almost surely to the expected value <script type="math/tex">C</script> as <script type="math/tex">M \rightarrow \infty</script>. By the <code>central limit theorem</code>:</p>
+<script type="math/tex; mode=display">\dfrac{\hat{C}_M - C}{Var(Y)/M} \rightarrow \mathcal{N}(0, 1) \text{, as } M \rightarrow \infty</script><p>Often times we need to estimate <script type="math/tex">\sigma</script> with sample estimator for the variance of <script type="math/tex">Y</script>:</p>
+<script type="math/tex; mode=display">\hat\sigma^2_M := \dfrac{\sum (Y - \hat{C}_M)^2}{M-1} \\
+\text{so then } \dfrac{\hat{C}_M - C}{\hat{\sigma}_M^2/M} \rightarrow \mathcal{N}(0, 1) \text{, as } M \rightarrow \infty</script><p>The <code>standard error</code> <script type="math/tex">SE = \hat{\sigma}_M/\sqrt{M}</script>, and a <script type="math/tex">95\%</script> confident interval for <script type="math/tex">C</script> is <script type="math/tex">\hat{C}_M \pm 1.96SE</script></p>
+<h2 id="Variance-Reduction-Techniques"><a href="#Variance-Reduction-Techniques" class="headerlink" title="Variance Reduction Techniques"></a>Variance Reduction Techniques</h2><h3 id="Antithetic-Variate"><a href="#Antithetic-Variate" class="headerlink" title="Antithetic Variate"></a>Antithetic Variate</h3><p>Let <script type="math/tex">\tilde{Y}:=Y_{Z = -z\;}</script>. The <code>antithetic variate estimoator</code> <script type="math/tex">\hat{C}^{av}_M</script>:</p>
+<script type="math/tex; mode=display">\hat{C}^{av}_M = \dfrac{1}{M}\sum \dfrac{Y + \tilde{Y}\;}{2} \\
+\text{where } Var(\hat{C}^{av}_M) = \dfrac{Var(Y) + Cov(Y, \tilde{Y})}{M}</script><h3 id="Control-Variate"><a href="#Control-Variate" class="headerlink" title="Control Variate"></a>Control Variate</h3><p>A <code>control variate</code> <script type="math/tex">Y^\ast</script> is a random variable, correlated to <script type="math/tex">Y</script> such that <script type="math/tex">C^\ast := \mathbb{E}Y^\ast</script> has an explicit formula.</p>
+<p><code>Example</code> Let <script type="math/tex">Y</script> be the discounted payoff on a call on <script type="math/tex">S_t</script> where <script type="math/tex">dS_t = \sigma(t)S_tdW_t</script>. We can choose <script type="math/tex">Y^\ast</script> to be the discounted payoff on a call on <script type="math/tex">S_t^{\ast}</script> where <script type="math/tex">dS_t^{\ast} = \sigma S^{\ast}_tdW_t</script>, in which case <script type="math/tex">C^{\ast}</script> can be calculated explicitely through B-S formula given constant <script type="math/tex">\sigma</script> close to <script type="math/tex">\sigma(t)</script>.</p>
+<p>The <code>control variate estimator</code> <script type="math/tex">\hat{C}^{cv, \beta}_M</script> estimates <script type="math/tex">C</script> by simulating <script type="math/tex">Y - \beta Y^{\ast}</script>.</p>
+<script type="math/tex; mode=display">Y^{cv, \beta}_M = \beta C^{\ast} + (Y - \beta dsY^{\ast}) \\
+\hat{C}^{cv, \beta}_M = \mathbb{E}Y^{cv, \beta}_M = \beta C^{\ast} + \dfrac{1}{M}\sum (Y - \beta Y^{\ast}) \\
+\text{and }Var(\hat{C}^{cv}_M) = \dfrac{1}{M}[Var(Y) - 2\beta Cov(Y, Y^{\ast}) + \beta^2Var(Y^{\ast})]</script><p>Choose <script type="math/tex">\beta</script> to minimize <script type="math/tex">Var(\hat{C}^{cv}_M)</script>, we get:</p>
+<script type="math/tex; mode=display">\beta^{\ast} = \dfrac{Cov(Y, Y^{\ast})}{Var(Y^{\ast})} \rightarrow \hat{\beta^{\ast}\;} =  \dfrac{\sum(Y - \bar{Y})(Y^{\ast} - \bar{Y}^{\ast})}{\sum(Y^{\ast} - \bar{Y}^{\ast})^2} \\
+\text{so then } Var(\hat{C}^{cv, \beta^{\ast}\;}_M) = Var(\hat{C}_M)[1 - Corr^2(Y, Y^{\ast})]</script><p>Note that when using sample estimate <script type="math/tex">\hat{\beta^{\ast}\;}</script>, the estimated <script type="math/tex">\hat{C}^{cv, \hat{\beta}^{\ast}\;}_M</script> is biased, only when <script type="math/tex">M</script> is small.</p>
+<h3 id="Importance-Sampling"><a href="#Importance-Sampling" class="headerlink" title="Importance Sampling"></a>Importance Sampling</h3><p>Suppose <script type="math/tex">X</script> are IID draws from density <script type="math/tex">f</script>, and <script type="math/tex">C := \mathbb{E}h(X)</script>. Ordinary Monte Carlo estimator provides:</p>
+<script type="math/tex; mode=display">\hat{C}_M = \dfrac{1}{M}\sum h(X)</script><p>With importance sampling, find <script type="math/tex">g</script> s.t. <script type="math/tex">g(x) > 0</script> iff <script type="math/tex">f(x)g(x) \neq 0</script>. Then re-draw <script type="math/tex">X</script> from density <script type="math/tex">g</script> and the <code>importance sampling estimator</code> <script type="math/tex">\hat{C}^{is}_M</script> is:</p>
+<script type="math/tex; mode=display">\hat{C}^{is}_M = \dfrac{1}{M}\sum h(X)\dfrac{f(X)}{g(X)} \\
+\text{where } Var(\hat{C}^{is}_M) = \dfrac{1}{M}Var(h(X)\dfrac{f(X)}{g(X)})</script><h3 id="Conditional-Monte-Carlo"><a href="#Conditional-Monte-Carlo" class="headerlink" title="Conditional Monte Carlo"></a>Conditional Monte Carlo</h3><p>Given a random variable <script type="math/tex">X</script>:</p>
+<script type="math/tex; mode=display">C = \mathbb{E}Y = \mathbb{E}[\mathbb{E}(Y|X)] = f(X)</script><p>The <code>condintional Monte Carlo estimator</code>:</p>
+<script type="math/tex; mode=display">\hat{C}^{cmc}_M = \dfrac{1}{M}\sum f(X) \\
+\text{where } Var(\hat{C}^{cmc}_M) =  \dfrac{1}{M}Varf(X) < Var(\hat{C}_M) \\
+\text{because } Var(Y) = Var[\mathbb{E}(Y|X)] + \mathbb{E}Var(Y|X)</script><h1 id="Fourier-Transform-Model"><a href="#Fourier-Transform-Model" class="headerlink" title="Fourier Transform Model"></a>Fourier Transform Model</h1><p>Given <script type="math/tex">f:\mathbb{R}\rightarrow\mathbb{R}</script> be integrable, meaning <script type="math/tex">\int|f(x)|dx < \infty</script>. The <code>Fourier transform</code> of <script type="math/tex">f</script> is the function <script type="math/tex">\hat{f}: \mathbb{R}\rightarrow\mathbb{C}</script> defined by:</p>
+<script type="math/tex; mode=display">\hat{f}(z) = \int_{-\infty}^{\infty} \hat{f}(x)e^{izx}dx</script><p><code>Theorem</code> If <script type="math/tex">\hat{f}</script> is also integrable, then the <code>inversion formula</code> holds:</p>
+<script type="math/tex; mode=display">f(x) = \dfrac{1}{2\pi}\int_{-\infty}^{\infty} \hat{f}(z)e^{-izx}dz</script><h2 id="Characteristic-Function"><a href="#Characteristic-Function" class="headerlink" title="Characteristic Function"></a>Characteristic Function</h2><p>The <code>complex conjugate</code> of a complex number <script type="math/tex">z = x + yi</script> is given by <script type="math/tex">\bar{z} = x - yi</script>. so <script type="math/tex">\text{Re}(z) = \text{Re}(\bar{z})</script>.</p>
+<p>The <code>characteristic function</code> of any random variable <script type="math/tex">X</script> is the function <script type="math/tex">F_X(z)</script> defined by:</p>
+<script type="math/tex; mode=display">F_X(z) := \mathbb{E}e^{izX}</script><p>Therefore if <script type="math/tex">X</script> has density <script type="math/tex">f</script>, then <script type="math/tex">F_X(z) = \hat{f}(z)</script>. A characteristic function <code>uniquely</code> identifies a distribution. For example, <script type="math/tex">F_X(z) = e^{-z^2/2}</script>, if <script type="math/tex">X\sim\mathcal{N}(0,1)</script></p>
+<ul>
+<li>To calculate the <code>moments</code> of <script type="math/tex">X</script> using CF, take the <script type="math/tex">n</script>-derivatives of <script type="math/tex">F_X(z)</script> w.r.t. <script type="math/tex">z</script>:</li>
+</ul>
+<script type="math/tex; mode=display">\mathbb{E}X^n = (-i)^nF_X^{(n)}(0)</script><ul>
+<li>To calculate the <code>CDF</code> of <script type="math/tex">X</script> using CF:</li>
+</ul>
+<script type="math/tex; mode=display">\mathbb{P}[X < k] = 0.5 - \dfrac{1}{\pi}\int_0^{\infty} \text{Re}[\dfrac{F_X(z)}{iz}e^{-izk}]\;dz</script><ul>
+<li>To calculate <code>asset-or-nothing</code> call price using CF, given <script type="math/tex">e^X</script> be the asset share price, define the share measure <script type="math/tex">\mathbb{P}^{\ast}</script> with likelihood ratio <script type="math/tex">e^X/\mathbb{E}e^X</script>.</li>
+</ul>
+<script type="math/tex; mode=display">F^{\ast}_X(z) = \mathbb{E}^{\ast}e^{izX} = F_X(z - i)/F_X(-i)</script><p>Therefore for any <script type="math/tex">k\in\mathbb{R}</script>, the asset-or-nothing call price:</p>
+<script type="math/tex; mode=display">\begin{align}
+e^{-rT}\mathbb{E}e^X\textbf{1}_{X>k} &= e^{-rT}\mathbb{E}e^X\mathbb{P}^{\ast}(X>K)
+\\
+&= e^{-rT}[\dfrac{F_X(-i)}{2} + \dfrac{1}{\pi}\int_0^{\infty} \text{Re}[\dfrac{F_X(z - i)}{iz}e^{-izk}]\;dz]
+\end{align}</script><ul>
+<li>To calculate a vanilla <code>European</code> call price on <script type="math/tex">e^X</script> struck at <script type="math/tex">K</script> with <script type="math/tex">k := log\;K</script>:</li>
+</ul>
+<script type="math/tex; mode=display">C_0 = e^{-rT}[\mathbb{E}e^X\textbf{1}_{X>k} - K\mathbb{P}[X > k]]</script><h2 id="Heston-Model"><a href="#Heston-Model" class="headerlink" title="Heston Model"></a>Heston Model</h2><p>Provided that:</p>
+<script type="math/tex; mode=display">\begin{align}
+dS_t &= rS_tdt + \sqrt{V_t}S_tdW_t^S \text{ , and let} X = logS_t\\
+ \text{so that } dX &= (r - 0.5V_t)dt + \sqrt{V_t}dW_t^S \\
+dV_t &= \kappa(\theta - V_t)dt + \eta\sqrt{V_t}dW_t^V
+\end{align}</script><p>Where <script type="math/tex">W^S</script> and <script type="math/tex">W^V</script> are <script type="math/tex">\mathbb{P}</script> BM with correlation <script type="math/tex">\rho</script>, <script type="math/tex">\kappa</script> is the rate of mean-reversion, <script type="math/tex">\theta</script> is the long-term mean, and <script type="math/tex">\eta</script> is the volatility of volatility.</p>
+<p>We want to find the CF of <script type="math/tex">X</script> in order to price options on <script type="math/tex">S_T</script>. The time-<script type="math/tex">t</script> conditional <code>Heston CF</code> provides an answer:</p>
+<script type="math/tex; mode=display">F_X(z) = e^{A + izX_t + BV_t}</script><p><br></p>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/12/finm-notes/04_credit_risk_model/" class="prev">PREV</a><a href="/2019/12/finm-notes/03_stochastic_calculus/" class="next">NEXT</a></div><div id="container"></div><!-- link(rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css")--><link rel="stylesheet" href="/css/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+    clientID: '4ec287ddd4ac34ff5087',
+    clientSecret: 'ae45426765f12ac3e2f903662b8938dc4881f703',
+    repo: 'jackliu234.github.io',
+    owner: 'jackliu234',
+    admin: ['jackliu234'],
+    perPage: 100,
+    id: 'Wed Dec 04 2019 00:00:00 GMT-0600 GMT'.split('GMT')[0].replace(/\s/g, '-'),
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+})
+
+gitalk.render('container')</script><!-- block copyright--></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-133275176-1",'auto');ga('send','pageview');</script><link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" media="screen" type="text/css"><script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script><script>$(function(){$('.datatable').dataTable( {"order": [[ 0, "desc" ]],"iDisplayLength": -1,"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]} );});</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></body></html>

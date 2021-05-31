@@ -1,0 +1,1058 @@
+<hr>
+<p>title: “&#128214; Notes on MSFM - C++”<br>date: 2019-12-04<br>tags: notes<br>mathjax: true</p>
+<h2 id="home-only-true"><a href="#home-only-true" class="headerlink" title="home_only: true"></a>home_only: true</h2><style type="text/css">
+    img.resize {
+        max-width:50%;
+        max-height:50%;
+    }
+</style>
+
+<!--more-->
+<p>C++ is a <code>complied</code> （vs interpreted: python), <code>general-purpose</code> (vs domain-specific: HTML) programming language created by Danish programmer <code>Bjarne Stroustrup</code> as an extension to C.</p>
+<h1 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h1><h2 id="Compiler"><a href="#Compiler" class="headerlink" title="Compiler"></a>Compiler</h2><p>A compiler translate a high level language into a low level language and create an executable program.</p>
+<ol>
+<li>Pre-processor: read preprocessing lines <code>#include &quot;foo.hpp&quot;</code></li>
+<li>Compiler: turn the above code it into assembly code (ASM).<ul>
+<li><strong><em>front end</em></strong> create IR (intermediate representation) with SSA (static singale assignment). The runtime is <script type="math/tex">O(n)</script>.</li>
+<li><strong><em>middle end</em></strong> optimize IR. remove unnecessary operations, <script type="math/tex">O(n^2)</script> or more.</li>
+<li><strong><em>back end</em></strong> produce ASM</li>
+</ul>
+</li>
+<li>Assembler: turn ASM into binary code</li>
+<li>Linker: link all relevant headers, libraries together</li>
+<li>Debugger: type checking</li>
+<li>Object Copy: generate .exe (for windows), and .bin (for mac)</li>
+</ol>
+<h3 id="G"><a href="#G" class="headerlink" title="G++"></a>G++</h3><p>Compile with g++ at the command line:</p>
+<pre><code class="lang-bash">$ g++ toto.cpp
+$ g++ toto.cpp -E (show c pre-processor)
+$ g++ toto.cpp --verbose (ask compile to give different steps)
+</code></pre>
+<p>Running the complied result:</p>
+<pre><code class="lang-bash">$ /a.exe
+</code></pre>
+<h2 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h2><p>The <code>C++ standard library</code> is a collection of classes and functions, represented by different headers. For example, include the <code>&lt;iostream&gt;</code> header to handle input and outputs and other non-standard headers using double quoto.</p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
+#include &quot;foo.h&quot;
+</code></pre>
+<h3 id="Macro"><a href="#Macro" class="headerlink" title="Macro"></a>Macro</h3><pre><code class="lang-cpp">define N 4
+std::cout &lt;&lt; N + 2; // show 6
+</code></pre>
+<h3 id="Guards"><a href="#Guards" class="headerlink" title="Guards"></a>Guards</h3><p>In C++, function, class and variable can only be declared once. We use <code>guards</code> to make sure we do not duplicate declaration in multiple files.</p>
+<pre><code>#ifndef &quot;foo.h&quot;
+#define &quot;foo.h&quot;
+</code></pre><h2 id="Namespace"><a href="#Namespace" class="headerlink" title="Namespace"></a>Namespace</h2><p>Some classes and functions are grouped under the same name, which divides the global scope into sub-scopes, each with its own namespaces.</p>
+<p>Functions and classes in the C++ standard library are defined in the <code>std</code> namespace. For example, the <code>cin</code> (standard input), <code>cout</code> (standard output) and <code>end</code> (end line) objects.</p>
+<pre><code class="lang-cpp">char c;
+std::cin &gt;&gt; c;
+std::cout &lt;&lt; c;
+std::endl;
+</code></pre>
+<p>Alternatively, we can use <code>using namespace std;</code>.</p>
+<h2 id="Data-Type"><a href="#Data-Type" class="headerlink" title="Data Type"></a>Data Type</h2><p>Every variable has to have a <code>type</code> in C++, and the type has to be declared and cannot be changed. There are fundamental types and user-defined types (classes)</p>
+<p><strong><em>Characters</em></strong> In computer, each <code>bit</code> stores a binary (0/1) value. A <code>byte</code> is 8 bits.  The computer stores characters in a byte using the <a href="https://www.ascii-code.com">ASCII</a> format.</p>
+<p><strong><em>Numbers</em></strong> The computer stores numbers in binary format with bits. The <code>leftmost</code> bit is used to store the sign of a number. (See <a href="http://en.wikipedia.org/wiki/Two’s_complement">twos-complement method</a>). Real values are stored using a <code>mantissa</code> and an exponent:</p>
+<script type="math/tex; mode=display">Value = Mantissa \times 2^{Exponent}</script><p>Note that very few values can be exactly represented, and how close we can get depends on the number of bits available.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Size (Bytes)</th>
+<th>Value Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bool</td>
+<td>1</td>
+<td>true or false</td>
+</tr>
+<tr>
+<td>char</td>
+<td>1</td>
+<td>-128 to 127</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2</td>
+<td>-32,768 to 32,767</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4</td>
+<td>-2,147,483,648 to 2,147,483,647</td>
+</tr>
+<tr>
+<td>float</td>
+<td>4</td>
+<td>3.4E +/- 38</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8</td>
+<td>1.7E +/- 308</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>C++ is a <code>strongly typed</code> language, which means type errors needs to be resolved for all variables at <code>compile</code> time.</p>
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><p>Every console application has to have a <code>main()</code> function, which takes no argument and returns an integer value by default.</p>
+<p>A function that adds two numbers:</p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int Add(int a, int b)
+{
+  return a+b;
+}
+
+int main()
+{
+    int result = Add(2, 3);
+    cout &lt;&lt; &quot; Result: &quot; &lt;&lt; result &lt;&lt; endl;
+}
+</code></pre>
+<p><code>Overloading</code> allows 2 or more functions to have the same name, but they must have different input argument <code>types</code>.</p>
+<h3 id="Function-Object"><a href="#Function-Object" class="headerlink" title="Function Object"></a>Function Object</h3><p>Function object, or <code>functors</code>, are objects that behave like functions, are functions with state.</p>
+<p>A regular function looks like this:</p>
+<pre><code class="lang-cpp">int AddOne(int val)
+{
+    return val+1;
+}
+int result = AddOne(2)
+</code></pre>
+<p>A function object implementaion:</p>
+<pre><code class="lang-cpp">class AddOne
+{
+public:
+    int operator()(int&amp; val)
+    {
+        return val+1;
+    }
+};
+
+AddOne addone;
+int val = 2;
+int result = addone(val)
+</code></pre>
+<h3 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h3><p>Lambdas is a new feature introduced in C++11, which is an inline function that can be used as a parameter or local object.</p>
+<pre><code class="lang-cpp">[] (string s) // [] is the lambda introducer/capture clause
+{
+    cout &lt;&lt; s &lt;&lt; endl;
+}
+</code></pre>
+<p><strong><em>Example 1</em></strong></p>
+<pre><code class="lang-cpp">vector&lt;int&gt; v{1, 3, 2, 4, 6};
+for_each(v.cbegin(), v.cend(),                  //range
+         [](int elem) {cout &lt;&lt; elem &lt;&lt; endl;})  //lambda
+</code></pre>
+<p><strong><em>Example 2</em></strong></p>
+<pre><code class="lang-cpp">vector&lt;int&gt; v{1, 3, 2, 4, 6};
+transform(v.begin(), v.end(),
+          v.begin(), [] (int elem) {return elem * elem});
+</code></pre>
+<p><strong><em>Example 3</em></strong></p>
+<pre><code class="lang-cpp">vector&lt;Person&gt; ppl;
+sort(ppl.begin(), ppl.end(),
+     [](const Person&amp; p1, const Person&amp;p2)
+     {
+        if (p1.GetAge() &lt; p2.GetAge()) return true;
+        else return false;
+     });
+</code></pre>
+<h3 id="Extern"><a href="#Extern" class="headerlink" title="Extern"></a>Extern</h3><p>The keyword extern means the function is declared in another file.</p>
+<pre><code class="lang-cpp">extern int foo(int a);
+int main() { return foo(100); }
+</code></pre>
+<h3 id="Inline-Function"><a href="#Inline-Function" class="headerlink" title="Inline Function"></a>Inline Function</h3><p>C++ provides <code>inline</code> funcitons such that the overhead of a small function can be reduced. When inline function is called the entire code of the function is inserted at the point of the inline function call.</p>
+<h2 id="Typedef"><a href="#Typedef" class="headerlink" title="Typedef"></a>Typedef</h2><p>Use <code>typedef</code> keyword to define a type alias.</p>
+<pre><code class="lang-cpp">typedef double OptionPrice;
+typedef double StockPrice;
+typedef double Strike;
+OptionPrice BSPrice(StockPrice S, Strike K)
+</code></pre>
+<h2 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h2><p>Standard operations:</p>
+<pre><code class="lang-cpp">Arithmetic: +, -, *, /
+Comparison: &lt;, &gt;, &lt;=, &gt;=
+Negate: !
+Equality, non Equality: ==, !=
+Logical and, or, &amp;&amp;, ||
+Assignment: =
+Modulo: %
+Increment, Decrement: i++, i--
+Multiple Operations: i += 1, i -= 1, i *= 1, i /= 1
+</code></pre>
+<p>Note the difference between <code>i++</code> and <code>++i</code></p>
+<pre><code class="lang-cpp">i++; // return (old) i and increment i
+++i; // increment i and return new i
+</code></pre>
+<h2 id="Const"><a href="#Const" class="headerlink" title="Const"></a>Const</h2><p>Use the <code>const</code> keyword to define a constant value. The <code>compiler</code> will stop any attempt to alter the constant values.</p>
+<p>Since C++ is a strongly typed language, it is preferred to use <code>const int N = 4</code>, instead of <code>#define N 4</code>, as the former defines a type.</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><strong><em>Example 1</em></strong> A reference is an alias for a variable and cannot rebind to a different variable. We can change <code>val</code> by changing <code>ref</code>:</p>
+<pre><code class="lang-cpp">int val = 10;
+int&amp; ref = val;
+ref = 20; // this will change val to 20
+</code></pre>
+<p><strong><em>Example 2</em></strong> We can also bind a const reference to a const object. An error will be raised if attempt to change the value or the reference.</p>
+<pre><code class="lang-cpp">const int val = 10;
+const int&amp; ref = val;
+val = 20; // error
+ref = 20; // error
+</code></pre>
+<p><strong><em>Example 3</em></strong> We can also bind a const reference to a non-const object, thereafter we can NOT change the object using the reference.</p>
+<pre><code class="lang-cpp">int val = 10;
+const int&amp; ref = val;
+val = 20; // ok
+ref = 20; // error
+</code></pre>
+<p><br></p>
+<p><strong><em>Pass By Value</em></strong> In a function, we can pass an argument by either <code>value</code> or <code>reference</code>. When passing by <code>value</code>, the variable <code>x</code> will NOT be changed. In this case, we waste time to both create a copy inside the function and memory to store the copy</p>
+<pre><code class="lang-cpp">void DoubleValue(int number)
+{
+    number = number * 2;
+}
+
+int main()
+{
+    int x = 5;
+    DoubleValue(x);
+    cout&lt;&lt;&quot;x = &quot;&lt;&lt;x&lt;&lt;endl;
+}
+</code></pre>
+<pre><code class="lang-cpp">x = 5
+</code></pre>
+<p><strong><em>Pass By Reference</em></strong> When passing by <code>reference</code> (by adding <code>&amp;</code> in the function argument parameter), the variable <code>x</code> WILL be changed.</p>
+<pre><code class="lang-cpp">void DoubleValue(int&amp; number)
+{
+    number = number * 2;
+}
+
+int main()
+{
+    int x = 5;
+    DoubleValue(x);
+    cout&lt;&lt;&quot;x = &quot;&lt;&lt;x&lt;&lt;endl;
+}
+</code></pre>
+<pre><code class="lang-cpp">x = 10
+</code></pre>
+<p><strong><em>Pass By Const Reference</em></strong> We add const when we do not want the specific function argument to be tempered when passed by reference. In this example, there will be a compiler error as we are trying to change the const reference <code>number</code> in the function.</p>
+<pre><code class="lang-cpp">void DoubleValue(const int&amp; number)
+{
+    number = number * 2; // error, cannot change const ref &quot;number&quot;
+}
+
+int main()
+{
+    int x = 5;
+    DoubleValue(x);
+    cout&lt;&lt;&quot;x = &quot;&lt;&lt;x&lt;&lt;endl;
+}
+</code></pre>
+<h2 id="Pointer"><a href="#Pointer" class="headerlink" title="Pointer"></a>Pointer</h2><p>In computer memory, each stored values has an address associated with it. We use a <code>pointer</code> object to store address of another object and access it indirectly.</p>
+<p>There are two pointer operator:</p>
+<ol>
+<li><code>&amp;</code>: <code>address of</code> operator, used to get the address of an object</li>
+<li><code>*</code>: <code>de-reference</code> operator, used to access the object</li>
+</ol>
+<p><strong><em>Example 1</em></strong></p>
+<pre><code class="lang-cpp">int* ptr = nullptr; // initiate an empty pointer
+int* ptr = &amp;val; // initiate ptr with the address of val
+*ptr = 20; // change val using the ptr pointer
+</code></pre>
+<p><strong><em>Example 2</em></strong>  If the object is const, a pointer cannot be used to change it.</p>
+<pre><code class="lang-cpp">const int val = 10;
+const int* ptr = &amp;val;
+*ptr = 20; // error
+</code></pre>
+<p><strong><em>Example 3</em></strong>  You can have a pointer that itself is const</p>
+<pre><code class="lang-cpp">int val = 10;
+int* const ptr = &amp;val;
+*ptr = 20; // ok
+
+int val2 = 20;
+ptr = &amp;val2 // error, as the pointer is const
+</code></pre>
+<h2 id="Casting"><a href="#Casting" class="headerlink" title="Casting"></a>Casting</h2><p>C++ allows <code>implicit</code> and <code>explicit</code> conversions of types.</p>
+<pre><code class="lang-cpp">short a = 1;
+int b;
+b = a; // implicit conversion
+b = (int) a; // explicit conversion
+</code></pre>
+<p>However, the traditional explicit type-casting allows conversions between any types, and leads to run-time error. To control these conversions, we introduce four specific casting operators:</p>
+<ul>
+<li><code>dynamic_cast&lt;new_type&gt;( )</code>: used only with pointers (and/or references to objects); can cast a <code>derived</code> class to its <code>base</code> class; <code>base-to-derived</code> conversions are allowed only with <code>polymorphic</code> base class</li>
+</ul>
+<pre><code class="lang-cpp">class Base {virtual void foo() {} };
+class Derived : public Base { };
+
+int main() {
+
+    Derived* derived_ptr;
+    Base* base_ptr = dynamic_cast&lt;Base*&gt; (derived_ptr);
+
+    Base* base_ptr_2 = new Derived;
+    Derived* derived_ptr_2 = dynamic_cast&lt;Derived*&gt; (base_ptr_2);
+    // ok, base class polymorphic
+
+    Base* base_ptr_3 = new Base;
+    Derived* derived_ptr_3 = dynamic_cast&lt;Derived*&gt; (base_ptr_3);
+    // will not work, derived_ptr_3 will be assigned a nullptr
+
+    std::cout &lt;&lt; &quot;derived_ptr_2: &quot; &lt;&lt; derived_ptr_2 &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;derived_ptr_3: &quot; &lt;&lt;  derived_ptr_3 &lt;&lt; std::endl;
+    return 0;
+}
+</code></pre>
+<pre><code class="lang-cpp">derived_ptr_2: 0x7fa5cec00630
+derived_ptr_3: 0x0
+</code></pre>
+<p><br></p>
+<ul>
+<li><code>static_cast &lt; new_type&gt;( )</code>: used only with pointers (and/or references to objects); can cast <code>base-to-derived</code> or <code>derived-to-base</code>, but no safety check at run-time;</li>
+</ul>
+<pre><code class="lang-cpp">Base* base_ptr_3 = new Base;
+Derived* derived_ptr_3 = static_cast&lt;Derived*&gt; (base_ptr_3);
+// not nullptr this time, but lead to error when de-referencing derived_ptr_3
+</code></pre>
+<pre><code class="lang-cpp">derived_ptr_3: 0x7fc3d7400690
+</code></pre>
+<p><br></p>
+<ul>
+<li><code>reinterpret_cast &lt;new_type&gt;( )</code>: convert pointer to another unrelated class; often lead to unsafe de-referencing</li>
+</ul>
+<pre><code class="lang-cpp">class A {};
+class B {};
+
+A* a = new A;
+B* b = reinterpret_cast&lt;B*&gt; (a);
+</code></pre>
+<p><br></p>
+<ul>
+<li><code>const_cast &lt;new_type&gt;( )</code>: remove/set the constant-ness of an object</li>
+</ul>
+<h2 id="Array-C-Style"><a href="#Array-C-Style" class="headerlink" title="Array (C-Style)"></a>Array (C-Style)</h2><p>An array is a fixed collection of similar kinds of items that are stored in a contiguous block in memory. We define the size of the array at creation, and the array index starts a 0 in C++.</p>
+<pre><code class="lang-cpp">int a[10];
+int a[] {1, 2, 3} // uniform initializer syntax
+</code></pre>
+<p>The address of the array is the same as the address of the first element of the array. Therefore, we can access an array using pointer increment - very efficient.</p>
+<pre><code class="lang-cpp">int a[10];
+int* ptr = &amp;a[0]; // the same as int* ptr = a
+int a0 = a[0]; // the same as int a0 = *ptr
+int a3 = a[3]; // the same as int a3 = *(ptr+3) or *(a+3)
+</code></pre>
+<h2 id="Dynamic-Allocation"><a href="#Dynamic-Allocation" class="headerlink" title="Dynamic Allocation"></a>Dynamic Allocation</h2><p><code>Dynamic memory allocation</code> is necessary when you do NOT know the size of the array at compile time. We use a <code>new</code> keyword paired with a <code>delete</code> keyword.</p>
+<pre><code class="lang-cpp">int* a = new int[10];
+delete[] = a; // correct. this tells the CPU that it needs to clean up multiple variables instead of a single variable
+delete a; // incorrect. using this version will lead to a memory leak.
+</code></pre>
+<p>Dynamic allocate a <script type="math/tex">4\times4</script> matrix with cast.</p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
+void func(double** a) {
+    * a = new double[16];
+}
+
+
+int main() {
+    int (* a)[4];
+    func( (double**)&amp;a );
+
+    for (int i=0; i&lt;4; i++) {
+        for (int j=0; j&lt;4; j++) {
+            a[i][j] = 1;
+        }
+    }
+
+    for (int i=0; i&lt;4; i++) {
+        for (int j=0; j&lt;4; j++) {
+            std::cout &lt;&lt; a[i][j] &lt;&lt; &quot; &quot; ;
+        }
+        std::cout &lt;&lt; std::endl;
+    }
+}
+</code></pre>
+<pre><code>1 1 1 1
+1 1 1 1
+1 1 1 1
+1 1 1 1
+`
+</code></pre><h2 id="Library"><a href="#Library" class="headerlink" title="Library"></a>Library</h2><p>A C++ <code>library</code> is a package of reusable code typically with these two components:</p>
+<ul>
+<li>header file</li>
+<li>precompiled binary containing the machine code for functionality implemntation</li>
+</ul>
+<p>There are two types of c++ libraries: <code>static</code> and <code>dynamic</code> libraries.</p>
+<ul>
+<li>a <code>static</code> library has a <code>.a</code> (<code>.lib</code> on Windows) extension and the library codes are complied as part of the executable - so that user only need to distribute the executable for other users to run the file with a static library.</li>
+<li>a <code>dynamic</code> library has a <code>.so</code> (<code>.dll</code> on Windows) extension and is loaded at run times. It saves space as many program can share a copy of dynamic library code, and it can be upgraded to new versions without replacing all the executables using it.</li>
+</ul>
+<h1 id="Condition"><a href="#Condition" class="headerlink" title="Condition"></a>Condition</h1><h2 id="If-Else"><a href="#If-Else" class="headerlink" title="If/Else"></a>If/Else</h2><pre><code class="lang-cpp">if (condition_1)
+{
+   statement1;
+}
+else if (condition_2)
+{
+  statement2;
+}
+else
+{
+  statement2;
+}
+</code></pre>
+<h2 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h2><p>A switch statement tests an integral or enum value against a set of constants. we can NOT use a string in the switch statement.</p>
+<pre><code class="lang-cpp">int main()
+{
+    int value = 0;
+    cin &gt;&gt; value;
+    switch(value)
+    {
+        case 0:
+            cout &lt;&lt; &quot;value is zero&quot;;
+            break; // if remove this break, it will also show case 1 even if value is 0
+        case 1:
+            cout &lt;&lt; &quot;value is one&quot;;
+            break;
+        default:
+            cout &lt;&lt; &quot;value is not 0 or 1&quot;;
+    }
+}
+</code></pre>
+<h2 id="While-Do-While-For-Loop"><a href="#While-Do-While-For-Loop" class="headerlink" title="While / Do While / For Loop"></a>While / Do While / For Loop</h2><p>While loop:</p>
+<pre><code class="lang-cpp">int n = 0;
+while (n &lt; 10)
+{
+    cout &lt;&lt; &quot; n: &quot; &lt;&lt; n &lt;&lt; endl;
+    n = n + 1;
+}
+</code></pre>
+<p>Do while loop:</p>
+<pre><code class="lang-cpp">
+do {
+    cout &lt;&lt; &quot;Enter number (0 to end): &quot;;
+    cin &gt;&gt; n;
+    cout &lt;&lt; &quot;You entered: &quot; &lt;&lt; n &lt;&lt; &quot;\n&quot;;
+ } while (n != 0);
+</code></pre>
+<p>For loop:</p>
+<pre><code class="lang-cpp">for (unsigned int n = 0; n &lt; 10; ++n)
+{
+    cout &lt;&lt; &quot;n: &quot; &lt;&lt; n &lt;&lt; endl;
+}
+</code></pre>
+<p>For loop with two variables:</p>
+<pre><code class="lang-cpp">for (unsigned int i = 0, j = 0; i &lt; 10 &amp;&amp; j &lt; 10; ++i, j+=2)
+{
+    cout &lt;&lt; &quot;i:&quot; &lt;&lt; i &lt;&lt; &quot;, j:&quot; &lt;&lt; j &lt;&lt; endl;
+}
+</code></pre>
+<h2 id="Enum"><a href="#Enum" class="headerlink" title="Enum"></a>Enum</h2><p>The <code>enum</code> (enumerated) type is used to define collections of named integar constants.</p>
+<pre><code class="lang-cpp">enum CurrencyType {USD, EUR, GBP};
+cout &lt;&lt; USD &lt;&lt; &quot; &quot; &lt;&lt; EUR &lt;&lt; &quot; &quot; &lt;&lt; GBP;
+0 1 2
+
+enum CurrencyType {USD, EUR=10, GBP};
+cout &lt;&lt; USD &lt;&lt; &quot; &quot; &lt;&lt; EUR &lt;&lt; &quot; &quot; &lt;&lt; GBP;
+0 10 11
+</code></pre>
+<h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><p>A <code>class</code> achieve data <code>abstraction</code> and <code>encapsulation</code>.</p>
+<ul>
+<li>abstraction refers to the separation of interface and implementation</li>
+<li>encapsulation refers to combining data and functions so that data is only accessible through functions.</li>
+</ul>
+<h2 id="Member-Variable-amp-Function"><a href="#Member-Variable-amp-Function" class="headerlink" title="Member Variable &amp; Function"></a>Member Variable &amp; Function</h2><p>Define a customer class with member variable and function.</p>
+<pre><code class="lang-cpp">class Customer
+{
+public:
+    Customer(); // default constructor
+    Customer(string name, string address);
+    ~Customer(); // destructor, to free up resources
+
+    string GetName();
+    string GetAddress();
+    void SetAddress(string address);
+
+private:
+    string name_;
+    string address_;
+};
+</code></pre>
+<p>Instantiate Customer class instances to represent different customer.</p>
+<pre><code class="lang-cpp">Customer c1(&quot;Joe&quot;, &quot;Hyde Park&quot;);
+Customer c2(&quot;Jim&quot;, &quot;Chicago&quot;);
+Customer c3(&quot;John&quot;, &quot;New York&quot;);
+
+// Use `.` to access member function.
+c1.GetName()
+c2.SetAddress(&quot;Beijing&quot;)
+</code></pre>
+<h2 id="Protection-Level"><a href="#Protection-Level" class="headerlink" title="Protection Level"></a>Protection Level</h2><p>There are three protection levels to keep class data member internal to the class.</p>
+<ol>
+<li><strong><em>public</em></strong> accessible to all.</li>
+<li><strong><em>protected</em></strong> accessible in the class that defines them and in classes that <code>inherit</code> from that class.</li>
+<li><strong><em>private</em></strong> only accessible within the class defining them.</li>
+</ol>
+<h2 id="Constructor-Destructor"><a href="#Constructor-Destructor" class="headerlink" title="Constructor / Destructor"></a>Constructor / Destructor</h2><p>A <code>constructor</code> is a special member functions used to initialize the data members when an object is created. This is an example to use <code>initializer list</code> to create more efficient constructors</p>
+<pre><code class="lang-cpp">Customer::Customer()
+    : name_(&quot;&quot;),
+    address_(&quot;&quot;)
+{
+    // name_ = &quot;&quot;;
+    // address_ = &quot;&quot;;
+}
+
+Customer::Customer(string name, string address)
+    : name_(name),
+    address_(address)
+{}
+
+Customer::~Customer()
+{}
+</code></pre>
+<h2 id="Free-Store"><a href="#Free-Store" class="headerlink" title="Free-Store"></a>Free-Store</h2><p>There are several ways to create objects on a computer:</p>
+<ul>
+<li><p><strong><em>Automatic/Stack</em></strong> <code>int a;</code></p>
+</li>
+<li><p><strong><em>Dynamic Allocated</em></strong></p>
+<ul>
+<li><strong><em>Free Store</em></strong> <code>int* ptr = new a[10];</code></li>
+<li><strong><em>Heap</em></strong> allocated/freed by <code>malloc/free</code></li>
+</ul>
+</li>
+</ul>
+<p>Summarized in a table from <a href="https://www.geeksforgeeks.org/stack-vs-heap-memory-allocation/">geeksforgeeks</a></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Stack</th>
+<th>Heap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic</td>
+<td>Memory is allocated in a contiguous block</td>
+<td>Memory is allocated in any random order</td>
+</tr>
+<tr>
+<td>Allocated and de-allocation</td>
+<td>Automatic by compiler instructions</td>
+<td>Manual by programmer</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Less</td>
+<td>More</td>
+</tr>
+<tr>
+<td>Access time</td>
+<td>Faster</td>
+<td>Slower</td>
+</tr>
+<tr>
+<td>Main issue</td>
+<td>Shortage of memory</td>
+<td>Memory leak/fragmentation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We use <code>-&gt;</code> to access free-store object’s member functions:</p>
+<pre><code class="lang-cpp">Customer* c = new Customer(&quot;Joe&quot;, &quot;Chicago&quot;);
+c-&gt;GetName()
+c-&gt;SetAddress(&quot;New York&quot;)
+</code></pre>
+<h2 id="Const-Member-Functions"><a href="#Const-Member-Functions" class="headerlink" title="Const Member Functions"></a>Const Member Functions</h2><p>A <code>const object</code> can only invoke <code>const member function</code> on the class. A const member function is not allowed to modify any of the data members on the object on which it is invoked. However, if a data member is marked <code>mutable</code>, it then can be modified inside a const member function.</p>
+<pre><code class="lang-cpp">const Customer c1(&quot;Joe&quot;, &quot;Hyde Park&quot;);
+cout &lt;&lt; c1.GetName(); // ok if GetName() is a const member function.
+</code></pre>
+<h2 id="Static-Member"><a href="#Static-Member" class="headerlink" title="Static Member"></a>Static Member</h2><p>We use <code>static</code> keyword to associate a member with the class, as oppose to class instances. A static data member can NOT be accessed directly using a non-static member function.</p>
+<p>Static member variables can NOT be initialized through the class constructor, rather, they are initialized once outside the class body. However, a const static member variable can be initialized within the class body.</p>
+<pre><code class="lang-cpp">class Counter
+{
+public:
+    Counter();
+    static int GetCount();
+    static void Increment();
+private:
+    static int count_; // non-const static need to be initialized outside
+    const static int count_2_ = 0; // const static can be initialized within
+};
+
+int Counter::count_ = 0;
+
+Counter c;
+c.Increment(); // or Counter::Increment()
+</code></pre>
+<h2 id="This"><a href="#This" class="headerlink" title="This"></a>This</h2><p>Every non-static member function has access to a <code>this</code> pointer, which is initialized with the address of the object when the member function is invoked.</p>
+<pre><code class="lang-cpp">double Currency::GetExchangeRate()
+{
+   return exchangeRate_;
+   return this-&gt;exchangeRate_; // equivalent
+   return (*this).exchangeRate_; // equivalent
+}
+</code></pre>
+<h2 id="Copy-Constructor"><a href="#Copy-Constructor" class="headerlink" title="Copy Constructor"></a>Copy Constructor</h2><p>We use the copy constructor to construct an object from another already constructed object of the same type.</p>
+<pre><code class="lang-cpp">class Customer
+{
+    Customer(const Customer&amp; other);
+};
+
+Customer::Customer(const Customer&amp; other)
+    : name_(other.name_)
+    address_(other.address_)
+{}
+
+Customer c2(c1);
+</code></pre>
+<h2 id="Assignment-Operator"><a href="#Assignment-Operator" class="headerlink" title="Assignment Operator"></a>Assignment Operator</h2><p>We use the assignment operator to assign an object of the same type.</p>
+<pre><code class="lang-cpp">class Customer
+{
+    Customer&amp; operator=(const Customer&amp; other);
+};
+
+Customer&amp; Customer::operator=(const Customer&amp; other)
+{
+   if (this != &amp;other)  //checking for self assignment
+   {
+       name_    =  other.name_;
+       address_ =  other.address_;
+   }
+   //return the object on which the function was invoked
+   return (*this);
+}
+</code></pre>
+<h2 id="Shallow-Deep-Copy"><a href="#Shallow-Deep-Copy" class="headerlink" title="Shallow / Deep Copy"></a>Shallow / Deep Copy</h2><p>The default copy constructor and assignment operator provides <code>shallow copy</code>, which copies each member of the class individually. For pointer member, the shallow copying copies the address of the pointer, resulting in both members pointing to the same object on the free store.</p>
+<p>A <code>deep copy</code>, however, creates a new object on the free store and copy the contents of the object the original pointer is pointing to.</p>
+<p><strong><em>Deep Copy</em></strong> copy constructor</p>
+<pre><code class="lang-cpp">Customer::Customer(const Customer&amp; other)
+    :name_(other.name_),
+     address_(other.address_),
+     account_(new Account(other.account_-&gt;GetAccountNumber(),
+              other.account_-&gt;GetAccountBalance()))
+{}
+</code></pre>
+<p><strong><em>Deep Copy</em></strong> assignment operator</p>
+<pre><code class="lang-cpp">Customer&amp; Customer::operator=(const Customer&amp; other)
+{
+    if (this != &amp;other)
+    {
+       name_ = other.name_;
+       address_ = other.address_;
+       delete account_;
+       account_= new Account(other.account_-&gt;GetAccountNumber(),
+                           other.account_-&gt;GetAccountBalance());
+    }
+    return (*this);
+}
+</code></pre>
+<h2 id="The-Rule-of-3"><a href="#The-Rule-of-3" class="headerlink" title="The Rule of 3"></a>The Rule of 3</h2><p>There are 3 operations that control the copies of an object: copy constructor, assignment operator, and destructor. If you define one of them, you will most likely need to define the other two as well.</p>
+<h2 id="Singleten-Class"><a href="#Singleten-Class" class="headerlink" title="Singleten Class"></a>Singleten Class</h2><p>The <code>Singleton</code> design pattern makes sure only one instance of an object of a given type is instantiated in a program, and provides a global point of access to it</p>
+<ol>
+<li>change the access level of the constructor to private</li>
+<li>add new public member function <code>Instance()</code> to create the object</li>
+<li>use static member variable to hold the object</li>
+</ol>
+<pre><code class="lang-cpp">class CurrencyFactory
+{
+public:
+   static CurrencyFactory* Instance();
+   Currency CreateCurrency(int currencyType);
+
+private:
+   CurrencyFactory();
+   static CurrencyFactory* instance_;
+};
+</code></pre>
+<pre><code class="lang-cpp">CurrencyFactory* CurrencyFactory::Instance()
+{
+    if (!instance_)
+        instance_ = new CurrencyFactory;
+    return instance_; // no more than one CurrencyFactory object.
+}
+
+Currency CurrencyFactory::CreateCurrency(int currencyType)
+{
+    switch(currencyType)
+    {
+      case EUR:
+         return Currency(&quot;EUR&quot;, 0.7901);
+      case GBP:
+         return Currency(&quot;GBP&quot;, 0.6201);
+      case CAD:
+         return Currency(&quot;CAD&quot;, 1.1150);
+      case AUD:
+         return Currency(&quot;AUD&quot;, 1.1378);
+      default:
+         return Currency(&quot;USD&quot;, 1.0);
+    }
+}
+</code></pre>
+<pre><code class="lang-cpp">#include &quot;CurrencyFactory.h&quot;
+int main()
+{
+    cout &lt;&lt; &quot;Enter amount in USD:&quot;;
+    double amount;
+    cin &gt;&gt; amount;
+
+    cout &lt;&lt; &quot;Enter currency to convert to (ECU/GBP/CHF/JPY): &quot;;
+    string symbol;
+    cin &gt;&gt; symbol;
+
+    double convertedAmount = 0.0;
+    Currency currency = CurrencyFactory::Instance()-&gt;CreateCurrency(symbol);
+    cout &lt;&lt; currency.ConvertFromUSD(amount) &lt;&lt; endl;
+}
+</code></pre>
+<h2 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h2><p>Classes related by <code>inheritance</code> form a hierachy consisting of base and derived classes. The <code>derived</code> class inherit some members from the base class subject to protection level restrictions, and may extend/override implementation of member functions in the base class.</p>
+<pre><code class="lang-cpp">class Person
+{
+protected:
+    string name_;
+    string address_;
+};
+class Student : public Person
+{
+    string school_;
+};
+</code></pre>
+<p><br><img src="cpp-review-Screen Shot 2019-05-09 at 2.34.31 PM.png" height="300"><br></p>
+<h2 id="Virtual"><a href="#Virtual" class="headerlink" title="Virtual"></a>Virtual</h2><p>Different derived classes may inplement member functions from the base class differently. The base class uses <code>virtual</code> keyword to indicate a member function that may be specialized by derived classes.</p>
+<pre><code class="lang-cpp">class Base
+{
+public:
+    virtual void Method1();
+    virtual void Method2();
+    void Method3();
+};
+class Derived : public Base
+{
+    void Method1(); // specializes Method1()
+    // uses default implementation of Method2()
+    // can NOT specialize Method3()
+};
+</code></pre>
+<h2 id="Abstract-Class"><a href="#Abstract-Class" class="headerlink" title="Abstract Class"></a>Abstract Class</h2><p>The base class <code>has to</code> either provide a default implementation for that function or declare it <code>pure virtual</code>. If a class has one or more pure virtual function, it is called an <code>abstract class</code> or <code>interface</code>. An abstract class cannot be instantiated.</p>
+<pre><code class="lang-cpp">class Base
+{
+public:
+    virtual void Method1() = 0;
+};
+class Derived : public Base
+{
+    // this derived is also an abstract
+};
+</code></pre>
+<h2 id="Virtual-Destructor"><a href="#Virtual-Destructor" class="headerlink" title="Virtual Destructor"></a>Virtual Destructor</h2><p>When we delete a derived class we should execute both the derived class destructor and the base class destructor. A <code>virtual base class destructor</code> is needed to make sure the destructors are called properly when a derived class object is <code>deleted through a pointer to a base class</code>.</p>
+<p>If we delete a derived class object through a pointer to a base class when the base class destructor is non-virtual, the result is <code>undefined</code>.</p>
+<h2 id="Polymorphism"><a href="#Polymorphism" class="headerlink" title="Polymorphism"></a>Polymorphism</h2><p>The types related by inheritance are known as <code>polymorphic</code>. types. We can use polymorphic types interchangeably.</p>
+<p>We can use a <code>pointer</code> or a <code>reference</code> to a base class object to point to an object of a derived class – this is known as the <code>Liskov Substitution Principle</code> (LSP). This allows us to write code without needing to know the dynamic type of an object</p>
+<pre><code class="lang-cpp">BankAccount* acc1 = new Savings();
+acc1-&gt;ApplyInterest(); // ApplyInterest() on the Savings object
+
+BankAccount* acc2 = new Checking();
+acc2-&gt;ApplyInterest(); // ApplyInterest() on the Checking object
+</code></pre>
+<p>We can write one function which applies to all account types.</p>
+<pre><code class="lang-cpp">void UpdateAccount(BankAccount* acc)
+{
+    acc-&gt;ApplyBankingFees();
+    acc-&gt;ApplyInterest();
+}
+</code></pre>
+<pre><code class="lang-cpp">void UpdateAccount(BankAccount&amp; acc)
+{
+    acc.ApplyBankingFees();
+    acc.ApplyInterest();
+}
+</code></pre>
+<h1 id="Standard-Template-Library-STL"><a href="#Standard-Template-Library-STL" class="headerlink" title="Standard Template Library (STL)"></a>Standard Template Library (STL)</h1><h2 id="Sequential-Container"><a href="#Sequential-Container" class="headerlink" title="Sequential Container"></a>Sequential Container</h2><h3 id="std-array"><a href="#std-array" class="headerlink" title="std::array"></a>std::array</h3><p>The STL array class from offers a more efficient and reliable alternative for C-style arrays, where size is known and we do not have to pass size of array as separate parameter.</p>
+<pre><code class="lang-cpp">#include &lt;array&gt;
+array &lt;int&gt; a1 = {1, 2, 3};
+
+a1.front();
+a1.back();
+a1.size();
+a1.at(1);
+get&lt;1&gt;(a1);
+</code></pre>
+<h3 id="std-vector"><a href="#std-vector" class="headerlink" title="std::vector"></a>std::vector</h3><p>Vectors are the stored contiguously same as <em>dynamic arrays</em> with the ability to resize itself automatically when an element is inserted or deleted. Vector size is double whenever half is reached.</p>
+<pre><code class="lang-cpp">#include &lt;vector&gt;
+vector&lt;int&gt; v1;
+
+v1.begin();
+v1.end();
+v1.size();
+
+v1.push_back(); // pushes the elements into a vector from the back
+v1.pop_back(); // removes the elements from a vector from the back.
+
+v1.insert(i); // inserts new elements before the element at the specified position
+v1.assign(i); // assigns new value to the vector elements by replacing old ones
+v1.erase(i); // removes elements from a container from the specified position or range
+</code></pre>
+<h3 id="std-list"><a href="#std-list" class="headerlink" title="std::list"></a>std::list</h3><p>Different from arrays and vectors, A <strong><em>list</em></strong> is  a sequential container that allows non-contiguous memory allocation.</p>
+<pre><code class="lang-cpp">#include &lt;list&gt;
+list&lt;int&gt; l1;
+for (int i = 0; i &lt; 10; i++) {
+    l1.front(); // returns the value of the first element
+    l1.back(); // returns the value of the last element
+
+    l1.push_front(i); // adds a new element ‘i’ at the beginning of the list
+    l1.push_back(i); // adds a new element ‘i’ at the back of the list
+
+    l1.pop_front(); // removes the first element and reduces list size by 1
+    l1.pop_back(); // removes the last element and reduces list size by 1
+
+    l1.begin(); // returns an iterator pointing to the first element of the list
+    l1.end(); // returns an iterator pointing to the last element of the list    
+}
+</code></pre>
+<h3 id="std-string"><a href="#std-string" class="headerlink" title="std::string"></a>std::string</h3><p>The STL string class stores the characters as a sequence of bytes, allowing access to single byte character. Any string is terminated by a <code>\0</code>, so the string <code>foo</code> actually stores four characters.</p>
+<h3 id="size"><a href="#size" class="headerlink" title="size()"></a>size()</h3><p>The use <code>sizeof()</code> to return the size of an array in bytes. Use <code>.size()</code> member function to return the number of elements in a STL container.  </p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+    int a[5] {1, 2, 3, 4, 5};
+    cout &lt;&lt; &quot;The size of a: &quot; &lt;&lt; sizeof(a) &lt;&lt; &quot; bytes&quot; &lt;&lt; endl;
+
+    vector&lt;int&gt; b {1, 2, 3, 4, 5};
+    cout &lt;&lt; &quot;The size of b: &quot; &lt;&lt; sizeof(b) &lt;&lt; &quot; bytes&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;The size of b: &quot; &lt;&lt; b.size() &lt;&lt; &quot; elements&quot; &lt;&lt; endl;
+
+}
+</code></pre>
+<pre><code class="lang-cpp">The size of a: 20 bytes
+The size of b: 24 bytes
+The size of b: 5 elements
+</code></pre>
+<h2 id="Associative-Container"><a href="#Associative-Container" class="headerlink" title="Associative Container"></a>Associative Container</h2><h3 id="std-set"><a href="#std-set" class="headerlink" title="std::set"></a>std::set</h3><p>Sets are an associative container where each element is unique. The value of the element cannot be modified once it is added to the set.</p>
+<pre><code class="lang-cpp">#include &lt;set&gt;
+set&lt;int&gt; s1;
+for (int i = 0; i &lt; 10; i++) {
+    s1.begin();
+    s1.end();
+    s1.size();
+
+    s1.insert(i);
+    s1.erase(i);
+    s1.find(i);
+}
+</code></pre>
+<h3 id="std-map"><a href="#std-map" class="headerlink" title="std::map"></a>std::map</h3><p>A <code>std::map</code> sorts its elements by the keys.</p>
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><p>The STL provides implementations of some widely used algorithms.</p>
+<ul>
+<li>&lt;<strong><em>algorithms</em></strong>&gt; <a href="https://docs.microsoft.com/en-us/cpp/standard-library/algorithm?view=vs-2019">header</a>: sorting, searching, copying, modifying elements</li>
+<li>&lt;<strong><em>numeric</em></strong>&gt; <a href="http://www.cplusplus.com/reference/numeric/">header</a>: numeric operation</li>
+</ul>
+<h3 id="Sort"><a href="#Sort" class="headerlink" title="Sort"></a>Sort</h3><pre><code class="lang-cpp">int main()
+{
+    vector&lt;int&gt; values{10, 1, 22, 12, 2, 7};
+    //sort takes a range
+    sort(values.begin(), values.end());
+}
+</code></pre>
+<h3 id="Binary-Search"><a href="#Binary-Search" class="headerlink" title="Binary Search"></a>Binary Search</h3><pre><code class="lang-cpp">int main()
+{
+    vector&lt;int&gt; values{10, 1, 22, 12, 2, 7};
+    //binary_search takes a range and a value
+    bool found = binary_search(values.begin(), values.end(), 12);
+}
+</code></pre>
+<h3 id="Copy"><a href="#Copy" class="headerlink" title="Copy"></a>Copy</h3><pre><code class="lang-cpp">int main()
+{
+    vector&lt;int&gt; values1{ 10, 1, 22, 12, 2, 7 };
+    //destination
+    vector &lt;int&gt; values2;
+    copy(values1.begin(), values1.end(),  //input range
+        back_inserter(values2));         //output iterator
+}
+</code></pre>
+<h3 id="Replace"><a href="#Replace" class="headerlink" title="Replace"></a>Replace</h3><pre><code class="lang-cpp">int main()
+{
+    vector&lt;int&gt; values{ 10, 1, 22, 12, 2, 7 };
+    replace(values.begin(), values.end(),  //range
+            1,                             //old value
+            111);                          //new value
+}
+</code></pre>
+<h3 id="Numeric"><a href="#Numeric" class="headerlink" title="Numeric"></a>Numeric</h3><pre><code class="lang-cpp">int main()
+{
+    vector&lt;int&gt; v2{ 5, 4, 3, 2, 1 };
+    vector&lt;int&gt; v2{ 1, 2, 3, 4, 5 };
+    int r1 = accumulate(v1.begin(), v1.end(), 0);  //range
+
+    int r2 = inner_product(v1.begin(), v1.end(),
+                           v2.begin(), 0);
+}
+</code></pre>
+<h3 id="Complexity-Comparison"><a href="#Complexity-Comparison" class="headerlink" title="Complexity Comparison"></a>Complexity Comparison</h3><p><img src="cpp-review-complexity.png" alt="complexity.png"></p>
+<h2 id="Smart-Pointer"><a href="#Smart-Pointer" class="headerlink" title="Smart Pointer"></a>Smart Pointer</h2><h3 id="std-unique-ptr"><a href="#std-unique-ptr" class="headerlink" title="std::unique_ptr"></a>std::unique_ptr</h3><p>A <code>unique pointer</code> takes unique ownership in its pointed <code>object</code>. The unique pointer delete the object they managed either when the unique pointer is destroyed or when the object’s value changes.</p>
+<pre><code class="lang-cpp">#include &lt;memory&gt;
+
+std::unique_ptr&lt;Option&gt; sp(new Option());
+// initates a smart pointer (or through reset: sp.resert(Option()).)
+
+std::unique_ptr&lt;Option&gt; sp2(sp);
+// error: does not allow two reference (sp, sp2) to the same object (new Option());
+
+std::unique_ptr&lt;Option&gt; sp2(std::move(sp));
+// now sp is destroyed and sp2 takes ownership of the Option object
+
+sp2-&gt;getPrice();
+// smart pointer can be used as regular pointer
+</code></pre>
+<h3 id="std-shared-ptr"><a href="#std-shared-ptr" class="headerlink" title="std::shared_ptr"></a>std::shared_ptr</h3><p>The <code>shared pointer</code> counts the reference to its pointed object and can store and pass a reference beyond the scope of a function. In OOP, the share pointer is used to store a pointer as a member variable and can be used to reference value outside the scope of the class.</p>
+<pre><code class="lang-cpp">std::share_ptr&lt;Option&gt; sp2;
+{
+    std::share_ptr&lt;Option&gt; sp(new Option());
+    sp2=sp;
+}
+sp2-&gt;getPrice();
+// the Option object is not deleted after local scope ends
+</code></pre>
+<p>Creating a vector of shared_ptr:</p>
+<pre><code class="lang-cpp">#include &lt;vector&gt;
+std::vector&lt;std::shared_ptr&lt;Option&gt;&gt; option_list;
+for (int i=0; i&lt; 10; i++) {
+    option_list.push_back(std::shared_ptr&lt;Option&gt;(new Option(i)));
+}
+</code></pre>
+<h3 id="std-weak-ptr"><a href="#std-weak-ptr" class="headerlink" title="std::weak_ptr"></a>std::weak_ptr</h3><p>A <code>weak_ptr</code> works the same as <code>shared pointer</code>, but will not increment the reference count.</p>
+<pre><code class="lang-cpp">std::weak_ptr&lt;Option&gt; sp2;
+{
+    std::share_ptr&lt;Option&gt; sp(new Option());
+    sp2=sp;
+}
+sp2-&gt;getPrice(); // error! the Option object does not exist beyond scope.
+</code></pre>
+<h1 id="Parallel-Processing"><a href="#Parallel-Processing" class="headerlink" title="Parallel Processing"></a>Parallel Processing</h1><h2 id="Threading"><a href="#Threading" class="headerlink" title="Threading"></a>Threading</h2><p>A <code>thread</code> is a small sequence of programmed instruction and is usually a component of a <code>process</code>. <code>Multi-threading</code> can exist within one process, executing <code>concurrently</code> and share resources such as memory, while processes do not share their resources.</p>
+<p>The <code>std::thread</code> class in c++ supports multi-threading, and can be initiated to represent a single thread. We need to pass a callable object (function pointer, function, or lambda) to the constructor of the std::thread class. We use the <code>std::thread.join()</code> method to wait for the copmletion of a thread.</p>
+<p>Here we initiate two threads. Both threads share memory and attempt to modify the <code>balance</code> variable at the same time which lead to concurrency issue.</p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+
+int main() {
+
+    int balance = 0;
+
+    // t1 starts
+    thread t1([&amp;balance] {for (int i=0; i&lt;1000000; i++) {balance++;}});
+
+    // t2 starts
+    thread t2([&amp;balance] {for (int i=0; i&lt;1000000; i++) {balance--;}});
+
+    t1.join(); // the main() waits here until t1 completes
+    t2.join(); // the main() waits here until t2 completes
+
+    cout &lt;&lt; balance &lt;&lt; endl;
+    cout &lt;&lt; &quot;END OF CODE&quot; &lt;&lt; endl;
+}
+</code></pre>
+<pre><code class="lang-cpp">153258
+END OF CODE
+</code></pre>
+<p>We introduce the an <code>mutex</code>, or mutual exclusive, object, which contains a unique id for the resources allocated to the program. A thread can <code>lock</code> the resource by a <code>std::mutex.lock()</code> method, which prevent other thread from sharing the resource until the mutex becomes unlocked.</p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;mutex&gt;
+
+using namespace std;
+
+int main() {
+
+    int balance = 0;
+    mutex m;
+
+    // t1 starts
+    thread t1([&amp;balance, &amp;m] {for (int i=0; i&lt;1000000; i++) {
+        m.lock();
+        balance++;
+        m.unlock();
+    }});
+
+    // t2 starts
+    thread t2([&amp;balance, &amp;m] {for (int i=0; i&lt;1000000; i++) {
+        m.lock();
+        balance--;
+        m.unlock();
+    }});
+
+    t1.join(); // the main() waits here until t1 completes
+    t2.join(); // the main() waits here until t2 completes
+
+    cout &lt;&lt; balance &lt;&lt; endl;
+    cout &lt;&lt; &quot;END OF CODE&quot; &lt;&lt; endl;
+}
+</code></pre>
+<pre><code class="lang-cpp">0
+END OF CODE
+</code></pre>
+<h2 id="Condition-Variable"><a href="#Condition-Variable" class="headerlink" title="Condition Variable"></a>Condition Variable</h2><p>A <code>condition variable</code> is an object that can block the calling thread until notified to resume. It uses a <code>unique_lock</code> (over a <code>mutex</code>) to lock the thread when one of its <code>wait</code> functions is called.</p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
+#include &lt;mutex&gt;
+#include &lt;thread&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+mutex m;
+condition_variable cv;
+vector&lt;int&gt; v;
+
+bool ready = false;
+bool processed = false;
+
+void make_vector() {
+
+    unique_lock&lt;std::mutex&gt; lk(m); // own the mutex
+    cv.wait(lk, []{return ready;}); // wait until main() sends data
+
+    for (int k = 0; k &lt; 10; ++k) {
+        v.push_back(k);
+    }
+
+    processed = true;
+    lk.unlock(); // manual unlocking is done before notifying
+    cv.notify_one();
+    // unblocks one of the threads currently waiting for this condition
+    // if no threads are waiting, the function does nothing
+    // if more than one threads are waiting, it is unspecified which will be selected
+}
+
+int main() {
+    thread t(make_vector);
+
+    ready = false;
+    processed = false;
+    {
+        cout &lt;&lt; &quot;main() signals ready for processing\n&quot;;
+        ready = true;
+    }
+    cv.notify_one();
+
+    {
+        unique_lock&lt;std::mutex&gt; lk(m); // own the mutex
+        cv.wait(lk, []{return processed;}); // wait for cv.notify_one
+        cout &lt;&lt; &quot;back to main(), vector is processed\n&quot;;
+    }
+
+    for (auto i : v)
+    {
+        cout &lt;&lt; i &lt;&lt; &quot; &quot;;
+    }
+
+    t.join();
+}
+</code></pre>
+<pre><code class="lang-cpp">main() signals ready for processing
+back to main(), vector is processed
+0 1 2 3 4 5 6 7 8 9
+</code></pre>

@@ -1,0 +1,321 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>&#128214; Notes on MSFM - Foreign Exchange · Rongjia Liu</title><meta name="description" content="&amp;#128214; Notes on MSFM - Foreign Exchange - Rongjia Liu"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/arctic.css"><link rel="search" type="application/opensearchdescription+xml" href="http://rliu6.com/atom.xml" title="Rongjia Liu"><script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/search/" target="_self" class="nav-list-link">SEARCH</a></li><!-- li.nav-list-item--><!--    a.nav-list-link(class="search" href=url_for("search") target="_self") <i class="fa fa-search" aria-hidden="true"></i>--></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">&#128214; Notes on MSFM - Foreign Exchange</h1><div class="post-info"><!-- if is_post()--><!--     span &#128197; &nbsp;-->Dec 4, 2019<!-- if is_post()--><!--    span#busuanzi_container_page_pv | &#128065;--><!--    span#busuanzi_value_page_pv--><!--    if item.tags--><!--        span | &nbsp;--><!--        for tag in item.tags.toArray()--><!--            a(href=url_for(tag.path))=  '#' + tag.name--><!-- if item.from && (is_home() || is_post())--><!--    a.post-from(href=item.from target="_blank" title=item.from)!= __('translated')-->
+</div><div class="post-content"><style type="text/css">
+    img.resize {
+        max-width:50%;
+        max-height:50%;
+    }
+</style>
+
+<a id="more"></a>
+<h1 id="Theoretical-Pricing"><a href="#Theoretical-Pricing" class="headerlink" title="Theoretical Pricing"></a>Theoretical Pricing</h1><h2 id="FX-Spot-Contract"><a href="#FX-Spot-Contract" class="headerlink" title="FX Spot Contract"></a>FX Spot Contract</h2><p>The <code>spot price</code> <script type="math/tex">S_t</script> is the observable market price of <script type="math/tex">1</script> unit of foeign currency. Let <script type="math/tex">\mathbb{F}</script> denote foreign currency and <script type="math/tex">\mathbb{D}</script> denote domestic currency:</p>
+<script type="math/tex; mode=display">1\mathbb{F} = S_t \mathbb{D}</script><p>A <code>FX spot contract</code> is an agreement where the buyer purchase <script type="math/tex">1</script> units of foreign currency at a fixed rate <script type="math/tex">R</script> at current time <script type="math/tex">t</script>.</p>
+<script type="math/tex; mode=display">Buyer \;  \dfrac{\leftarrow 1\mathbb{F}}{R\mathbb{D} \rightarrow} \; Seller</script><p>The contract value to the buyer is:</p>
+<script type="math/tex; mode=display">1\mathbb{F} - R\mathbb{D} = (S_t - R)\mathbb{D}</script><h2 id="FX-Forward-Contract"><a href="#FX-Forward-Contract" class="headerlink" title="FX Forward Contract"></a>FX Forward Contract</h2><p>Denote domestic interest rate = <script type="math/tex">r^{d}</script>. The price of domestic zero-coupon bond <script type="math/tex">P^d(\tau) = e^{-r^{d}\tau}</script></p>
+<p>A <code>FX forward contract</code> is an agreement where the buyer agree to purchase <script type="math/tex">1</script> units of foreign currency at a fixed rate <script type="math/tex">R</script> at future time <script type="math/tex">T</script>:</p>
+<script type="math/tex; mode=display">Buyer \; \dfrac{\leftarrow \text{1}\mathbb{F}}{R\mathbb{D} \rightarrow} \; Seller</script><p>The time-<script type="math/tex">t</script> value of a forward contract is:</p>
+<script type="math/tex; mode=display">\begin{align}
+PV_t^{forward} &= PV_t (1\mathbb{F} - R\mathbb{D}) \\
+&= P^{f} \mathbb{F} - P^{d} R\mathbb{D} \\
+&= P^{f} S_t \mathbb{D} - P^{d} R\mathbb{D} \\
+&= [S_t e^{-r^f(T - t)} - R e^{-r^{d}(T - t))}] \mathbb{D} \\
+\end{align}</script><p>We set <script type="math/tex">PV_t^{forward}=0</script> to calculate the <code>forward price</code> <script type="math/tex">F_t</script> at time <script type="math/tex">t</script>. The equation is also called the <code>covered interest parity</code>, or CIP:</p>
+<script type="math/tex; mode=display">F_t = S_t e^{(r^{d} - r^f)(T - t)}</script><h3 id="Non-Deliverable-forward"><a href="#Non-Deliverable-forward" class="headerlink" title="Non-Deliverable forward"></a>Non-Deliverable forward</h3><p><code>Non-deliverable</code> currency has restricted exchange by local regulations. CIP does not hold since covered interest arbitrage is not possible. For example:</p>
+<p>Asia</p>
+<ul>
+<li>CNY: China Yuan</li>
+<li>TWD: New Taiwan Dollar</li>
+<li>KRW: South Korean Won</li>
+<li>INR: India Rupee</li>
+<li>PHP: Philippine Piso</li>
+<li>IDR: Indonesia Rupiah</li>
+<li>MYR: Malaysian Ringgit</li>
+</ul>
+<p>Latin America:</p>
+<ul>
+<li>COP: Colombian Peso</li>
+<li>VEB: Venezuelan Bolívar</li>
+<li>BRL: Brazilian Real</li>
+<li>PEN: Peru Sol</li>
+<li>UYU: Uruguayan Peso</li>
+<li>CLP: Chilean Peso</li>
+<li>ARS: Argentine Peso</li>
+</ul>
+<p>Europe, Middle East and Africa:</p>
+<ul>
+<li>EGP: Egyptian Pound</li>
+<li>KZT: Kazakhstani Tenge</li>
+</ul>
+<p>Given CIP, we can calculate the <code>implied yield</code>, which is the foreign interest rate implied by the forward rate, domestic spot rate and domestic interest rate.</p>
+<script type="math/tex; mode=display">r^f_{implied} = r^{d} - \dfrac{\log{F_t/S_t}}{T - t}</script><p>We know that the exponential function <script type="math/tex">e^x</script> can be expressed as the sum of the Maclaurin series:</p>
+<script type="math/tex; mode=display">e^x = \sum_{n = 1}^{\infty} \dfrac{x^n}{n!} = 1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} ...</script><p>Applying this to the forward rate:</p>
+<script type="math/tex; mode=display">\begin{align}
+F(t, T) &= S_t[1 + (r^{d} - r^f)(T - t) + O([(r^{d} - r^f)(T - t)]^2)] \\
+&\approx S_t + S_t (r^{d} - r^f)(T - t)
+\end{align}</script><h2 id="FX-Swap-Contract"><a href="#FX-Swap-Contract" class="headerlink" title="FX Swap Contract"></a>FX Swap Contract</h2><p>A <code>FX swap contract</code> contains two FX forward contracts at time <script type="math/tex">T_1, T_2</script> with opposite directions.</p>
+<p>For example, a <code>buy/sell</code> swap contract:</p>
+<script type="math/tex; mode=display">At\; t = T_1, Buyer \;  \dfrac{\leftarrow 1\mathbb{F}}{R_1\mathbb{D} \rightarrow} \; Seller \\
+At\; t = T_2, Buyer \;  \dfrac{\leftarrow R_2\mathbb{D}}{1\mathbb{F} \rightarrow} \; Seller</script><p>The present value of the swap contract is the sum of the present value of the two sub-contracts:</p>
+<script type="math/tex; mode=display">\begin{align}
+PV_t^{swap} &= PV_t^1 - PV_t^2 \\
+&= (P^{f1}S_t - P^{d1}R_1)\mathbb{D} - (P^{f2}S_t - P^{d2}R_1)\mathbb{D} \\
+&= [ S_t (e^{-r^{f1}(T_1 - t)} - e^{-r^{f2}(T_2 - t)}) - R_1e^{r^{d1}(T_1 - t)} + R_2e^{r^{d2}(T_2 - t)}]\mathbb{D} \\
+\end{align}</script><p>Note that the value of a swap contract is fairly insensitive to spot rate changes, comparing to that of a forward contract.</p>
+<script type="math/tex; mode=display">\begin{align}
+\dfrac{\partial PV^{swap}}{\partial S} &= [(e^{-r^{f1}(T_1 - t)} - e^{-r^{f2}(T_2 - t)})] \\
+&\approx r^f (T_2 - T_1) \;\;[\text{assuming } r^{f1} \approx r^{f2}] \\\\
+\dfrac{\partial PV^{forward}}{\partial S} &\approx 1 \\
+\end{align}</script><h2 id="FX-Option"><a href="#FX-Option" class="headerlink" title="FX Option"></a>FX Option</h2><p>A <code>FX option</code> conveys the right, but not the obligation, to exchange <script type="math/tex">1</script> units of foreign currency for <script type="math/tex">K</script> units of domestic currency, at a future date <script type="math/tex">T</script>.</p>
+<p>For example, the buyer of a foreign currency call strike at <script type="math/tex">K</script>, have the right at maturity to buy <script type="math/tex">1</script> unit of <script type="math/tex">\mathbb{F}</script> at <script type="math/tex">K</script> even if <script type="math/tex">S_T > K</script>.</p>
+<p>This is equivalent to the the buyer of <script type="math/tex">K</script> units of domestic currency put strike at <script type="math/tex">1/K</script>, which grants the buyer the right at maturity to sell <script type="math/tex">K</script> unit of <script type="math/tex">\mathbb{D}</script> at a rate of <script type="math/tex">1/K</script>, even if the exchange rate <script type="math/tex">1/S_T</script> falls below <script type="math/tex">1/K</script>.</p>
+<p>In formula:</p>
+<script type="math/tex; mode=display">Call^{\mathbb{F}}(Strike = K\mathbb{D}) = KPut^{\mathbb{D}}(Strike = (1/K)\mathbb{F})</script><p>Visualizing the transactions on a foreign currency call:</p>
+<script type="math/tex; mode=display">\begin{align}
+At\;time\;t=0 &: Buyer \;  \xrightarrow{Price(Call^{\mathbb{F}})} \; Seller \\
+At\;time\;t=T &: Buyer \;  \xleftarrow[max(\;0, (S_T - K)\mathbb{D}\;) ]{} \; Seller \\
+\end{align}</script><p>Visualizing the transactions on a domestic currency put:</p>
+<script type="math/tex; mode=display">\begin{align}
+At\;time\;t=0&: Buyer \;  \xrightarrow{KPrice(Put^{ \mathbb{D}})} \; Seller \\
+At\;time\;t=T&: Buyer \;  \xleftarrow[K max(\;0, (1/K - 1/S_T)\mathbb{F}\;) ]{} \; Seller \\
+\end{align}</script><p>FX options also satisfy <code>put-call parity</code>:</p>
+<script type="math/tex; mode=display">\begin{align}
+Call - Put & = P^{d}[F_t - K] \\
+&= S_te^{-r^{f}(T-t)} - Ke^{-r^{d}(T-t)} \\
+\end{align}</script><h3 id="Garman-Kohlhagen"><a href="#Garman-Kohlhagen" class="headerlink" title="Garman-Kohlhagen"></a>Garman-Kohlhagen</h3><p>To evaluate the price of the option:</p>
+<ul>
+<li>Assumptions on the stochastic nature of S<sub>t</sub></li>
+<li>Create a “risk-free” hedge portfolio, in order to find a governing PDE for the option value, which also leads to an equivalent risk-neutral probability measure</li>
+<li>Solve the PDE directly, with appropriate boundary conditions</li>
+</ul>
+<p>We know that if a tradable asset <script type="math/tex">S_t</script> follows the <code>geometric Brownian motion</code>:</p>
+<script type="math/tex; mode=display">dS_t = rS_tdt + \sigma S_tdW^{\mathbb{P}}</script><p>Applying <code>Ito&#39;s formula</code> any value of a derivative contract <script type="math/tex">V(S_t, t)</script>:</p>
+<script type="math/tex; mode=display">dV(S_t, t) =  \dfrac{\partial V}{\partial t}dt + \dfrac{\partial V}{\partial S_t}dS_t + \dfrac{1}{2}\dfrac{\partial^2 V}{\partial S_t^2}(dS_t)^2</script><p>Setting the drift term to be zero as the derivative contract is tradeable, we can derive the <code>Black-Scholes</code> PDE equation characterize <script type="math/tex">V</script> as such:</p>
+<script type="math/tex; mode=display">rV = V_t + rS_tV_S + \dfrac{1}{2}\sigma^2S_t^2V_{SS}</script><p>However, since the foreign exchange spot rate <script type="math/tex">S_t</script> is not tradable, we need to tweak the B-S formula. Let <script type="math/tex">B^d</script> and <script type="math/tex">B^f</script> denote a bank account in domestic and foreign currencies, where <script type="math/tex">dB^d = r^dB^d \;dt</script> and <script type="math/tex">dB^f = r^fB^f \;dt</script>. Construct replicating portfolio and set the drift term to be <script type="math/tex">0</script>, the <code>Garman-Kohlhagen</code> PDE equation can be derived:</p>
+<script type="math/tex; mode=display">r^dV = V_t + (r^d - r^f) S_tV_S + \dfrac{1}{2}\sigma^2S_t^2V_{SS}</script><p>Solving the PDF:</p>
+<script type="math/tex; mode=display">Call^{G-K}_t = P^d [F_t\Phi(d_1) - K\Phi(d_2)] \\
+where \; d_{1,2} = \dfrac{log\dfrac{F_t}{K} \pm \dfrac{1}{2}\sigma^2(T - t)}{\sigma \sqrt{T - t}}</script><p>Using the <code>Freynman-Kac</code> equation with additional derivation, we can conclude that <script type="math/tex">\exists \; \mathbb{Q}</script> s.t. the <code>arbitrage-free</code> price of the contingent claim <script type="math/tex">V</script> is unequivocally determined as the expected value of the discounted final payoff under <script type="math/tex">\mathbb{Q}</script>, and <script type="math/tex">S_t</script> obeys the stochastic differential equation:</p>
+<script type="math/tex; mode=display">dS = (r^d - r^f)Sdt + \sigma SdW^{\mathbb{Q}}</script><h1 id="Practical-Pricing"><a href="#Practical-Pricing" class="headerlink" title="Practical Pricing"></a>Practical Pricing</h1><h2 id="FX-Spot-Contract-1"><a href="#FX-Spot-Contract-1" class="headerlink" title="FX Spot Contract"></a>FX Spot Contract</h2><p>The <code>trade date</code> is when the terms of the transaction are agreed, and the <code>value date</code> is when transaction occurs, which is trade date<script type="math/tex">+2</script> for most currency pairs.</p>
+<p>The <code>spot rate quote</code> <script type="math/tex">EURUSD = 1.2</script> means:</p>
+<ul>
+<li><script type="math/tex">1\;EUR = 1.2\;USD</script>, i.e. higher the <script type="math/tex">EURUSD</script>, stronger the <script type="math/tex">EUR</script>.</li>
+<li><script type="math/tex">EUR</script> is the <code>base currency</code> and is set to 1 unit, whereas <script type="math/tex">USD</script> is the <code>numeraire currency</code> which is used as the numeraire.</li>
+</ul>
+<p>The <code>bid-offer spread</code> <script type="math/tex">EURUSD = 1.199 / 1.201</script> means:</p>
+<ul>
+<li>The dealer is willing to buy <script type="math/tex">1\;EUR</script> for <script type="math/tex">1.199\;USD</script></li>
+<li>The dealer is willing to sell <script type="math/tex">1\;EUR</script> for <script type="math/tex">1.201\;USD</script></li>
+</ul>
+<p>Equivalently:</p>
+<ul>
+<li>The highest price YOU can sell <script type="math/tex">1\;EUR</script> is <script type="math/tex">1.199\;USD</script></li>
+<li>The lowest price YOU can buy <script type="math/tex">1\;EUR</script> is <script type="math/tex">1.201\;USD</script></li>
+</ul>
+<h2 id="FX-Forward-Contract-1"><a href="#FX-Forward-Contract-1" class="headerlink" title="FX Forward Contract"></a>FX Forward Contract</h2><script type="math/tex; mode=display">\begin{align}
+\text{Forward Point} &= Forward \;\text{(outright)} - Spot \\
+&= S_t (e^{(r^d - r^f)T}-1)
+\end{align}</script><p>The forward point is commonly expressed in the unit <code>pip</code>, or point in percentage, that is worth <script type="math/tex">0.01\%</script>.</p>
+<p><code>Example 1</code> When selling a forward for foreign currency <script type="math/tex">\mathbb{F}</script>, the bid side spot rate plus bid side forward points shall be equal to the bid side outright forward rate.</p>
+<p>A market-maker would construct the <code>short</code> <script type="math/tex">\mathbb{F}</script> forward as follow. Note that borrowing <script type="math/tex">\mathbb{F}</script> and lending <script type="math/tex">\mathbb{D}</script> correspond to selling a forward and therefore the <code>bid-side</code> forward point.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Transactions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><script type="math/tex">t = 0</script></td>
+<td>borrow <script type="math/tex">e^{-r^f_{offer}T}\mathbb{F}</script> <br> execute a short <script type="math/tex">\mathbb{F}</script> spot contract <br> lend <script type="math/tex">S_te^{-r^f_{offer}T}\mathbb{D}</script></td>
+</tr>
+<tr>
+<td><script type="math/tex">t = T</script></td>
+<td>receive <script type="math/tex">S_te^{(r^d_{bid}-r^f_{offer})T}\mathbb{D}</script> <br> execute a long <script type="math/tex">\mathbb{F}</script> spot contract <br> pay <script type="math/tex">1\mathbb{F}</script></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This is the same as selling an outright forward contract:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Transactions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><script type="math/tex">t = 0</script></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><script type="math/tex">t = T</script></td>
+<td>receive <script type="math/tex">F_t\mathbb{D}</script> <br> pay <script type="math/tex">1\mathbb{F}</script></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="FX-Swap-Contract-1"><a href="#FX-Swap-Contract-1" class="headerlink" title="FX Swap Contract"></a>FX Swap Contract</h2><p>A FX swap contract intends to adjust the timing of cash flows from <script type="math/tex">T_1</script> to <script type="math/tex">T_2</script> and alter the value date on an existing trade. The <code>near rate</code> should be consistent with the market forward rate for the near date, and the same goes for the <code>far rate</code>. The <code>swap point</code> is equal to:</p>
+<script type="math/tex; mode=display">\begin{align}
+\text{Swap Point} &= \text{Far Rate} - \text{Near Rate} \\
+&= S_te^{(r^d - r^f)(T_2-T_1)}
+\end{align}</script><p>A <code>buy/sell</code> swap on <script type="math/tex">\mathbb{F}</script> means that it buys a forward on <script type="math/tex">\mathbb{F}</script> at <script type="math/tex">T_1</script> and sells a forward on <script type="math/tex">mathbb{F}</script> at <script type="math/tex">T_2</script>. This correspond to borrowing <script type="math/tex">\mathbb{F}</script> and lending <script type="math/tex">\mathbb{D}</script>.</p>
+<p><code>Example 2</code> A short outright forward position on <script type="math/tex">\mathbb{F}</script> can be thought of as a buy/sell swap on <script type="math/tex">\mathbb{F}</script> with a spot transaction at the near date and <script type="math/tex">T_1=0</script>, similar to <em>Example 1</em>. Here <script type="math/tex">\tau = T_2 - T_1</script>:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Transactions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><script type="math/tex">t = T_1</script></td>
+<td>borrow <script type="math/tex">e^{-r^f_{offer}\tau}\mathbb{F}</script> <br> execute a short <script type="math/tex">\mathbb{F}</script> forward contract: <br> <script type="math/tex">\;\;-\;\;</script> pay <script type="math/tex">e^{-r^f_{offer}\tau}\mathbb{F}</script> <br> <script type="math/tex">\;\;-\;\;</script> receive <script type="math/tex">F_{T_1}e^{-r^f_{offer}\tau}\mathbb{D}</script> <br> lend <script type="math/tex">F_{T_1}e^{-r^f_{offer}\tau}\mathbb{D}</script></td>
+</tr>
+<tr>
+<td><script type="math/tex">t = T_2</script></td>
+<td>receive <script type="math/tex">F_{T_1}e^{(r^d_{bid}-r^f_{offer})\tau}\mathbb{D}</script> <br> execute a long <script type="math/tex">\mathbb{F}</script> forward contract: <br> <script type="math/tex">\;\;-\;\;</script> pay <script type="math/tex">F_{T_1}e^{(r^d_{bid}-r^f_{offer})\tau}\mathbb{D}</script> <br> <script type="math/tex">\;\;-\;\;</script> receive <script type="math/tex">(1/F_{T_2})F_{T_1}e^{(r^d_{bid}-r^f_{offer})\tau}\mathbb{F}</script> <br> pay <script type="math/tex">1\mathbb{F}</script></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This is the same as a buy/sell swap:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Transactions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><script type="math/tex">t = T_1</script></td>
+<td>recieve <script type="math/tex">e^{-r^f_{offer}\tau}\mathbb{F}</script> <br> pay <script type="math/tex">F_{T_1}e^{-r^f_{offer}\tau}\mathbb{D}</script></td>
+</tr>
+<tr>
+<td><script type="math/tex">t = T_2</script></td>
+<td>receive <script type="math/tex">F_{T_2}\mathbb{D}</script> <br> pay <script type="math/tex">1\mathbb{F}</script></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code>Example 3</code> From a <code>market-maker</code> perspective:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Contract</th>
+<th>Swap Point</th>
+<th>T1</th>
+<th>T2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buy/Sell</td>
+<td>offer-side swap point</td>
+<td>pay at bid-side points</td>
+<td>sell at offer-side points</td>
+</tr>
+<tr>
+<td>Sell/Buy</td>
+<td>bid-side swap point</td>
+<td>sell at bid-side<script type="math/tex">\ast</script> points</td>
+<td>pay at bid-side points</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note(<script type="math/tex">\ast</script>): because a swap has less interest rate risk than an outright forward, the market-maker can easily construct a swap with bid-side points for both near and far dates.</p>
+<p><code>Example 4</code> Say the swap point is <script type="math/tex">-0.01</script>, then a party that buy/sell the foreign currency <script type="math/tex">\mathbb{F}</script> is <code>paying</code> the swap point, because it is selling at a lower Far rate.</p>
+<p>Conversely, a party that sell/buy <script type="math/tex">\mathbb{F}</script> is <code>earning</code> the swap point.  </p>
+<h3 id="Risk-Characteristics"><a href="#Risk-Characteristics" class="headerlink" title="Risk Characteristics"></a>Risk Characteristics</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Contract</th>
+<th>Transactions</th>
+<th>FX Risk</th>
+<th>IR Spread Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Spot</td>
+<td>1</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td> Forward (Outright)</td>
+<td>1</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td> Swap</td>
+<td>1</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="FX-Option-1"><a href="#FX-Option-1" class="headerlink" title="FX Option"></a>FX Option</h2><p>There are four ways to express an option price:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Price <script type="math/tex">\rightarrow</script></th>
+<th>in <script type="math/tex">\mathbb{D}</script> units</th>
+<th>in <script type="math/tex">\mathbb{F}</script> units</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Notional as <script type="math/tex">1\mathbb{F}</script></td>
+<td><script type="math/tex">P_{numccy}</script> <br> <script type="math/tex">=\text{Garman-Kohlhagen}</script> <br> <script type="math/tex">\rightarrow\mathbb{D}\text{ pips}</script></td>
+<td><script type="math/tex">P_{baseccy\%}</script> <br> <script type="math/tex">=P_{numccy}/S_t</script> <br> <script type="math/tex">\rightarrow\mathbb{F}\text{ %}</script></td>
+</tr>
+<tr>
+<td>Notional as <script type="math/tex">1\mathbb{D}</script></td>
+<td><script type="math/tex">P_{numccy\%}</script> <br> <script type="math/tex">=P_{numccy}/K</script> <br> <script type="math/tex">\rightarrow\mathbb{D}\text{ %}</script></td>
+<td><script type="math/tex">P_{baseccy}</script> <br> <script type="math/tex">=P_{numccy\%}/S_t</script> <br> <script type="math/tex">\rightarrow\mathbb{F}\text{ pips}</script></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Straddle"><a href="#Straddle" class="headerlink" title="Straddle"></a>Straddle</h3><script type="math/tex; mode=display">\text{Straddle} = \text{ATM Call} + \text{ATM Put}</script><p>The meaning of <script type="math/tex">ATM</script> can be different:</p>
+<ul>
+<li><script type="math/tex">ATMS</script>: at the spot rate</li>
+<li><script type="math/tex">ATMF</script>: at the forward rate (preferred by traders)</li>
+<li><script type="math/tex">DNS</script>: delta-neutral</li>
+</ul>
+<h3 id="Risk-Reversal"><a href="#Risk-Reversal" class="headerlink" title="Risk Reversal"></a>Risk Reversal</h3><script type="math/tex; mode=display">\text{Risk Reversal} = \text{25-Delta Call} - \text{25-Delta Put}</script><p>Where a <script type="math/tex">25</script>-delta option is an option with a delta of <script type="math/tex">\pm25\%</script>. Risk reversal can also denote the difference in <code>implied volatility</code>:</p>
+<script type="math/tex; mode=display">\text{Risk Reversal} = \sigma_{\text{25-Delta Call}}- \sigma_{\text{25-Delta Put}}</script><h3 id="Butterfly"><a href="#Butterfly" class="headerlink" title="Butterfly"></a>Butterfly</h3><script type="math/tex; mode=display">\begin{align}
+\text{Butterfly} &= \text{25-Delta Call} + \text{25-Delta Put} - \text{Straddle} \\
+&= \text{Strangle} - \text{Straddle}
+\end{align}</script><p>Note that butterfly is vega (<script type="math/tex">\partial V/\partial \sigma</script>) neutral, e.e. the strangle notional is usually larger than the straddle notional to create equal and offestting vega . <code>BF</code> can also denote the difference in <code>implied volatility</code>:</p>
+<script type="math/tex; mode=display">\text{BF} = Avg(\sigma_{\text{25-Delta Call}}, \;\sigma_{\text{25-Delta Put}})- \sigma_{Straddle}</script><p>Under the Black-Scholes framework, delta-netural strike (<script type="math/tex">K=Se^{\sigma^2/2}</script>) options have the highest vega <script type="math/tex">\mathcal{V}</script>:</p>
+<script type="math/tex; mode=display">\begin{align}
+\mathcal{V} = \partial V/\partial \sigma &= Se^{-q\tau}\phi(d_1)\sqrt{\tau} \\
+&= Ke^{-r\tau}\phi(d_2)\sqrt{\tau}
+\end{align}</script><p>In addition, option gamma <script type="math/tex">\Gamma = \partial^2 V/\partial S^2 = \mathcal{V}/(S^2\sigma T)</script></p>
+<p><br></p>
+</div></article></div></main><footer><div class="paginator"><a href="/2020/11/mah/" class="prev">PREV</a><a href="/2019/12/finm-notes/" class="next">NEXT</a></div><div id="container"></div><!-- link(rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css")--><link rel="stylesheet" href="/css/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+    clientID: '4ec287ddd4ac34ff5087',
+    clientSecret: 'ae45426765f12ac3e2f903662b8938dc4881f703',
+    repo: 'jackliu234.github.io',
+    owner: 'jackliu234',
+    admin: ['jackliu234'],
+    perPage: 100,
+    id: 'Wed Dec 04 2019 00:00:00 GMT-0600 GMT'.split('GMT')[0].replace(/\s/g, '-'),
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+})
+
+gitalk.render('container')</script><!-- block copyright--></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-133275176-1",'auto');ga('send','pageview');</script><link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" media="screen" type="text/css"><script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script><script>$(function(){$('.datatable').dataTable( {"order": [[ 0, "desc" ]],"iDisplayLength": -1,"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]} );});</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></body></html>
