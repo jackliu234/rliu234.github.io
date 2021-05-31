@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://rliu6.com/2019/12/finm-notes/</loc>
+    
+    <lastmod>2021-05-31T18:24:04.667Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://rliu6.com/2019/12/finm-notes/02_option_theory/</loc>
+    
+    <lastmod>2021-05-31T18:18:00.904Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://rliu6.com/about/index.html</loc>
     
-    <lastmod>2021-05-31T18:01:45.491Z</lastmod>
+    <lastmod>2021-05-31T18:16:12.599Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://rliu6.com/2019/07/variance-swap/</loc>
+    
+    <lastmod>2021-05-31T18:15:02.920Z</lastmod>
     
   </url>
   
@@ -33,13 +54,6 @@
     <loc>http://rliu6.com/2019/07/algo/method-1/</loc>
     
     <lastmod>2021-05-31T17:48:26.709Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://rliu6.com/2019/12/finm-notes/</loc>
-    
-    <lastmod>2021-05-31T17:43:04.293Z</lastmod>
     
   </url>
   
@@ -75,13 +89,6 @@
     <loc>http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/</loc>
     
     <lastmod>2021-05-31T15:40:35.371Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://rliu6.com/2019/12/finm-notes/02_option_theory/</loc>
-    
-    <lastmod>2021-05-31T15:40:27.080Z</lastmod>
     
   </url>
   

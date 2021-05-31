@@ -66,59 +66,11 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/</id>
-    <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T17:43:04.293Z</updated>
-    
-    <summary type="html">
-    
-      &lt;style type=&quot;text/css&quot;&gt;
-    img.resize {
-        max-width:50%;
-        max-height:50%;
-    }
-&lt;/style&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
     <title>&amp;#128214; Notes on MSFM - C++</title>
     <link href="http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/"/>
     <id>http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/</id>
     <published>2019-12-04T06:00:00.000Z</published>
     <updated>2021-05-31T15:41:16.905Z</updated>
-    
-    <summary type="html">
-    
-      &lt;style type=&quot;text/css&quot;&gt;
-    img.resize {
-        max-width:50%;
-        max-height:50%;
-    }
-&lt;/style&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&amp;#128214; Notes on MSFM - Portfolio Theory</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/</id>
-    <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:39:03.489Z</updated>
     
     <summary type="html">
     
@@ -162,11 +114,11 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - Option Theory</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/02_option_theory/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/02_option_theory/</id>
+    <title>&amp;#128214; Notes on MSFM - Credit Risk Model</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:40:27.080Z</updated>
+    <updated>2021-05-31T15:40:51.378Z</updated>
     
     <summary type="html">
     
@@ -186,11 +138,60 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - Credit Risk Model</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/</id>
+    <title>&amp;#128214; Notes on MSFM - Option Theory</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/02_option_theory/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/02_option_theory/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:40:51.378Z</updated>
+    <updated>2021-05-31T18:18:00.904Z</updated>
+    
+    <summary type="html">
+    
+      &lt;style type=&quot;text/css&quot;&gt;
+    img.resize {
+        max-width:50%;
+        max-height:50%;
+    }
+&lt;/style&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&amp;#128214; Notes on MSFM</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/</id>
+    <published>2019-12-04T06:00:00.000Z</published>
+    <updated>2021-05-31T18:24:04.667Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;01_portfolio_theory/&quot;&gt;01. Portfolio Theory&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;02_option_theory/&quot;&gt;02. Option Theory&lt;/a&gt;&lt;br&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&amp;#128214; Notes on MSFM - Portfolio Theory</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/</id>
+    <published>2019-12-04T06:00:00.000Z</published>
+    <updated>2021-05-31T15:39:03.489Z</updated>
     
     <summary type="html">
     
@@ -249,31 +250,6 @@
         
           &lt;p&gt;&lt;img src=&quot;pi-fullsizeoutput_3973.jpeg&quot; alt=&quot;fullsizeoutput_3973.jpeg&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Recent I brought a &lt;a
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bitcoin Quant Strategies - Perpetual Swap Funding</title>
-    <link href="http://rliu6.com/2019/07/algo/method-3/"/>
-    <id>http://rliu6.com/2019/07/algo/method-3/</id>
-    <published>2019-07-20T05:00:00.000Z</published>
-    <updated>2021-05-31T17:50:31.811Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;In this research, we dive into the
         
       
     
@@ -354,6 +330,31 @@
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bitcoin Quant Strategies - Perpetual Swap Funding</title>
+    <link href="http://rliu6.com/2019/07/algo/method-3/"/>
+    <id>http://rliu6.com/2019/07/algo/method-3/</id>
+    <published>2019-07-20T05:00:00.000Z</published>
+    <updated>2021-05-31T17:50:31.811Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;In this research, we dive into the
+        
+      
     
     </summary>
     
@@ -469,6 +470,32 @@
     
     
       <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pricing A Variance Swap</title>
+    <link href="http://rliu6.com/2019/07/variance-swap/"/>
+    <id>http://rliu6.com/2019/07/variance-swap/</id>
+    <published>2019-07-12T05:00:00.000Z</published>
+    <updated>2021-05-31T18:15:02.920Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Let’s look at how risk-neutral pricing of a variance swap can be constructed with this elegant formula:&lt;/p&gt;
+&lt;script type=&quot;math/tex;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="math" scheme="http://rliu6.com/tags/math/"/>
     
   </entry>
   

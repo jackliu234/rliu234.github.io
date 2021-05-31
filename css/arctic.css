@@ -401,16 +401,11 @@ header .nav-list-item a {
     margin: 1em 0
 }
 
-.post-content h2:before, .post-content h3:before, .post-content h4:before, .post-content h5:before, .post-content h6:before {
+
+.post-content h3:before, .post-content h4:before, .post-content h5:before, .post-content h6:before {
     /* this is the setting for the # sign */
     content: "# ";
     color: #6190e8;
-    font-size: 24px;
-}
-
-.post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
-    /* this is the size of the sub-titile */
-    font-size: 24px
 }
 
 .post-content a {
