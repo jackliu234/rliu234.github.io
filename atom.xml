@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rliu6.com/"/>
-  <updated>2021-06-26T17:05:50.622Z</updated>
+  <updated>2021-06-26T19:07:05.855Z</updated>
   <id>http://rliu6.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://rliu6.com/2021/06/japanese-notes/"/>
     <id>http://rliu6.com/2021/06/japanese-notes/</id>
     <published>2021-06-26T05:00:00.000Z</published>
-    <updated>2021-06-26T17:05:50.622Z</updated>
+    <updated>2021-06-26T19:07:05.855Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h1 id=&quot;平仮名-Hiragana&quot;&gt;&lt;a href=&quot;#平仮名-Hiragana&quot; class=&quot;headerlink&quot; title=&quot;平仮名 / Hiragana&quot;&gt;&lt;/a&gt;平仮名 /
+          &lt;h1 id=&quot;Hiragana-平仮名&quot;&gt;&lt;a href=&quot;#Hiragana-平仮名&quot; class=&quot;headerlink&quot; title=&quot;Hiragana / 平仮名&quot;&gt;&lt;/a&gt;Hiragana /
         
       
     
@@ -65,11 +65,11 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - Stochastic Calculus</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/</id>
+    <title>&amp;#128214; Notes on MSFM - Portfolio Theory</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T23:25:16.389Z</updated>
+    <updated>2021-05-31T23:23:24.642Z</updated>
     
     <summary type="html">
     
@@ -94,6 +94,30 @@
     <id>http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/</id>
     <published>2019-12-04T06:00:00.000Z</published>
     <updated>2021-05-31T15:40:51.378Z</updated>
+    
+    <summary type="html">
+    
+      &lt;style type=&quot;text/css&quot;&gt;
+    img.resize {
+        max-width:50%;
+        max-height:50%;
+    }
+&lt;/style&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&amp;#128214; Notes on MSFM - Option Theory</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/02_option_theory/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/02_option_theory/</id>
+    <published>2019-12-04T06:00:00.000Z</published>
+    <updated>2021-05-31T18:18:00.904Z</updated>
     
     <summary type="html">
     
@@ -138,83 +162,59 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - Foreign Exchange</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/05_foreign_exchange/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/05_foreign_exchange/</id>
-    <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:41:39.908Z</updated>
-    
-    <summary type="html">
-    
-      &lt;style type=&quot;text/css&quot;&gt;
-    img.resize {
-        max-width:50%;
-        max-height:50%;
-    }
-&lt;/style&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&amp;#128214; Notes on MSFM - Option Theory</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/02_option_theory/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/02_option_theory/</id>
-    <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T18:18:00.904Z</updated>
-    
-    <summary type="html">
-    
-      &lt;style type=&quot;text/css&quot;&gt;
-    img.resize {
-        max-width:50%;
-        max-height:50%;
-    }
-&lt;/style&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&amp;#128214; Notes on MSFM - Portfolio Theory</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/</id>
-    <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T23:23:24.642Z</updated>
-    
-    <summary type="html">
-    
-      &lt;style type=&quot;text/css&quot;&gt;
-    img.resize {
-        max-width:50%;
-        max-height:50%;
-    }
-&lt;/style&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
     <title>&amp;#128214; Notes on MSFM - C++</title>
     <link href="http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/"/>
     <id>http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/</id>
     <published>2019-12-04T06:00:00.000Z</published>
     <updated>2021-05-31T23:24:59.981Z</updated>
+    
+    <summary type="html">
+    
+      &lt;style type=&quot;text/css&quot;&gt;
+    img.resize {
+        max-width:50%;
+        max-height:50%;
+    }
+&lt;/style&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&amp;#128214; Notes on MSFM - Stochastic Calculus</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/</id>
+    <published>2019-12-04T06:00:00.000Z</published>
+    <updated>2021-05-31T23:25:16.389Z</updated>
+    
+    <summary type="html">
+    
+      &lt;style type=&quot;text/css&quot;&gt;
+    img.resize {
+        max-width:50%;
+        max-height:50%;
+    }
+&lt;/style&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&amp;#128214; Notes on MSFM - Foreign Exchange</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/05_foreign_exchange/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/05_foreign_exchange/</id>
+    <published>2019-12-04T06:00:00.000Z</published>
+    <updated>2021-05-31T15:41:39.908Z</updated>
     
     <summary type="html">
     
