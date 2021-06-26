@@ -254,13 +254,14 @@ iframe, video {
 
 table {
     display: inline-block;
-    text-align: center;
+    text-align: left;
     max-width: 100%;
     font-size: 15px;
     overflow: auto;
     border-collapse: collapse;
     border-spacing: 0;
     border-bottom: 2px solid;
+
 }
 
 table thead {
@@ -275,14 +276,16 @@ table tbody {
 table tr th {
     padding: 0 10px;
     vertical-align: middle;
-    white-space: nowrap
+    white-space: nowrap;
 }
 
-table tr td {
-    padding: 0 10px;
-    vertical-align: middle;
-    white-space: nowrap;
-    white-spa
+tr {
+    border-bottom: .5px dotted;
+}
+
+tr:hover
+{
+    background-color: #f5f5f5;
 }
 
 header {

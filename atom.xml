@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rliu6.com/"/>
-  <updated>2020-11-15T23:08:50.692Z</updated>
+  <updated>2021-06-26T17:05:50.622Z</updated>
   <id>http://rliu6.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Notes on Japanese</title>
+    <link href="http://rliu6.com/2021/06/japanese-notes/"/>
+    <id>http://rliu6.com/2021/06/japanese-notes/</id>
+    <published>2021-06-26T05:00:00.000Z</published>
+    <updated>2021-06-26T17:05:50.622Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;平仮名-Hiragana&quot;&gt;&lt;a href=&quot;#平仮名-Hiragana&quot; class=&quot;headerlink&quot; title=&quot;平仮名 / Hiragana&quot;&gt;&lt;/a&gt;平仮名 /
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Efficiently Compute KNN with Mahalanobis Distance</title>
@@ -38,30 +61,6 @@
     
     
       <category term="math" scheme="http://rliu6.com/tags/math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&amp;#128214; Notes on MSFM - Foreign Exchange</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/05_foreign_exchange/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/05_foreign_exchange/</id>
-    <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:41:39.908Z</updated>
-    
-    <summary type="html">
-    
-      &lt;style type=&quot;text/css&quot;&gt;
-    img.resize {
-        max-width:50%;
-        max-height:50%;
-    }
-&lt;/style&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
     
   </entry>
   
@@ -139,11 +138,11 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - C++</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/</id>
+    <title>&amp;#128214; Notes on MSFM - Foreign Exchange</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/05_foreign_exchange/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/05_foreign_exchange/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T23:24:59.981Z</updated>
+    <updated>2021-05-31T15:41:39.908Z</updated>
     
     <summary type="html">
     
@@ -192,6 +191,30 @@
     <id>http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/</id>
     <published>2019-12-04T06:00:00.000Z</published>
     <updated>2021-05-31T23:23:24.642Z</updated>
+    
+    <summary type="html">
+    
+      &lt;style type=&quot;text/css&quot;&gt;
+    img.resize {
+        max-width:50%;
+        max-height:50%;
+    }
+&lt;/style&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&amp;#128214; Notes on MSFM - C++</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/</id>
+    <published>2019-12-04T06:00:00.000Z</published>
+    <updated>2021-05-31T23:24:59.981Z</updated>
     
     <summary type="html">
     
