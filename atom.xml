@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rliu6.com/"/>
-  <updated>2021-06-27T17:48:02.645Z</updated>
+  <updated>2021-06-27T20:23:32.510Z</updated>
   <id>http://rliu6.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Notes on Japanese</title>
+    <title>日本語ノート</title>
     <link href="http://rliu6.com/2021/06/japanese-notes/"/>
     <id>http://rliu6.com/2021/06/japanese-notes/</id>
     <published>2021-06-26T05:00:00.000Z</published>
-    <updated>2021-06-27T17:48:02.645Z</updated>
+    <updated>2021-06-27T20:23:32.510Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h1 id=&quot;Hiragana-平仮名&quot;&gt;&lt;a href=&quot;#Hiragana-平仮名&quot; class=&quot;headerlink&quot; title=&quot;Hiragana / 平仮名&quot;&gt;&lt;/a&gt;Hiragana /
+          &lt;h1 id=&quot;Hiragana&quot;&gt;&lt;a href=&quot;#Hiragana&quot; class=&quot;headerlink&quot;
         
       
     
@@ -65,11 +65,11 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - C++</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/</id>
+    <title>&amp;#128214; Notes on MSFM - Stochastic Calculus</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T23:24:59.981Z</updated>
+    <updated>2021-05-31T23:25:16.389Z</updated>
     
     <summary type="html">
     
@@ -89,11 +89,11 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - Stochastic Calculus</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/</id>
+    <title>&amp;#128214; Notes on MSFM - Portfolio Theory</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T23:25:16.389Z</updated>
+    <updated>2021-05-31T23:23:24.642Z</updated>
     
     <summary type="html">
     
@@ -186,11 +186,11 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - Foreign Exchange</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/05_foreign_exchange/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/05_foreign_exchange/</id>
+    <title>&amp;#128214; Notes on MSFM - C++</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:41:39.908Z</updated>
+    <updated>2021-05-31T23:24:59.981Z</updated>
     
     <summary type="html">
     
@@ -210,11 +210,11 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - Portfolio Theory</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/</id>
+    <title>&amp;#128214; Notes on MSFM - Foreign Exchange</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/05_foreign_exchange/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/05_foreign_exchange/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T23:23:24.642Z</updated>
+    <updated>2021-05-31T15:41:39.908Z</updated>
     
     <summary type="html">
     
@@ -285,6 +285,59 @@
   </entry>
   
   <entry>
+    <title>Bitcoin Quant Strategies - Momentum Trading</title>
+    <link href="http://rliu6.com/2019/07/algo/method-2/"/>
+    <id>http://rliu6.com/2019/07/algo/method-2/</id>
+    <published>2019-07-20T05:00:00.000Z</published>
+    <updated>2021-05-31T17:50:01.079Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In this research I studied on the performance of simple and exponential moving average crossover strategies, with window sizes chosen by optimizing in-sample PNL, sharpe ratio and 30-day maximum drawdown. The calibrated strategy performs well, earning 500% cumulative return compared to baseline and a sharpe ratio of 1.30. The the 30-day maximum drawdown is similar to the baseline.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr style=&quot;text-align: right;&quot;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Strategy&lt;/th&gt;
+      &lt;th&gt;P&amp;amp;L&lt;/th&gt;
+      &lt;th&gt;Sharpe Ratio&lt;/th&gt;
+      &lt;th&gt;Maximum Drawdown&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;Baseline&lt;/td&gt;
+      &lt;td&gt;0.28&lt;/td&gt;
+      &lt;td&gt;-1.48&lt;/td&gt;
+      &lt;td&gt;0.35&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;MA&lt;/td&gt;
+      &lt;td&gt;1.54&lt;/td&gt;
+      &lt;td&gt;1.30&lt;/td&gt;
+      &lt;td&gt;0.37&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;EWMA&lt;/td&gt;
+      &lt;td&gt;1.45&lt;/td&gt;
+      &lt;td&gt;1.10&lt;/td&gt;
+      &lt;td&gt;0.38&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Bitcoin Quant Strategies - Perpetual Swap Funding</title>
     <link href="http://rliu6.com/2019/07/algo/method-3/"/>
     <id>http://rliu6.com/2019/07/algo/method-3/</id>
@@ -298,6 +351,31 @@
         
         
           &lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;In this research, we dive into the
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bitcoin Quant Strategies</title>
+    <link href="http://rliu6.com/2019/07/algo/"/>
+    <id>http://rliu6.com/2019/07/algo/</id>
+    <published>2019-07-20T05:00:00.000Z</published>
+    <updated>2021-05-31T17:56:56.925Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;method-1/&quot;&gt;01. Classification Methods&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-2/&quot;&gt;02. Momemtum&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-3/&quot;&gt;03. Perpectual Swap
         
       
     
@@ -406,84 +484,6 @@
       &lt;td&gt;0.47&lt;/td&gt;
       &lt;td&gt;0.85&lt;/td&gt;
       &lt;td&gt;-0.17&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bitcoin Quant Strategies</title>
-    <link href="http://rliu6.com/2019/07/algo/"/>
-    <id>http://rliu6.com/2019/07/algo/</id>
-    <published>2019-07-20T05:00:00.000Z</published>
-    <updated>2021-05-31T17:56:56.925Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;a href=&quot;method-1/&quot;&gt;01. Classification Methods&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-2/&quot;&gt;02. Momemtum&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-3/&quot;&gt;03. Perpectual Swap
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bitcoin Quant Strategies - Momentum Trading</title>
-    <link href="http://rliu6.com/2019/07/algo/method-2/"/>
-    <id>http://rliu6.com/2019/07/algo/method-2/</id>
-    <published>2019-07-20T05:00:00.000Z</published>
-    <updated>2021-05-31T17:50:01.079Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;In this research I studied on the performance of simple and exponential moving average crossover strategies, with window sizes chosen by optimizing in-sample PNL, sharpe ratio and 30-day maximum drawdown. The calibrated strategy performs well, earning 500% cumulative return compared to baseline and a sharpe ratio of 1.30. The the 30-day maximum drawdown is similar to the baseline.&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr style=&quot;text-align: right;&quot;&gt;
-      &lt;th&gt;&lt;/th&gt;
-      &lt;th&gt;Strategy&lt;/th&gt;
-      &lt;th&gt;P&amp;amp;L&lt;/th&gt;
-      &lt;th&gt;Sharpe Ratio&lt;/th&gt;
-      &lt;th&gt;Maximum Drawdown&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;th&gt;0&lt;/th&gt;
-      &lt;td&gt;Baseline&lt;/td&gt;
-      &lt;td&gt;0.28&lt;/td&gt;
-      &lt;td&gt;-1.48&lt;/td&gt;
-      &lt;td&gt;0.35&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;1&lt;/th&gt;
-      &lt;td&gt;MA&lt;/td&gt;
-      &lt;td&gt;1.54&lt;/td&gt;
-      &lt;td&gt;1.30&lt;/td&gt;
-      &lt;td&gt;0.37&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;2&lt;/th&gt;
-      &lt;td&gt;EWMA&lt;/td&gt;
-      &lt;td&gt;1.45&lt;/td&gt;
-      &lt;td&gt;1.10&lt;/td&gt;
-      &lt;td&gt;0.38&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
