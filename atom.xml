@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rliu6.com/"/>
-  <updated>2021-06-26T19:07:05.855Z</updated>
+  <updated>2021-06-27T00:08:24.780Z</updated>
   <id>http://rliu6.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://rliu6.com/2021/06/japanese-notes/"/>
     <id>http://rliu6.com/2021/06/japanese-notes/</id>
     <published>2021-06-26T05:00:00.000Z</published>
-    <updated>2021-06-26T19:07:05.855Z</updated>
+    <updated>2021-06-27T00:08:24.780Z</updated>
     
     <summary type="html">
     
@@ -89,11 +89,11 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - Credit Risk Model</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/</id>
+    <title>&amp;#128214; Notes on MSFM - Option Theory</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/02_option_theory/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/02_option_theory/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:40:51.378Z</updated>
+    <updated>2021-05-31T18:18:00.904Z</updated>
     
     <summary type="html">
     
@@ -113,11 +113,11 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - Option Theory</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/02_option_theory/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/02_option_theory/</id>
+    <title>&amp;#128214; Notes on MSFM - Credit Risk Model</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T18:18:00.904Z</updated>
+    <updated>2021-05-31T15:40:51.378Z</updated>
     
     <summary type="html">
     
@@ -310,6 +310,31 @@
   </entry>
   
   <entry>
+    <title>Bitcoin Quant Strategies - Perpetual Swap Funding</title>
+    <link href="http://rliu6.com/2019/07/algo/method-3/"/>
+    <id>http://rliu6.com/2019/07/algo/method-3/</id>
+    <published>2019-07-20T05:00:00.000Z</published>
+    <updated>2021-05-31T17:50:31.811Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;In this research, we dive into the
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Bitcoin Quant Strategies - Momentum Trading</title>
     <link href="http://rliu6.com/2019/07/algo/method-2/"/>
     <id>http://rliu6.com/2019/07/algo/method-2/</id>
@@ -353,31 +378,6 @@
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bitcoin Quant Strategies - Perpetual Swap Funding</title>
-    <link href="http://rliu6.com/2019/07/algo/method-3/"/>
-    <id>http://rliu6.com/2019/07/algo/method-3/</id>
-    <published>2019-07-20T05:00:00.000Z</published>
-    <updated>2021-05-31T17:50:31.811Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;In this research, we dive into the
-        
-      
     
     </summary>
     
