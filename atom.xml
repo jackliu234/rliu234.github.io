@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rliu6.com/"/>
-  <updated>2021-06-27T20:23:32.510Z</updated>
+  <updated>2021-07-03T21:57:13.724Z</updated>
   <id>http://rliu6.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://rliu6.com/2021/06/japanese-notes/"/>
     <id>http://rliu6.com/2021/06/japanese-notes/</id>
     <published>2021-06-26T05:00:00.000Z</published>
-    <updated>2021-06-27T20:23:32.510Z</updated>
+    <updated>2021-07-03T21:57:13.724Z</updated>
     
     <summary type="html">
     
@@ -65,59 +65,35 @@
   </entry>
   
   <entry>
+    <title>&amp;#128214; Notes on MSFM - C++</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/</id>
+    <published>2019-12-04T06:00:00.000Z</published>
+    <updated>2021-05-31T23:24:59.981Z</updated>
+    
+    <summary type="html">
+    
+      &lt;style type=&quot;text/css&quot;&gt;
+    img.resize {
+        max-width:50%;
+        max-height:50%;
+    }
+&lt;/style&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
     <title>&amp;#128214; Notes on MSFM - Stochastic Calculus</title>
     <link href="http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/"/>
     <id>http://rliu6.com/2019/12/finm-notes/03_stochastic_calculus/</id>
     <published>2019-12-04T06:00:00.000Z</published>
     <updated>2021-05-31T23:25:16.389Z</updated>
-    
-    <summary type="html">
-    
-      &lt;style type=&quot;text/css&quot;&gt;
-    img.resize {
-        max-width:50%;
-        max-height:50%;
-    }
-&lt;/style&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&amp;#128214; Notes on MSFM - Portfolio Theory</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/</id>
-    <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T23:23:24.642Z</updated>
-    
-    <summary type="html">
-    
-      &lt;style type=&quot;text/css&quot;&gt;
-    img.resize {
-        max-width:50%;
-        max-height:50%;
-    }
-&lt;/style&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&amp;#128214; Notes on MSFM - Credit Risk Model</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/</id>
-    <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T15:40:51.378Z</updated>
     
     <summary type="html">
     
@@ -162,11 +138,11 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - Option Theory</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/02_option_theory/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/02_option_theory/</id>
+    <title>&amp;#128214; Notes on MSFM - Credit Risk Model</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/04_credit_risk_model/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T18:18:00.904Z</updated>
+    <updated>2021-05-31T15:40:51.378Z</updated>
     
     <summary type="html">
     
@@ -186,11 +162,35 @@
   </entry>
   
   <entry>
-    <title>&amp;#128214; Notes on MSFM - C++</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/06_c_plus_plus/</id>
+    <title>&amp;#128214; Notes on MSFM - Option Theory</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/02_option_theory/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/02_option_theory/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T23:24:59.981Z</updated>
+    <updated>2021-07-04T14:35:50.641Z</updated>
+    
+    <summary type="html">
+    
+      &lt;style type=&quot;text/css&quot;&gt;
+    img.resize {
+        max-width:50%;
+        max-height:50%;
+    }
+&lt;/style&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&amp;#128214; Notes on MSFM - Portfolio Theory</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/01_portfolio_theory/</id>
+    <published>2019-12-04T06:00:00.000Z</published>
+    <updated>2021-05-31T23:23:24.642Z</updated>
     
     <summary type="html">
     
@@ -285,6 +285,56 @@
   </entry>
   
   <entry>
+    <title>Bitcoin Quant Strategies</title>
+    <link href="http://rliu6.com/2019/07/algo/"/>
+    <id>http://rliu6.com/2019/07/algo/</id>
+    <published>2019-07-20T05:00:00.000Z</published>
+    <updated>2021-05-31T17:56:56.925Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;method-1/&quot;&gt;01. Classification Methods&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-2/&quot;&gt;02. Momemtum&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-3/&quot;&gt;03. Perpectual Swap
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bitcoin Quant Strategies - Perpetual Swap Funding</title>
+    <link href="http://rliu6.com/2019/07/algo/method-3/"/>
+    <id>http://rliu6.com/2019/07/algo/method-3/</id>
+    <published>2019-07-20T05:00:00.000Z</published>
+    <updated>2021-05-31T17:50:31.811Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;In this research, we dive into the
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Bitcoin Quant Strategies - Momentum Trading</title>
     <link href="http://rliu6.com/2019/07/algo/method-2/"/>
     <id>http://rliu6.com/2019/07/algo/method-2/</id>
@@ -328,56 +378,6 @@
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bitcoin Quant Strategies - Perpetual Swap Funding</title>
-    <link href="http://rliu6.com/2019/07/algo/method-3/"/>
-    <id>http://rliu6.com/2019/07/algo/method-3/</id>
-    <published>2019-07-20T05:00:00.000Z</published>
-    <updated>2021-05-31T17:50:31.811Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h1&gt;&lt;p&gt;In this research, we dive into the
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="tech" scheme="http://rliu6.com/tags/tech/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bitcoin Quant Strategies</title>
-    <link href="http://rliu6.com/2019/07/algo/"/>
-    <id>http://rliu6.com/2019/07/algo/</id>
-    <published>2019-07-20T05:00:00.000Z</published>
-    <updated>2021-05-31T17:56:56.925Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;a href=&quot;method-1/&quot;&gt;01. Classification Methods&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-2/&quot;&gt;02. Momemtum&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;method-3/&quot;&gt;03. Perpectual Swap
-        
-      
     
     </summary>
     

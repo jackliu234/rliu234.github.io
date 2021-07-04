@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://rliu6.com/about/index.html</loc>
+    <loc>http://rliu6.com/2019/12/finm-notes/02_option_theory/</loc>
     
-    <lastmod>2021-06-27T20:26:23.401Z</lastmod>
+    <lastmod>2021-07-04T14:35:50.641Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://rliu6.com/2021/06/japanese-notes/</loc>
     
-    <lastmod>2021-06-27T20:23:32.510Z</lastmod>
+    <lastmod>2021-07-03T21:57:13.724Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://rliu6.com/about/index.html</loc>
+    
+    <lastmod>2021-06-27T20:26:23.401Z</lastmod>
     
   </url>
   
@@ -68,13 +75,6 @@
     <loc>http://rliu6.com/2019/12/finm-notes/</loc>
     
     <lastmod>2021-05-31T18:24:04.667Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://rliu6.com/2019/12/finm-notes/02_option_theory/</loc>
-    
-    <lastmod>2021-05-31T18:18:00.904Z</lastmod>
     
   </url>
   

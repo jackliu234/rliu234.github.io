@@ -65,7 +65,7 @@
 <h2 id="Risk-Neutral-Measure"><a href="#Risk-Neutral-Measure" class="headerlink" title="Risk-Neutral Measure"></a>Risk-Neutral Measure</h2><p>The physical probability is not accurate in evaluating a payoff’s true market price. Considering a 50/50 coin flip worth <script type="math/tex">1M</script> or nothing. Using physical probability the price will be <script type="math/tex">500K</script>.</p>
 <p>However, the actual <code>market</code> price would be different. If the market is risk-adverse, the price would be lower, say <script type="math/tex">300K</script>. We can view it as this market represents a risk-neutral measure where the down move has higher risk-neutral probabilities than up move.</p>
 <p>We can see that the risk-neutral probability <code>is</code> price, that the risk-neutral probability of an event is the price of one-unit payout contingent on the event. Taking a risk-neutral expectation is the same as pricing by replication.  </p>
-<h2 id="Radon-Nikodym-derivative"><a href="#Radon-Nikodym-derivative" class="headerlink" title="Radon-Nikodym derivative"></a>Radon-Nikodym derivative</h2><p>In a discrete settimgn with outcomes <script type="math/tex">\{\omega_1\,\dots ,\omega_n\}</script>, the relatioship between the risk-neutral measure and physical measure <script type="math/tex">P</script> can be expressed by the <code>Radon-Nikodym Derivative</code>, or liklehood ratio:</p>
+<h2 id="Radon-Nikodym-derivative"><a href="#Radon-Nikodym-derivative" class="headerlink" title="Radon-Nikodym derivative"></a>Radon-Nikodym derivative</h2><p>In a discrete settings with outcomes <script type="math/tex">\{\omega_1\,\dots ,\omega_n\}</script>, the relatioship between the risk-neutral measure and physical measure <script type="math/tex">P</script> can be expressed by the <code>Radon-Nikodym Derivative</code>, or liklehood ratio:</p>
 <script type="math/tex; mode=display">\mathbb{P}(\omega) = LR * P(\omega)</script><p>The LR is typically larger in bad states than good states, reflecting the price margin on adverse events.</p>
 <h2 id="The-Second-Fundamental-Theorem"><a href="#The-Second-Fundamental-Theorem" class="headerlink" title="The Second Fundamental Theorem"></a>The Second Fundamental Theorem</h2><p>A market is said to be <code>complete</code> if every random variable <script type="math/tex">Y_T</script> can be replicated by a static portfolio <script type="math/tex">\Theta</script>.</p>
 <p><code>The second fundamental theorem of asset pricing</code> states that:</p>
@@ -84,23 +84,76 @@
 <script type="math/tex; mode=display">V_T - V_0 = \sum\Theta_t\cdot (\textbf{X}_{t+1} - \textbf{X_t}) \\
 \text{or equivalently, } V_T - V_0 = \int_0^T\Theta_t\cdot d\textbf{X}_t</script><p>We define that a trading strategy <script type="math/tex">\Theta</script> <code>replicates</code> a time-T payoff <script type="math/tex">X_T</script> if it is <code>self-financing</code> and the value <script type="math/tex">V_T=X_T</script>. By the <code>law of one price</code>, at any time <script type="math/tex">t</script>, the no-arbitrage price of an asset paying <script type="math/tex">X_T</script> must have the same value of the replicating portfolio.</p>
 <h2 id="Arbitrage-Trading-Strategy"><a href="#Arbitrage-Trading-Strategy" class="headerlink" title="Arbitrage (Trading Strategy)"></a>Arbitrage (Trading Strategy)</h2><p>We now expand on the previous definition of arbitrage, that an <code>arbitrage</code> is a self-finance trading strategy <script type="math/tex">\Theta_t</script> whose value <script type="math/tex">V_t</script> satisfies:</p>
-<script type="math/tex; mode=display">V_0 = 0 \text{, and both } \mathbb{P}[V_T \geq 0] = 1 \text{ and } \mathbb{P}[V_T > 0] > 0</script><h1 id="Ito-Process"><a href="#Ito-Process" class="headerlink" title="Ito Process"></a>Ito Process</h1><p>We define an <code>Ito process</code> to be a stochastic process <script type="math/tex">X</script> that:</p>
+<script type="math/tex; mode=display">V_0 = 0 \text{, and both } \mathbb{P}[V_T \geq 0] = 1 \text{ and } \mathbb{P}[V_T > 0] > 0</script><h1 id="Ito-integral"><a href="#Ito-integral" class="headerlink" title="Ito integral"></a>Ito integral</h1><p>Let <script type="math/tex">\mu_t</script> and <script type="math/tex">\sigma_t</script> satisfies integrability, adapted to <script type="math/tex">\mathcal{F}_t^W</script>, and be continuous on <script type="math/tex">t</script>. We define the Reimann integrals:</p>
+<script type="math/tex; mode=display">\int_0^T \mu_tdt := \lim_{N\rightarrow\infty} \Sigma_{n=0}^{N-1}\mu_{t_n}\Delta t</script><p>And define the <em>Ito integral</em> of <script type="math/tex">\sigma</script> with respect to <script type="math/tex">W</script> by:</p>
+<script type="math/tex; mode=display">\int_0^T \sigma_tdW_t := \lim_{N\rightarrow\infty} \Sigma_{n=0}^{N-1}\sigma_{t_n}\Delta W_{t_n}</script><p>Note: <script type="math/tex">W</script> flutuates so much that the limit does not necessarily exist in pathwise sense - it does exist in <script type="math/tex">L^2</script> and probability.</p>
+<p><em>Ito integrals</em> are martingales. <script type="math/tex">\mathbb{E}</script> of any Ito integral is zero.</p>
+<h1 id="Ito-Process"><a href="#Ito-Process" class="headerlink" title="Ito Process"></a>Ito Process</h1><p>We define an <code>Ito process</code> to be a stochastic process <script type="math/tex">X</script> of the form of the sum of an initial value, a Riemann integral and an Ito integral:</p>
 <script type="math/tex; mode=display">X_t = X_0+\int_0^t\mu_sds + \int_0^t\sigma_sdW_s \\
-\text{equivalently, } dX_t = \mu_tdt + \sigma_tdW_t</script><p>The existence and uniqueness of a solution of <script type="math/tex">X</script> can be guaranteed by Lipschitz-type technical condition on <script type="math/tex">\mu_t</script> and <script type="math/tex">\sigma_t</script></p>
-<h2 id="Ito’s-Rule"><a href="#Ito’s-Rule" class="headerlink" title="Ito’s Rule"></a>Ito’s Rule</h2><p>The <code>Ito&#39;s rule</code> states that give n an Ito process <script type="math/tex">X_t</script>, and a sufficiently smooth function <script type="math/tex">f(X_t)</script>:</p>
-<script type="math/tex; mode=display">df(X_t) = \dfrac{\partial f}{\partial x}dX_t + \dfrac{1}{2}\dfrac{\partial^2f}{\partial x^2}(dX_t)^2</script><p>With two processes <script type="math/tex">X_t</script> and <script type="math/tex">Y_t</script>, and <script type="math/tex">f(X_t, Y_t)</script>:</p>
+\text{equivalently, } dX_t = \mu_tdt + \sigma_tdW_t</script><script type="math/tex; mode=display">X_t$$ is continuous in $$t$$ (b.c. $$W$$ is), is adapted to $$\mathcal{F}_t^W$$, and is a martingale iff $$\mu_t=0$$ for all $$t>0$$, with probability $$1$$.
+
+# Ito's Rule
+Given an Ito process $$X_t$$ with $$dX_t=\mu_tdt+\sigma_tdW_t$$, and a sufficiently smooth, real-value function $$f(X_t)$$:, then $$f(X_t, t)$$ is an Ito process with:
+
+$$$$df(X_t) = \dfrac{\partial f}{\partial x}dX_t + \dfrac{1}{2}\dfrac{\partial^2f}{\partial x^2}(dX_t)^2$$</script><p><br></p>
+<p>With two processes <script type="math/tex">X_t</script> and <script type="math/tex">Y_t</script>, and <script type="math/tex">f(X_t, Y_t)</script>:</p>
 <script type="math/tex; mode=display">df(X_t, Y_t) = \dfrac{\partial f}{\partial x}dX_t + \dfrac{\partial f}{\partial y}dY_t + \dfrac{1}{2}\dfrac{\partial^2f}{\partial x^2}(dX_t)^2 + \dfrac{1}{2}\dfrac{\partial^2f}{\partial y^2}(dY_t)^2 + \dfrac{\partial^2f}{\partial x\partial y}(dX_t)(dY_t)</script><p>In a special case where <script type="math/tex">Y_t = t</script>, the formula becomes:</p>
 <script type="math/tex; mode=display">df(X_t, t) = \dfrac{\partial f}{\partial x}dX_t + \dfrac{\partial f}{\partial t}dt + \dfrac{1}{2}\dfrac{\partial^2f}{\partial x^2}(dX_t)^2</script><p>Note that the Ito’s Rule applies under any probability measure, it is purely math.</p>
 <h2 id="Black-Scholes-Model"><a href="#Black-Scholes-Model" class="headerlink" title="Black-Scholes Model"></a>Black-Scholes Model</h2><p><strong><em>Assumptions</em></strong> Consider two basic assets <script type="math/tex">B_t</script> and <script type="math/tex">S_t</script> in continuous time, where:</p>
 <script type="math/tex; mode=display">dB_t = rB_tdt \text{ , }\\
 \text{ where }B_0=1</script><p>And <script type="math/tex">S_t</script> follows GBM dynamics,</p>
 <script type="math/tex; mode=display">dS_t = \mu S_tdt + \sigma S_tdW_t \\
- \text{ where }S_0>0 \text{ , }\sigma>0\text{ ,and W is BM under physical measure}</script><p><strong><em>Conclusion</em></strong> Then by <code>no-arbitrage</code> and <code>Ito&#39;s rule</code>, the time-<script type="math/tex">t</script> price <script type="math/tex">C_t</script> of a call option with payoff <script type="math/tex">(S_T-K)^{+}</script> satisfies the <code>Black-Scholes PDE</code> for <script type="math/tex">(S, t)\in [0, \infty]\times (0, T)</script></p>
+ \text{ where }S_0>0 \text{ , }\sigma>0\text{ ,and W is BM under physical measure}</script><p>Think of volatility <script type="math/tex">\sigma</script> as <script type="math/tex">\sqrt{\text{variance of log-returns per unit time}}</script></p>
+<p><br></p>
+<p><strong><em>Conclusion</em></strong> Then by <code>no-arbitrage</code> and <code>Ito&#39;s rule</code>, the time-<script type="math/tex">t</script> price <script type="math/tex">C_t</script> of a call option with payoff <script type="math/tex">(S_T-K)^{+}</script> satisfies the <code>Black-Scholes PDE</code> for <script type="math/tex">(S, t)\in [0, \infty]\times (0, T)</script></p>
 <script type="math/tex; mode=display">\dfrac{\partial C}{\partial t} + rS\dfrac{\partial C}{\partial S} + \dfrac{1}{2}\sigma^2S^2\dfrac{\partial^2C}{\partial S^2} = rC \\
 \text{ with terminal condition: } C(S, T)=(S-K)^{+}</script><p>We can solve the call price analytically with the <code>Black-Scholes formula</code>:</p>
 <script type="math/tex; mode=display">C^{BS}(S_t, t) := S_tN(d_1) - Ke^{-r(T-t)}N(d_2) \\
 \text{where } d_{1,\ 2} := \dfrac{log(S_t/K) + (r \pm \sigma^2/2)(T-t))}{\sigma\sqrt(T-t)}</script><p>Here we plotted the BS call price <script type="math/tex">C^{BS}</script>, the <span style="color:blue">intrinsic value <script type="math/tex">(S_t - K)^{+}</script></span>  and the <span style="color:red">lower bound <script type="math/tex">(S_t - Ke^{-r(T-t)})^{+}</script></span>  against the current underlying price <script type="math/tex">S_t</script>, with paramters <script type="math/tex">K=100</script>, <script type="math/tex">T-t=1</script>, <script type="math/tex">\sigma=0.2</script> and <script type="math/tex">r=0.05</script></p>
 <p><img src="option-pricing-img1.png" alt="img.png" height="350"></p>
+<h1 id="Girsanov’s-Theorem"><a href="#Girsanov’s-Theorem" class="headerlink" title="Girsanov’s Theorem"></a>Girsanov’s Theorem</h1><p><strong><em>Theorem</em></strong> If <script type="math/tex">W</script> is a Brownian motion under <strong>P</strong>, and if <script type="math/tex">\mathbb{P}</script> is a probability measure on <script type="math/tex">\mathcal{F}_T^W</script> that is equivalent to <strong>P</strong>, then there exists an adapted process <script type="math/tex">\lambda</script> such that for all <script type="math/tex">t \in [0,T]</script>:</p>
+<script type="math/tex; mode=display">\bar{W_t} := W_t + \int_0^t\lambda_sds \text{ is a Brownian motion under }\mathbb{P}</script><p>In other words, <script type="math/tex">X_t</script> <em>plus drift</em> under <script type="math/tex">\mathbb{P}</script> has the same distribution as <script type="math/tex">X_t</script> under <strong>P</strong></p>
+<script type="math/tex; mode=display">dW_t = \lambda_tdt + d\bar{W_t}</script><p>Therefore given:</p>
+<script type="math/tex; mode=display">dB_t = rB_tdt \\
+dS_t = \mu S_tdt + \sigma S_tdW_t</script><p>No arbitrage implies that <script type="math/tex">\exists \mathbb{P}</script> such that <script type="math/tex">S/B</script> is a <script type="math/tex">\mathbb{P}</script>-MG. By Girsanov, <script type="math/tex">\exists\lambda</script> such that <script type="math/tex">\bar{W_t}:=W_t+\int_0^t\lambda_sds</script> is <script type="math/tex">\mathbb{P}</script>-BM. Therefore:</p>
+<script type="math/tex; mode=display">d_s = (\mu - \lambda_t\sigma)S_tdt + \sigma S_td\bar{W_t}</script><p>Also because <script type="math/tex">S/B</script> has not drift, <script type="math/tex">d(S_t/B_t)=d(e^{-rt}S_t)=e^{-rt}(dS_t-rS_tdt)</script> has no drift term, so the drift of <script type="math/tex">dS_t</script> under <script type="math/tex">\mathbb{P}</script>-BM must be <script type="math/tex">rS_tdt</script>:</p>
+<script type="math/tex; mode=display">dS_t = rS_tdt + \sigma S_td\bar{W_t}</script><p>Under <script type="math/tex">\mathbb{P}</script>:</p>
+<script type="math/tex; mode=display">logS_T \sim \mathcal{N}(logS_t + (r- \sigma^2/2)(T-t), \sigma^2(T-t))</script><h2 id="Computing-Call-Price"><a href="#Computing-Call-Price" class="headerlink" title="Computing Call Price"></a>Computing Call Price</h2><p>By fundamental theorem, the call price <script type="math/tex">C_t</script> satisfies MG: <script type="math/tex">C_t/B_t=\mathbb{E}_t(C_T/B_T)</script>. Therefore,</p>
+<script type="math/tex; mode=display">\begin{align}
+C_t &= \mathbb{E}[e^{-r(T-t)}C_T] \\
+&= \mathbb{E}_t[e^{-r(T-t)}(S_T-K)^{+}] \\
+&= \mathbb{E}_t[e^{-r(T-t)}S_T \textbf{1}_{S_T>K}] + \mathbb{E}_t[e^{-r(T-t)}K \textbf{1}_{S_T>K}] \\
+&= S_t\mathbb{E}_t[\dfrac{S_Te^{rt}}{S_te^{rT}}\textbf{1}_{S_T>K}] - Ke^{-r(T-t)}\mathbb{P}_t(S_T>K)
+\end{align}</script><p>Since <script type="math/tex">\mathbb{P}_t(S_T>K)</script> is equivalent to <script type="math/tex">\mathbb{P}_t(log(S_T) > logK)</script>, and under <script type="math/tex">\mathbb{P}</script>,  <script type="math/tex">log(S_T)\sim\mathcal{N}(logS_t+(r-\sigma^2/2)(T-t), \sigma(T-t))</script> :</p>
+<script type="math/tex; mode=display">\begin{align}
+\mathbb{P}_t(S_T>K) &= \mathbb{P}_t(logS_T > logK) \\
+&= \mathbb{P}_t(\dfrac{logS_T - (logS_t+(r-\sigma^2/2)(T-t)}{\sigma\sqrt(T-t)} > \dfrac{logK - (logS_t + r-\sigma^2/2)(T-t)}{\sigma\sqrt(T-t)}) \\
+&= N(-\dfrac{log(K/S_t) - (r-\sigma^2/2)(T-t)}{\sigma\sqrt{T-t}}) \\
+&= N(d_2)
+\end{align}</script><p>To calculate the first term, let <script type="math/tex">F_t=S_te^{r(T-t)}</script>:</p>
+<script type="math/tex; mode=display">\begin{align}
+\mathbb{E}_t[\dfrac{S_Te^{rt}}{S_te^{rT}}\textbf{1}_{S_T>K}] &= \mathbb{E}_t[e^{log(S_T/F_t)}\textbf{1}_{log(S_T/F_t)>log(K/F_t}] \\
+&= \int_{log(K/F_t)}^{\infty} e^y\frac{1}{\sqrt{2\pi \sigma^2(T-t)}} e^{[-\dfrac{(y+(\sigma^2/2)(T-t))^2}{2\sigma^2(T-t)}]} dy \\
+&= \int_{log(K/F_t)}^{\infty} \frac{1}{\sqrt{2\pi \sigma^2(T-t)}} e^{[-\dfrac{(y-(\sigma^2/2)(T-t))^2}{2\sigma^2(T-t)}]} dy \\
+&= \int_{\dfrac{log(K/F_t)-(\sigma^2/2)(T-t)}{\sigma\sqrt(T-t)}}^{\infty} \dfrac{1}{\sqrt{2\pi}} e^{(-z^2/2)} dz \\
+&= N(d_1)
+\end{align}</script><p>Note that as <script type="math/tex">z=\dfrac{y-(\sigma^2/2)(T-t)}{\sigma\sqrt{T-t}}</script>, therefore <script type="math/tex">dz=\dfrac{dy}{\sigma\sqrt{T-t}}</script></p>
+<h1 id="Numeraire"><a href="#Numeraire" class="headerlink" title="Numeraire"></a>Numeraire</h1><p><strong><em>Definition</em></strong> A <em>numeraire</em> is any tradeable asset whose price process is always positive.</p>
+<p><strong><em>Theorem</em></strong> For any numeraire <script type="math/tex">N</script>, No arbitrage iff <script type="math/tex">\exists</script> <script type="math/tex">\mathbb{P}^N</script>, equivalent to <strong>P</strong>, under which all tradeable assets divided by <script type="math/tex">N_t</script> are martingales.</p>
+<p><strong><em>Definition</em></strong> The martingale measure w.r.t. <script type="math/tex">S</script> is called <em>share measure</em>, under which:</p>
+<script type="math/tex; mode=display">\dfrac{C_t}{S_t} = \mathbb{E}_t^S\dfrac{C_T}{S_T}</script><p>Under <script type="math/tex">\mathbb{P}^S</script>, we derive similarly by Girsanov theorem that:</p>
+<script type="math/tex; mode=display">dS_t = (r+\sigma^2)S_tdt + \sigma S_tdW_t^S</script><p>And so:</p>
+<script type="math/tex; mode=display">logS_T\sim \mathcal{N}^S(logS_t + (r+\sigma^2/2)(T-t), \sigma^2T)</script><p>we can see that:</p>
+<script type="math/tex; mode=display">\begin{align}
+\mathbb{E}^S\textbf{1}_{S_T>K} &= \mathbb{P}^S(logS_T>logK) \\
+&= N(-\dfrac{logK - (logS_t + (r+\sigma^2/2)(T-t))}{\sigma^2\sqrt{T-t}}) \\
+&= N(d1)
+\end{align}</script><p>To price a vanilla call, we can then use both share measure and forward measure:</p>
+<script type="math/tex; mode=display">\begin{align}
+C_T &= (S_T - K)^{+} = S_T\textbf{1}_{S_T>K} - K\textbf{1}_{S_T>K} \\
+C_t &= S_t\mathbb{P}_t^S(S_T>K) - KZ_0\mathbb{P}_t^Z(S_t>K) \\
+&= S_0N(d_1) - KZ_0N(d_2)
+\end{align}</script><p>In the B.S. case, <script type="math/tex">N(d_2)</script> is the probability under risk-neutral/forward measure that the option expires ITM. The <script type="math/tex">N(d_1)</script> is the probability under share measure that the option expires ITM.</p>
 <h1 id="The-Greeks"><a href="#The-Greeks" class="headerlink" title="The Greeks"></a>The Greeks</h1><h2 id="Delta"><a href="#Delta" class="headerlink" title="Delta"></a>Delta</h2><p>Suppose an asset has a time t value <script type="math/tex">V_t(S_t, t)</script>, then its <code>Delta</code> at time <script type="math/tex">t</script> is <script type="math/tex">\partial V_t(S_t, t)/\partial S_t</script>. Delta can be interpreted as:</p>
 <ul>
 <li>the slope of the asset value <script type="math/tex">V_t</script>, plotted as a function of S_t.</li>
