@@ -113,11 +113,36 @@
   </entry>
   
   <entry>
+    <title>&amp;#128214; Notes on MSFM</title>
+    <link href="http://rliu6.com/2019/12/finm-notes/"/>
+    <id>http://rliu6.com/2019/12/finm-notes/</id>
+    <published>2019-12-04T06:00:00.000Z</published>
+    <updated>2021-05-31T18:24:04.667Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;01_portfolio_theory/&quot;&gt;01. Portfolio Theory&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;02_option_theory/&quot;&gt;02. Option Theory&lt;/a&gt;&lt;br&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
     <title>&amp;#128214; Notes on MSFM - Option Theory</title>
     <link href="http://rliu6.com/2019/12/finm-notes/02_option_theory/"/>
     <id>http://rliu6.com/2019/12/finm-notes/02_option_theory/</id>
     <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-07-04T14:35:50.641Z</updated>
+    <updated>2021-07-04T14:42:43.822Z</updated>
     
     <summary type="html">
     
@@ -151,31 +176,6 @@
         max-height:50%;
     }
 &lt;/style&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="notes" scheme="http://rliu6.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&amp;#128214; Notes on MSFM</title>
-    <link href="http://rliu6.com/2019/12/finm-notes/"/>
-    <id>http://rliu6.com/2019/12/finm-notes/</id>
-    <published>2019-12-04T06:00:00.000Z</published>
-    <updated>2021-05-31T18:24:04.667Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;a href=&quot;01_portfolio_theory/&quot;&gt;01. Portfolio Theory&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;02_option_theory/&quot;&gt;02. Option Theory&lt;/a&gt;&lt;br&gt;&lt;a
-        
-      
     
     </summary>
     
